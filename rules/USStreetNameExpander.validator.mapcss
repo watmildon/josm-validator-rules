@@ -1,0 +1,59 @@
+meta
+{
+    title: "(US) Abbreviated Streetname Fixup";
+    version: "0,1_2023-08-28";
+    description: "Expands common street name abbreviations in the US";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+*["addr:street"]["addr:street"=~/ Blvd$/] {
+    assertNoMatch: "way \"addr:street\"=Main Boulevard";
+    assertMatch: "way \"addr:street\"=Main Blvd";
+    throwWarning: tr("Street name contains postfix Blvd, should be expanded to Boulevard");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Blvd"," Boulevard"));
+}
+
+*["addr:street"]["addr:street"=~/ Ct$/] {
+    assertNoMatch: "way \"addr:street\"=Main Court";
+    assertMatch: "way \"addr:street\"=Main Ct";
+    throwWarning: tr("Street name contains postfix Ct, should be expanded to Court");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Ct"," Court"));
+}
+
+*["addr:street"]["addr:street"=~/ Dr$/] {
+    assertNoMatch: "way \"addr:street\"=Main Drive";
+    assertMatch: "way \"addr:street\"=Main Dr";
+    throwWarning: tr("Street name contains postfix Dr, should be expanded to Drive");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Dr"," Drive"));
+}
+
+*["addr:street"]["addr:street"=~/ Pl$/] {
+    assertNoMatch: "way \"addr:street\"=Main Place";
+    assertMatch: "way \"addr:street\"=Main Pl";
+    throwWarning: tr("Street name contains postfix Pl, should be expanded to Place");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Pl"," Place"));
+}
+
+*["addr:street"]["addr:street"=~/ Rd$/] {
+    assertNoMatch: "way \"addr:street\"=Main Road";
+    assertMatch: "way \"addr:street\"=Main Rd";
+    throwWarning: tr("Street name contains postfix Rd, should be expanded to Road");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Rd"," Road"));
+}
+
+*["addr:street"]["addr:street"=~/ St$/] {
+    assertNoMatch: "way \"addr:street\"=Main Street";
+    assertMatch: "way \"addr:street\"=Main St";
+    throwWarning: tr("Street name contains postfix St, should be expanded to Street");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," St"," Street"));
+}
+
+*["addr:street"]["addr:street"=~/ Wy$/] {
+    assertNoMatch: "way \"addr:street\"=Main Way";
+    assertMatch: "way \"addr:street\"=Main Wy";
+    throwWarning: tr("Street name contains postfix Wy, should be expanded to Way");
+    fixAdd: concat("addr:street=", replace(tag("addr:street")," Wy"," Way"));
+}

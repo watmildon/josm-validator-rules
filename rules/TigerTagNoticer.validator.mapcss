@@ -1,0 +1,27 @@
+meta
+{
+    title: "TIGER Highway Cleanup";
+    version: "0,1_2023-08-17";
+    description: "Highlights highways with legacy TIGER tags";
+    author: "Kai Johnson";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 18789;
+}
+
+way["highway"]["tiger:cfcc"],
+way["highway"]["tiger:county"],
+way["highway"]["tiger:reviewed"],
+way["highway"]["tiger:name_base"],
+way["highway"]["tiger:name_base_1"],
+way["highway"]["tiger:name_base_2"],
+way["highway"]["tiger:name_type"],
+way["highway"]["tiger:name_direction_prefix"],
+way["highway"]["tiger:name_direction_prefix_1"],
+way["highway"]["tiger:name_direction_prefix_2"],
+way["highway"]["tiger:name_direction_suffix"],
+way["highway"]["tiger:name_direction_suffix_1"],
+way["highway"]["tiger:name_direction_suffix_2"]
+{
+    color: #FF00FF;
+}
