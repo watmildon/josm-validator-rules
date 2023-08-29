@@ -68,14 +68,14 @@ fixAdd: concat("addr:street=", replace(tag("addr:street"), "W ", "West "));
 *[highway]["name"]["name"=~/^NE /] {
 assertNoMatch: "way \"name\"=Northeast Main";
 assertMatch: "way \"name\"=NE Main";
-throwWarning: tr("Highway name prefix N, may need to be expanded to Northeast");
+throwWarning: tr("Highway name prefix NE, may need to be expanded to Northeast");
 fixAdd: concat("name=", replace(tag("name"), "NE ", "Northeast "));
 }
 
 *[highway]["name"]["name"=~/^SE /] {
 assertNoMatch: "way \"name\"= Southeast Main";
 assertMatch: "way \"name\"=SE Main";
-throwWarning: tr("Highway name prefix S, may need to be expanded to Southeast");
+throwWarning: tr("Highway name prefix SE, may need to be expanded to Southeast");
 fixAdd: concat("name=", replace(tag("name"), "SE ", " Southeast "));
 }
 
@@ -96,14 +96,14 @@ fixAdd: concat("name=", replace(tag("name"), "NW ", "Northwest "));
 *["addr:street"]["addr:street"=~/^NE /] {
 assertNoMatch: "way \"addr:street\"=Northeast Main";
 assertMatch: "way \"addr:street\"=NE Main";
-throwWarning: tr("addr:street prefix N, may need to be expanded to Northeast");
+throwWarning: tr("addr:street prefix NE, may need to be expanded to Northeast");
 fixAdd: concat("addr:street=", replace(tag("addr:street"), "NE ", "Northeast "));
 }
 
 *["addr:street"]["addr:street"=~/^SE /] {
 assertNoMatch: "way \"addr:street\"= Southeast Main";
 assertMatch: "way \"addr:street\"=SE Main";
-throwWarning: tr("addr:street prefix S, may need to be expanded to South");
+throwWarning: tr("addr:street prefix SE, may need to be expanded to Southeast");
 fixAdd: concat("addr:street=", replace(tag("addr:street"), "SE ", " Southeast "));
 }
 
