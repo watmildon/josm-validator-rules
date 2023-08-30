@@ -1,5 +1,5 @@
 # josm-validator-rules
-Custom and maybe dangerous validator rules. They may save you some typing. Review each suggestion and DO NOT mass edit without care.
+Custom and MAYBE DANGEROUS validator rules. Targeted for use by advanced mappers. They may save you some typing. Review each suggestion and DO NOT mass edit without care.
 
 Each rule file has an overpass query that represents the set of input data that it is specifically designed to work on. This helps reduce the chance of side effects but is not perfect.
 
