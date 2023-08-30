@@ -13,3 +13,5 @@ Happy to host rules and mapstyles here. Each rule file should have:
 * Good descriptive file name
 * Overpass query showing the data it expects to work well on including region boundary
 * Rule that works at a very high but not infallable rate for that overpass query
+
+The validator rules and map style syntax are documented [here](https://josm.openstreetmap.de/wiki/Help/Validator/MapCSSTagChecker) and [here](https://josm.openstreetmap.de/wiki/Help/Styles/MapCSSImplementation). 
