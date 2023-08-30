@@ -9,6 +9,17 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+[out:json][timeout:300];
+{{geocodeArea:"Oregon,United States of America"}}->.a;
+(
+  nwr["addr:street"][name~"^N |^S |^E |^W |^NE |^SW |^NW |^SW "](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
 *[highway]["name"]["name"=~/^N /] {
 assertNoMatch: "way \"name\"=North Main";
 assertMatch: "way \"name\"=N Main";
