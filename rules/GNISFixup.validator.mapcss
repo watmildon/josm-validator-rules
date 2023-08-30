@@ -9,6 +9,18 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+[out:json][timeout:300];
+{{geocodeArea:"Oregon,United States of America"}}->.a;
+(
+  nwr["gnis:feature_id"~"^0.+"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+
 *["gnis:feature_id"]["gnis:feature_id"=~/^0[^0].*/] {
     assertNoMatch: "way \"gnis:feature_id\"=001";
     assertMatch: "way \"gnis:feature_id\"=01";
