@@ -1,0 +1,40 @@
+meta
+{
+    title: "ALL CAPS Fixup";
+    version: "0,1_2023-08-16";
+    description: "Fixes ALL CAPS key values to be Title Case";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:500];
+// gather results
+{{geocodeArea:United States}}->.searchArea;
+(
+  nwr["addr:city"~"^[A-Z ]+$"](area.searchArea);
+  nwr["addr:street"~"^[A-Z ]+$"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;
+*/
+
+
+*["addr:city"]["addr:city"=~/^[A-Z ]+$/] {
+    assertNoMatch: "way \"addr:city\"=Redmond";
+    assertMatch: "way \"addr:city\"=REMOND";
+    throwWarning: tr("addr:city is ALL CAPS, likely needs to be Title Case");
+    fixAdd: concat("addr:city=", title(tag("addr:city")));
+}
+
+*["addr:street"]["addr:street"=~/^[A-Z ]+$/] {
+    assertNoMatch: "way \"addr:street\"=Redmond Way";
+    assertMatch: "way \"addr:street\"=REMOND WAY";
+    throwWarning: tr("addr:street is ALL CAPS, likely needs to be Title Case");
+    fixAdd: concat("addr:street=", title(tag("addr:street")));
+}
+
