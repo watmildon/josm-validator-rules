@@ -28,6 +28,13 @@ meta
   nwr[phone~"^\([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$"](area.a);
   // (213) 456 7890
   nwr[phone~"^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$"](area.a);
+  // +1-213-4567890
+  nwr[phone~"^\+1-[2-9][0-9]{2}-[0-9]{7}$"](area.a);
+  // Correct format but has spaces where hypens should be. 2 queries to avoid matching on correctly formatted tags
+  nwr[phone~"^\+1[ \-][2-9][0-9]{2}[ \-][0-9]{3} [0-9]{4}$"](area.a);
+  nwr[phone~"^\+1 [2-9][0-9]{2}[ \-][0-9]{3}[ \-][0-9]{4}$"](area.a);
+  // +1 2134567890
+  nwr[phone~"^\+1 [2-9][0-9]{10}$"](area.a);
 
 );
 out body;
@@ -87,7 +94,7 @@ out skel qt;
     fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),4,12));
 }
 
-*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$$/] {
+*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$/] {
     assertNoMatch: "way \"phone\"=(123) 456-7890";
     assertNoMatch: "way \"phone\"=(123) 456 7890";
     assertNoMatch: "way \"phone\"=123 456 7890";
@@ -97,7 +104,7 @@ out skel qt;
     fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),6,14));
 }
 
-*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$$/] {
+*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$/] {
     assertNoMatch: "way \"phone\"=(123) 456 7890";
     assertNoMatch: "way \"phone\"=(123) 456 7890";
     assertNoMatch: "way \"phone\"=123 456 7890";
@@ -105,4 +112,48 @@ out skel qt;
     assertMatch: "way \"phone\"=(213) 456 7890";
     throwWarning: tr("phone= is in format (NNN) NNN NNNN, should be corrected to +1-NNN-NNN-NNNN");
     fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),6,9),"-",substring(tag("phone"),10,14));
+}
+
+*["phone"]["phone"=~/^\+1-[2-9][0-9]{2}-[0-9]{7}$/] {
+    assertNoMatch: "way \"phone\"=+1-123 4567890";
+    assertNoMatch: "way \"phone\"=+1-123 456 7890";
+    assertNoMatch: "way \"phone\"=+1 123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1-213-4567890";
+    throwWarning: tr("phone= is in format +1-NNN-NNNNNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=", substring(tag("phone"),0,10),"-",substring(tag("phone"),10,14));
+}
+
+*["phone"]["phone"=~/^\+1[ \\-][2-9][0-9]{2}[ \\-][0-9]{3} [0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1-123-456 7890";
+    assertNoMatch: "way \"phone\"=+1-123 456 7890";
+    assertNoMatch: "way \"phone\"=+1 123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1-213 456 7890";
+    assertMatch: "way \"phone\"=+1-213-456 7890";
+    assertMatch: "way \"phone\"=+1 213-456 7890";
+    assertMatch: "way \"phone\"=+1 213 456 7890";
+    throwWarning: tr("phone= formatting is missing dashes, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=", replace(tag(phone), " ", "-"));
+}
+
+*["phone"]["phone"=~/^\+1 [2-9][0-9]{2}[ \\-][0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1-123-456 7890";
+    assertNoMatch: "way \"phone\"=+1-123 456 7890";
+    assertNoMatch: "way \"phone\"=+1 123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1 213 456-7890";
+    assertMatch: "way \"phone\"=+1 213-456-7890";
+    throwWarning: tr("phone= formatting is missing dashes, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=", replace(tag(phone), " ", "-"));
+}
+
+*["phone"]["phone"=~/^\+1 [2-9][0-9]{9}$/] {
+    assertNoMatch: "way \"phone\"=+1 1234567890";
+    assertNoMatch: "way \"phone\"=+1-1234567890";
+    assertNoMatch: "way \"phone\"=+1 123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1 2134567890";
+    throwWarning: tr("phone= is in format +1-NNNNNNNNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),3,6),"-",substring(tag("phone"),6,9),"-",substring(tag("phone"),9,13));
 }
