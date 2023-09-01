@@ -1,0 +1,108 @@
+meta
+{
+    title: "Phone number fixups";
+    version: "0,1_2023-08-31";
+    description: "Fixes very common formatting issues with phone= in the United States";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  // 2134567890
+  nwr[phone~"^[2-9][0-9]{9}$"](area.a);
+  // 213-456-7890
+  nwr[phone~"^[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$"](area.a);
+  // 213 456-7890
+  nwr[phone~"^[2-9][0-9]{2} [0-9]{3}-[0-9]{4}$"](area.a);
+  // 213 456 7890
+  nwr[phone~"^[2-9][0-9]{2} [0-9]{3}-[0-9]{4}$"](area.a);
+  // 213-456 7890
+  nwr[phone~"^[2-9][0-9]{2} [0-9]{3}-[0-9]{4}$"](area.a);
+  // (213) 456-7890
+  nwr[phone~"^\([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$"](area.a);
+  // (213) 456 7890
+  nwr[phone~"^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$"](area.a);
+
+);
+out body;
+>;
+out skel qt;
+
+*/
+
+
+*["phone"]["phone"=~/^[2-9][0-9]{9}$/] {
+    assertNoMatch: "way \"phone\"=1234567890";
+    assertNoMatch: "way \"phone\"=12345678900";
+    assertNoMatch: "way \"phone\"=123-456-7890";
+    assertNoMatch: "way \"phone\"=4567890";
+    assertMatch: "way \"phone\"=2134567890";
+    throwWarning: tr("phone= is in format NNNNNNNNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),3,6),"-",substring(tag("phone"),6,10));
+}
+
+*["phone"]["phone"=~/^[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=123-456-7890";
+    assertNoMatch: "way \"phone\"=123-456-78900";
+    assertNoMatch: "way \"phone\"=123-456-7890";
+    assertNoMatch: "way \"phone\"=456-7890";
+    assertMatch: "way \"phone\"=213-456-7890";
+    throwWarning: tr("phone= is in format NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", tag("phone"));
+}
+
+*["phone"]["phone"=~/^[2-9][0-9]{2} [0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=123 456-7890";
+    assertNoMatch: "way \"phone\"=123 456-78900";
+    assertNoMatch: "way \"phone\"=123 456-7890";
+    assertNoMatch: "way \"phone\"=456-7890";
+    assertMatch: "way \"phone\"=213 456-7890";
+    throwWarning: tr("phone= is in format NNN NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),4,12));
+}
+
+*["phone"]["phone"=~/^[2-9][0-9]{2} [0-9]{3} [0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=123 456 78900";
+    assertNoMatch: "way \"phone\"=123-456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=213 456 7890";
+    throwWarning: tr("phone= is in format NNN NNN NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),4,12));
+}
+
+*["phone"]["phone"=~/^[2-9][0-9]{2}-[0-9]{3} [0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=123-456 7890";
+    assertNoMatch: "way \"phone\"=123-456 78900";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=213-456 7890";
+    throwWarning: tr("phone= is in format NNN-NNN NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),4,12));
+}
+
+*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$$/] {
+    assertNoMatch: "way \"phone\"=(123) 456-7890";
+    assertNoMatch: "way \"phone\"=(123) 456 7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=(213) 456-7890";
+    throwWarning: tr("phone= is in format (NNN) NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),6,14));
+}
+
+*["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$$/] {
+    assertNoMatch: "way \"phone\"=(123) 456 7890";
+    assertNoMatch: "way \"phone\"=(123) 456 7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=(213) 456 7890";
+    throwWarning: tr("phone= is in format (NNN) NNN NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),6,9),"-",substring(tag("phone"),10,14));
+}
