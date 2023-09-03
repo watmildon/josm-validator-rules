@@ -1,0 +1,29 @@
+meta
+{
+    title: "Boundary attached to non-boundary";
+    version: "0,1_2023-09-02";
+    description: "Warn about boundary relation members that are not boundaries";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:500];
+// gather results
+{{geocodeArea:"North Dakota, United States"}}->.searchArea;
+(
+  relation["type"="boundary"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;
+*/
+
+*["type"="boundary"] > way[highway],
+*["type"="boundary"] > way[natural],
+*["type"="boundary"] > way[landuse] {
+    throwWarning: tr("boundary has {0} way as member", "{0.key}");
+}
