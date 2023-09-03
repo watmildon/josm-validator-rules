@@ -22,8 +22,9 @@ out body;
 out skel qt;
 */
 
-*["type"="boundary"] > way[highway],
-*["type"="boundary"] > way[natural],
-*["type"="boundary"] > way[landuse] {
+relation["type"="boundary"] > way[highway],
+relation["type"="boundary"] > way[natural],
+relation["type"="boundary"] > way[waterway],
+relation["type"="boundary"] > way[landuse] {
     throwWarning: tr("boundary has {0} way as member", "{0.key}");
 }
