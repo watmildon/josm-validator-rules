@@ -10,6 +10,10 @@ meta
 }
 
 /*
+USA CLEAN AS OF 2023-09-02
+*/
+
+/*
 [out:json][timeout:300];
 {{geocodeArea:"Oregon,United States of America"}}->.a;
 (

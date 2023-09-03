@@ -12,16 +12,15 @@ meta
 /*
 [out:json][timeout:500];
 // gather results
-{{geocodeArea:United States}}->.searchArea;
+{{geocodeArea:"Ohio, United States"}}->.searchArea;
 (
-  nwr["addr:street"~"^[0-9].+"](area.searchArea);
+  nwr["addr:street"~"^[0-9]{1,6} .+"](area.searchArea);
 );
 // print results
 out body;
 >;
 out skel qt;
 */
-
 
 *["addr:street"]["addr:street"=~/^[0-9] .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";

@@ -12,7 +12,7 @@ meta
 /*
 [out:json][timeout:500];
 // gather results
-{{geocodeArea:United States}}->.searchArea;
+{{geocodeArea:"United States"}}->.searchArea;
 (
   nwr["addr:city"~"^[A-Z ]+$"](area.searchArea);
   nwr["addr:street"~"^[A-Z ]+$"](area.searchArea);
