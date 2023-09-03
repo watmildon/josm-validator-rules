@@ -1,8 +1,8 @@
 meta
 {
     title: "Extract housenumber from incorrect addr:street tag";
-    version: "0,1_2023-08-16";
-    description: "Fixes ALL CAPS key values to be Title Case";
+    version: "0,1_2023-09-02";
+    description: "Removes leading digits from addr:street and puts them in addr:housenumber";
     author: "watmildon";
     link: "TODOMAKELINK";
     baselanguage: "en";
