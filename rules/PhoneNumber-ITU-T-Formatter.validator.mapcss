@@ -41,6 +41,10 @@ meta
   nwr[phone~"^\+1 [2-9][0-9]{2} [2-9][0-9]{6}$"](area.a);
   // 12134567890
   nwr[phone~"^1[2-9][0-9]{9}$"](area.a);
+  // +1.234.567.890
+  nwr[phone~"^\+1\.[2-9][0-9]{2}\.[0-9]{3}\.[0-9]{4}$"](area.a);
+  // +1 (234) 456-7890
+  nwr[phone~"^\+1 \([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$"](area.a);
 
 );
 out body;
@@ -49,6 +53,14 @@ out skel qt;
 
 */
 
+*["phone"]["phone"!~/^\+1-[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1-123-456-7890";
+    assertNoMatch: "way \"phone\"=+1 12345678900";
+    assertNoMatch: "way \"phone\"=+1 123-456-7890";
+    assertNoMatch: "way \"phone\"=4567890";
+    assertMatch: "way \"phone\"=+1-213-456-7890";
+    throwWarning: tr("phone= is incorrectly formatted, review after all other fixups have been applied");
+}
 
 *["phone"]["phone"=~/^[2-9][0-9]{9}$/] {
     assertNoMatch: "way \"phone\"=1234567890";
@@ -87,7 +99,7 @@ out skel qt;
     assertNoMatch: "way \"phone\"=456 7890";
     assertMatch: "way \"phone\"=213 456 7890";
     throwWarning: tr("phone= is in format NNN NNN NNNN, should be corrected to +1-NNN-NNN-NNNN");
-    fixAdd: concat("phone=+1-", substring(tag("phone"),0,3),"-",substring(tag("phone"),4,12));
+    fixAdd: concat("phone=+1-", replace(tag("phone")," ","-"));
 }
 
 *["phone"]["phone"=~/^[2-9][0-9]{2}-[0-9]{3} [0-9]{4}$/] {
@@ -192,4 +204,24 @@ out skel qt;
     assertMatch: "way \"phone\"=12134567890";
     throwWarning: tr("phone= is in format 1NNNNNNNNNN, should be corrected to +1-NNN-NNN-NNNN");
     fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),4,7),"-",substring(tag("phone"),7,11));
+}
+
+*["phone"]["phone"=~/^\+1\.[2-9][0-9]{2}\.[0-9]{3}\.[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1.123.456.7890";
+    assertNoMatch: "way \"phone\"=+1.123 456 7890";
+    assertNoMatch: "way \"phone\"=+1 123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1.213.456.7890";
+    throwWarning: tr("phone= is in format +1.NNN.NNN.NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=", replace(tag(phone), ".", "-"));
+}
+
+*["phone"]["phone"=~/^\+1 \([2-9][0-9]{2}\) [0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1 (123) 456 7890";
+    assertNoMatch: "way \"phone\"=(123) 456 7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=456 7890";
+    assertMatch: "way \"phone\"=+1 (213) 456-7890";
+    throwWarning: tr("phone= is in format +1 (NNN) NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),4,7),"-",substring(tag("phone"),9,17));
 }
