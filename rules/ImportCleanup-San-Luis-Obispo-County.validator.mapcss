@@ -1,0 +1,31 @@
+meta
+{
+    title: "SLO County Address Cleanup";
+    version: "0,1_2023-09-08";
+    description: "Fixups specifically targeted at the SLO address import";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+
+[out:json][timeout:300];
+{{geocodeArea:"California, United States of America"}}->.a;
+(
+  nwr["addr:street:type"]["addr:street:name"][!"addr:street"]["addr:housenumber"]["addr:full"](area.a);
+);
+out body;
+>;
+out skel qt;
+
+*/
+
+*["addr:street:type"]["addr:street:name"][!"addr:street"] {
+    throwWarning: tr("Combine addr:street:name and addr:street:type");
+    fixAdd: concat("addr:street=", tag("addr:street:name")," ",tag("addr:street:type"));
+    fixRemove: "addr:street:name";
+    fixRemove: "addr:street:type";
+    fixAdd: "addr:state=CA";
+}
