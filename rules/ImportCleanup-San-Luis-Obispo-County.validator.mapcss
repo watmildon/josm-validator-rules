@@ -22,10 +22,61 @@ out skel qt;
 
 */
 
-*["addr:street:type"]["addr:street:name"][!"addr:street"] {
+*["addr:street:type"]["addr:street:name"][!"addr:street"][!"addr:street:prefix"][!"addr:street:suffix"] {
     throwWarning: tr("Combine addr:street:name and addr:street:type");
     fixAdd: concat("addr:street=", tag("addr:street:name")," ",tag("addr:street:type"));
     fixRemove: "addr:street:name";
     fixRemove: "addr:street:type";
+    fixAdd: "addr:state=CA";
+}
+
+*["addr:street:type"]["addr:street:name"][!"addr:street"]["addr:street:prefix"][!"addr:street:suffix"] {
+    throwWarning: tr("Combine addr:street:prefix, addr:street:name, and addr:street:type");
+    fixAdd: concat("addr:street=", tag("addr:street:prefix"), " ", tag("addr:street:name")," ",tag("addr:street:type"));
+    fixRemove: "addr:street:prefix";
+    fixRemove: "addr:street:name";
+    fixRemove: "addr:street:type";
+    fixAdd: "addr:state=CA";
+}
+
+*["addr:street:type"]["addr:street:name"][!"addr:street"][!"addr:street:prefix"]["addr:street:suffix"] {
+    throwWarning: tr("Combine addr:street:name, addr:street:type, and addr:street:suffix");
+    fixAdd: concat("addr:street=", tag("addr:street:name")," ",tag("addr:street:type")," ",tag("addr:street:suffix"));
+    fixRemove: "addr:street:name";
+    fixRemove: "addr:street:type";
+    fixRemove: "addr:street:suffix";
+    fixAdd: "addr:state=CA";
+}
+
+*["addr:street:type"]["addr:street:name"][!"addr:street"]["addr:street:prefix"]["addr:street:suffix"] {
+    throwWarning: tr("Combine addr:street:prefix, addr:street:name, addr:street:type, and addr:street:suffix");
+    fixAdd: concat("addr:street=", tag("addr:street:prefix"), " ", tag("addr:street:name")," ",tag("addr:street:type")," ",tag("addr:street:suffix"));
+    fixRemove: "addr:street:prefix";
+    fixRemove: "addr:street:name";
+    fixRemove: "addr:street:type";
+    fixRemove: "addr:street:suffix";
+    fixAdd: "addr:state=CA";
+}
+
+*[!"addr:street:type"]["addr:street:name"][!"addr:street"]["addr:street:prefix"][!"addr:street:suffix"] {
+    throwWarning: tr("Combine addr:street:prefix and addr:street:name");
+    fixAdd: concat("addr:street=", tag("addr:street:prefix"), " " , tag("addr:street:name"));
+    fixRemove: "addr:street:prefix";
+    fixRemove: "addr:street:name";
+    fixAdd: "addr:state=CA";
+}
+
+*[!"addr:street:type"]["addr:street:name"][!"addr:street"][!"addr:street:prefix"]["addr:street:suffix"] {
+    throwWarning: tr("Combine addr:street:name and addr:street:suffix");
+    fixAdd: concat("addr:street=", tag("addr:street:name"), " ", tag("addr:street:suffix"));
+    fixRemove: "addr:street:name";
+    fixRemove: "addr:street:suffix";
+    fixAdd: "addr:state=CA";
+}
+
+*[!"addr:street:type"]["addr:street:name"][!"addr:street"][!"addr:street:prefix"][!"addr:street:suffix"] {
+    throwWarning: tr("addr:street:name should be moved to addr:street");
+    fixAdd: concat("addr:street=", tag("addr:street:name"));
+    fixRemove: "addr:street:name";
     fixAdd: "addr:state=CA";
 }
