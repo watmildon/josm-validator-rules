@@ -1,0 +1,33 @@
+meta
+{
+    title: "Level not layer issues";
+    version: "0,1_2023-09-14";
+    description: "Flags features likely incorrectly with level instead of layer";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:150];
+{{geocodeArea:United States}}->.searchArea;
+(
+  way[level=-1][tunnel=culvert][waterway][!layer](area.searchArea);
+  way[level=-1][tunnel=yes][highway][!layer](area.searchArea);
+  way[level=-1][tunnel=yes][railway](area.searchArea);
+);
+out body;
+>;
+out skel qt;
+*/
+
+way[level=-1][tunnel=culvert][waterway][!layer],
+way[level=-1][tunnel=yes][highway][!layer],
+way[level=-1][tunnel=yes][railway][!layer]{
+    assertNoMatch: "way tunnel=culvert level=-1 layer=-1";
+    assertMatch: "way tunnel=culvert level=-1";
+    group: tr("level tag on object that is more commonly tagged with layer");
+    throwWarning: tr("{0} with level tag", "{2.key}");
+    fixChangeKey: "level=>layer";
+}
