@@ -1,0 +1,50 @@
+meta
+{
+    title: "name= capitalization warnings";
+    version: "0,1_2023-09-14";
+    description: "Flags common capitalization issues";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  // 2134567890
+  nwr[name](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+*["name"=~/^Mc[a-z]/]{
+    assertNoMatch: "way \"name\"=McDonalds";
+    assertMatch: "way \"name\"=Mcdonalds";
+    throwWarning: tr("name= begins with Mc. This commonly has a capital letter next.");
+    fixAdd: concat("name=", substring(tag("name"),0,2), upper(substring(tag("name"),2,3)),substring(tag("name"),3));
+}
+
+*["name"=~/^Mac[a-z]/]{
+    assertNoMatch: "way \"name\"=McDonalds";
+    assertMatch: "way \"name\"=Mcdonalds";
+    throwWarning: tr("name= begins with Mac. This commonly has a capital letter next.");
+    fixAdd: concat("name=", substring(tag("name"),0,3), upper(substring(tag("name"),3,4)),substring(tag("name"),4));
+}
+
+*["name"=~/ Del /]{
+    assertNoMatch: "way \"name\"=Casita del Mar";
+    assertMatch: "way \"name\"=Casita Del Mar";
+    throwWarning: tr("name= contains the word Del which is commonly cased as del");
+    fixAdd: concat("name=", replace(tag("name"), " Del ", " del "));
+}
+
+*["name"=~/ Du /]{
+    assertNoMatch: "way \"name\"=Cafe du Parc";
+    assertMatch: "way \"name\"=Cafe Du Parc";
+    throwWarning: tr("name= contains the word Du which is commonly cased as du");
+    fixAdd: concat("name=", replace(tag("name"), " Du ", " du "));
+}
