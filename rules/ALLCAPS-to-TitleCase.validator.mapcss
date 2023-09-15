@@ -24,14 +24,14 @@ out skel qt;
 */
 
 
-*["addr:city"]["addr:city"=~/^[A-Z ]+$/] {
+*["addr:city"]["addr:city"=~/^[A-Z -]+$/] {
     assertNoMatch: "way \"addr:city\"=Redmond";
     assertMatch: "way \"addr:city\"=REMOND";
     throwWarning: tr("addr:city is ALL CAPS, likely needs to be Title Case");
     fixAdd: concat("addr:city=", title(tag("addr:city")));
 }
 
-*["addr:street"]["addr:street"=~/^[A-Z ]+$/] {
+*["addr:street"]["addr:street"=~/^[A-Z -]+$/] {
     assertNoMatch: "way \"addr:street\"=Redmond Way";
     assertMatch: "way \"addr:street\"=REMOND WAY";
     throwWarning: tr("addr:street is ALL CAPS, likely needs to be Title Case");
