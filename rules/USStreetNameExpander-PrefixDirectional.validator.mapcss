@@ -52,29 +52,33 @@ fixAdd: concat("name=", "West", substring(tag("name"), 1,length(tag("name"))));
 *["addr:street"]["addr:street"=~/^N /] {
 assertNoMatch: "way \"addr:street\"=North Main";
 assertMatch: "way \"addr:street\"=N Main";
-throwWarning: tr("addr:street prefix N, may need to be expanded to North");
+throwWarning: tr("addr:street={0}, may need to be expanded to North","{0.value}");
 fixAdd: concat("addr:street=", "North", substring(tag("addr:street"), 1,length(tag("addr:street"))));
+group: tr("addr:street prefix N, may need to be expanded to North");
 }
 
 *["addr:street"]["addr:street"=~/^S /] {
 assertNoMatch: "way \"addr:street\"=South Main";
 assertMatch: "way \"addr:street\"=S Main";
-throwWarning: tr("addr:street prefix S, may need to be expanded to South");
+throwWarning: tr("addr:street={0}, may need to be expanded to South","{0.value}");
 fixAdd: concat("addr:street=", "South", substring(tag("addr:street"), 1,length(tag("addr:street"))));
+group: tr("addr:street prefix S, may need to be expanded to South");
 }
 
 *["addr:street"]["addr:street"=~/^E /] {
 assertNoMatch: "way \"addr:street\"=East Main";
 assertMatch: "way \"addr:street\"=E Main";
-throwWarning: tr("addr:street prefix E, may need to be expanded to East");
+throwWarning: tr("addr:street={0}, may need to be expanded to East","{0.value}");
 fixAdd: concat("addr:street=", "East", substring(tag("addr:street"), 1,length(tag("addr:street"))));
+group: tr("addr:street prefix E, may need to be expanded to East");
 }
 
 *["addr:street"]["addr:street"=~/^W /] {
 assertNoMatch: "way \"addr:street\"=West Main";
 assertMatch: "way \"addr:street\"=W Main";
-throwWarning: tr("addr:street prefix W, may need to be expanded to West");
+throwWarning: tr("addr:street={0}, may need to be expanded to West","{0.value}");
 fixAdd: concat("addr:street=", "West", substring(tag("addr:street"), 1,length(tag("addr:street"))));
+group: tr("addr:street prefix W, may need to be expanded to West");
 }
 
 *[highway]["name"]["name"=~/^NE /] {
@@ -108,27 +112,31 @@ fixAdd: concat("name=", "Northwest", substring(tag("name"), 2,length(tag("name")
 *["addr:street"]["addr:street"=~/^NE /] {
 assertNoMatch: "way \"addr:street\"=Northeast Main";
 assertMatch: "way \"addr:street\"=NE Main";
-throwWarning: tr("addr:street prefix NE, may need to be expanded to Northeast");
+throwWarning: tr("addr:street={0}, may need to be expanded to Northeast","{0.value}");
 fixAdd: concat("addr:street=", "Northeast", substring(tag("addr:street"), 2,length(tag("addr:street"))));
+group: tr("addr:street prefix NE, may need to be expanded to Northeast");
 }
 
 *["addr:street"]["addr:street"=~/^SE /] {
 assertNoMatch: "way \"addr:street\"= Southeast Main";
 assertMatch: "way \"addr:street\"=SE Main";
-throwWarning: tr("addr:street prefix SE, may need to be expanded to Southeast");
+throwWarning: tr("addr:street={0}, may need to be expanded to Southeast","{0.value}");
 fixAdd: concat("addr:street=", "Southeast", substring(tag("addr:street"), 2,length(tag("addr:street"))));
+group: tr("addr:street prefix SE, may need to be expanded to Southeast");
 }
 
 *["addr:street"]["addr:street"=~/^SW /] {
 assertNoMatch: "way \"addr:street\"=Southwest Main";
 assertMatch: "way \"addr:street\"=SW Main";
-throwWarning: tr("addr:street prefix SW, may need to be expanded to Southwest");
+throwWarning: tr("addr:street={0}, may need to be expanded to Southwest","{0.value}");
 fixAdd: concat("addr:street=", "Southwest", substring(tag("addr:street"), 2,length(tag("addr:street"))));
+group: tr("addr:street prefix SW, may need to be expanded to Southwest");
 }
 
 *["addr:street"]["addr:street"=~/^NW /] {
 assertNoMatch: "way \"addr:street\"=Northwest Main";
 assertMatch: "way \"addr:street\"=NW Main";
-throwWarning: tr("addr:street prefix NW, may need to be expanded to Northwest");
+throwWarning: tr("addr:street={0}, may need to be expanded to Northwest","{0.value}");
 fixAdd: concat("addr:street=", "Northwest", substring(tag("addr:street"), 2,length(tag("addr:street"))));
+group: tr("addr:street prefix NW, may need to be expanded to Northwest");
 }
