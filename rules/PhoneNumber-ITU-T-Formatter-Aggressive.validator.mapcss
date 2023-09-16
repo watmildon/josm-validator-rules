@@ -32,7 +32,7 @@ out skel qt;
     assertNoMatch: "way \"phone\"=+1-800-COLLECT";
     assertMatch: "way \"phone\"=+1(213)456-7890";
     assertMatch: "way \phone\"=213)-456--7890";
-    throwWarning: tr("phone= is not formatted correctly and contains characters +,(,),dash,space. Fix will remove them.");
+    throwWarning: tr("phone={0} is not formatted correctly and contains characters +,(,),dash,space. Fix will remove them.","{0.value}");
     fixAdd: concat("phone=", replace(replace(replace(replace(replace(replace(tag(phone),"(",""),")","")," ",""),"-",""),"+",""),".",""));
     group: "Dangerous: Phone number formatting";
 }

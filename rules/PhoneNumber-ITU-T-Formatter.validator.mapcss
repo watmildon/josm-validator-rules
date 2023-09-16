@@ -64,7 +64,7 @@ out skel qt;
     assertMatch: "way \"phone\"=4567890";
     assertNoMatch: "way \"phone\"=+1-213-456-7890";
     throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
-    group: tr("phone= is incorrectly formatted, review after all other fixups have been applied");
+    group: tr("phone= is incorrectly formatted or contains multiple phone numbers, review after all other fixups have been applied");
 }
 
 *["phone"]["phone"=~/^[2-9][0-9]{9}$/] {
