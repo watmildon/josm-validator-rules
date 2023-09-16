@@ -25,47 +25,53 @@ out skel qt;
 *["addr:street"]["addr:street"=~/^[0-9] .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=1 Main Street";
-    throwWarning: tr("addr:street starts with a digit, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),2));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,1));
+    group: tr("addr:street starts with a digit, possibly need to be moved to addr:housenumber");
 }
 
 *["addr:street"]["addr:street"=~/^[0-9]{2} .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=12 Main Street";
-    throwWarning: tr("addr:street starts with 2 digits, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),3));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,2));
+    group: tr("addr:street starts with 2 digits, possibly need to be moved to addr:housenumber");
 }
 
 *["addr:street"]["addr:street"=~/^[0-9]{3} .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street";
-    throwWarning: tr("addr:street starts with 3 digits, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),4));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,3));
+    group: tr("addr:street starts with 3 digits, likely need to be moved to addr:housenumber");
 }
 
 *["addr:street"]["addr:street"=~/^[0-9]{4} .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=1234 Main Street";
-    throwWarning: tr("addr:street starts with 4 digits, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),5));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,4));
+    group: tr("addr:street starts with 4 digits, likely need to be moved to addr:housenumber");
 }
 
 *["addr:street"]["addr:street"=~/^[0-9]{5} .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=12345 Main Street";
-    throwWarning: tr("addr:street starts with 5 digits, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),6));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,5));
+    group: tr("addr:street starts with 5 digits, likely need to be moved to addr:housenumber");
 }
 
 *["addr:street"]["addr:street"=~/^[0-9]{6} .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123456 Main Street";
-    throwWarning: tr("addr:street starts with 6 digits, likely need to be moved to addr:housenumber");
+    throwWarning: tr("addr:street={0}","{0.value}");
     fixAdd: concat("addr:street=", substring(tag("addr:street"),7));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,6));
+    group: tr("addr:street starts with 6 digits, likely need to be moved to addr:housenumber");
 }
