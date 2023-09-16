@@ -49,7 +49,10 @@ meta
   nwr[phone~"^1-[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$"](area.a);
   // +1213-456-7890
   nwr[phone~"^\+1[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$"](area.a);
-
+  // (213)456-7890
+  nwr[phone~"^\([2-9][0-9]{2}\)[0-9]{3}-[0-9]{4}$"](area.a);
+  // 213.456.7890
+  nwr[phone~"^[2-9][0-9]{2}\.[0-9]{3}\.[0-9]{4}$"](area.a);
 );
 out body;
 >;
@@ -130,7 +133,7 @@ out skel qt;
     assertMatch: "way \"phone\"=(213) 456-7890";
     throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
     fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),6,14));
-    group: tr("phone= is in format (NNN) NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");;
+    group: tr("Safe: phone= is in format (NNN) NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
 
 *["phone"]["phone"=~/^\([2-9][0-9]{2}\) [0-9]{3} [0-9]{4}$/] {
@@ -267,4 +270,26 @@ out skel qt;
     throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
     fixAdd: concat("phone=+1-", substring(tag("phone"),2));
     group: tr("Safe: phone= is in format +1NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
+*["phone"]["phone"=~/^\([2-9][0-9]{2}\)[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=(123)456-7890";
+    assertNoMatch: "way \"phone\"=(123)456 7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=4567890";
+    assertMatch: "way \"phone\"=(213)456-7890";
+    throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
+    fixAdd: concat("phone=+1-", substring(tag("phone"),1,4),"-",substring(tag("phone"),5,13));
+    group: tr("Safe: phone= is in format (NNN)NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
+*["phone"][phone=~/^[2-9][0-9]{2}\.[0-9]{3}\.[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=123.456.7890";
+    assertNoMatch: "way \"phone\"=(123)456 7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=4567890";
+    assertMatch: "way \"phone\"=213.456.7890";
+    throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
+    fixAdd: concat("phone=+1-", replace(tag("phone"),".","-"));
+    group: tr("Safe: phone= is in format NNN.NNN.NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
