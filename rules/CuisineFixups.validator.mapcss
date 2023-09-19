@@ -25,7 +25,8 @@ out skel qt;
 *["cuisine"]["cuisine"=~/[A-Z]/] {
     assertNoMatch: "way cuisine=italian";
     assertMatch: "way cuisine=Italian";
-    throwWarning: tr("cuisine contains capital letters, needs to be lowercase");
+    throwWarning: tr("cuisine={0}","{0.value}");
+    group: tr("Cuisine contains capital letters, needs to be lowercase");
     fixAdd: concat("cuisine=", lower(tag("cuisine")));
 }
 
