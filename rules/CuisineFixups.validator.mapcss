@@ -1,0 +1,196 @@
+meta
+{
+    title: "Cuisine fixups";
+    version: "0,1_2023-09-17";
+    description: "Corrects common misspellings and functional synonyms";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"Oregon,United States of America"}}->.a;
+(
+  nwr["cuisine"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+/* Capitalization */
+
+*["cuisine"]["cuisine"=~/[A-Z]/] {
+    assertNoMatch: "way cuisine=italian";
+    assertMatch: "way cuisine=Italian";
+    throwWarning: tr("cuisine contains capital letters, needs to be lowercase");
+    fixAdd: concat("cuisine=", lower(tag("cuisine")));
+}
+
+/* Plurals */
+
+*["cuisine"]["cuisine"=~/^burgers$|^burgers;|;burgers;|;burgers$/] {
+    assertMatch: "way cuisine=burgers";
+    throwWarning: tr("cuisine={0} contains burgers. The more common cuisine is burger.","{0.value}");
+    group: tr("Cuisine contains unnecessary plural burgers");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "burgers", "burger"));
+}
+
+*["cuisine"]["cuisine"=~/^cookies$|^cookies;|;cookies;|;cookies$/] {
+    assertMatch: "way cuisine=cookies";
+    throwWarning: tr("cuisine={0} contains cookies. The more common spelling is cookie.","{0.value}");
+    group: tr("Cuisine contains misspeling cookies");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "cookies", "cookie"));
+}
+
+*["cuisine"]["cuisine"=~/^noodles$|^noodles;|;noodles;|;noodles$/] {
+    assertMatch: "way cuisine=noodles";
+    throwWarning: tr("cuisine={0} contains noodles. The more common cuisine is noodle.","{0.value}");
+    group: tr("Cuisine contains incorrect tag noodles");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "noodles", "noodle"));
+}
+
+*["cuisine"]["cuisine"=~/^sandwiches$|^sandwiches;|;sandwiches;|;sandwiches$/] {
+    assertMatch: "way cuisine=sandwiches";
+    throwWarning: tr("cuisine={0} contains sandwiches. The more common cuisine is sandwich.","{0.value}");
+    group: tr("Cuisine contains unnecessary plural sandwiches");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "sandwiches", "sandwich"));
+}
+
+/* Misspelling and misnaming */
+
+*["cuisine"]["cuisine"=~/^bbq$|^bbq;|;bbq;|;bbq$/] {
+    assertMatch: "way cuisine=bbq";
+    throwWarning: tr("cuisine={0} contains bbq. The more common spelling is barbecue.","{0.value}");
+    group: tr("Cuisine contains misspeling BBQ");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "bbq", "barbecue"));
+}
+
+*["cuisine"]["cuisine"=~/^baked_goods$|^baked_goods;|;baked_goods;|;baked_goods$/] {
+    assertMatch: "way cuisine=baked_goods";
+    throwWarning: tr("cuisine={0} contains baked_goods. The more common cuisine is bakery.","{0.value}");
+    group: tr("Cuisine contains incorrect tag baked_goods");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "baked_goods", "bakery"));
+}
+
+*["cuisine"]["cuisine"=~/^bar_and_grill$|^bar_and_grill;|;bar_and_grill;|;bar_and_grill$/] {
+    assertMatch: "way cuisine=bar_and_grill";
+    throwWarning: tr("cuisine={0} contains bar_and_grill. The more common cuisine is bar&grill.","{0.value}");
+    group: tr("Cuisine contains incorrect tag bar_and_grill");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "bar_and_grill", "bar&grill"));
+}
+
+*["cuisine"]["cuisine"=~/^barbeque$|^barbeque;|;barbeque;|;barbeque$/] {
+    assertMatch: "way cuisine=barbeque";
+    throwWarning: tr("cuisine={0} contains barbeque. The more common spelling is barbecue.","{0.value}");
+    group: tr("Cuisine contains misspeling barbeque");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "barbeque", "barbecue"));
+}
+
+*["cuisine"]["cuisine"=~/^coffee$|^coffee;|;coffee;|;coffee$/] {
+    assertMatch: "way cuisine=coffee";
+    throwWarning: tr("cuisine={0} contains coffee. The more common cuisine is coffee_shop.","{0.value}");
+    group: tr("Cuisine contains incorrect tag coffee");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "coffee", "coffee_shop"));
+}
+
+*["cuisine"]["cuisine"=~/^guatamalan$|^guatamalan;|;guatamalan;|;guatamalan$/] {
+    assertMatch: "way cuisine=guatamalan";
+    throwWarning: tr("cuisine={0} contains guatamalan. The more common cuisine is guatemalan.","{0.value}");
+    group: tr("Cuisine contains incorrect tag guatamalan");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "guatamalan", "guatemalan"));
+}
+
+*["cuisine"]["cuisine"=~/^juice_bar$|^juice_bar;|;juice_bar;|;juice_bar$/] {
+    assertMatch: "way cuisine=juice_bar";
+    throwWarning: tr("cuisine={0} contains juice_bar. The more common cuisine is juice.","{0.value}");
+    group: tr("Cuisine contains incorrect tag juice_bar");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "juice_bar", "juice"));
+}
+
+*["cuisine"]["cuisine"=~/^italian_pizza$|^italian_pizza;|;italian_pizza;|;italian_pizza$/] {
+    assertMatch: "way cuisine=italian_pizza";
+    throwWarning: tr("cuisine={0} contains italian_pizza. The more common cuisine is pizza.","{0.value}");
+    group: tr("Cuisine contains incorrect tag italian_pizza");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "italian_pizza", "pizza"));
+}
+
+*["cuisine"]["cuisine"=~/^shave_ice$|^shave_ice;|;shave_ice;|;shave_ice$/] {
+    assertMatch: "way cuisine=shave_ice";
+    throwWarning: tr("cuisine={0} contains shave_ice. The more common spelling is shaved_ice.","{0.value}");
+    group: tr("Cuisine contains misspeling shave_ice");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "shave_ice", "shaved_ice"));
+}
+
+/* Lacking specificity */
+
+*["cuisine"]["cuisine"=~/^sub$|^sub;|;sub;|;sub$/] {
+    assertMatch: "way cuisine=sub";
+    throwWarning: tr("cuisine={0} contains sub. The more common cuisine is sandwich.","{0.value}");
+    group: tr("Cuisine contains incorrect tag sub");
+    fixAdd:  concat("cuisine=", replace(tag("cuisine"), "sub", "sandwich"));
+}
+
+*["cuisine"]["cuisine"=~/^international$|^international;|;international;|;international$/] {
+    assertMatch: "way cuisine=international";
+    throwWarning: tr("cuisine={0} contains international. Use a more specific value if possible.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+*["cuisine"]["cuisine"=~/^fast_food$|^fast_food;|;fast_food;|;fast_food$/] {
+    assertMatch: "way cuisine=fast_food";
+    throwWarning: tr("cuisine={0} contains fast_food. Use a more specific value if possible ex: burger,pizza.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+*["cuisine"]["cuisine"=~/^lunch$|^lunch;|;lunch;|;lunch$/] {
+    assertMatch: "way cuisine=lunch";
+    throwWarning: tr("cuisine={0} contains lunch. Use a more specific value if possible.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+*["cuisine"]["cuisine"=~/^regional$|^regional;|;regional;|;regional$/] {
+    assertMatch: "way cuisine=regional";
+    throwWarning: tr("cuisine={0} contains regional. Use a more specific value if possible.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+*["cuisine"]["cuisine"=~/^local$|^local;|;local;|;local$/] {
+    assertMatch: "way cuisine=local";
+    throwWarning: tr("cuisine={0} contains local. Use a more specific value if possible.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+*["cuisine"]["cuisine"=~/^sweets$|^sweets;|;sweets;|;sweets$/] {
+    assertMatch: "way cuisine=sweets";
+    throwWarning: tr("cuisine={0} contains sweets. Use a more specific value if possible ex: candy,pastry.","{0.value}");
+    group: tr("Cuisine tag lacks specificity");
+}
+
+/* Drinks in cuisine */
+
+*["cuisine"]["cuisine"=~/^beer$|^beer;|;beer;|;beer$/] {
+    assertMatch: "way cuisine=beer";
+    throwWarning: tr("cuisine={0} contains beer. Use the drinks tag instead","{0.value}");
+    group: tr("Cuisine tag contains beverages");
+}
+
+*["cuisine"]["cuisine"=~/^drinks$|^drinks;|;drinks;|;drinks$/] {
+    assertMatch: "way cuisine=drinks";
+    throwWarning: tr("cuisine={0} contains drinks. Use the drinks tag instead","{0.value}");
+    group: tr("Cuisine tag contains beverages");
+}
+
+*["cuisine"]["cuisine"=~/^cocktails$|^cocktails;|;cocktails;|;cocktails$/] {
+    assertMatch: "way cuisine=cocktails";
+    throwWarning: tr("cuisine={0} contains cocktails. Use the drinks tag instead","{0.value}");
+    group: tr("Cuisine tag contains beverages");
+}
+
+*["cuisine"]["cuisine"=~/^soda$|^soda;|;soda;|;soda$/] {
+    assertMatch: "way cuisine=soda";
+    throwWarning: tr("cuisine={0} contains soda. Use the drinks tag instead","{0.value}");
+    group: tr("Cuisine tag contains beverages");
+}
