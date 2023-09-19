@@ -1,8 +1,8 @@
 meta
 {
-    title: "Extract housenumber from incorrect addr:street tag";
-    version: "0,1_2023-09-02";
-    description: "Removes leading digits from addr:street and puts them in addr:housenumber";
+    title: "addr:street contains full address";
+    version: "0,1_2023-09-18";
+    description: "Tries to detect if addr:street has a full street address in it";
     author: "watmildon";
     link: "TODOMAKELINK";
     baselanguage: "en";
@@ -21,6 +21,8 @@ out body;
 >;
 out skel qt;
 */
+
+/* Leading digits (housenumbers) */
 
 *["addr:street"]["addr:street"=~/^[0-9] .+/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
@@ -74,4 +76,57 @@ out skel qt;
     fixAdd: concat("addr:street=", substring(tag("addr:street"),7));
     fixAdd: concat("addr:housenumber=", substring(tag("addr:street"),0,6));
     group: tr("addr:street starts with 6 digits, likely needs to be moved to addr:housenumber");
+}
+
+/* Trailing digits (zip codes) */
+*["addr:street"]["addr:street"=~/ [0-9]{5}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Seattle WA 99999";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    fixAdd: concat("addr:street=", substring(tag("addr:street"),0,length(tag("addr:street"))-6));
+    fixAdd: concat("addr:postcode=", trim(substring(tag("addr:street"),length(tag("addr:street"))-6)));
+    group: tr("addr:street ends with 5 digits, likely needs to be moved to addr:postcode");
+}
+
+*["addr:street"]["addr:street"=~/ [0-9]{5}-[0-9]{4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Seattle WA 99999-8888";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    fixAdd: concat("addr:street=", substring(tag("addr:street"),0,length(tag("addr:street"))-11));
+    fixAdd: concat("addr:postcode=", trim(substring(tag("addr:street"),length(tag("addr:street"))-11)));
+    group: tr("addr:street ends with NNNNN-NNNN digits, likely needs to be moved to addr:postcode");
+}
+
+/* Trailing unit numbers */
+
+*["addr:street"]["addr:street"=~/ Ste ?[0-9]{1,4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Ste 123";
+    assertMatch: "way \"addr:city\"=123 Main Street Ste123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
+*["addr:street"]["addr:street"=~/ [sS]uite ?[0-9]{1,4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Suite 123";
+    assertMatch: "way \"addr:city\"=123 Main Street Suite123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
+*["addr:street"]["addr:street"=~/ [aA]pt ?[0-9]{1,4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Apt 123";
+    assertMatch: "way \"addr:city\"=123 Main Street Apt123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
+*["addr:street"]["addr:street"=~/ # ?[0-9]{1-4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street # 123";
+    assertMatch: "way \"addr:city\"=123 Main Street #123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
 }
