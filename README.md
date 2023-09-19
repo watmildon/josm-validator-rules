@@ -14,4 +14,6 @@ Happy to host rules and mapstyles here. Each rule file should have:
 * Overpass query showing the data it expects to work well on including region boundary
 * Rule that works at a very high but not infallable rate for that overpass query
 
-The validator rules and map style syntax are documented [here](https://josm.openstreetmap.de/wiki/Help/Validator/MapCSSTagChecker) and [here](https://josm.openstreetmap.de/wiki/Help/Styles/MapCSSImplementation). 
+The validator rules and map style syntax are documented [here](https://josm.openstreetmap.de/wiki/Help/Validator/MapCSSTagChecker) and [here](https://josm.openstreetmap.de/wiki/Help/Styles/MapCSSImplementation).
+
+If you are editingin VS Code and you'd like to get some syntax highlighting, one can be found [here](https://github.com/watmildon/vscode-mapcss-syntax).
