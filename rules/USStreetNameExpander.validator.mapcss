@@ -1,7 +1,7 @@
 meta
 {
     title: "(US) Abbreviated Streetname Fixup";
-    version: "0,1_9/15/2023";
+    version: "0,1_9/19/2023";
     description: "Expands common street name abbreviations in the US";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander.validator.mapcss";
@@ -930,7 +930,7 @@ fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Cross
 *["addr:street"]["addr:street"=~/ Arc\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Arcade";
 assertMatch: "way \"addr:street\"=Main Arc.";
-throwWarning: tr("addr:street={0} contains prefix Arc, should likely be expanded to Arcade","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Arc., should likely be expanded to Arcade","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Arcade");
 group: tr("addr:street contains postfix Arc, should likely be expanded to Arcade");
 }
@@ -938,7 +938,7 @@ group: tr("addr:street contains postfix Arc, should likely be expanded to Arcade
 *["addr:street"]["addr:street"=~/ Av\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Avenue";
 assertMatch: "way \"addr:street\"=Main Av.";
-throwWarning: tr("addr:street={0} contains prefix Av, should likely be expanded to Avenue","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Av., should likely be expanded to Avenue","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Avenue");
 group: tr("addr:street contains postfix Av, should likely be expanded to Avenue");
 }
@@ -946,7 +946,7 @@ group: tr("addr:street contains postfix Av, should likely be expanded to Avenue"
 *["addr:street"]["addr:street"=~/ Ave\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Avenue";
 assertMatch: "way \"addr:street\"=Main Ave.";
-throwWarning: tr("addr:street={0} contains prefix Ave, should likely be expanded to Avenue","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ave., should likely be expanded to Avenue","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Avenue");
 group: tr("addr:street contains postfix Ave, should likely be expanded to Avenue");
 }
@@ -954,7 +954,7 @@ group: tr("addr:street contains postfix Ave, should likely be expanded to Avenue
 *["addr:street"]["addr:street"=~/ Blf\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Bluff";
 assertMatch: "way \"addr:street\"=Main Blf.";
-throwWarning: tr("addr:street={0} contains prefix Blf, should likely be expanded to Bluff","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Blf., should likely be expanded to Bluff","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Bluff");
 group: tr("addr:street contains postfix Blf, should likely be expanded to Bluff");
 }
@@ -962,7 +962,7 @@ group: tr("addr:street contains postfix Blf, should likely be expanded to Bluff"
 *["addr:street"]["addr:street"=~/ Blvd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Boulevard";
 assertMatch: "way \"addr:street\"=Main Blvd.";
-throwWarning: tr("addr:street={0} contains prefix Blvd, should likely be expanded to Boulevard","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Blvd., should likely be expanded to Boulevard","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Boulevard");
 group: tr("addr:street contains postfix Blvd, should likely be expanded to Boulevard");
 }
@@ -970,7 +970,7 @@ group: tr("addr:street contains postfix Blvd, should likely be expanded to Boule
 *["addr:street"]["addr:street"=~/ Bnd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Bend";
 assertMatch: "way \"addr:street\"=Main Bnd.";
-throwWarning: tr("addr:street={0} contains prefix Bnd, should likely be expanded to Bend","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Bnd., should likely be expanded to Bend","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Bend");
 group: tr("addr:street contains postfix Bnd, should likely be expanded to Bend");
 }
@@ -978,7 +978,7 @@ group: tr("addr:street contains postfix Bnd, should likely be expanded to Bend")
 *["addr:street"]["addr:street"=~/ Br\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Bridge";
 assertMatch: "way \"addr:street\"=Main Br.";
-throwWarning: tr("addr:street={0} contains prefix Br, should likely be expanded to Bridge","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Br., should likely be expanded to Bridge","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Bridge");
 group: tr("addr:street contains postfix Br, should likely be expanded to Bridge");
 }
@@ -986,7 +986,7 @@ group: tr("addr:street contains postfix Br, should likely be expanded to Bridge"
 *["addr:street"]["addr:street"=~/ Brg\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Bridge";
 assertMatch: "way \"addr:street\"=Main Brg.";
-throwWarning: tr("addr:street={0} contains prefix Brg, should likely be expanded to Bridge","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Brg., should likely be expanded to Bridge","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Bridge");
 group: tr("addr:street contains postfix Brg, should likely be expanded to Bridge");
 }
@@ -994,7 +994,7 @@ group: tr("addr:street contains postfix Brg, should likely be expanded to Bridge
 *["addr:street"]["addr:street"=~/ Byp\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Bypass";
 assertMatch: "way \"addr:street\"=Main Byp.";
-throwWarning: tr("addr:street={0} contains prefix Byp, should likely be expanded to Bypass","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Byp., should likely be expanded to Bypass","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Bypass");
 group: tr("addr:street contains postfix Byp, should likely be expanded to Bypass");
 }
@@ -1002,7 +1002,7 @@ group: tr("addr:street contains postfix Byp, should likely be expanded to Bypass
 *["addr:street"]["addr:street"=~/ Cir\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Circle";
 assertMatch: "way \"addr:street\"=Main Cir.";
-throwWarning: tr("addr:street={0} contains prefix Cir, should likely be expanded to Circle","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Cir., should likely be expanded to Circle","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Circle");
 group: tr("addr:street contains postfix Cir, should likely be expanded to Circle");
 }
@@ -1010,7 +1010,7 @@ group: tr("addr:street contains postfix Cir, should likely be expanded to Circle
 *["addr:street"]["addr:street"=~/ Cres\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Crescent";
 assertMatch: "way \"addr:street\"=Main Cres.";
-throwWarning: tr("addr:street={0} contains prefix Cres, should likely be expanded to Crescent","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Cres., should likely be expanded to Crescent","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Crescent");
 group: tr("addr:street contains postfix Cres, should likely be expanded to Crescent");
 }
@@ -1018,7 +1018,7 @@ group: tr("addr:street contains postfix Cres, should likely be expanded to Cresc
 *["addr:street"]["addr:street"=~/ Cswy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Causeway";
 assertMatch: "way \"addr:street\"=Main Cswy.";
-throwWarning: tr("addr:street={0} contains prefix Cswy, should likely be expanded to Causeway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Cswy., should likely be expanded to Causeway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Causeway");
 group: tr("addr:street contains postfix Cswy, should likely be expanded to Causeway");
 }
@@ -1026,7 +1026,7 @@ group: tr("addr:street contains postfix Cswy, should likely be expanded to Cause
 *["addr:street"]["addr:street"=~/ Ct\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Court";
 assertMatch: "way \"addr:street\"=Main Ct.";
-throwWarning: tr("addr:street={0} contains prefix Ct, should likely be expanded to Court","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ct., should likely be expanded to Court","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Court");
 group: tr("addr:street contains postfix Ct, should likely be expanded to Court");
 }
@@ -1034,7 +1034,7 @@ group: tr("addr:street contains postfix Ct, should likely be expanded to Court")
 *["addr:street"]["addr:street"=~/ Ctr\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Center";
 assertMatch: "way \"addr:street\"=Main Ctr.";
-throwWarning: tr("addr:street={0} contains prefix Ctr, should likely be expanded to Center","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ctr., should likely be expanded to Center","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Center");
 group: tr("addr:street contains postfix Ctr, should likely be expanded to Center");
 }
@@ -1042,7 +1042,7 @@ group: tr("addr:street contains postfix Ctr, should likely be expanded to Center
 *["addr:street"]["addr:street"=~/ Cv\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Cove";
 assertMatch: "way \"addr:street\"=Main Cv.";
-throwWarning: tr("addr:street={0} contains prefix Cv, should likely be expanded to Cove","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Cv., should likely be expanded to Cove","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Cove");
 group: tr("addr:street contains postfix Cv, should likely be expanded to Cove");
 }
@@ -1050,7 +1050,7 @@ group: tr("addr:street contains postfix Cv, should likely be expanded to Cove");
 *["addr:street"]["addr:street"=~/ Dr\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Drive";
 assertMatch: "way \"addr:street\"=Main Dr.";
-throwWarning: tr("addr:street={0} contains prefix Dr, should likely be expanded to Drive","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Dr., should likely be expanded to Drive","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Drive");
 group: tr("addr:street contains postfix Dr, should likely be expanded to Drive");
 }
@@ -1058,7 +1058,7 @@ group: tr("addr:street contains postfix Dr, should likely be expanded to Drive")
 *["addr:street"]["addr:street"=~/ Expy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Expressway";
 assertMatch: "way \"addr:street\"=Main Expy.";
-throwWarning: tr("addr:street={0} contains prefix Expy, should likely be expanded to Expressway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Expy., should likely be expanded to Expressway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Expressway");
 group: tr("addr:street contains postfix Expy, should likely be expanded to Expressway");
 }
@@ -1066,7 +1066,7 @@ group: tr("addr:street contains postfix Expy, should likely be expanded to Expre
 *["addr:street"]["addr:street"=~/ Expwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Expressway";
 assertMatch: "way \"addr:street\"=Main Expwy.";
-throwWarning: tr("addr:street={0} contains prefix Expwy, should likely be expanded to Expressway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Expwy., should likely be expanded to Expressway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-6), "Expressway");
 group: tr("addr:street contains postfix Expwy, should likely be expanded to Expressway");
 }
@@ -1074,7 +1074,7 @@ group: tr("addr:street contains postfix Expwy, should likely be expanded to Expr
 *["addr:street"]["addr:street"=~/ Flds\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Fields";
 assertMatch: "way \"addr:street\"=Main Flds.";
-throwWarning: tr("addr:street={0} contains prefix Flds, should likely be expanded to Fields","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Flds., should likely be expanded to Fields","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Fields");
 group: tr("addr:street contains postfix Flds, should likely be expanded to Fields");
 }
@@ -1082,7 +1082,7 @@ group: tr("addr:street contains postfix Flds, should likely be expanded to Field
 *["addr:street"]["addr:street"=~/ Fmrd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Farm to Market Road";
 assertMatch: "way \"addr:street\"=Main Fmrd.";
-throwWarning: tr("addr:street={0} contains prefix Fmrd, should likely be expanded to Farm to Market Road","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Fmrd., should likely be expanded to Farm to Market Road","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Farm to Market Road");
 group: tr("addr:street contains postfix Fmrd, should likely be expanded to Farm to Market Road");
 }
@@ -1090,7 +1090,7 @@ group: tr("addr:street contains postfix Fmrd, should likely be expanded to Farm 
 *["addr:street"]["addr:street"=~/ Fwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Freeway";
 assertMatch: "way \"addr:street\"=Main Fwy.";
-throwWarning: tr("addr:street={0} contains prefix Fwy, should likely be expanded to Freeway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Fwy., should likely be expanded to Freeway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Freeway");
 group: tr("addr:street contains postfix Fwy, should likely be expanded to Freeway");
 }
@@ -1098,7 +1098,7 @@ group: tr("addr:street contains postfix Fwy, should likely be expanded to Freewa
 *["addr:street"]["addr:street"=~/ Gd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Grade";
 assertMatch: "way \"addr:street\"=Main Gd.";
-throwWarning: tr("addr:street={0} contains prefix Gd, should likely be expanded to Grade","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Gd., should likely be expanded to Grade","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Grade");
 group: tr("addr:street contains postfix Gd, should likely be expanded to Grade");
 }
@@ -1106,7 +1106,7 @@ group: tr("addr:street contains postfix Gd, should likely be expanded to Grade")
 *["addr:street"]["addr:street"=~/ Grv\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Grove";
 assertMatch: "way \"addr:street\"=Main Grv.";
-throwWarning: tr("addr:street={0} contains prefix Grv, should likely be expanded to Grove","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Grv., should likely be expanded to Grove","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Grove");
 group: tr("addr:street contains postfix Grv, should likely be expanded to Grove");
 }
@@ -1114,7 +1114,7 @@ group: tr("addr:street contains postfix Grv, should likely be expanded to Grove"
 *["addr:street"]["addr:street"=~/ Hbr\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Harbor";
 assertMatch: "way \"addr:street\"=Main Hbr.";
-throwWarning: tr("addr:street={0} contains prefix Hbr, should likely be expanded to Harbor","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Hbr., should likely be expanded to Harbor","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Harbor");
 group: tr("addr:street contains postfix Hbr, should likely be expanded to Harbor");
 }
@@ -1122,7 +1122,7 @@ group: tr("addr:street contains postfix Hbr, should likely be expanded to Harbor
 *["addr:street"]["addr:street"=~/ Holw\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Hollow";
 assertMatch: "way \"addr:street\"=Main Holw.";
-throwWarning: tr("addr:street={0} contains prefix Holw, should likely be expanded to Hollow","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Holw., should likely be expanded to Hollow","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Hollow");
 group: tr("addr:street contains postfix Holw, should likely be expanded to Hollow");
 }
@@ -1130,7 +1130,7 @@ group: tr("addr:street contains postfix Holw, should likely be expanded to Hollo
 *["addr:street"]["addr:street"=~/ Hw\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Highway";
 assertMatch: "way \"addr:street\"=Main Hw.";
-throwWarning: tr("addr:street={0} contains prefix Hw, should likely be expanded to Highway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Hw., should likely be expanded to Highway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Highway");
 group: tr("addr:street contains postfix Hw, should likely be expanded to Highway");
 }
@@ -1138,7 +1138,7 @@ group: tr("addr:street contains postfix Hw, should likely be expanded to Highway
 *["addr:street"]["addr:street"=~/ Hwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Highway";
 assertMatch: "way \"addr:street\"=Main Hwy.";
-throwWarning: tr("addr:street={0} contains prefix Hwy, should likely be expanded to Highway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Hwy., should likely be expanded to Highway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Highway");
 group: tr("addr:street contains postfix Hwy, should likely be expanded to Highway");
 }
@@ -1146,7 +1146,7 @@ group: tr("addr:street contains postfix Hwy, should likely be expanded to Highwa
 *["addr:street"]["addr:street"=~/ Ln\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Lane";
 assertMatch: "way \"addr:street\"=Main Ln.";
-throwWarning: tr("addr:street={0} contains prefix Ln, should likely be expanded to Lane","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ln., should likely be expanded to Lane","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Lane");
 group: tr("addr:street contains postfix Ln, should likely be expanded to Lane");
 }
@@ -1154,7 +1154,7 @@ group: tr("addr:street contains postfix Ln, should likely be expanded to Lane");
 *["addr:street"]["addr:street"=~/ Lndg\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Landing";
 assertMatch: "way \"addr:street\"=Main Lndg.";
-throwWarning: tr("addr:street={0} contains prefix Lndg, should likely be expanded to Landing","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Lndg., should likely be expanded to Landing","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Landing");
 group: tr("addr:street contains postfix Lndg, should likely be expanded to Landing");
 }
@@ -1162,7 +1162,7 @@ group: tr("addr:street contains postfix Lndg, should likely be expanded to Landi
 *["addr:street"]["addr:street"=~/ Lp\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Loop";
 assertMatch: "way \"addr:street\"=Main Lp.";
-throwWarning: tr("addr:street={0} contains prefix Lp, should likely be expanded to Loop","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Lp., should likely be expanded to Loop","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Loop");
 group: tr("addr:street contains postfix Lp, should likely be expanded to Loop");
 }
@@ -1170,7 +1170,7 @@ group: tr("addr:street contains postfix Lp, should likely be expanded to Loop");
 *["addr:street"]["addr:street"=~/ Mal\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Mall";
 assertMatch: "way \"addr:street\"=Main Mal.";
-throwWarning: tr("addr:street={0} contains prefix Mal, should likely be expanded to Mall","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Mal., should likely be expanded to Mall","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Mall");
 group: tr("addr:street contains postfix Mal, should likely be expanded to Mall");
 }
@@ -1178,7 +1178,7 @@ group: tr("addr:street contains postfix Mal, should likely be expanded to Mall")
 *["addr:street"]["addr:street"=~/ Mt\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Mount";
 assertMatch: "way \"addr:street\"=Main Mt.";
-throwWarning: tr("addr:street={0} contains prefix Mt, should likely be expanded to Mount","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Mt., should likely be expanded to Mount","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Mount");
 group: tr("addr:street contains postfix Mt, should likely be expanded to Mount");
 }
@@ -1186,7 +1186,7 @@ group: tr("addr:street contains postfix Mt, should likely be expanded to Mount")
 *["addr:street"]["addr:street"=~/ Mtwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Motorway";
 assertMatch: "way \"addr:street\"=Main Mtwy.";
-throwWarning: tr("addr:street={0} contains prefix Mtwy, should likely be expanded to Motorway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Mtwy., should likely be expanded to Motorway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Motorway");
 group: tr("addr:street contains postfix Mtwy, should likely be expanded to Motorway");
 }
@@ -1194,7 +1194,7 @@ group: tr("addr:street contains postfix Mtwy, should likely be expanded to Motor
 *["addr:street"]["addr:street"=~/ Ovps\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Overpass";
 assertMatch: "way \"addr:street\"=Main Ovps.";
-throwWarning: tr("addr:street={0} contains prefix Ovps, should likely be expanded to Overpass","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ovps., should likely be expanded to Overpass","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Overpass");
 group: tr("addr:street contains postfix Ovps, should likely be expanded to Overpass");
 }
@@ -1202,7 +1202,7 @@ group: tr("addr:street contains postfix Ovps, should likely be expanded to Overp
 *["addr:street"]["addr:street"=~/ Pky\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Parkway";
 assertMatch: "way \"addr:street\"=Main Pky.";
-throwWarning: tr("addr:street={0} contains prefix Pky, should likely be expanded to Parkway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Pky., should likely be expanded to Parkway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Parkway");
 group: tr("addr:street contains postfix Pky, should likely be expanded to Parkway");
 }
@@ -1210,7 +1210,7 @@ group: tr("addr:street contains postfix Pky, should likely be expanded to Parkwa
 *["addr:street"]["addr:street"=~/ Pkwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Parkway";
 assertMatch: "way \"addr:street\"=Main Pkwy.";
-throwWarning: tr("addr:street={0} contains prefix Pkwy, should likely be expanded to Parkway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Pkwy., should likely be expanded to Parkway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Parkway");
 group: tr("addr:street contains postfix Pkwy, should likely be expanded to Parkway");
 }
@@ -1218,7 +1218,7 @@ group: tr("addr:street contains postfix Pkwy, should likely be expanded to Parkw
 *["addr:street"]["addr:street"=~/ Pl\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Place";
 assertMatch: "way \"addr:street\"=Main Pl.";
-throwWarning: tr("addr:street={0} contains prefix Pl, should likely be expanded to Place","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Pl., should likely be expanded to Place","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Place");
 group: tr("addr:street contains postfix Pl, should likely be expanded to Place");
 }
@@ -1226,7 +1226,7 @@ group: tr("addr:street contains postfix Pl, should likely be expanded to Place")
 *["addr:street"]["addr:street"=~/ Plz\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Plaza";
 assertMatch: "way \"addr:street\"=Main Plz.";
-throwWarning: tr("addr:street={0} contains prefix Plz, should likely be expanded to Plaza","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Plz., should likely be expanded to Plaza","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Plaza");
 group: tr("addr:street contains postfix Plz, should likely be expanded to Plaza");
 }
@@ -1234,7 +1234,7 @@ group: tr("addr:street contains postfix Plz, should likely be expanded to Plaza"
 *["addr:street"]["addr:street"=~/ Rd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Road";
 assertMatch: "way \"addr:street\"=Main Rd.";
-throwWarning: tr("addr:street={0} contains prefix Rd, should likely be expanded to Road","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Rd., should likely be expanded to Road","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Road");
 group: tr("addr:street contains postfix Rd, should likely be expanded to Road");
 }
@@ -1242,7 +1242,7 @@ group: tr("addr:street contains postfix Rd, should likely be expanded to Road");
 *["addr:street"]["addr:street"=~/ Rdg\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Ridge";
 assertMatch: "way \"addr:street\"=Main Rdg.";
-throwWarning: tr("addr:street={0} contains prefix Rdg, should likely be expanded to Ridge","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Rdg., should likely be expanded to Ridge","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Ridge");
 group: tr("addr:street contains postfix Rdg, should likely be expanded to Ridge");
 }
@@ -1250,7 +1250,7 @@ group: tr("addr:street contains postfix Rdg, should likely be expanded to Ridge"
 *["addr:street"]["addr:street"=~/ Rmrd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Ranch to Market Road";
 assertMatch: "way \"addr:street\"=Main Rmrd.";
-throwWarning: tr("addr:street={0} contains prefix Rmrd, should likely be expanded to Ranch to Market Road","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Rmrd., should likely be expanded to Ranch to Market Road","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Ranch to Market Road");
 group: tr("addr:street contains postfix Rmrd, should likely be expanded to Ranch to Market Road");
 }
@@ -1258,7 +1258,7 @@ group: tr("addr:street contains postfix Rmrd, should likely be expanded to Ranch
 *["addr:street"]["addr:street"=~/ Rte\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Route";
 assertMatch: "way \"addr:street\"=Main Rte.";
-throwWarning: tr("addr:street={0} contains prefix Rte, should likely be expanded to Route","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Rte., should likely be expanded to Route","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Route");
 group: tr("addr:street contains postfix Rte, should likely be expanded to Route");
 }
@@ -1266,7 +1266,7 @@ group: tr("addr:street contains postfix Rte, should likely be expanded to Route"
 *["addr:street"]["addr:street"=~/ Skwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Skyway";
 assertMatch: "way \"addr:street\"=Main Skwy.";
-throwWarning: tr("addr:street={0} contains prefix Skwy, should likely be expanded to Skyway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Skwy., should likely be expanded to Skyway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Skyway");
 group: tr("addr:street contains postfix Skwy, should likely be expanded to Skyway");
 }
@@ -1274,7 +1274,7 @@ group: tr("addr:street contains postfix Skwy, should likely be expanded to Skywa
 *["addr:street"]["addr:street"=~/ Sq\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Square";
 assertMatch: "way \"addr:street\"=Main Sq.";
-throwWarning: tr("addr:street={0} contains prefix Sq, should likely be expanded to Square","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Sq., should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Square");
 group: tr("addr:street contains postfix Sq, should likely be expanded to Square");
 }
@@ -1282,7 +1282,7 @@ group: tr("addr:street contains postfix Sq, should likely be expanded to Square"
 *["addr:street"]["addr:street"=~/ St\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Street";
 assertMatch: "way \"addr:street\"=Main St.";
-throwWarning: tr("addr:street={0} contains prefix St, should likely be expanded to Street","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix St., should likely be expanded to Street","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Street");
 group: tr("addr:street contains postfix St, should likely be expanded to Street");
 }
@@ -1290,7 +1290,7 @@ group: tr("addr:street contains postfix St, should likely be expanded to Street"
 *["addr:street"]["addr:street"=~/ Ter\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Terrace";
 assertMatch: "way \"addr:street\"=Main Ter.";
-throwWarning: tr("addr:street={0} contains prefix Ter, should likely be expanded to Terrace","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Ter., should likely be expanded to Terrace","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Terrace");
 group: tr("addr:street contains postfix Ter, should likely be expanded to Terrace");
 }
@@ -1298,7 +1298,7 @@ group: tr("addr:street contains postfix Ter, should likely be expanded to Terrac
 *["addr:street"]["addr:street"=~/ Tfwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Trafficway";
 assertMatch: "way \"addr:street\"=Main Tfwy.";
-throwWarning: tr("addr:street={0} contains prefix Tfwy, should likely be expanded to Trafficway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Tfwy., should likely be expanded to Trafficway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Trafficway");
 group: tr("addr:street contains postfix Tfwy, should likely be expanded to Trafficway");
 }
@@ -1306,7 +1306,7 @@ group: tr("addr:street contains postfix Tfwy, should likely be expanded to Traff
 *["addr:street"]["addr:street"=~/ Thfr\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Thoroughfare";
 assertMatch: "way \"addr:street\"=Main Thfr.";
-throwWarning: tr("addr:street={0} contains prefix Thfr, should likely be expanded to Thoroughfare","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Thfr., should likely be expanded to Thoroughfare","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Thoroughfare");
 group: tr("addr:street contains postfix Thfr, should likely be expanded to Thoroughfare");
 }
@@ -1314,7 +1314,7 @@ group: tr("addr:street contains postfix Thfr, should likely be expanded to Thoro
 *["addr:street"]["addr:street"=~/ Thwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Throughway";
 assertMatch: "way \"addr:street\"=Main Thwy.";
-throwWarning: tr("addr:street={0} contains prefix Thwy, should likely be expanded to Throughway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Thwy., should likely be expanded to Throughway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Throughway");
 group: tr("addr:street contains postfix Thwy, should likely be expanded to Throughway");
 }
@@ -1322,7 +1322,7 @@ group: tr("addr:street contains postfix Thwy, should likely be expanded to Throu
 *["addr:street"]["addr:street"=~/ Tl\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Trail";
 assertMatch: "way \"addr:street\"=Main Tl.";
-throwWarning: tr("addr:street={0} contains prefix Tl, should likely be expanded to Trail","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Tl., should likely be expanded to Trail","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Trail");
 group: tr("addr:street contains postfix Tl, should likely be expanded to Trail");
 }
@@ -1330,7 +1330,7 @@ group: tr("addr:street contains postfix Tl, should likely be expanded to Trail")
 *["addr:street"]["addr:street"=~/ Tpke\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Turnpike";
 assertMatch: "way \"addr:street\"=Main Tpke.";
-throwWarning: tr("addr:street={0} contains prefix Tpke, should likely be expanded to Turnpike","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Tpke., should likely be expanded to Turnpike","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Turnpike");
 group: tr("addr:street contains postfix Tpke, should likely be expanded to Turnpike");
 }
@@ -1338,7 +1338,7 @@ group: tr("addr:street contains postfix Tpke, should likely be expanded to Turnp
 *["addr:street"]["addr:street"=~/ Trce\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Trace";
 assertMatch: "way \"addr:street\"=Main Trce.";
-throwWarning: tr("addr:street={0} contains prefix Trce, should likely be expanded to Trace","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Trce., should likely be expanded to Trace","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Trace");
 group: tr("addr:street contains postfix Trce, should likely be expanded to Trace");
 }
@@ -1346,7 +1346,7 @@ group: tr("addr:street contains postfix Trce, should likely be expanded to Trace
 *["addr:street"]["addr:street"=~/ Tr\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Trail";
 assertMatch: "way \"addr:street\"=Main Tr.";
-throwWarning: tr("addr:street={0} contains prefix Tr, should likely be expanded to Trail","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Tr., should likely be expanded to Trail","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Trail");
 group: tr("addr:street contains postfix Tr, should likely be expanded to Trail");
 }
@@ -1354,7 +1354,7 @@ group: tr("addr:street contains postfix Tr, should likely be expanded to Trail")
 *["addr:street"]["addr:street"=~/ Trl\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Trail";
 assertMatch: "way \"addr:street\"=Main Trl.";
-throwWarning: tr("addr:street={0} contains prefix Trl, should likely be expanded to Trail","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Trl., should likely be expanded to Trail","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Trail");
 group: tr("addr:street contains postfix Trl, should likely be expanded to Trail");
 }
@@ -1362,7 +1362,7 @@ group: tr("addr:street contains postfix Trl, should likely be expanded to Trail"
 *["addr:street"]["addr:street"=~/ Tunl\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Tunnel";
 assertMatch: "way \"addr:street\"=Main Tunl.";
-throwWarning: tr("addr:street={0} contains prefix Tunl, should likely be expanded to Tunnel","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Tunl., should likely be expanded to Tunnel","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Tunnel");
 group: tr("addr:street contains postfix Tunl, should likely be expanded to Tunnel");
 }
@@ -1370,7 +1370,7 @@ group: tr("addr:street contains postfix Tunl, should likely be expanded to Tunne
 *["addr:street"]["addr:street"=~/ Unp\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Underpass";
 assertMatch: "way \"addr:street\"=Main Unp.";
-throwWarning: tr("addr:street={0} contains prefix Unp, should likely be expanded to Underpass","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Unp., should likely be expanded to Underpass","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Underpass");
 group: tr("addr:street contains postfix Unp, should likely be expanded to Underpass");
 }
@@ -1378,7 +1378,7 @@ group: tr("addr:street contains postfix Unp, should likely be expanded to Underp
 *["addr:street"]["addr:street"=~/ Vw\.$/] {
 assertNoMatch: "way \"addr:street\"=Main View";
 assertMatch: "way \"addr:street\"=Main Vw.";
-throwWarning: tr("addr:street={0} contains prefix Vw, should likely be expanded to View","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Vw., should likely be expanded to View","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "View");
 group: tr("addr:street contains postfix Vw, should likely be expanded to View");
 }
@@ -1386,7 +1386,7 @@ group: tr("addr:street contains postfix Vw, should likely be expanded to View");
 *["addr:street"]["addr:street"=~/ Wkwy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Walkway";
 assertMatch: "way \"addr:street\"=Main Wkwy.";
-throwWarning: tr("addr:street={0} contains prefix Wkwy, should likely be expanded to Walkway","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Wkwy., should likely be expanded to Walkway","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Walkway");
 group: tr("addr:street contains postfix Wkwy, should likely be expanded to Walkway");
 }
@@ -1394,7 +1394,7 @@ group: tr("addr:street contains postfix Wkwy, should likely be expanded to Walkw
 *["addr:street"]["addr:street"=~/ Wy\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Way";
 assertMatch: "way \"addr:street\"=Main Wy.";
-throwWarning: tr("addr:street={0} contains prefix Wy, should likely be expanded to Way","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Wy., should likely be expanded to Way","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Way");
 group: tr("addr:street contains postfix Wy, should likely be expanded to Way");
 }
@@ -1402,7 +1402,7 @@ group: tr("addr:street contains postfix Wy, should likely be expanded to Way");
 *["addr:street"]["addr:street"=~/ Xing\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Crossing";
 assertMatch: "way \"addr:street\"=Main Xing.";
-throwWarning: tr("addr:street={0} contains prefix Xing, should likely be expanded to Crossing","{0.value}");
+throwWarning: tr("addr:street={0} contains prefix Xing., should likely be expanded to Crossing","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Crossing");
 group: tr("addr:street contains postfix Xing, should likely be expanded to Crossing");
 }
