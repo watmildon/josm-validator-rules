@@ -79,6 +79,7 @@ out skel qt;
 }
 
 /* Trailing digits (zip codes) */
+
 *["addr:street"]["addr:street"=~/ [0-9]{5}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street Seattle WA 99999";
@@ -124,6 +125,14 @@ out skel qt;
 }
 
 *["addr:street"]["addr:street"=~/ # ?[0-9]{1-4}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street # 123";
+    assertMatch: "way \"addr:city\"=123 Main Street #123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
+*["addr:street"]["addr:street"=~/ Unit ?[0-9]{1-4}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street # 123";
     assertMatch: "way \"addr:city\"=123 Main Street #123";
