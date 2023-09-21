@@ -124,7 +124,7 @@ out skel qt;
     group: tr("addr:street likely ends with a unit number");
 }
 
-*["addr:street"]["addr:street"=~/ # ?[0-9]{1-4}$/] {
+*["addr:street"]["addr:street"=~/ # ?[0-9]{1,4}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street # 123";
     assertMatch: "way \"addr:city\"=123 Main Street #123";
@@ -132,7 +132,7 @@ out skel qt;
     group: tr("addr:street likely ends with a unit number");
 }
 
-*["addr:street"]["addr:street"=~/ Unit ?[0-9]{1-4}$/] {
+*["addr:street"]["addr:street"=~/ Unit ?[0-9]{1,4}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street # 123";
     assertMatch: "way \"addr:city\"=123 Main Street #123";
