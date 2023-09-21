@@ -1,0 +1,30 @@
+meta
+{
+    title: "Remove COVID19 tagging";
+    version: "0,1_2023-09-21";
+    description: "Flags various COVID19 tags and offers to remove them";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:150];
+{{geocodeArea:"Seattle, Washington State"}}->.searchArea;
+(
+  node[~"covid19"~".+"](area.searchArea);
+);
+out body;
+>;
+out skel qt;
+*/
+
+
+*[/:covid19/]{
+    assertNoMatch: "way \"takeaway\"=yes";
+    assertMatch: "way \"takeaway:covid19\"=yes";
+    group: tr("Subtag with :covid19, may need to be removed");
+    throwWarning: tr("{0}", "{0.key}");
+    fixRemove: tr("{0}", "{0.key}");
+}
