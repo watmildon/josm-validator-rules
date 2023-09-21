@@ -20,11 +20,491 @@ out body;
 out skel qt;
 */
 
-
+/*
 *[/:covid19/]{
     assertNoMatch: "way \"takeaway\"=yes";
     assertMatch: "way \"takeaway:covid19\"=yes";
     group: tr("Subtag with :covid19, may need to be removed");
     throwWarning: tr("{0}", "{0.key}");
     fixRemove: tr("{0}", "{0.key}");
+}
+*/
+*["access"]["access:covid19"]{
+  assertNoMatch: "node \"access:covid19\"=yes";
+  assertMatch: "node access=no \"access:covid19\"=yes";
+  group: tr("Covid tagging: Object with access and access:covid19, maybe remove access:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["capacity:beds"]["capacity:beds:covid19"]{
+  assertNoMatch: "node \"capacity:beds:covid19\"=yes";
+  assertMatch: "node capacity:beds=no \"capacity:beds:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity:beds and capacity:beds:covid19, maybe remove capacity:beds:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["capacity"]["capacity:covid19"]{
+  assertNoMatch: "node \"capacity:covid19\"=yes";
+  assertMatch: "node capacity=no \"capacity:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity and capacity:covid19, maybe remove capacity:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["capacity:rooms"]["capacity:rooms:covid19"]{
+  assertNoMatch: "node \"capacity:rooms:covid19\"=yes";
+  assertMatch: "node capacity:rooms=no \"capacity:rooms:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity:rooms and capacity:rooms:covid19, maybe remove capacity:rooms:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["collection"]["collection:covid19"]{
+  assertNoMatch: "node \"collection:covid19\"=yes";
+  assertMatch: "node collection=no \"collection:covid19\"=yes";
+  group: tr("Covid tagging: Object with collection and collection:covid19, maybe remove collection:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["delivery"]["delivery:covid19"]{
+  assertNoMatch: "node \"delivery:covid19\"=yes";
+  assertMatch: "node delivery=no \"delivery:covid19\"=yes";
+  group: tr("Covid tagging: Object with delivery and delivery:covid19, maybe remove delivery:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["description"]["description:covid19"]{
+  assertNoMatch: "node \"description:covid19\"=yes";
+  assertMatch: "node description=no \"description:covid19\"=yes";
+  group: tr("Covid tagging: Object with description and description:covid19, maybe remove description:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["description:it"]["description:it:covid19"]{
+  assertNoMatch: "node \"description:it:covid19\"=yes";
+  assertMatch: "node description:it=no \"description:it:covid19\"=yes";
+  group: tr("Covid tagging: Object with description:it and description:it:covid19, maybe remove description:it:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["disease"]["disease:covid19"]{
+  assertNoMatch: "node \"disease:covid19\"=yes";
+  assertMatch: "node disease=no \"disease:covid19\"=yes";
+  group: tr("Covid tagging: Object with disease and disease:covid19, maybe remove disease:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["disused:description"]["disused:description:covid19"]{
+  assertNoMatch: "node \"disused:description:covid19\"=yes";
+  assertMatch: "node disused:description=no \"disused:description:covid19\"=yes";
+  group: tr("Covid tagging: Object with disused:description and disused:description:covid19, maybe remove disused:description:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["disused:police"]["disused:police:covid19"]{
+  assertNoMatch: "node \"disused:police:covid19\"=yes";
+  assertMatch: "node disused:police=no \"disused:police:covid19\"=yes";
+  group: tr("Covid tagging: Object with disused:police and disused:police:covid19, maybe remove disused:police:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["drive_through"]["drive_through:covid19"]{
+  assertNoMatch: "node \"drive_through:covid19\"=yes";
+  assertMatch: "node drive_through=no \"drive_through:covid19\"=yes";
+  group: tr("Covid tagging: Object with drive_through and drive_through:covid19, maybe remove drive_through:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["note"]["note:covid19"]{
+  assertNoMatch: "node \"note:covid19\"=yes";
+  assertMatch: "node note=no \"note:covid19\"=yes";
+  group: tr("Covid tagging: Object with note and note:covid19, maybe remove note:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["note:opening_hours"]["note:opening_hours:covid19"]{
+  assertNoMatch: "node \"note:opening_hours:covid19\"=yes";
+  assertMatch: "node note:opening_hours=no \"note:opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with note:opening_hours and note:opening_hours:covid19, maybe remove note:opening_hours:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["opening_hours"]["opening_hours:covid19"]{
+  assertNoMatch: "node \"opening_hours:covid19\"=yes";
+  assertMatch: "node opening_hours=no \"opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with opening_hours and opening_hours:covid19, maybe remove opening_hours:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["payment:voucher"]["payment:voucher:covid19"]{
+  assertNoMatch: "node \"payment:voucher:covid19\"=yes";
+  assertMatch: "node payment:voucher=no \"payment:voucher:covid19\"=yes";
+  group: tr("Covid tagging: Object with payment:voucher and payment:voucher:covid19, maybe remove payment:voucher:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["phone"]["phone:covid19"]{
+  assertNoMatch: "node \"phone:covid19\"=yes";
+  assertMatch: "node phone=no \"phone:covid19\"=yes";
+  group: tr("Covid tagging: Object with phone and phone:covid19, maybe remove phone:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["pickup"]["pickup:covid19"]{
+  assertNoMatch: "node \"pickup:covid19\"=yes";
+  assertMatch: "node pickup=no \"pickup:covid19\"=yes";
+  group: tr("Covid tagging: Object with pickup and pickup:covid19, maybe remove pickup:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["reservation"]["reservation:covid19"]{
+  assertNoMatch: "node \"reservation:covid19\"=yes";
+  assertMatch: "node reservation=no \"reservation:covid19\"=yes";
+  group: tr("Covid tagging: Object with reservation and reservation:covid19, maybe remove reservation:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety"]["safety:covid19"]{
+  assertNoMatch: "node \"safety:covid19\"=yes";
+  assertMatch: "node safety=no \"safety:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety and safety:covid19, maybe remove safety:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety:hand_sanitizer"]["safety:hand_sanitizer:covid19"]{
+  assertNoMatch: "node \"safety:hand_sanitizer:covid19\"=yes";
+  assertMatch: "node safety:hand_sanitizer=no \"safety:hand_sanitizer:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:hand_sanitizer and safety:hand_sanitizer:covid19, maybe remove safety:hand_sanitizer:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety:health_protocol_guidelines_by"]["safety:health_protocol_guidelines_by:covid19"]{
+  assertNoMatch: "node \"safety:health_protocol_guidelines_by:covid19\"=yes";
+  assertMatch: "node safety:health_protocol_guidelines_by=no \"safety:health_protocol_guidelines_by:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:health_protocol_guidelines_by and safety:health_protocol_guidelines_by:covid19, maybe remove safety:health_protocol_guidelines_by:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety:mask"]["safety:mask:covid19"]{
+  assertNoMatch: "node \"safety:mask:covid19\"=yes";
+  assertMatch: "node safety:mask=no \"safety:mask:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:mask and safety:mask:covid19, maybe remove safety:mask:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety:protocol_training_by"]["safety:protocol_training_by:covid19"]{
+  assertNoMatch: "node \"safety:protocol_training_by:covid19\"=yes";
+  assertMatch: "node safety:protocol_training_by=no \"safety:protocol_training_by:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:protocol_training_by and safety:protocol_training_by:covid19, maybe remove safety:protocol_training_by:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["safety:shield"]["safety:shield:covid19"]{
+  assertNoMatch: "node \"safety:shield:covid19\"=yes";
+  assertMatch: "node safety:shield=no \"safety:shield:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:shield and safety:shield:covid19, maybe remove safety:shield:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["seats"]["seats:covid19"]{
+  assertNoMatch: "node \"seats:covid19\"=yes";
+  assertMatch: "node seats=no \"seats:covid19\"=yes";
+  group: tr("Covid tagging: Object with seats and seats:covid19, maybe remove seats:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["service_times"]["service_times:covid19"]{
+  assertNoMatch: "node \"service_times:covid19\"=yes";
+  assertMatch: "node service_times=no \"service_times:covid19\"=yes";
+  group: tr("Covid tagging: Object with service_times and service_times:covid19, maybe remove service_times:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["source"]["source:covid19"]{
+  assertNoMatch: "node \"source:covid19\"=yes";
+  assertMatch: "node source=no \"source:covid19\"=yes";
+  group: tr("Covid tagging: Object with source and source:covid19, maybe remove source:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["source:opening_hours"]["source:opening_hours:covid19"]{
+  assertNoMatch: "node \"source:opening_hours:covid19\"=yes";
+  assertMatch: "node source:opening_hours=no \"source:opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with source:opening_hours and source:opening_hours:covid19, maybe remove source:opening_hours:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["takeaway"]["takeaway:covid19"]{
+  assertNoMatch: "node \"takeaway:covid19\"=yes";
+  assertMatch: "node takeaway=no \"takeaway:covid19\"=yes";
+  group: tr("Covid tagging: Object with takeaway and takeaway:covid19, maybe remove takeaway:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["was:description"]["was:description:covid19"]{
+  assertNoMatch: "node \"was:description:covid19\"=yes";
+  assertMatch: "node was:description=no \"was:description:covid19\"=yes";
+  group: tr("Covid tagging: Object with was:description and was:description:covid19, maybe remove was:description:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*["website"]["website:covid19"]{
+  assertNoMatch: "node \"website:covid19\"=yes";
+  assertMatch: "node website=no \"website:covid19\"=yes";
+  group: tr("Covid tagging: Object with website and website:covid19, maybe remove website:covid19");
+  throwWarning: tr("{0}", "{0.key}");
+  fixRemove: tr("{0}", "{0.key}");
+}
+
+*[!"access"]["access:covid19"]{
+  assertNoMatch: "node access=no \"access:covid19\"=yes";
+  assertMatch: "node \"access:covid19\"=yes";
+  group: tr("Covid tagging: Object with access:covid19 tag but missing access");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"capacity:beds"]["capacity:beds:covid19"]{
+  assertNoMatch: "node capacity:beds=no \"capacity:beds:covid19\"=yes";
+  assertMatch: "node \"capacity:beds:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity:beds:covid19 tag but missing capacity:beds");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"capacity"]["capacity:covid19"]{
+  assertNoMatch: "node capacity=no \"capacity:covid19\"=yes";
+  assertMatch: "node \"capacity:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity:covid19 tag but missing capacity");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"capacity:rooms"]["capacity:rooms:covid19"]{
+  assertNoMatch: "node capacity:rooms=no \"capacity:rooms:covid19\"=yes";
+  assertMatch: "node \"capacity:rooms:covid19\"=yes";
+  group: tr("Covid tagging: Object with capacity:rooms:covid19 tag but missing capacity:rooms");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"collection"]["collection:covid19"]{
+  assertNoMatch: "node collection=no \"collection:covid19\"=yes";
+  assertMatch: "node \"collection:covid19\"=yes";
+  group: tr("Covid tagging: Object with collection:covid19 tag but missing collection");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"delivery"]["delivery:covid19"]{
+  assertNoMatch: "node delivery=no \"delivery:covid19\"=yes";
+  assertMatch: "node \"delivery:covid19\"=yes";
+  group: tr("Covid tagging: Object with delivery:covid19 tag but missing delivery");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"description"]["description:covid19"]{
+  assertNoMatch: "node description=no \"description:covid19\"=yes";
+  assertMatch: "node \"description:covid19\"=yes";
+  group: tr("Covid tagging: Object with description:covid19 tag but missing description");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"description:it"]["description:it:covid19"]{
+  assertNoMatch: "node description:it=no \"description:it:covid19\"=yes";
+  assertMatch: "node \"description:it:covid19\"=yes";
+  group: tr("Covid tagging: Object with description:it:covid19 tag but missing description:it");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"disease"]["disease:covid19"]{
+  assertNoMatch: "node disease=no \"disease:covid19\"=yes";
+  assertMatch: "node \"disease:covid19\"=yes";
+  group: tr("Covid tagging: Object with disease:covid19 tag but missing disease");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"disused:description"]["disused:description:covid19"]{
+  assertNoMatch: "node disused:description=no \"disused:description:covid19\"=yes";
+  assertMatch: "node \"disused:description:covid19\"=yes";
+  group: tr("Covid tagging: Object with disused:description:covid19 tag but missing disused:description");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"disused:police"]["disused:police:covid19"]{
+  assertNoMatch: "node disused:police=no \"disused:police:covid19\"=yes";
+  assertMatch: "node \"disused:police:covid19\"=yes";
+  group: tr("Covid tagging: Object with disused:police:covid19 tag but missing disused:police");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"drive_through"]["drive_through:covid19"]{
+  assertNoMatch: "node drive_through=no \"drive_through:covid19\"=yes";
+  assertMatch: "node \"drive_through:covid19\"=yes";
+  group: tr("Covid tagging: Object with drive_through:covid19 tag but missing drive_through");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"note"]["note:covid19"]{
+  assertNoMatch: "node note=no \"note:covid19\"=yes";
+  assertMatch: "node \"note:covid19\"=yes";
+  group: tr("Covid tagging: Object with note:covid19 tag but missing note");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"note:opening_hours"]["note:opening_hours:covid19"]{
+  assertNoMatch: "node note:opening_hours=no \"note:opening_hours:covid19\"=yes";
+  assertMatch: "node \"note:opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with note:opening_hours:covid19 tag but missing note:opening_hours");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"opening_hours"]["opening_hours:covid19"]{
+  assertNoMatch: "node opening_hours=no \"opening_hours:covid19\"=yes";
+  assertMatch: "node \"opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with opening_hours:covid19 tag but missing opening_hours");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"payment:voucher"]["payment:voucher:covid19"]{
+  assertNoMatch: "node payment:voucher=no \"payment:voucher:covid19\"=yes";
+  assertMatch: "node \"payment:voucher:covid19\"=yes";
+  group: tr("Covid tagging: Object with payment:voucher:covid19 tag but missing payment:voucher");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"phone"]["phone:covid19"]{
+  assertNoMatch: "node phone=no \"phone:covid19\"=yes";
+  assertMatch: "node \"phone:covid19\"=yes";
+  group: tr("Covid tagging: Object with phone:covid19 tag but missing phone");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"pickup"]["pickup:covid19"]{
+  assertNoMatch: "node pickup=no \"pickup:covid19\"=yes";
+  assertMatch: "node \"pickup:covid19\"=yes";
+  group: tr("Covid tagging: Object with pickup:covid19 tag but missing pickup");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"reservation"]["reservation:covid19"]{
+  assertNoMatch: "node reservation=no \"reservation:covid19\"=yes";
+  assertMatch: "node \"reservation:covid19\"=yes";
+  group: tr("Covid tagging: Object with reservation:covid19 tag but missing reservation");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety"]["safety:covid19"]{
+  assertNoMatch: "node safety=no \"safety:covid19\"=yes";
+  assertMatch: "node \"safety:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:covid19 tag but missing safety");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety:hand_sanitizer"]["safety:hand_sanitizer:covid19"]{
+  assertNoMatch: "node safety:hand_sanitizer=no \"safety:hand_sanitizer:covid19\"=yes";
+  assertMatch: "node \"safety:hand_sanitizer:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:hand_sanitizer:covid19 tag but missing safety:hand_sanitizer");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety:health_protocol_guidelines_by"]["safety:health_protocol_guidelines_by:covid19"]{
+  assertNoMatch: "node safety:health_protocol_guidelines_by=no \"safety:health_protocol_guidelines_by:covid19\"=yes";
+  assertMatch: "node \"safety:health_protocol_guidelines_by:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:health_protocol_guidelines_by:covid19 tag but missing safety:health_protocol_guidelines_by");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety:mask"]["safety:mask:covid19"]{
+  assertNoMatch: "node safety:mask=no \"safety:mask:covid19\"=yes";
+  assertMatch: "node \"safety:mask:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:mask:covid19 tag but missing safety:mask");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety:protocol_training_by"]["safety:protocol_training_by:covid19"]{
+  assertNoMatch: "node safety:protocol_training_by=no \"safety:protocol_training_by:covid19\"=yes";
+  assertMatch: "node \"safety:protocol_training_by:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:protocol_training_by:covid19 tag but missing safety:protocol_training_by");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"safety:shield"]["safety:shield:covid19"]{
+  assertNoMatch: "node safety:shield=no \"safety:shield:covid19\"=yes";
+  assertMatch: "node \"safety:shield:covid19\"=yes";
+  group: tr("Covid tagging: Object with safety:shield:covid19 tag but missing safety:shield");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"seats"]["seats:covid19"]{
+  assertNoMatch: "node seats=no \"seats:covid19\"=yes";
+  assertMatch: "node \"seats:covid19\"=yes";
+  group: tr("Covid tagging: Object with seats:covid19 tag but missing seats");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"service_times"]["service_times:covid19"]{
+  assertNoMatch: "node service_times=no \"service_times:covid19\"=yes";
+  assertMatch: "node \"service_times:covid19\"=yes";
+  group: tr("Covid tagging: Object with service_times:covid19 tag but missing service_times");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"source"]["source:covid19"]{
+  assertNoMatch: "node source=no \"source:covid19\"=yes";
+  assertMatch: "node \"source:covid19\"=yes";
+  group: tr("Covid tagging: Object with source:covid19 tag but missing source");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"source:opening_hours"]["source:opening_hours:covid19"]{
+  assertNoMatch: "node source:opening_hours=no \"source:opening_hours:covid19\"=yes";
+  assertMatch: "node \"source:opening_hours:covid19\"=yes";
+  group: tr("Covid tagging: Object with source:opening_hours:covid19 tag but missing source:opening_hours");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"takeaway"]["takeaway:covid19"]{
+  assertNoMatch: "node takeaway=no \"takeaway:covid19\"=yes";
+  assertMatch: "node \"takeaway:covid19\"=yes";
+  group: tr("Covid tagging: Object with takeaway:covid19 tag but missing takeaway");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"was:description"]["was:description:covid19"]{
+  assertNoMatch: "node was:description=no \"was:description:covid19\"=yes";
+  assertMatch: "node \"was:description:covid19\"=yes";
+  group: tr("Covid tagging: Object with was:description:covid19 tag but missing was:description");
+  throwWarning: tr("{0}", "{0.key}");
+}
+
+*[!"website"]["website:covid19"]{
+  assertNoMatch: "node website=no \"website:covid19\"=yes";
+  assertMatch: "node \"website:covid19\"=yes";
+  group: tr("Covid tagging: Object with website:covid19 tag but missing website");
+  throwWarning: tr("{0}", "{0.key}");
 }
