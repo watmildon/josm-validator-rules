@@ -72,6 +72,12 @@ out skel qt;
     group: tr("phone= is incorrectly formatted or contains multiple phone numbers, review after all other fixups have been applied");
 }
 
+*["phone"]["phone"="911"] {
+    assertMatch: "way \"phone\"=911";
+    throwError: tr("{0}", "{0.value}");
+    group: tr("Only use object-specific emergency numbers");
+}
+
 *["phone"]["phone"=~/[A-Za-z]/] {
     assertNoMatch: "way \"phone\"=+1-213-456-7890";
     assertMatch: "way \"phone\"=+1-800-COLLECT";
