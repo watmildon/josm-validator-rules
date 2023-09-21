@@ -13,14 +13,14 @@ meta
 [out:json][timeout:300];
 {{geocodeArea:"United States of America"}}->.a;
 (
-  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc$| Av$| Ave$| Blf$| Blvd$| Bnd$| Br$| Brg$| Byp$| Cir$| Cres$| Cswy$| Ct$| Ctr$| Cv$| Dr$| Expy$| Expwy$| Flds$| Fmrd$| Fwy$| Gd$| Grv$| Hbr$| Holw$| Hw$| Hwy$| Ln$| Lndg$| Lp$| Mal$| Mt$| Mtwy$| Ovps$| Pky$| Pkwy$| Pl$| Plz$| Rd$| Rdg$| Rmrd$| Rte$| Skwy$| Sq$| St$| Ter$| Tfwy$| Thfr$| Thwy$| Tl$| Tpke$| Trce$| Tr$| Trl$| Tunl$| Unp$| Vw$| Wkwy$| Wy$| Xing$"](area.a);
-  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc.$| Av.$| Ave.$| Blf.$| Blvd.$| Bnd.$| Br.$| Brg.$| Byp.$| Cir.$| Cres.$| Cswy.$| Ct.$| Ctr.$| Cv.$| Dr.$| Expy.$| Expwy.$| Flds.$| Fmrd.$| Fwy.$| Gd.$| Grv.$| Hbr.$| Holw.$| Hw.$| Hwy.$| Ln.$| Lndg.$| Lp.$| Mal.$| Mt.$| Mtwy.$| Ovps.$| Pky.$| Pkwy.$| Pl.$| Plz.$| Rd.$| Rdg.$| Rmrd.$| Rte.$| Skwy.$| Sq.$| St.$| Ter.$| Tfwy.$| Thfr.$| Thwy.$| Tl.$| Tpke.$| Trce.$| Tr.$| Trl.$| Tunl.$| Unp.$| Vw.$| Wkwy.$| Wy.$| Xing.$"](area.a);
-  wr[highway][highway!=platform][amenity!=shelter][!bus][name~"^Arc |^Av |^Ave |^Blf |^Blvd |^Bnd |^Br |^Brg |^Byp |^Cir |^Cres |^Cswy |^Ct |^Ctr |^Cv |^Dr |^Expy |^Expwy |^Flds |^Fmrd |^Fwy |^Gd |^Grv |^Hbr |^Holw |^Hw |^Hwy |^Ln |^Lndg |^Lp |^Mal |^Mt |^Mtwy |^Ovps |^Pky |^Pkwy |^Pl |^Plz |^Rd |^Rdg |^Rmrd |^Rte |^Skwy |^Sq |^St |^Ter |^Tfwy |^Thfr |^Thwy |^Tl |^Tpke |^Trce |^Tr |^Trl |^Tunl |^Unp |^Vw |^Wkwy |^Wy |^Xing "](area.a);
-  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc | Av | Ave | Blf | Blvd | Bnd | Br | Brg | Byp | Cir | Cres | Cswy | Ct | Ctr | Cv | Dr | Expy | Expwy | Flds | Fmrd | Fwy | Gd | Grv | Hbr | Holw | Hw | Hwy | Ln | Lndg | Lp | Mal | Mt | Mtwy | Ovps | Pky | Pkwy | Pl | Plz | Rd | Rdg | Rmrd | Rte | Skwy | Sq | St | Ter | Tfwy | Thfr | Thwy | Tl | Tpke | Trce | Tr | Trl | Tunl | Unp | Vw | Wkwy | Wy | Xing "](area.a);
-  nwr["addr:street"~" Arc$| Av$| Ave$| Blf$| Blvd$| Bnd$| Br$| Brg$| Byp$| Cir$| Cres$| Cswy$| Ct$| Ctr$| Cv$| Dr$| Expy$| Expwy$| Flds$| Fmrd$| Fwy$| Gd$| Grv$| Hbr$| Holw$| Hw$| Hwy$| Ln$| Lndg$| Lp$| Mal$| Mt$| Mtwy$| Ovps$| Pky$| Pkwy$| Pl$| Plz$| Rd$| Rdg$| Rmrd$| Rte$| Skwy$| Sq$| St$| Ter$| Tfwy$| Thfr$| Thwy$| Tl$| Tpke$| Trce$| Tr$| Trl$| Tunl$| Unp$| Vw$| Wkwy$| Wy$| Xing$"](area.a);
-  nwr["addr:street"~" Arc.$| Av.$| Ave.$| Blf.$| Blvd.$| Bnd.$| Br.$| Brg.$| Byp.$| Cir.$| Cres.$| Cswy.$| Ct.$| Ctr.$| Cv.$| Dr.$| Expy.$| Expwy.$| Flds.$| Fmrd.$| Fwy.$| Gd.$| Grv.$| Hbr.$| Holw.$| Hw.$| Hwy.$| Ln.$| Lndg.$| Lp.$| Mal.$| Mt.$| Mtwy.$| Ovps.$| Pky.$| Pkwy.$| Pl.$| Plz.$| Rd.$| Rdg.$| Rmrd.$| Rte.$| Skwy.$| Sq.$| St.$| Ter.$| Tfwy.$| Thfr.$| Thwy.$| Tl.$| Tpke.$| Trce.$| Tr.$| Trl.$| Tunl.$| Unp.$| Vw.$| Wkwy.$| Wy.$| Xing.$"](area.a);
-  nwr["addr:street"~"^Arc |^Av |^Ave |^Blf |^Blvd |^Bnd |^Br |^Brg |^Byp |^Cir |^Cres |^Cswy |^Ct |^Ctr |^Cv |^Dr |^Expy |^Expwy |^Flds |^Fmrd |^Fwy |^Gd |^Grv |^Hbr |^Holw |^Hw |^Hwy |^Ln |^Lndg |^Lp |^Mal |^Mt |^Mtwy |^Ovps |^Pky |^Pkwy |^Pl |^Plz |^Rd |^Rdg |^Rmrd |^Rte |^Skwy |^Sq |^St |^Ter |^Tfwy |^Thfr |^Thwy |^Tl |^Tpke |^Trce |^Tr |^Trl |^Tunl |^Unp |^Vw |^Wkwy |^Wy |^Xing "](area.a);
-  nwr["addr:street"~" Arc | Av | Ave | Blf | Blvd | Bnd | Br | Brg | Byp | Cir | Cres | Cswy | Ct | Ctr | Cv | Dr | Expy | Expwy | Flds | Fmrd | Fwy | Gd | Grv | Hbr | Holw | Hw | Hwy | Ln | Lndg | Lp | Mal | Mt | Mtwy | Ovps | Pky | Pkwy | Pl | Plz | Rd | Rdg | Rmrd | Rte | Skwy | Sq | St | Ter | Tfwy | Thfr | Thwy | Tl | Tpke | Trce | Tr | Trl | Tunl | Unp | Vw | Wkwy | Wy | Xing "](area.a);
+  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc$| Av$| Ave$| Blf$| Blvd$| Bnd$| Br$| Brg$| Byp$| Cir$| Cres$| Cswy$| Ct$| Ctr$| Cv$| Dr$| Expy$| Expwy$| Flds$| Fmrd$| Fwy$| Gd$| Grv$| Hbr$| Holw$| Hw$| Hwy$| Ln$| Lndg$| Lp$| Mal$| Mt$| Mtwy$| Ovps$| Pky$| Pkwy$| Pl$| Plz$| Pvt$| Rd$| Rdg$| Rmrd$| Rte$| Skwy$| Sq$| Srvc$| St$| Ter$| Tfwy$| Thfr$| Thwy$| Tl$| Tpke$| Trce$| Tr$| Trl$| Tunl$| Unp$| Vw$| Wkwy$| Wy$| Xing$"](area.a);
+  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc.$| Av.$| Ave.$| Blf.$| Blvd.$| Bnd.$| Br.$| Brg.$| Byp.$| Cir.$| Cres.$| Cswy.$| Ct.$| Ctr.$| Cv.$| Dr.$| Expy.$| Expwy.$| Flds.$| Fmrd.$| Fwy.$| Gd.$| Grv.$| Hbr.$| Holw.$| Hw.$| Hwy.$| Ln.$| Lndg.$| Lp.$| Mal.$| Mt.$| Mtwy.$| Ovps.$| Pky.$| Pkwy.$| Pl.$| Plz.$| Pvt.$| Rd.$| Rdg.$| Rmrd.$| Rte.$| Skwy.$| Sq.$| Srvc.$| St.$| Ter.$| Tfwy.$| Thfr.$| Thwy.$| Tl.$| Tpke.$| Trce.$| Tr.$| Trl.$| Tunl.$| Unp.$| Vw.$| Wkwy.$| Wy.$| Xing.$"](area.a);
+  wr[highway][highway!=platform][amenity!=shelter][!bus][name~"^Arc |^Av |^Ave |^Blf |^Blvd |^Bnd |^Br |^Brg |^Byp |^Cir |^Cres |^Cswy |^Ct |^Ctr |^Cv |^Dr |^Expy |^Expwy |^Flds |^Fmrd |^Fwy |^Gd |^Grv |^Hbr |^Holw |^Hw |^Hwy |^Ln |^Lndg |^Lp |^Mal |^Mt |^Mtwy |^Ovps |^Pky |^Pkwy |^Pl |^Plz |^Pvt |^Rd |^Rdg |^Rmrd |^Rte |^Skwy |^Sq |^Srvc |^St |^Ter |^Tfwy |^Thfr |^Thwy |^Tl |^Tpke |^Trce |^Tr |^Trl |^Tunl |^Unp |^Vw |^Wkwy |^Wy |^Xing "](area.a);
+  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" Arc | Av | Ave | Blf | Blvd | Bnd | Br | Brg | Byp | Cir | Cres | Cswy | Ct | Ctr | Cv | Dr | Expy | Expwy | Flds | Fmrd | Fwy | Gd | Grv | Hbr | Holw | Hw | Hwy | Ln | Lndg | Lp | Mal | Mt | Mtwy | Ovps | Pky | Pkwy | Pl | Plz | Pvt | Rd | Rdg | Rmrd | Rte | Skwy | Sq | Srvc | St | Ter | Tfwy | Thfr | Thwy | Tl | Tpke | Trce | Tr | Trl | Tunl | Unp | Vw | Wkwy | Wy | Xing "](area.a);
+  nwr["addr:street"~" Arc$| Av$| Ave$| Blf$| Blvd$| Bnd$| Br$| Brg$| Byp$| Cir$| Cres$| Cswy$| Ct$| Ctr$| Cv$| Dr$| Expy$| Expwy$| Flds$| Fmrd$| Fwy$| Gd$| Grv$| Hbr$| Holw$| Hw$| Hwy$| Ln$| Lndg$| Lp$| Mal$| Mt$| Mtwy$| Ovps$| Pky$| Pkwy$| Pl$| Plz$| Pvt$| Rd$| Rdg$| Rmrd$| Rte$| Skwy$| Sq$| Srvc$| St$| Ter$| Tfwy$| Thfr$| Thwy$| Tl$| Tpke$| Trce$| Tr$| Trl$| Tunl$| Unp$| Vw$| Wkwy$| Wy$| Xing$"](area.a);
+  nwr["addr:street"~" Arc.$| Av.$| Ave.$| Blf.$| Blvd.$| Bnd.$| Br.$| Brg.$| Byp.$| Cir.$| Cres.$| Cswy.$| Ct.$| Ctr.$| Cv.$| Dr.$| Expy.$| Expwy.$| Flds.$| Fmrd.$| Fwy.$| Gd.$| Grv.$| Hbr.$| Holw.$| Hw.$| Hwy.$| Ln.$| Lndg.$| Lp.$| Mal.$| Mt.$| Mtwy.$| Ovps.$| Pky.$| Pkwy.$| Pl.$| Plz.$| Pvt.$| Rd.$| Rdg.$| Rmrd.$| Rte.$| Skwy.$| Sq.$| Srvc.$| St.$| Ter.$| Tfwy.$| Thfr.$| Thwy.$| Tl.$| Tpke.$| Trce.$| Tr.$| Trl.$| Tunl.$| Unp.$| Vw.$| Wkwy.$| Wy.$| Xing.$"](area.a);
+  nwr["addr:street"~"^Arc |^Av |^Ave |^Blf |^Blvd |^Bnd |^Br |^Brg |^Byp |^Cir |^Cres |^Cswy |^Ct |^Ctr |^Cv |^Dr |^Expy |^Expwy |^Flds |^Fmrd |^Fwy |^Gd |^Grv |^Hbr |^Holw |^Hw |^Hwy |^Ln |^Lndg |^Lp |^Mal |^Mt |^Mtwy |^Ovps |^Pky |^Pkwy |^Pl |^Plz |^Pvt |^Rd |^Rdg |^Rmrd |^Rte |^Skwy |^Sq |^Srvc |^St |^Ter |^Tfwy |^Thfr |^Thwy |^Tl |^Tpke |^Trce |^Tr |^Trl |^Tunl |^Unp |^Vw |^Wkwy |^Wy |^Xing "](area.a);
+  nwr["addr:street"~" Arc | Av | Ave | Blf | Blvd | Bnd | Br | Brg | Byp | Cir | Cres | Cswy | Ct | Ctr | Cv | Dr | Expy | Expwy | Flds | Fmrd | Fwy | Gd | Grv | Hbr | Holw | Hw | Hwy | Ln | Lndg | Lp | Mal | Mt | Mtwy | Ovps | Pky | Pkwy | Pl | Plz | Pvt | Rd | Rdg | Rmrd | Rte | Skwy | Sq | Srvc | St | Ter | Tfwy | Thfr | Thwy | Tl | Tpke | Trce | Tr | Trl | Tunl | Unp | Vw | Wkwy | Wy | Xing "](area.a);
 );
 out body;
 >;
@@ -331,6 +331,14 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr
 group: tr("addr:street contains postfix Plz, should likely be expanded to Plaza");
 }
 
+*["addr:street"]["addr:street"=~/ Pvt$/] {
+assertNoMatch: "way \"addr:street\"=Main Private";
+assertMatch: "way \"addr:street\"=Main Pvt";
+throwWarning: tr("addr:street={0} contains postfix Pvt, should likely be expanded to Private","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Private");
+group: tr("addr:street contains postfix Pvt, should likely be expanded to Private");
+}
+
 *["addr:street"]["addr:street"=~/ Rd$/] {
 assertNoMatch: "way \"addr:street\"=Main Road";
 assertMatch: "way \"addr:street\"=Main Rd";
@@ -377,6 +385,14 @@ assertMatch: "way \"addr:street\"=Main Sq";
 throwWarning: tr("addr:street={0} contains postfix Sq, should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-2), "Square");
 group: tr("addr:street contains postfix Sq, should likely be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/ Srvc$/] {
+assertNoMatch: "way \"addr:street\"=Main Service";
+assertMatch: "way \"addr:street\"=Main Srvc";
+throwWarning: tr("addr:street={0} contains postfix Srvc, should likely be expanded to Service","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Service");
+group: tr("addr:street contains postfix Srvc, should likely be expanded to Service");
 }
 
 *["addr:street"]["addr:street"=~/ St$/] {
@@ -773,6 +789,13 @@ throwWarning: tr("Highway name contains postfix Plz, should likely be expanded t
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Plaza");
 }
 
+*[highway]["name"]["name"=~/ Pvt$/] {
+assertNoMatch: "way \"name\"=Main Private";
+assertMatch: "way \"name\"=Main Pvt";
+throwWarning: tr("Highway name contains postfix Pvt, should likely be expanded to Private");
+fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Private");
+}
+
 *[highway]["name"]["name"=~/ Rd$/] {
 assertNoMatch: "way \"name\"=Main Road";
 assertMatch: "way \"name\"=Main Rd";
@@ -813,6 +836,13 @@ assertNoMatch: "way \"name\"=Main Square";
 assertMatch: "way \"name\"=Main Sq";
 throwWarning: tr("Highway name contains postfix Sq, should likely be expanded to Square");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Square");
+}
+
+*[highway]["name"]["name"=~/ Srvc$/] {
+assertNoMatch: "way \"name\"=Main Service";
+assertMatch: "way \"name\"=Main Srvc";
+throwWarning: tr("Highway name contains postfix Srvc, should likely be expanded to Service");
+fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Service");
 }
 
 *[highway]["name"]["name"=~/ St$/] {
@@ -1231,6 +1261,14 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr
 group: tr("addr:street contains postfix Plz, should likely be expanded to Plaza");
 }
 
+*["addr:street"]["addr:street"=~/ Pvt\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Private";
+assertMatch: "way \"addr:street\"=Main Pvt.";
+throwWarning: tr("addr:street={0} contains prefix Pvt., should likely be expanded to Private","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-4), "Private");
+group: tr("addr:street contains postfix Pvt, should likely be expanded to Private");
+}
+
 *["addr:street"]["addr:street"=~/ Rd\.$/] {
 assertNoMatch: "way \"addr:street\"=Main Road";
 assertMatch: "way \"addr:street\"=Main Rd.";
@@ -1277,6 +1315,14 @@ assertMatch: "way \"addr:street\"=Main Sq.";
 throwWarning: tr("addr:street={0} contains prefix Sq., should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-3), "Square");
 group: tr("addr:street contains postfix Sq, should likely be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/ Srvc\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Service";
+assertMatch: "way \"addr:street\"=Main Srvc.";
+throwWarning: tr("addr:street={0} contains prefix Srvc., should likely be expanded to Service","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr:street"))-5), "Service");
+group: tr("addr:street contains postfix Srvc, should likely be expanded to Service");
 }
 
 *["addr:street"]["addr:street"=~/ St\.$/] {
@@ -1673,6 +1719,13 @@ throwWarning: tr("Highway name contains postfix Plz., should likely be expanded 
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Plaza");
 }
 
+*[highway]["name"]["name"=~/ Pvt\.$/] {
+assertNoMatch: "way \"name\"=Main Private";
+assertMatch: "way \"name\"=Main Pvt.";
+throwWarning: tr("Highway name contains postfix Pvt., should likely be expanded to Private");
+fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Private");
+}
+
 *[highway]["name"]["name"=~/ Rd\.$/] {
 assertNoMatch: "way \"name\"=Main Road";
 assertMatch: "way \"name\"=Main Rd.";
@@ -1713,6 +1766,13 @@ assertNoMatch: "way \"name\"=Main Square";
 assertMatch: "way \"name\"=Main Sq.";
 throwWarning: tr("Highway name contains postfix Sq., should likely be expanded to Square");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Square");
+}
+
+*[highway]["name"]["name"=~/ Srvc\.$/] {
+assertNoMatch: "way \"name\"=Main Service";
+assertMatch: "way \"name\"=Main Srvc.";
+throwWarning: tr("Highway name contains postfix Srvc., should likely be expanded to Service");
+fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Service");
 }
 
 *[highway]["name"]["name"=~/ St\.$/] {
@@ -2131,6 +2191,14 @@ fixAdd: concat("addr:street=", replace(tag("addr:street")," Plz ", " Plaza "));
 group: tr("addr:street contains Plz, should likely be expanded to Plaza");
 }
 
+*["addr:street"]["addr:street"=~/ Pvt /] {
+assertNoMatch: "way \"addr:street\"=Main Private East";
+assertMatch: "way \"addr:street\"=Main Pvt East";
+throwWarning: tr("addr:street={0} contains ' Pvt ', should likely be expanded to Private","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Pvt ", " Private "));
+group: tr("addr:street contains Pvt, should likely be expanded to Private");
+}
+
 *["addr:street"]["addr:street"=~/ Rd /] {
 assertNoMatch: "way \"addr:street\"=Main Road East";
 assertMatch: "way \"addr:street\"=Main Rd East";
@@ -2177,6 +2245,14 @@ assertMatch: "way \"addr:street\"=Main Sq East";
 throwWarning: tr("addr:street={0} contains ' Sq ', should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", replace(tag("addr:street")," Sq ", " Square "));
 group: tr("addr:street contains Sq, should likely be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/ Srvc /] {
+assertNoMatch: "way \"addr:street\"=Main Service East";
+assertMatch: "way \"addr:street\"=Main Srvc East";
+throwWarning: tr("addr:street={0} contains ' Srvc ', should likely be expanded to Service","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Srvc ", " Service "));
+group: tr("addr:street contains Srvc, should likely be expanded to Service");
 }
 
 *["addr:street"]["addr:street"=~/ St /] {
@@ -2573,6 +2649,13 @@ throwWarning: tr("Highway name contains Plz, may need to be expanded to Plaza");
 fixAdd: concat("name=", replace(tag("name")," Plz ", " Plaza "));
 }
 
+*["highway"]["name"=~/ Pvt /] {
+assertNoMatch: "way \"name\"=Main Private East";
+assertMatch: "way \"name\"=Main Pvt East";
+throwWarning: tr("Highway name contains Pvt, may need to be expanded to Private");
+fixAdd: concat("name=", replace(tag("name")," Pvt ", " Private "));
+}
+
 *["highway"]["name"=~/ Rd /] {
 assertNoMatch: "way \"name\"=Main Road East";
 assertMatch: "way \"name\"=Main Rd East";
@@ -2613,6 +2696,13 @@ assertNoMatch: "way \"name\"=Main Square East";
 assertMatch: "way \"name\"=Main Sq East";
 throwWarning: tr("Highway name contains Sq, may need to be expanded to Square");
 fixAdd: concat("name=", replace(tag("name")," Sq ", " Square "));
+}
+
+*["highway"]["name"=~/ Srvc /] {
+assertNoMatch: "way \"name\"=Main Service East";
+assertMatch: "way \"name\"=Main Srvc East";
+throwWarning: tr("Highway name contains Srvc, may need to be expanded to Service");
+fixAdd: concat("name=", replace(tag("name")," Srvc ", " Service "));
 }
 
 *["highway"]["name"=~/ St /] {
@@ -3031,6 +3121,14 @@ fixAdd: concat("addr:street=", replace(tag("addr:street")," Plz. ", " Plaza "));
 group: tr("addr:street contains Plz, should likely be expanded to Plaza");
 }
 
+*["addr:street"]["addr:street"=~/ Pvt\. /] {
+assertNoMatch: "way \"addr:street\"=Main Private East";
+assertMatch: "way \"addr:street\"=Main Pvt East";
+throwWarning: tr("addr:street={0} contains ' Pvt. ', should likely be expanded to Private","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Pvt. ", " Private "));
+group: tr("addr:street contains Pvt, should likely be expanded to Private");
+}
+
 *["addr:street"]["addr:street"=~/ Rd\. /] {
 assertNoMatch: "way \"addr:street\"=Main Road East";
 assertMatch: "way \"addr:street\"=Main Rd East";
@@ -3077,6 +3175,14 @@ assertMatch: "way \"addr:street\"=Main Sq East";
 throwWarning: tr("addr:street={0} contains ' Sq. ', should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", replace(tag("addr:street")," Sq. ", " Square "));
 group: tr("addr:street contains Sq, should likely be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/ Srvc\. /] {
+assertNoMatch: "way \"addr:street\"=Main Service East";
+assertMatch: "way \"addr:street\"=Main Srvc East";
+throwWarning: tr("addr:street={0} contains ' Srvc. ', should likely be expanded to Service","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Srvc. ", " Service "));
+group: tr("addr:street contains Srvc, should likely be expanded to Service");
 }
 
 *["addr:street"]["addr:street"=~/ St\. /] {
@@ -3473,6 +3579,13 @@ throwWarning: tr("Highway name contains Plz., may need to be expanded to Plaza")
 fixAdd: concat("name=", replace(tag("name")," Plz. ", " Plaza "));
 }
 
+*["highway"]["name"=~/ Pvt\. /] {
+assertNoMatch: "way \"name\"=Main Private East";
+assertMatch: "way \"name\"=Main Pvt East";
+throwWarning: tr("Highway name contains Pvt., may need to be expanded to Private");
+fixAdd: concat("name=", replace(tag("name")," Pvt. ", " Private "));
+}
+
 *["highway"]["name"=~/ Rd\. /] {
 assertNoMatch: "way \"name\"=Main Road East";
 assertMatch: "way \"name\"=Main Rd East";
@@ -3513,6 +3626,13 @@ assertNoMatch: "way \"name\"=Main Square East";
 assertMatch: "way \"name\"=Main Sq East";
 throwWarning: tr("Highway name contains Sq., may need to be expanded to Square");
 fixAdd: concat("name=", replace(tag("name")," Sq. ", " Square "));
+}
+
+*["highway"]["name"=~/ Srvc\. /] {
+assertNoMatch: "way \"name\"=Main Service East";
+assertMatch: "way \"name\"=Main Srvc East";
+throwWarning: tr("Highway name contains Srvc., may need to be expanded to Service");
+fixAdd: concat("name=", replace(tag("name")," Srvc. ", " Service "));
 }
 
 *["highway"]["name"=~/ St\. /] {
@@ -3931,6 +4051,14 @@ fixAdd: concat("addr:street=", "Plaza", substring(tag("addr:street"), 3));
 group: tr("addr:street begins with Plz, may need to be expanded to Plaza");
 }
 
+*["addr:street"]["addr:street"=~/^Pvt /] {
+assertNoMatch: "way \"addr:street\"=Private Foo";
+assertMatch: "way \"addr:street\"=Pvt Foo";
+throwWarning: tr("addr:street={0} begins with Pvt, should likely be expanded to Private","{0.value}");
+fixAdd: concat("addr:street=", "Private", substring(tag("addr:street"), 3));
+group: tr("addr:street begins with Pvt, may need to be expanded to Private");
+}
+
 *["addr:street"]["addr:street"=~/^Rd /] {
 assertNoMatch: "way \"addr:street\"=Road Foo";
 assertMatch: "way \"addr:street\"=Rd Foo";
@@ -3977,6 +4105,14 @@ assertMatch: "way \"addr:street\"=Sq Foo";
 throwWarning: tr("addr:street={0} begins with Sq, should likely be expanded to Square","{0.value}");
 fixAdd: concat("addr:street=", "Square", substring(tag("addr:street"), 2));
 group: tr("addr:street begins with Sq, may need to be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/^Srvc /] {
+assertNoMatch: "way \"addr:street\"=Service Foo";
+assertMatch: "way \"addr:street\"=Srvc Foo";
+throwWarning: tr("addr:street={0} begins with Srvc, should likely be expanded to Service","{0.value}");
+fixAdd: concat("addr:street=", "Service", substring(tag("addr:street"), 4));
+group: tr("addr:street begins with Srvc, may need to be expanded to Service");
 }
 
 *["addr:street"]["addr:street"=~/^St /] {
@@ -4373,6 +4509,13 @@ throwWarning: tr("Highway name begins with Plz, may need to be expanded to Plaza
 fixAdd: concat("name=", "Plaza", substring(tag("name"), 3));
 }
 
+*["highway"]["name"=~/^Pvt /] {
+assertNoMatch: "way \"name\"=Private Foo";
+assertMatch: "way \"name\"=Pvt Foo";
+throwWarning: tr("Highway name begins with Pvt, may need to be expanded to Private");
+fixAdd: concat("name=", "Private", substring(tag("name"), 3));
+}
+
 *["highway"]["name"=~/^Rd /] {
 assertNoMatch: "way \"name\"=Road Foo";
 assertMatch: "way \"name\"=Rd Foo";
@@ -4413,6 +4556,13 @@ assertNoMatch: "way \"name\"=Square Foo";
 assertMatch: "way \"name\"=Sq Foo";
 throwWarning: tr("Highway name begins with Sq, may need to be expanded to Square");
 fixAdd: concat("name=", "Square", substring(tag("name"), 2));
+}
+
+*["highway"]["name"=~/^Srvc /] {
+assertNoMatch: "way \"name\"=Service Foo";
+assertMatch: "way \"name\"=Srvc Foo";
+throwWarning: tr("Highway name begins with Srvc, may need to be expanded to Service");
+fixAdd: concat("name=", "Service", substring(tag("name"), 4));
 }
 
 *["highway"]["name"=~/^St /] {
