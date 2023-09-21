@@ -1,7 +1,7 @@
 meta
 {
     title: "(US) Abbreviated Streetname Fixup";
-    version: "0,1_9/19/2023";
+    version: "0,1_9/20/2023";
     description: "Expands common street name abbreviations in the US";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander.validator.mapcss";
@@ -2725,6 +2725,906 @@ assertNoMatch: "way \"name\"=Main Crossing East";
 assertMatch: "way \"name\"=Main Xing East";
 throwWarning: tr("Highway name contains Xing, may need to be expanded to Crossing");
 fixAdd: concat("name=", replace(tag("name")," Xing ", " Crossing "));
+}
+
+*["addr:street"]["addr:street"=~/ Arc\. /] {
+assertNoMatch: "way \"addr:street\"=Main Arcade East";
+assertMatch: "way \"addr:street\"=Main Arc East";
+throwWarning: tr("addr:street={0} contains ' Arc. ', should likely be expanded to Arcade","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Arc. ", " Arcade "));
+group: tr("addr:street contains Arc, should likely be expanded to Arcade");
+}
+
+*["addr:street"]["addr:street"=~/ Av\. /] {
+assertNoMatch: "way \"addr:street\"=Main Avenue East";
+assertMatch: "way \"addr:street\"=Main Av East";
+throwWarning: tr("addr:street={0} contains ' Av. ', should likely be expanded to Avenue","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Av. ", " Avenue "));
+group: tr("addr:street contains Av, should likely be expanded to Avenue");
+}
+
+*["addr:street"]["addr:street"=~/ Ave\. /] {
+assertNoMatch: "way \"addr:street\"=Main Avenue East";
+assertMatch: "way \"addr:street\"=Main Ave East";
+throwWarning: tr("addr:street={0} contains ' Ave. ', should likely be expanded to Avenue","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ave. ", " Avenue "));
+group: tr("addr:street contains Ave, should likely be expanded to Avenue");
+}
+
+*["addr:street"]["addr:street"=~/ Blf\. /] {
+assertNoMatch: "way \"addr:street\"=Main Bluff East";
+assertMatch: "way \"addr:street\"=Main Blf East";
+throwWarning: tr("addr:street={0} contains ' Blf. ', should likely be expanded to Bluff","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Blf. ", " Bluff "));
+group: tr("addr:street contains Blf, should likely be expanded to Bluff");
+}
+
+*["addr:street"]["addr:street"=~/ Blvd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Boulevard East";
+assertMatch: "way \"addr:street\"=Main Blvd East";
+throwWarning: tr("addr:street={0} contains ' Blvd. ', should likely be expanded to Boulevard","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Blvd. ", " Boulevard "));
+group: tr("addr:street contains Blvd, should likely be expanded to Boulevard");
+}
+
+*["addr:street"]["addr:street"=~/ Bnd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Bend East";
+assertMatch: "way \"addr:street\"=Main Bnd East";
+throwWarning: tr("addr:street={0} contains ' Bnd. ', should likely be expanded to Bend","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Bnd. ", " Bend "));
+group: tr("addr:street contains Bnd, should likely be expanded to Bend");
+}
+
+*["addr:street"]["addr:street"=~/ Br\. /] {
+assertNoMatch: "way \"addr:street\"=Main Bridge East";
+assertMatch: "way \"addr:street\"=Main Br East";
+throwWarning: tr("addr:street={0} contains ' Br. ', should likely be expanded to Bridge","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Br. ", " Bridge "));
+group: tr("addr:street contains Br, should likely be expanded to Bridge");
+}
+
+*["addr:street"]["addr:street"=~/ Brg\. /] {
+assertNoMatch: "way \"addr:street\"=Main Bridge East";
+assertMatch: "way \"addr:street\"=Main Brg East";
+throwWarning: tr("addr:street={0} contains ' Brg. ', should likely be expanded to Bridge","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Brg. ", " Bridge "));
+group: tr("addr:street contains Brg, should likely be expanded to Bridge");
+}
+
+*["addr:street"]["addr:street"=~/ Byp\. /] {
+assertNoMatch: "way \"addr:street\"=Main Bypass East";
+assertMatch: "way \"addr:street\"=Main Byp East";
+throwWarning: tr("addr:street={0} contains ' Byp. ', should likely be expanded to Bypass","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Byp. ", " Bypass "));
+group: tr("addr:street contains Byp, should likely be expanded to Bypass");
+}
+
+*["addr:street"]["addr:street"=~/ Cir\. /] {
+assertNoMatch: "way \"addr:street\"=Main Circle East";
+assertMatch: "way \"addr:street\"=Main Cir East";
+throwWarning: tr("addr:street={0} contains ' Cir. ', should likely be expanded to Circle","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Cir. ", " Circle "));
+group: tr("addr:street contains Cir, should likely be expanded to Circle");
+}
+
+*["addr:street"]["addr:street"=~/ Cres\. /] {
+assertNoMatch: "way \"addr:street\"=Main Crescent East";
+assertMatch: "way \"addr:street\"=Main Cres East";
+throwWarning: tr("addr:street={0} contains ' Cres. ', should likely be expanded to Crescent","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Cres. ", " Crescent "));
+group: tr("addr:street contains Cres, should likely be expanded to Crescent");
+}
+
+*["addr:street"]["addr:street"=~/ Cswy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Causeway East";
+assertMatch: "way \"addr:street\"=Main Cswy East";
+throwWarning: tr("addr:street={0} contains ' Cswy. ', should likely be expanded to Causeway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Cswy. ", " Causeway "));
+group: tr("addr:street contains Cswy, should likely be expanded to Causeway");
+}
+
+*["addr:street"]["addr:street"=~/ Ct\. /] {
+assertNoMatch: "way \"addr:street\"=Main Court East";
+assertMatch: "way \"addr:street\"=Main Ct East";
+throwWarning: tr("addr:street={0} contains ' Ct. ', should likely be expanded to Court","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ct. ", " Court "));
+group: tr("addr:street contains Ct, should likely be expanded to Court");
+}
+
+*["addr:street"]["addr:street"=~/ Ctr\. /] {
+assertNoMatch: "way \"addr:street\"=Main Center East";
+assertMatch: "way \"addr:street\"=Main Ctr East";
+throwWarning: tr("addr:street={0} contains ' Ctr. ', should likely be expanded to Center","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ctr. ", " Center "));
+group: tr("addr:street contains Ctr, should likely be expanded to Center");
+}
+
+*["addr:street"]["addr:street"=~/ Cv\. /] {
+assertNoMatch: "way \"addr:street\"=Main Cove East";
+assertMatch: "way \"addr:street\"=Main Cv East";
+throwWarning: tr("addr:street={0} contains ' Cv. ', should likely be expanded to Cove","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Cv. ", " Cove "));
+group: tr("addr:street contains Cv, should likely be expanded to Cove");
+}
+
+*["addr:street"]["addr:street"=~/ Dr\. /] {
+assertNoMatch: "way \"addr:street\"=Main Drive East";
+assertMatch: "way \"addr:street\"=Main Dr East";
+throwWarning: tr("addr:street={0} contains ' Dr. ', should likely be expanded to Drive","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Dr. ", " Drive "));
+group: tr("addr:street contains Dr, should likely be expanded to Drive");
+}
+
+*["addr:street"]["addr:street"=~/ Expy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Expressway East";
+assertMatch: "way \"addr:street\"=Main Expy East";
+throwWarning: tr("addr:street={0} contains ' Expy. ', should likely be expanded to Expressway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Expy. ", " Expressway "));
+group: tr("addr:street contains Expy, should likely be expanded to Expressway");
+}
+
+*["addr:street"]["addr:street"=~/ Expwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Expressway East";
+assertMatch: "way \"addr:street\"=Main Expwy East";
+throwWarning: tr("addr:street={0} contains ' Expwy. ', should likely be expanded to Expressway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Expwy. ", " Expressway "));
+group: tr("addr:street contains Expwy, should likely be expanded to Expressway");
+}
+
+*["addr:street"]["addr:street"=~/ Flds\. /] {
+assertNoMatch: "way \"addr:street\"=Main Fields East";
+assertMatch: "way \"addr:street\"=Main Flds East";
+throwWarning: tr("addr:street={0} contains ' Flds. ', should likely be expanded to Fields","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Flds. ", " Fields "));
+group: tr("addr:street contains Flds, should likely be expanded to Fields");
+}
+
+*["addr:street"]["addr:street"=~/ Fmrd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Farm to Market Road East";
+assertMatch: "way \"addr:street\"=Main Fmrd East";
+throwWarning: tr("addr:street={0} contains ' Fmrd. ', should likely be expanded to Farm to Market Road","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Fmrd. ", " Farm to Market Road "));
+group: tr("addr:street contains Fmrd, should likely be expanded to Farm to Market Road");
+}
+
+*["addr:street"]["addr:street"=~/ Fwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Freeway East";
+assertMatch: "way \"addr:street\"=Main Fwy East";
+throwWarning: tr("addr:street={0} contains ' Fwy. ', should likely be expanded to Freeway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Fwy. ", " Freeway "));
+group: tr("addr:street contains Fwy, should likely be expanded to Freeway");
+}
+
+*["addr:street"]["addr:street"=~/ Gd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Grade East";
+assertMatch: "way \"addr:street\"=Main Gd East";
+throwWarning: tr("addr:street={0} contains ' Gd. ', should likely be expanded to Grade","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Gd. ", " Grade "));
+group: tr("addr:street contains Gd, should likely be expanded to Grade");
+}
+
+*["addr:street"]["addr:street"=~/ Grv\. /] {
+assertNoMatch: "way \"addr:street\"=Main Grove East";
+assertMatch: "way \"addr:street\"=Main Grv East";
+throwWarning: tr("addr:street={0} contains ' Grv. ', should likely be expanded to Grove","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Grv. ", " Grove "));
+group: tr("addr:street contains Grv, should likely be expanded to Grove");
+}
+
+*["addr:street"]["addr:street"=~/ Hbr\. /] {
+assertNoMatch: "way \"addr:street\"=Main Harbor East";
+assertMatch: "way \"addr:street\"=Main Hbr East";
+throwWarning: tr("addr:street={0} contains ' Hbr. ', should likely be expanded to Harbor","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Hbr. ", " Harbor "));
+group: tr("addr:street contains Hbr, should likely be expanded to Harbor");
+}
+
+*["addr:street"]["addr:street"=~/ Holw\. /] {
+assertNoMatch: "way \"addr:street\"=Main Hollow East";
+assertMatch: "way \"addr:street\"=Main Holw East";
+throwWarning: tr("addr:street={0} contains ' Holw. ', should likely be expanded to Hollow","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Holw. ", " Hollow "));
+group: tr("addr:street contains Holw, should likely be expanded to Hollow");
+}
+
+*["addr:street"]["addr:street"=~/ Hw\. /] {
+assertNoMatch: "way \"addr:street\"=Main Highway East";
+assertMatch: "way \"addr:street\"=Main Hw East";
+throwWarning: tr("addr:street={0} contains ' Hw. ', should likely be expanded to Highway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Hw. ", " Highway "));
+group: tr("addr:street contains Hw, should likely be expanded to Highway");
+}
+
+*["addr:street"]["addr:street"=~/ Hwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Highway East";
+assertMatch: "way \"addr:street\"=Main Hwy East";
+throwWarning: tr("addr:street={0} contains ' Hwy. ', should likely be expanded to Highway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Hwy. ", " Highway "));
+group: tr("addr:street contains Hwy, should likely be expanded to Highway");
+}
+
+*["addr:street"]["addr:street"=~/ Ln\. /] {
+assertNoMatch: "way \"addr:street\"=Main Lane East";
+assertMatch: "way \"addr:street\"=Main Ln East";
+throwWarning: tr("addr:street={0} contains ' Ln. ', should likely be expanded to Lane","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ln. ", " Lane "));
+group: tr("addr:street contains Ln, should likely be expanded to Lane");
+}
+
+*["addr:street"]["addr:street"=~/ Lndg\. /] {
+assertNoMatch: "way \"addr:street\"=Main Landing East";
+assertMatch: "way \"addr:street\"=Main Lndg East";
+throwWarning: tr("addr:street={0} contains ' Lndg. ', should likely be expanded to Landing","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Lndg. ", " Landing "));
+group: tr("addr:street contains Lndg, should likely be expanded to Landing");
+}
+
+*["addr:street"]["addr:street"=~/ Lp\. /] {
+assertNoMatch: "way \"addr:street\"=Main Loop East";
+assertMatch: "way \"addr:street\"=Main Lp East";
+throwWarning: tr("addr:street={0} contains ' Lp. ', should likely be expanded to Loop","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Lp. ", " Loop "));
+group: tr("addr:street contains Lp, should likely be expanded to Loop");
+}
+
+*["addr:street"]["addr:street"=~/ Mal\. /] {
+assertNoMatch: "way \"addr:street\"=Main Mall East";
+assertMatch: "way \"addr:street\"=Main Mal East";
+throwWarning: tr("addr:street={0} contains ' Mal. ', should likely be expanded to Mall","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Mal. ", " Mall "));
+group: tr("addr:street contains Mal, should likely be expanded to Mall");
+}
+
+*["addr:street"]["addr:street"=~/ Mt\. /] {
+assertNoMatch: "way \"addr:street\"=Main Mount East";
+assertMatch: "way \"addr:street\"=Main Mt East";
+throwWarning: tr("addr:street={0} contains ' Mt. ', should likely be expanded to Mount","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Mt. ", " Mount "));
+group: tr("addr:street contains Mt, should likely be expanded to Mount");
+}
+
+*["addr:street"]["addr:street"=~/ Mtwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Motorway East";
+assertMatch: "way \"addr:street\"=Main Mtwy East";
+throwWarning: tr("addr:street={0} contains ' Mtwy. ', should likely be expanded to Motorway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Mtwy. ", " Motorway "));
+group: tr("addr:street contains Mtwy, should likely be expanded to Motorway");
+}
+
+*["addr:street"]["addr:street"=~/ Ovps\. /] {
+assertNoMatch: "way \"addr:street\"=Main Overpass East";
+assertMatch: "way \"addr:street\"=Main Ovps East";
+throwWarning: tr("addr:street={0} contains ' Ovps. ', should likely be expanded to Overpass","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ovps. ", " Overpass "));
+group: tr("addr:street contains Ovps, should likely be expanded to Overpass");
+}
+
+*["addr:street"]["addr:street"=~/ Pky\. /] {
+assertNoMatch: "way \"addr:street\"=Main Parkway East";
+assertMatch: "way \"addr:street\"=Main Pky East";
+throwWarning: tr("addr:street={0} contains ' Pky. ', should likely be expanded to Parkway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Pky. ", " Parkway "));
+group: tr("addr:street contains Pky, should likely be expanded to Parkway");
+}
+
+*["addr:street"]["addr:street"=~/ Pkwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Parkway East";
+assertMatch: "way \"addr:street\"=Main Pkwy East";
+throwWarning: tr("addr:street={0} contains ' Pkwy. ', should likely be expanded to Parkway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Pkwy. ", " Parkway "));
+group: tr("addr:street contains Pkwy, should likely be expanded to Parkway");
+}
+
+*["addr:street"]["addr:street"=~/ Pl\. /] {
+assertNoMatch: "way \"addr:street\"=Main Place East";
+assertMatch: "way \"addr:street\"=Main Pl East";
+throwWarning: tr("addr:street={0} contains ' Pl. ', should likely be expanded to Place","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Pl. ", " Place "));
+group: tr("addr:street contains Pl, should likely be expanded to Place");
+}
+
+*["addr:street"]["addr:street"=~/ Plz\. /] {
+assertNoMatch: "way \"addr:street\"=Main Plaza East";
+assertMatch: "way \"addr:street\"=Main Plz East";
+throwWarning: tr("addr:street={0} contains ' Plz. ', should likely be expanded to Plaza","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Plz. ", " Plaza "));
+group: tr("addr:street contains Plz, should likely be expanded to Plaza");
+}
+
+*["addr:street"]["addr:street"=~/ Rd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Road East";
+assertMatch: "way \"addr:street\"=Main Rd East";
+throwWarning: tr("addr:street={0} contains ' Rd. ', should likely be expanded to Road","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Rd. ", " Road "));
+group: tr("addr:street contains Rd, should likely be expanded to Road");
+}
+
+*["addr:street"]["addr:street"=~/ Rdg\. /] {
+assertNoMatch: "way \"addr:street\"=Main Ridge East";
+assertMatch: "way \"addr:street\"=Main Rdg East";
+throwWarning: tr("addr:street={0} contains ' Rdg. ', should likely be expanded to Ridge","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Rdg. ", " Ridge "));
+group: tr("addr:street contains Rdg, should likely be expanded to Ridge");
+}
+
+*["addr:street"]["addr:street"=~/ Rmrd\. /] {
+assertNoMatch: "way \"addr:street\"=Main Ranch to Market Road East";
+assertMatch: "way \"addr:street\"=Main Rmrd East";
+throwWarning: tr("addr:street={0} contains ' Rmrd. ', should likely be expanded to Ranch to Market Road","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Rmrd. ", " Ranch to Market Road "));
+group: tr("addr:street contains Rmrd, should likely be expanded to Ranch to Market Road");
+}
+
+*["addr:street"]["addr:street"=~/ Rte\. /] {
+assertNoMatch: "way \"addr:street\"=Main Route East";
+assertMatch: "way \"addr:street\"=Main Rte East";
+throwWarning: tr("addr:street={0} contains ' Rte. ', should likely be expanded to Route","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Rte. ", " Route "));
+group: tr("addr:street contains Rte, should likely be expanded to Route");
+}
+
+*["addr:street"]["addr:street"=~/ Skwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Skyway East";
+assertMatch: "way \"addr:street\"=Main Skwy East";
+throwWarning: tr("addr:street={0} contains ' Skwy. ', should likely be expanded to Skyway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Skwy. ", " Skyway "));
+group: tr("addr:street contains Skwy, should likely be expanded to Skyway");
+}
+
+*["addr:street"]["addr:street"=~/ Sq\. /] {
+assertNoMatch: "way \"addr:street\"=Main Square East";
+assertMatch: "way \"addr:street\"=Main Sq East";
+throwWarning: tr("addr:street={0} contains ' Sq. ', should likely be expanded to Square","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Sq. ", " Square "));
+group: tr("addr:street contains Sq, should likely be expanded to Square");
+}
+
+*["addr:street"]["addr:street"=~/ St\. /] {
+assertNoMatch: "way \"addr:street\"=Main Street East";
+assertMatch: "way \"addr:street\"=Main St East";
+throwWarning: tr("addr:street={0} contains ' St. ', should likely be expanded to Street","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," St. ", " Street "));
+group: tr("addr:street contains St, should likely be expanded to Street");
+}
+
+*["addr:street"]["addr:street"=~/ Ter\. /] {
+assertNoMatch: "way \"addr:street\"=Main Terrace East";
+assertMatch: "way \"addr:street\"=Main Ter East";
+throwWarning: tr("addr:street={0} contains ' Ter. ', should likely be expanded to Terrace","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Ter. ", " Terrace "));
+group: tr("addr:street contains Ter, should likely be expanded to Terrace");
+}
+
+*["addr:street"]["addr:street"=~/ Tfwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Trafficway East";
+assertMatch: "way \"addr:street\"=Main Tfwy East";
+throwWarning: tr("addr:street={0} contains ' Tfwy. ', should likely be expanded to Trafficway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Tfwy. ", " Trafficway "));
+group: tr("addr:street contains Tfwy, should likely be expanded to Trafficway");
+}
+
+*["addr:street"]["addr:street"=~/ Thfr\. /] {
+assertNoMatch: "way \"addr:street\"=Main Thoroughfare East";
+assertMatch: "way \"addr:street\"=Main Thfr East";
+throwWarning: tr("addr:street={0} contains ' Thfr. ', should likely be expanded to Thoroughfare","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Thfr. ", " Thoroughfare "));
+group: tr("addr:street contains Thfr, should likely be expanded to Thoroughfare");
+}
+
+*["addr:street"]["addr:street"=~/ Thwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Throughway East";
+assertMatch: "way \"addr:street\"=Main Thwy East";
+throwWarning: tr("addr:street={0} contains ' Thwy. ', should likely be expanded to Throughway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Thwy. ", " Throughway "));
+group: tr("addr:street contains Thwy, should likely be expanded to Throughway");
+}
+
+*["addr:street"]["addr:street"=~/ Tl\. /] {
+assertNoMatch: "way \"addr:street\"=Main Trail East";
+assertMatch: "way \"addr:street\"=Main Tl East";
+throwWarning: tr("addr:street={0} contains ' Tl. ', should likely be expanded to Trail","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Tl. ", " Trail "));
+group: tr("addr:street contains Tl, should likely be expanded to Trail");
+}
+
+*["addr:street"]["addr:street"=~/ Tpke\. /] {
+assertNoMatch: "way \"addr:street\"=Main Turnpike East";
+assertMatch: "way \"addr:street\"=Main Tpke East";
+throwWarning: tr("addr:street={0} contains ' Tpke. ', should likely be expanded to Turnpike","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Tpke. ", " Turnpike "));
+group: tr("addr:street contains Tpke, should likely be expanded to Turnpike");
+}
+
+*["addr:street"]["addr:street"=~/ Trce\. /] {
+assertNoMatch: "way \"addr:street\"=Main Trace East";
+assertMatch: "way \"addr:street\"=Main Trce East";
+throwWarning: tr("addr:street={0} contains ' Trce. ', should likely be expanded to Trace","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Trce. ", " Trace "));
+group: tr("addr:street contains Trce, should likely be expanded to Trace");
+}
+
+*["addr:street"]["addr:street"=~/ Tr\. /] {
+assertNoMatch: "way \"addr:street\"=Main Trail East";
+assertMatch: "way \"addr:street\"=Main Tr East";
+throwWarning: tr("addr:street={0} contains ' Tr. ', should likely be expanded to Trail","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Tr. ", " Trail "));
+group: tr("addr:street contains Tr, should likely be expanded to Trail");
+}
+
+*["addr:street"]["addr:street"=~/ Trl\. /] {
+assertNoMatch: "way \"addr:street\"=Main Trail East";
+assertMatch: "way \"addr:street\"=Main Trl East";
+throwWarning: tr("addr:street={0} contains ' Trl. ', should likely be expanded to Trail","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Trl. ", " Trail "));
+group: tr("addr:street contains Trl, should likely be expanded to Trail");
+}
+
+*["addr:street"]["addr:street"=~/ Tunl\. /] {
+assertNoMatch: "way \"addr:street\"=Main Tunnel East";
+assertMatch: "way \"addr:street\"=Main Tunl East";
+throwWarning: tr("addr:street={0} contains ' Tunl. ', should likely be expanded to Tunnel","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Tunl. ", " Tunnel "));
+group: tr("addr:street contains Tunl, should likely be expanded to Tunnel");
+}
+
+*["addr:street"]["addr:street"=~/ Unp\. /] {
+assertNoMatch: "way \"addr:street\"=Main Underpass East";
+assertMatch: "way \"addr:street\"=Main Unp East";
+throwWarning: tr("addr:street={0} contains ' Unp. ', should likely be expanded to Underpass","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Unp. ", " Underpass "));
+group: tr("addr:street contains Unp, should likely be expanded to Underpass");
+}
+
+*["addr:street"]["addr:street"=~/ Vw\. /] {
+assertNoMatch: "way \"addr:street\"=Main View East";
+assertMatch: "way \"addr:street\"=Main Vw East";
+throwWarning: tr("addr:street={0} contains ' Vw. ', should likely be expanded to View","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Vw. ", " View "));
+group: tr("addr:street contains Vw, should likely be expanded to View");
+}
+
+*["addr:street"]["addr:street"=~/ Wkwy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Walkway East";
+assertMatch: "way \"addr:street\"=Main Wkwy East";
+throwWarning: tr("addr:street={0} contains ' Wkwy. ', should likely be expanded to Walkway","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Wkwy. ", " Walkway "));
+group: tr("addr:street contains Wkwy, should likely be expanded to Walkway");
+}
+
+*["addr:street"]["addr:street"=~/ Wy\. /] {
+assertNoMatch: "way \"addr:street\"=Main Way East";
+assertMatch: "way \"addr:street\"=Main Wy East";
+throwWarning: tr("addr:street={0} contains ' Wy. ', should likely be expanded to Way","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Wy. ", " Way "));
+group: tr("addr:street contains Wy, should likely be expanded to Way");
+}
+
+*["addr:street"]["addr:street"=~/ Xing\. /] {
+assertNoMatch: "way \"addr:street\"=Main Crossing East";
+assertMatch: "way \"addr:street\"=Main Xing East";
+throwWarning: tr("addr:street={0} contains ' Xing. ', should likely be expanded to Crossing","{0.value}");
+fixAdd: concat("addr:street=", replace(tag("addr:street")," Xing. ", " Crossing "));
+group: tr("addr:street contains Xing, should likely be expanded to Crossing");
+}
+
+*["highway"]["name"=~/ Arc\. /] {
+assertNoMatch: "way \"name\"=Main Arcade East";
+assertMatch: "way \"name\"=Main Arc East";
+throwWarning: tr("Highway name contains Arc., may need to be expanded to Arcade");
+fixAdd: concat("name=", replace(tag("name")," Arc. ", " Arcade "));
+}
+
+*["highway"]["name"=~/ Av\. /] {
+assertNoMatch: "way \"name\"=Main Avenue East";
+assertMatch: "way \"name\"=Main Av East";
+throwWarning: tr("Highway name contains Av., may need to be expanded to Avenue");
+fixAdd: concat("name=", replace(tag("name")," Av. ", " Avenue "));
+}
+
+*["highway"]["name"=~/ Ave\. /] {
+assertNoMatch: "way \"name\"=Main Avenue East";
+assertMatch: "way \"name\"=Main Ave East";
+throwWarning: tr("Highway name contains Ave., may need to be expanded to Avenue");
+fixAdd: concat("name=", replace(tag("name")," Ave. ", " Avenue "));
+}
+
+*["highway"]["name"=~/ Blf\. /] {
+assertNoMatch: "way \"name\"=Main Bluff East";
+assertMatch: "way \"name\"=Main Blf East";
+throwWarning: tr("Highway name contains Blf., may need to be expanded to Bluff");
+fixAdd: concat("name=", replace(tag("name")," Blf. ", " Bluff "));
+}
+
+*["highway"]["name"=~/ Blvd\. /] {
+assertNoMatch: "way \"name\"=Main Boulevard East";
+assertMatch: "way \"name\"=Main Blvd East";
+throwWarning: tr("Highway name contains Blvd., may need to be expanded to Boulevard");
+fixAdd: concat("name=", replace(tag("name")," Blvd. ", " Boulevard "));
+}
+
+*["highway"]["name"=~/ Bnd\. /] {
+assertNoMatch: "way \"name\"=Main Bend East";
+assertMatch: "way \"name\"=Main Bnd East";
+throwWarning: tr("Highway name contains Bnd., may need to be expanded to Bend");
+fixAdd: concat("name=", replace(tag("name")," Bnd. ", " Bend "));
+}
+
+*["highway"]["name"=~/ Br\. /] {
+assertNoMatch: "way \"name\"=Main Bridge East";
+assertMatch: "way \"name\"=Main Br East";
+throwWarning: tr("Highway name contains Br., may need to be expanded to Bridge");
+fixAdd: concat("name=", replace(tag("name")," Br. ", " Bridge "));
+}
+
+*["highway"]["name"=~/ Brg\. /] {
+assertNoMatch: "way \"name\"=Main Bridge East";
+assertMatch: "way \"name\"=Main Brg East";
+throwWarning: tr("Highway name contains Brg., may need to be expanded to Bridge");
+fixAdd: concat("name=", replace(tag("name")," Brg. ", " Bridge "));
+}
+
+*["highway"]["name"=~/ Byp\. /] {
+assertNoMatch: "way \"name\"=Main Bypass East";
+assertMatch: "way \"name\"=Main Byp East";
+throwWarning: tr("Highway name contains Byp., may need to be expanded to Bypass");
+fixAdd: concat("name=", replace(tag("name")," Byp. ", " Bypass "));
+}
+
+*["highway"]["name"=~/ Cir\. /] {
+assertNoMatch: "way \"name\"=Main Circle East";
+assertMatch: "way \"name\"=Main Cir East";
+throwWarning: tr("Highway name contains Cir., may need to be expanded to Circle");
+fixAdd: concat("name=", replace(tag("name")," Cir. ", " Circle "));
+}
+
+*["highway"]["name"=~/ Cres\. /] {
+assertNoMatch: "way \"name\"=Main Crescent East";
+assertMatch: "way \"name\"=Main Cres East";
+throwWarning: tr("Highway name contains Cres., may need to be expanded to Crescent");
+fixAdd: concat("name=", replace(tag("name")," Cres. ", " Crescent "));
+}
+
+*["highway"]["name"=~/ Cswy\. /] {
+assertNoMatch: "way \"name\"=Main Causeway East";
+assertMatch: "way \"name\"=Main Cswy East";
+throwWarning: tr("Highway name contains Cswy., may need to be expanded to Causeway");
+fixAdd: concat("name=", replace(tag("name")," Cswy. ", " Causeway "));
+}
+
+*["highway"]["name"=~/ Ct\. /] {
+assertNoMatch: "way \"name\"=Main Court East";
+assertMatch: "way \"name\"=Main Ct East";
+throwWarning: tr("Highway name contains Ct., may need to be expanded to Court");
+fixAdd: concat("name=", replace(tag("name")," Ct. ", " Court "));
+}
+
+*["highway"]["name"=~/ Ctr\. /] {
+assertNoMatch: "way \"name\"=Main Center East";
+assertMatch: "way \"name\"=Main Ctr East";
+throwWarning: tr("Highway name contains Ctr., may need to be expanded to Center");
+fixAdd: concat("name=", replace(tag("name")," Ctr. ", " Center "));
+}
+
+*["highway"]["name"=~/ Cv\. /] {
+assertNoMatch: "way \"name\"=Main Cove East";
+assertMatch: "way \"name\"=Main Cv East";
+throwWarning: tr("Highway name contains Cv., may need to be expanded to Cove");
+fixAdd: concat("name=", replace(tag("name")," Cv. ", " Cove "));
+}
+
+*["highway"]["name"=~/ Dr\. /] {
+assertNoMatch: "way \"name\"=Main Drive East";
+assertMatch: "way \"name\"=Main Dr East";
+throwWarning: tr("Highway name contains Dr., may need to be expanded to Drive");
+fixAdd: concat("name=", replace(tag("name")," Dr. ", " Drive "));
+}
+
+*["highway"]["name"=~/ Expy\. /] {
+assertNoMatch: "way \"name\"=Main Expressway East";
+assertMatch: "way \"name\"=Main Expy East";
+throwWarning: tr("Highway name contains Expy., may need to be expanded to Expressway");
+fixAdd: concat("name=", replace(tag("name")," Expy. ", " Expressway "));
+}
+
+*["highway"]["name"=~/ Expwy\. /] {
+assertNoMatch: "way \"name\"=Main Expressway East";
+assertMatch: "way \"name\"=Main Expwy East";
+throwWarning: tr("Highway name contains Expwy., may need to be expanded to Expressway");
+fixAdd: concat("name=", replace(tag("name")," Expwy. ", " Expressway "));
+}
+
+*["highway"]["name"=~/ Flds\. /] {
+assertNoMatch: "way \"name\"=Main Fields East";
+assertMatch: "way \"name\"=Main Flds East";
+throwWarning: tr("Highway name contains Flds., may need to be expanded to Fields");
+fixAdd: concat("name=", replace(tag("name")," Flds. ", " Fields "));
+}
+
+*["highway"]["name"=~/ Fmrd\. /] {
+assertNoMatch: "way \"name\"=Main Farm to Market Road East";
+assertMatch: "way \"name\"=Main Fmrd East";
+throwWarning: tr("Highway name contains Fmrd., may need to be expanded to Farm to Market Road");
+fixAdd: concat("name=", replace(tag("name")," Fmrd. ", " Farm to Market Road "));
+}
+
+*["highway"]["name"=~/ Fwy\. /] {
+assertNoMatch: "way \"name\"=Main Freeway East";
+assertMatch: "way \"name\"=Main Fwy East";
+throwWarning: tr("Highway name contains Fwy., may need to be expanded to Freeway");
+fixAdd: concat("name=", replace(tag("name")," Fwy. ", " Freeway "));
+}
+
+*["highway"]["name"=~/ Gd\. /] {
+assertNoMatch: "way \"name\"=Main Grade East";
+assertMatch: "way \"name\"=Main Gd East";
+throwWarning: tr("Highway name contains Gd., may need to be expanded to Grade");
+fixAdd: concat("name=", replace(tag("name")," Gd. ", " Grade "));
+}
+
+*["highway"]["name"=~/ Grv\. /] {
+assertNoMatch: "way \"name\"=Main Grove East";
+assertMatch: "way \"name\"=Main Grv East";
+throwWarning: tr("Highway name contains Grv., may need to be expanded to Grove");
+fixAdd: concat("name=", replace(tag("name")," Grv. ", " Grove "));
+}
+
+*["highway"]["name"=~/ Hbr\. /] {
+assertNoMatch: "way \"name\"=Main Harbor East";
+assertMatch: "way \"name\"=Main Hbr East";
+throwWarning: tr("Highway name contains Hbr., may need to be expanded to Harbor");
+fixAdd: concat("name=", replace(tag("name")," Hbr. ", " Harbor "));
+}
+
+*["highway"]["name"=~/ Holw\. /] {
+assertNoMatch: "way \"name\"=Main Hollow East";
+assertMatch: "way \"name\"=Main Holw East";
+throwWarning: tr("Highway name contains Holw., may need to be expanded to Hollow");
+fixAdd: concat("name=", replace(tag("name")," Holw. ", " Hollow "));
+}
+
+*["highway"]["name"=~/ Hw\. /] {
+assertNoMatch: "way \"name\"=Main Highway East";
+assertMatch: "way \"name\"=Main Hw East";
+throwWarning: tr("Highway name contains Hw., may need to be expanded to Highway");
+fixAdd: concat("name=", replace(tag("name")," Hw. ", " Highway "));
+}
+
+*["highway"]["name"=~/ Hwy\. /] {
+assertNoMatch: "way \"name\"=Main Highway East";
+assertMatch: "way \"name\"=Main Hwy East";
+throwWarning: tr("Highway name contains Hwy., may need to be expanded to Highway");
+fixAdd: concat("name=", replace(tag("name")," Hwy. ", " Highway "));
+}
+
+*["highway"]["name"=~/ Ln\. /] {
+assertNoMatch: "way \"name\"=Main Lane East";
+assertMatch: "way \"name\"=Main Ln East";
+throwWarning: tr("Highway name contains Ln., may need to be expanded to Lane");
+fixAdd: concat("name=", replace(tag("name")," Ln. ", " Lane "));
+}
+
+*["highway"]["name"=~/ Lndg\. /] {
+assertNoMatch: "way \"name\"=Main Landing East";
+assertMatch: "way \"name\"=Main Lndg East";
+throwWarning: tr("Highway name contains Lndg., may need to be expanded to Landing");
+fixAdd: concat("name=", replace(tag("name")," Lndg. ", " Landing "));
+}
+
+*["highway"]["name"=~/ Lp\. /] {
+assertNoMatch: "way \"name\"=Main Loop East";
+assertMatch: "way \"name\"=Main Lp East";
+throwWarning: tr("Highway name contains Lp., may need to be expanded to Loop");
+fixAdd: concat("name=", replace(tag("name")," Lp. ", " Loop "));
+}
+
+*["highway"]["name"=~/ Mal\. /] {
+assertNoMatch: "way \"name\"=Main Mall East";
+assertMatch: "way \"name\"=Main Mal East";
+throwWarning: tr("Highway name contains Mal., may need to be expanded to Mall");
+fixAdd: concat("name=", replace(tag("name")," Mal. ", " Mall "));
+}
+
+*["highway"]["name"=~/ Mt\. /] {
+assertNoMatch: "way \"name\"=Main Mount East";
+assertMatch: "way \"name\"=Main Mt East";
+throwWarning: tr("Highway name contains Mt., may need to be expanded to Mount");
+fixAdd: concat("name=", replace(tag("name")," Mt. ", " Mount "));
+}
+
+*["highway"]["name"=~/ Mtwy\. /] {
+assertNoMatch: "way \"name\"=Main Motorway East";
+assertMatch: "way \"name\"=Main Mtwy East";
+throwWarning: tr("Highway name contains Mtwy., may need to be expanded to Motorway");
+fixAdd: concat("name=", replace(tag("name")," Mtwy. ", " Motorway "));
+}
+
+*["highway"]["name"=~/ Ovps\. /] {
+assertNoMatch: "way \"name\"=Main Overpass East";
+assertMatch: "way \"name\"=Main Ovps East";
+throwWarning: tr("Highway name contains Ovps., may need to be expanded to Overpass");
+fixAdd: concat("name=", replace(tag("name")," Ovps. ", " Overpass "));
+}
+
+*["highway"]["name"=~/ Pky\. /] {
+assertNoMatch: "way \"name\"=Main Parkway East";
+assertMatch: "way \"name\"=Main Pky East";
+throwWarning: tr("Highway name contains Pky., may need to be expanded to Parkway");
+fixAdd: concat("name=", replace(tag("name")," Pky. ", " Parkway "));
+}
+
+*["highway"]["name"=~/ Pkwy\. /] {
+assertNoMatch: "way \"name\"=Main Parkway East";
+assertMatch: "way \"name\"=Main Pkwy East";
+throwWarning: tr("Highway name contains Pkwy., may need to be expanded to Parkway");
+fixAdd: concat("name=", replace(tag("name")," Pkwy. ", " Parkway "));
+}
+
+*["highway"]["name"=~/ Pl\. /] {
+assertNoMatch: "way \"name\"=Main Place East";
+assertMatch: "way \"name\"=Main Pl East";
+throwWarning: tr("Highway name contains Pl., may need to be expanded to Place");
+fixAdd: concat("name=", replace(tag("name")," Pl. ", " Place "));
+}
+
+*["highway"]["name"=~/ Plz\. /] {
+assertNoMatch: "way \"name\"=Main Plaza East";
+assertMatch: "way \"name\"=Main Plz East";
+throwWarning: tr("Highway name contains Plz., may need to be expanded to Plaza");
+fixAdd: concat("name=", replace(tag("name")," Plz. ", " Plaza "));
+}
+
+*["highway"]["name"=~/ Rd\. /] {
+assertNoMatch: "way \"name\"=Main Road East";
+assertMatch: "way \"name\"=Main Rd East";
+throwWarning: tr("Highway name contains Rd., may need to be expanded to Road");
+fixAdd: concat("name=", replace(tag("name")," Rd. ", " Road "));
+}
+
+*["highway"]["name"=~/ Rdg\. /] {
+assertNoMatch: "way \"name\"=Main Ridge East";
+assertMatch: "way \"name\"=Main Rdg East";
+throwWarning: tr("Highway name contains Rdg., may need to be expanded to Ridge");
+fixAdd: concat("name=", replace(tag("name")," Rdg. ", " Ridge "));
+}
+
+*["highway"]["name"=~/ Rmrd\. /] {
+assertNoMatch: "way \"name\"=Main Ranch to Market Road East";
+assertMatch: "way \"name\"=Main Rmrd East";
+throwWarning: tr("Highway name contains Rmrd., may need to be expanded to Ranch to Market Road");
+fixAdd: concat("name=", replace(tag("name")," Rmrd. ", " Ranch to Market Road "));
+}
+
+*["highway"]["name"=~/ Rte\. /] {
+assertNoMatch: "way \"name\"=Main Route East";
+assertMatch: "way \"name\"=Main Rte East";
+throwWarning: tr("Highway name contains Rte., may need to be expanded to Route");
+fixAdd: concat("name=", replace(tag("name")," Rte. ", " Route "));
+}
+
+*["highway"]["name"=~/ Skwy\. /] {
+assertNoMatch: "way \"name\"=Main Skyway East";
+assertMatch: "way \"name\"=Main Skwy East";
+throwWarning: tr("Highway name contains Skwy., may need to be expanded to Skyway");
+fixAdd: concat("name=", replace(tag("name")," Skwy. ", " Skyway "));
+}
+
+*["highway"]["name"=~/ Sq\. /] {
+assertNoMatch: "way \"name\"=Main Square East";
+assertMatch: "way \"name\"=Main Sq East";
+throwWarning: tr("Highway name contains Sq., may need to be expanded to Square");
+fixAdd: concat("name=", replace(tag("name")," Sq. ", " Square "));
+}
+
+*["highway"]["name"=~/ St\. /] {
+assertNoMatch: "way \"name\"=Main Street East";
+assertMatch: "way \"name\"=Main St East";
+throwWarning: tr("Highway name contains St., may need to be expanded to Street");
+fixAdd: concat("name=", replace(tag("name")," St. ", " Street "));
+}
+
+*["highway"]["name"=~/ Ter\. /] {
+assertNoMatch: "way \"name\"=Main Terrace East";
+assertMatch: "way \"name\"=Main Ter East";
+throwWarning: tr("Highway name contains Ter., may need to be expanded to Terrace");
+fixAdd: concat("name=", replace(tag("name")," Ter. ", " Terrace "));
+}
+
+*["highway"]["name"=~/ Tfwy\. /] {
+assertNoMatch: "way \"name\"=Main Trafficway East";
+assertMatch: "way \"name\"=Main Tfwy East";
+throwWarning: tr("Highway name contains Tfwy., may need to be expanded to Trafficway");
+fixAdd: concat("name=", replace(tag("name")," Tfwy. ", " Trafficway "));
+}
+
+*["highway"]["name"=~/ Thfr\. /] {
+assertNoMatch: "way \"name\"=Main Thoroughfare East";
+assertMatch: "way \"name\"=Main Thfr East";
+throwWarning: tr("Highway name contains Thfr., may need to be expanded to Thoroughfare");
+fixAdd: concat("name=", replace(tag("name")," Thfr. ", " Thoroughfare "));
+}
+
+*["highway"]["name"=~/ Thwy\. /] {
+assertNoMatch: "way \"name\"=Main Throughway East";
+assertMatch: "way \"name\"=Main Thwy East";
+throwWarning: tr("Highway name contains Thwy., may need to be expanded to Throughway");
+fixAdd: concat("name=", replace(tag("name")," Thwy. ", " Throughway "));
+}
+
+*["highway"]["name"=~/ Tl\. /] {
+assertNoMatch: "way \"name\"=Main Trail East";
+assertMatch: "way \"name\"=Main Tl East";
+throwWarning: tr("Highway name contains Tl., may need to be expanded to Trail");
+fixAdd: concat("name=", replace(tag("name")," Tl. ", " Trail "));
+}
+
+*["highway"]["name"=~/ Tpke\. /] {
+assertNoMatch: "way \"name\"=Main Turnpike East";
+assertMatch: "way \"name\"=Main Tpke East";
+throwWarning: tr("Highway name contains Tpke., may need to be expanded to Turnpike");
+fixAdd: concat("name=", replace(tag("name")," Tpke. ", " Turnpike "));
+}
+
+*["highway"]["name"=~/ Trce\. /] {
+assertNoMatch: "way \"name\"=Main Trace East";
+assertMatch: "way \"name\"=Main Trce East";
+throwWarning: tr("Highway name contains Trce., may need to be expanded to Trace");
+fixAdd: concat("name=", replace(tag("name")," Trce. ", " Trace "));
+}
+
+*["highway"]["name"=~/ Tr\. /] {
+assertNoMatch: "way \"name\"=Main Trail East";
+assertMatch: "way \"name\"=Main Tr East";
+throwWarning: tr("Highway name contains Tr., may need to be expanded to Trail");
+fixAdd: concat("name=", replace(tag("name")," Tr. ", " Trail "));
+}
+
+*["highway"]["name"=~/ Trl\. /] {
+assertNoMatch: "way \"name\"=Main Trail East";
+assertMatch: "way \"name\"=Main Trl East";
+throwWarning: tr("Highway name contains Trl., may need to be expanded to Trail");
+fixAdd: concat("name=", replace(tag("name")," Trl. ", " Trail "));
+}
+
+*["highway"]["name"=~/ Tunl\. /] {
+assertNoMatch: "way \"name\"=Main Tunnel East";
+assertMatch: "way \"name\"=Main Tunl East";
+throwWarning: tr("Highway name contains Tunl., may need to be expanded to Tunnel");
+fixAdd: concat("name=", replace(tag("name")," Tunl. ", " Tunnel "));
+}
+
+*["highway"]["name"=~/ Unp\. /] {
+assertNoMatch: "way \"name\"=Main Underpass East";
+assertMatch: "way \"name\"=Main Unp East";
+throwWarning: tr("Highway name contains Unp., may need to be expanded to Underpass");
+fixAdd: concat("name=", replace(tag("name")," Unp. ", " Underpass "));
+}
+
+*["highway"]["name"=~/ Vw\. /] {
+assertNoMatch: "way \"name\"=Main View East";
+assertMatch: "way \"name\"=Main Vw East";
+throwWarning: tr("Highway name contains Vw., may need to be expanded to View");
+fixAdd: concat("name=", replace(tag("name")," Vw. ", " View "));
+}
+
+*["highway"]["name"=~/ Wkwy\. /] {
+assertNoMatch: "way \"name\"=Main Walkway East";
+assertMatch: "way \"name\"=Main Wkwy East";
+throwWarning: tr("Highway name contains Wkwy., may need to be expanded to Walkway");
+fixAdd: concat("name=", replace(tag("name")," Wkwy. ", " Walkway "));
+}
+
+*["highway"]["name"=~/ Wy\. /] {
+assertNoMatch: "way \"name\"=Main Way East";
+assertMatch: "way \"name\"=Main Wy East";
+throwWarning: tr("Highway name contains Wy., may need to be expanded to Way");
+fixAdd: concat("name=", replace(tag("name")," Wy. ", " Way "));
+}
+
+*["highway"]["name"=~/ Xing\. /] {
+assertNoMatch: "way \"name\"=Main Crossing East";
+assertMatch: "way \"name\"=Main Xing East";
+throwWarning: tr("Highway name contains Xing., may need to be expanded to Crossing");
+fixAdd: concat("name=", replace(tag("name")," Xing. ", " Crossing "));
 }
 
 *["addr:street"]["addr:street"=~/^Arc /] {
