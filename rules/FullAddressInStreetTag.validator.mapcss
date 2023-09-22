@@ -126,6 +126,14 @@ out skel qt;
     group: tr("addr:street likely ends with a unit number");
 }
 
+*["addr:street"]["addr:street"=~/ [sS]uite ?[A-Z]{1,2}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Suite AA";
+    assertMatch: "way \"addr:city\"=123 Main Street SuiteA";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
 *["addr:street"]["addr:street"=~/ [aA]pt ?[0-9]{1,4}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street Apt 123";
@@ -142,10 +150,26 @@ out skel qt;
     group: tr("addr:street likely ends with a unit number");
 }
 
+*["addr:street"]["addr:street"=~/ # ?[A-Z]{1,2}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street # AA";
+    assertMatch: "way \"addr:city\"=123 Main Street #AA";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
 *["addr:street"]["addr:street"=~/ Unit ?[0-9]{1,4}$/] {
     assertNoMatch: "way \"addr:city\"=1st Street";
     assertMatch: "way \"addr:city\"=123 Main Street Unit 123";
     assertMatch: "way \"addr:city\"=123 Main Street Unit123";
+    throwWarning: tr("addr:street={0}","{0.value}");
+    group: tr("addr:street likely ends with a unit number");
+}
+
+*["addr:street"]["addr:street"=~/ Unit ?[A-Z]{1,2}$/] {
+    assertNoMatch: "way \"addr:city\"=1st Street";
+    assertMatch: "way \"addr:city\"=123 Main Street Unit AA";
+    assertMatch: "way \"addr:city\"=123 Main Street UnitAA";
     throwWarning: tr("addr:street={0}","{0.value}");
     group: tr("addr:street likely ends with a unit number");
 }
