@@ -16,4 +16,4 @@ Happy to host rules and mapstyles here. Each rule file should have:
 
 The validator rules and map style syntax are documented [here](https://josm.openstreetmap.de/wiki/Help/Validator/MapCSSTagChecker) and [here](https://josm.openstreetmap.de/wiki/Help/Styles/MapCSSImplementation).
 
-If you are editingin VS Code and you'd like to get some syntax highlighting, one can be found [here](https://github.com/watmildon/vscode-mapcss-syntax).
+If you are editingin VS Code and you'd like to get some syntax highlighting, one can be found [here](https://marketplace.visualstudio.com/items?itemName=whammo.mapcss-syntax).
