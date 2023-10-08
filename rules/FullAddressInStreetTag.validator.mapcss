@@ -134,7 +134,7 @@ out skel qt;
     assertMatch: "way \"addr:street\"=123 Main Street, Unit123";
 
     throwWarning: tr("addr:street={0}","{0.value}");
-    group: tr("new addr:street likely ends with a unit number");
+    group: tr("addr:street likely ends with a unit number");
     fixAdd: concat("addr:unit=", get(regexp_match("(.+?),? (?:[Ss][Tt][Ee]|[sS]uite|[aA]pt|#|[uU]nit) ?([0-9]{1,4}|[A-Z]{1,2})$",tag("addr:street")),2));
     fixAdd: concat("addr:street=", get(regexp_match("(.+?),? (?:[Ss][Tt][Ee]|[sS]uite|[aA]pt|#|[uU]nit) ?([0-9]{1,4}|[A-Z]{1,2})$",tag("addr:street")),1));
 }
