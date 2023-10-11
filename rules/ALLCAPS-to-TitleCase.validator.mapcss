@@ -38,10 +38,9 @@ out skel qt;
     fixAdd: concat("addr:street=", title(tag("addr:street")));
 }
 
-*["name"]["name"=~/^[A-Z 0-9]+$/] {
+*["name"]["name"=~/^[A-Z 0-9 &\.\(\)]+$/] {
     assertNoMatch: "way \"name\"=Redmond Way";
     assertMatch: "way \"name\"=REMOND WAY";
     throwWarning: tr("name is ALL CAPS, may to be Title Case");
     fixAdd: concat("name=", title(tag("name")));
 }
-
