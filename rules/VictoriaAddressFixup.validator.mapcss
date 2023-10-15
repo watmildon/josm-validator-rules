@@ -1,0 +1,32 @@
+meta
+{
+    title: "Victoria Address Fixup";
+    version: "0,1_2023-08-16";
+    description: "Splits addr:housenumber NNN/U to housenubmer and unit";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:500];
+// gather results
+{{geocodeArea:"Victoria, Western Australia"}}->.searchArea;
+(
+  nwr["addr:housenumber"~"^[0-9]+/[0-9]+$"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;
+*/
+
+*["addr:housenumber"]["addr:housenumber"=~/^[0-9]+\/[0-9]+$/] {
+    assertNoMatch: "way \"addr:housenumber\"=1234";
+    assertMatch: "way \"addr:housenumber\"=1234/12";
+    assertMatch: "way \"addr:housenumber\"=1234/12-14";
+    throwWarning: tr("addr:housenumber may contain unit info");
+    fixAdd: concat("addr:unit=", get(regexp_match("^([0-9]+)/([0-9]+)$", tag("addr:housenumber")),2));
+    fixAdd: concat("addr:housenumber=", get(regexp_match("^([0-9]+)/([0-9]+)$", tag("addr:housenumber")),1));
+}
