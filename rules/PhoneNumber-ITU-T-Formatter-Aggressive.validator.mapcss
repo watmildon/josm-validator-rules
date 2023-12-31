@@ -1,10 +1,10 @@
 meta
 {
     title: "Phone number fixups - Agressive, iterative";
-    version: "0,1_2023-09-14";
+    version: "0,1_2023-12-30";
     description: "More agresssive phone fixups. Use with caution.";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter-Aggressive.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }
