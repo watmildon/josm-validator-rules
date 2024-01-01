@@ -11,7 +11,7 @@ meta
 
 /* Modernize water rapids tagging */
 
-*["waterway"]["waterway"="rapids"]["area"="yes"]:closed {
+*["waterway"]["waterway"="rapids"]:closed {
     throwWarning: tr("waterway=rapids on area, should be natural=water + water=rapids");
     group: tr("CanVec water tagging modernization");
     fixAdd: "water=rapids";
