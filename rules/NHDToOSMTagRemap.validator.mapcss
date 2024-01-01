@@ -1,0 +1,50 @@
+meta
+{
+    title: "NDH to OSM tags";
+    version: "0,1_2023-10-12";
+    description: "Remaps NHD tags on objects to OSM tags";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+*["fcode"]["fcode"=~/^46003$|^46007$/] {
+    throwWarning: tr("fcode indicates intermitent stream");
+    fixAdd: "waterway=stream";
+    fixAdd: "intermitent=yes";
+    fixRemove: "fcode";
+}
+
+*["fcode"]["fcode"=~/^55800$/] {
+    throwWarning: tr("fcode is an artificial path, replace with stream or river");
+}
+
+*["gnis_name"] {
+    throwWarning: tr("gnis_name needs to be moved to name");
+    fixChangeKey: "gnis_name=>name";
+}
+
+*["gnis_id"] {
+    throwWarning: tr("gnis_id needs to be moved to gnis:feature_id");
+    fixChangeKey: "gnis_id=>gnis:feature_id";
+}
+
+*["Enabled"] {
+    throwWarning: tr("remove unnecessary NHD tags");
+    fixRemove: "Enabled";
+    fixRemove: "ObjectID";
+    fixRemove: "SHAPE_Leng";
+    fixRemove: "fdate";
+    fixRemove: "flowdir";
+    fixRemove: "ftype";
+    fixRemove: "innetwork";
+    fixRemove: "lengthkm";
+    fixRemove: "mainpath";
+    fixRemove: "permanent_";
+    fixRemove: "reachcode";
+    fixRemove: "resolution";
+    fixRemove: "visibility";
+    fixRemove: "webarea_per";
+}
+
