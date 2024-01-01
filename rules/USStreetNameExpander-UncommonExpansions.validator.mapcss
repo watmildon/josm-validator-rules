@@ -1,0 +1,53 @@
+meta
+{
+    title: "(US) Abbreviated Streetname Fixup, Uncommon expansions";
+    version: "0,1_2023-10-07";
+    description: "Expands uncommon street name issues in the US";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"Oregon,United States of America"}}->.a;
+(
+  way[highway][highway!=platform][amenity=shelter][!bus][name~"^CR [0-9]{0,3}$"](area.a);
+  nwr[addr:street~"^CR [0-9]{0,3}$"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+/* County Road */
+*[highway]["name"]["name"=~/^CR [0-9]{0,4}$/] {
+    assertNoMatch: "way \"name\"=\"County Road 123\"";
+    assertMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Highway name contains CR #, may need to be expanded to County Road");
+    fixAdd: concat("name=", replace(tag("name"), "CR", "County Road"));
+}
+
+*["addr:street"]["addr:street"=~/^CR [0-9]{0,4}$/] {
+    assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
+    assertMatch: "way \"addr:street\"=\"CR 123\"";
+    throwWarning: tr("addr:street contains CR #, may need to be expanded to County Road");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"), "CR", "County Road"));
+}
+
+/* Forest Service Road */
+
+*[highway]["name"]["name"=~/^US Highway Fs Road [0-9]{0,4}$/] {
+    assertNoMatch: "way \"name\"=\"US Highway Forest Service Road 123\"";
+    assertMatch: "way \"name\"=\"US Highway Fs Road 123\"";
+    throwWarning: tr("Highway name contains Fs Road, may need to be expanded to Forest Service Road");
+    fixAdd: concat("name=", replace(tag("name"), "US Highway Fs Road ", "US Highway Forest Service Road "));
+}
+
+*["addr:street"]["addr:street"=~/^US Highway Fs Road [0-9]{0,4}$/] {
+    assertNoMatch: "way \"addr:street\"=\"US Highway Forest Service Road 123\"";
+    assertMatch: "way \"addr:street\"=\"US Highway Fs Road 123\"";
+    throwWarning: tr("addr:street contains Fs Road, may need to be expanded to Forest Service Road");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"), "US Highway Fs Road ", "US Highway Forest Service Road "));
+}
