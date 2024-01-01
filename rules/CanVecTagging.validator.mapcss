@@ -1,0 +1,21 @@
+meta
+{
+    title: "CanVec tagging corrections";
+    version: "0,1_2024-01-01";
+    description: "Fix tagging issues on CanVec imports";
+    author: "watmildon";
+    link: "TODOMAKELINK";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/* Modernize water rapids tagging */
+
+*["waterway"]["waterway"="rapids"]["area"="yes"]:closed {
+    throwWarning: tr("waterway=rapids on area, should be natural=water + water=rapids");
+    group: tr("CanVec water tagging modernization");
+    fixAdd: "water=rapids";
+    fixAdd: "natural=water";
+    fixRemove: "waterway";
+    fixRemove: "area";
+}
