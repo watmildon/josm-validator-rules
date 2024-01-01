@@ -4,7 +4,7 @@ meta
     version: "0,1_2023-09-21";
     description: "Flags various COVID19 tags and offers to remove them";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/RemoveCOVID19Tagging.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }

@@ -4,7 +4,7 @@ meta
     version: "0,1_2023-09-17";
     description: "Corrects common misspellings and functional synonyms";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/CuisineFixups.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }

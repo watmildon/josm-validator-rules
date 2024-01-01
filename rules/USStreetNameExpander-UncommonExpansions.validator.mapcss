@@ -4,7 +4,7 @@ meta
     version: "0,1_2023-10-07";
     description: "Expands uncommon street name issues in the US";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander-UncommonExpansions.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }

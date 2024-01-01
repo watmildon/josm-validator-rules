@@ -4,7 +4,7 @@ meta
     version: "0,1_2023-08-16";
     description: "Removes leading zeros from gnid:feature_id and synonyms";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/GNISFixup.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }

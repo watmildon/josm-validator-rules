@@ -4,7 +4,7 @@ meta
     version: "0,1_2023-09-18";
     description: "Tries to detect if addr:street has a full street address in it";
     author: "watmildon";
-    link: "TODOMAKELINK";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/FullAddressInStreetTag.validator.mapcss";
     baselanguage: "en";
     min-josm-version: 14481;
 }
