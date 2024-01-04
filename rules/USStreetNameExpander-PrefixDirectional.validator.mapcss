@@ -21,28 +21,32 @@ out body;
 out skel qt;
 */
 
-*[highway]["name"]["name"=~/^N /] {
+*["highway"]["name"]["highway"!="bus_stop"] {
+  set highway_name;
+}
+
+*["name"=~/^N /].highway_name {
 assertNoMatch: "way \"name\"=North Main";
 assertMatch: "way \"name\"=N Main";
 throwWarning: tr("Highway name prefix N, may need to be expanded to North");
 fixAdd: concat("name=", "North", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^S /] {
+*["name"=~/^S /].highway_name {
 assertNoMatch: "way \"name\"=South Main";
 assertMatch: "way \"name\"=S Main";
 throwWarning: tr("Highway name prefix S, may need to be expanded to South");
 fixAdd: concat("name=", "South", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^E /] {
+*["name"=~/^E /].highway_name {
 assertNoMatch: "way \"name\"=East Main";
 assertMatch: "way \"name\"=E Main";
 throwWarning: tr("Highway name prefix E, may need to be expanded to East");
 fixAdd: concat("name=", "East", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^W /] {
+*["name"=~/^W /].highway_name {
 assertNoMatch: "way \"name\"=West Main";
 assertMatch: "way \"name\"=W Main";
 throwWarning: tr("Highway name prefix W, may need to be expanded to West");
@@ -81,56 +85,56 @@ fixAdd: concat("addr:street=", "West", substring(tag("addr:street"), 1,length(ta
 group: tr("addr:street prefix W, may need to be expanded to West");
 }
 
-*[highway]["name"]["name"=~/^NE /] {
+*["name"=~/^NE /].highway_name {
 assertNoMatch: "way \"name\"=Northeast Main";
 assertMatch: "way \"name\"=NE Main";
 throwWarning: tr("Highway name prefix NE, may need to be expanded to Northeast");
 fixAdd: concat("name=", "Northeast", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^Ne /] {
+*["name"=~/^Ne /].highway_name {
 assertNoMatch: "way \"name\"=Northeast Main";
 assertMatch: "way \"name\"=Ne Main";
 throwWarning: tr("Highway name prefix Ne, may need to be expanded to Northeast");
 fixAdd: concat("name=", "Northeast", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^SE /] {
+*["name"=~/^SE /].highway_name {
 assertNoMatch: "way \"name\"= Southeast Main";
 assertMatch: "way \"name\"=SE Main";
 throwWarning: tr("Highway name prefix SE, may need to be expanded to Southeast");
 fixAdd: concat("name=", "Southeast", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^Se /] {
+*["name"=~/^Se /].highway_name {
 assertNoMatch: "way \"name\"= Southeast Main";
 assertMatch: "way \"name\"=Se Main";
 throwWarning: tr("Highway name prefix Se, may need to be expanded to Southeast");
 fixAdd: concat("name=", "Southeast", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^SW /] {
+*["name"=~/^SW /].highway_name {
 assertNoMatch: "way \"name\"=Southwest Main";
 assertMatch: "way \"name\"=SW Main";
 throwWarning: tr("Highway name prefix SW, may need to be expanded to Southwest");
 fixAdd: concat("name=", "Southwest", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^Sw /] {
+*["name"=~/^Sw /].highway_name {
 assertNoMatch: "way \"name\"=Southwest Main";
 assertMatch: "way \"name\"=Sw Main";
 throwWarning: tr("Highway name prefix Sw, may need to be expanded to Southwest");
 fixAdd: concat("name=", "Southwest", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^NW /] {
+*["name"=~/^NW /].highway_name {
 assertNoMatch: "way \"name\"=Northwest Main";
 assertMatch: "way \"name\"=NW Main";
 throwWarning: tr("Highway name prefix NW, may need to be expanded to Northwest");
 fixAdd: concat("name=", "Northwest", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*[highway]["name"]["name"=~/^Nw /] {
+*["name"=~/^Nw /].highway_name {
 assertNoMatch: "way \"name\"=Northwest Main";
 assertMatch: "way \"name\"=Nw Main";
 throwWarning: tr("Highway name prefix Nw, may need to be expanded to Northwest");

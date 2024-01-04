@@ -21,29 +21,32 @@ out body;
 out skel qt;
 */
 
+*["highway"]["name"]["highway"!="bus_stop"] {
+  set highway_name;
+}
 
-*[highway]["name"]["name"=~/ N$/] {
+*["name"=~/ N$/].highway_name {
 assertNoMatch: "way \"name\"=Main North";
 assertMatch: "way \"name\"=Main N";
 throwWarning: tr("Highway name postfix N, may need to be expanded to North");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"North");
 }
 
-*[highway]["name"]["name"=~/ S$/] {
+*["name"=~/ S$/].highway_name {
 assertNoMatch: "way \"name\"=Main South";
 assertMatch: "way \"name\"=Main Street S";
 throwWarning: tr("Highway name postfix S, may need to be expanded to South");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"South");
 }
 
-*[highway]["name"]["name"=~/ E$/] {
+*["name"=~/ E$/].highway_name {
 assertNoMatch: "way \"name\"=Main East";
 assertMatch: "way \"name\"=Main Street E";
 throwWarning: tr("Highway name postfix E, may need to be expanded to East");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"East");
 }
 
-*[highway]["name"]["name"=~/ W$/] {
+*["name"=~/ W$/].highway_name {
 assertNoMatch: "way \"name\"=Main West";
 assertMatch: "way \"name\"=Main Street W";
 throwWarning: tr("Highway name postfix W, may need to be expanded to West");
@@ -82,28 +85,28 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:
 group: tr("addr:street postfix W, may need to be expanded to West");
 }
 
-*[highway]["name"]["name"=~/ NE$/] {
+*["name"=~/ NE$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Northeast";
 assertMatch: "way \"name\"=Main Street NE";
 throwWarning: tr("Highway name postfix NE, may need to be expanded to Northeast");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Northeast");
 }
 
-*[highway]["name"]["name"=~/ SE$/] {
+*["name"=~/ SE$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Southeast";
 assertMatch: "way \"name\"=Main Street SE";
 throwWarning: tr("Highway name postfix SE, may need to be expanded to Southeast");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Southeast");
 }
 
-*[highway]["name"]["name"=~/ SW$/] {
+*["name"=~/ SW$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Southwest";
 assertMatch: "way \"name\"=Main Street SW";
 throwWarning: tr("Highway name postfix SW, may need to be expanded to Southwest");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Southwest");
 }
 
-*[highway]["name"]["name"=~/ NW$/] {
+*["name"=~/ NW$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Northwest";
 assertMatch: "way \"name\"=Main Street NW";
 throwWarning: tr("Highway name postfix NW, may need to be expanded to Northwest");
@@ -144,28 +147,28 @@ group: tr("addr:street postfix NW, may need to be expanded to Northwest");
 
 /* Mixed casing directional, useful after Title Casing an ALL CAPS field */
 
-*[highway]["name"]["name"=~/ Ne$/] {
+*["name"=~/ Ne$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Northeast";
 assertMatch: "way \"name\"=Main Street Ne";
 throwWarning: tr("Highway name postfix Ne, may need to be expanded to Northeast");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Northeast");
 }
 
-*[highway]["name"]["name"=~/ Se$/] {
+*["name"=~/ Se$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Southeast";
 assertMatch: "way \"name\"=Main Street Se";
 throwWarning: tr("Highway name postfix Se, may need to be expanded to Southeast");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Southeast");
 }
 
-*[highway]["name"]["name"=~/ Sw$/] {
+*["name"=~/ Sw$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Southwest";
 assertMatch: "way \"name\"=Main Street Sw";
 throwWarning: tr("Highway name postfix Sw, may need to be expanded to Southwest");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"Southwest");
 }
 
-*[highway]["name"]["name"=~/ Nw$/] {
+*["name"=~/ Nw$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street Northwest";
 assertMatch: "way \"name\"=Main Street Nw";
 throwWarning: tr("Highway name postfix Nw, may need to be expanded to Northwest");
