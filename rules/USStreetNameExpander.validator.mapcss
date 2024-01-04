@@ -27,6 +27,10 @@ out body;
 out skel qt;
 */
 
+*["highway"]["name"]["highway"!="bus_stop"] {
+  set highway_name;
+}
+
 *["addr:street"]["addr:street"=~/ Acc$/] {
 assertNoMatch: "way \"addr:street\"=Main Access";
 assertMatch: "way \"addr:street\"=Main Acc";
@@ -555,462 +559,462 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr
 group: tr("addr:street contains postfix Xing, should likely be expanded to Crossing");
 }
 
-*[highway]["name"]["name"=~/ Acc$/] {
+*["name"=~/ Acc$/].highway_name {
 assertNoMatch: "way \"name\"=Main Access";
 assertMatch: "way \"name\"=Main Acc";
 throwWarning: tr("Highway name contains postfix Acc, should likely be expanded to Access");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Access");
 }
 
-*[highway]["name"]["name"=~/ Arc$/] {
+*["name"=~/ Arc$/].highway_name {
 assertNoMatch: "way \"name\"=Main Arcade";
 assertMatch: "way \"name\"=Main Arc";
 throwWarning: tr("Highway name contains postfix Arc, should likely be expanded to Arcade");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Arcade");
 }
 
-*[highway]["name"]["name"=~/ Av$/] {
+*["name"=~/ Av$/].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue";
 assertMatch: "way \"name\"=Main Av";
 throwWarning: tr("Highway name contains postfix Av, should likely be expanded to Avenue");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Avenue");
 }
 
-*[highway]["name"]["name"=~/ Ave$/] {
+*["name"=~/ Ave$/].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue";
 assertMatch: "way \"name\"=Main Ave";
 throwWarning: tr("Highway name contains postfix Ave, should likely be expanded to Avenue");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Avenue");
 }
 
-*[highway]["name"]["name"=~/ Blf$/] {
+*["name"=~/ Blf$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bluff";
 assertMatch: "way \"name\"=Main Blf";
 throwWarning: tr("Highway name contains postfix Blf, should likely be expanded to Bluff");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Bluff");
 }
 
-*[highway]["name"]["name"=~/ Blvd$/] {
+*["name"=~/ Blvd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Boulevard";
 assertMatch: "way \"name\"=Main Blvd";
 throwWarning: tr("Highway name contains postfix Blvd, should likely be expanded to Boulevard");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Boulevard");
 }
 
-*[highway]["name"]["name"=~/ Bnd$/] {
+*["name"=~/ Bnd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bend";
 assertMatch: "way \"name\"=Main Bnd";
 throwWarning: tr("Highway name contains postfix Bnd, should likely be expanded to Bend");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Bend");
 }
 
-*[highway]["name"]["name"=~/ Br$/] {
+*["name"=~/ Br$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge";
 assertMatch: "way \"name\"=Main Br";
 throwWarning: tr("Highway name contains postfix Br, should likely be expanded to Bridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Bridge");
 }
 
-*[highway]["name"]["name"=~/ Brg$/] {
+*["name"=~/ Brg$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge";
 assertMatch: "way \"name\"=Main Brg";
 throwWarning: tr("Highway name contains postfix Brg, should likely be expanded to Bridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Bridge");
 }
 
-*[highway]["name"]["name"=~/ Byp$/] {
+*["name"=~/ Byp$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bypass";
 assertMatch: "way \"name\"=Main Byp";
 throwWarning: tr("Highway name contains postfix Byp, should likely be expanded to Bypass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Bypass");
 }
 
-*[highway]["name"]["name"=~/ Cir$/] {
+*["name"=~/ Cir$/].highway_name {
 assertNoMatch: "way \"name\"=Main Circle";
 assertMatch: "way \"name\"=Main Cir";
 throwWarning: tr("Highway name contains postfix Cir, should likely be expanded to Circle");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Circle");
 }
 
-*[highway]["name"]["name"=~/ Cr$/] {
+*["name"=~/ Cr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Creek";
 assertMatch: "way \"name\"=Main Cr";
 throwWarning: tr("Highway name contains postfix Cr, should likely be expanded to Creek");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Creek");
 }
 
-*[highway]["name"]["name"=~/ Cres$/] {
+*["name"=~/ Cres$/].highway_name {
 assertNoMatch: "way \"name\"=Main Crescent";
 assertMatch: "way \"name\"=Main Cres";
 throwWarning: tr("Highway name contains postfix Cres, should likely be expanded to Crescent");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Crescent");
 }
 
-*[highway]["name"]["name"=~/ Cswy$/] {
+*["name"=~/ Cswy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Causeway";
 assertMatch: "way \"name\"=Main Cswy";
 throwWarning: tr("Highway name contains postfix Cswy, should likely be expanded to Causeway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Causeway");
 }
 
-*[highway]["name"]["name"=~/ Ct$/] {
+*["name"=~/ Ct$/].highway_name {
 assertNoMatch: "way \"name\"=Main Court";
 assertMatch: "way \"name\"=Main Ct";
 throwWarning: tr("Highway name contains postfix Ct, should likely be expanded to Court");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Court");
 }
 
-*[highway]["name"]["name"=~/ Ctr$/] {
+*["name"=~/ Ctr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Center";
 assertMatch: "way \"name\"=Main Ctr";
 throwWarning: tr("Highway name contains postfix Ctr, should likely be expanded to Center");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Center");
 }
 
-*[highway]["name"]["name"=~/ Cv$/] {
+*["name"=~/ Cv$/].highway_name {
 assertNoMatch: "way \"name\"=Main Cove";
 assertMatch: "way \"name\"=Main Cv";
 throwWarning: tr("Highway name contains postfix Cv, should likely be expanded to Cove");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Cove");
 }
 
-*[highway]["name"]["name"=~/ Dr$/] {
+*["name"=~/ Dr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Drive";
 assertMatch: "way \"name\"=Main Dr";
 throwWarning: tr("Highway name contains postfix Dr, should likely be expanded to Drive");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Drive");
 }
 
-*[highway]["name"]["name"=~/ Expy$/] {
+*["name"=~/ Expy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway";
 assertMatch: "way \"name\"=Main Expy";
 throwWarning: tr("Highway name contains postfix Expy, should likely be expanded to Expressway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Expressway");
 }
 
-*[highway]["name"]["name"=~/ Expwy$/] {
+*["name"=~/ Expwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway";
 assertMatch: "way \"name\"=Main Expwy";
 throwWarning: tr("Highway name contains postfix Expwy, should likely be expanded to Expressway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Expressway");
 }
 
-*[highway]["name"]["name"=~/ Flds$/] {
+*["name"=~/ Flds$/].highway_name {
 assertNoMatch: "way \"name\"=Main Fields";
 assertMatch: "way \"name\"=Main Flds";
 throwWarning: tr("Highway name contains postfix Flds, should likely be expanded to Fields");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Fields");
 }
 
-*[highway]["name"]["name"=~/ Fmrd$/] {
+*["name"=~/ Fmrd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Farm to Market Road";
 assertMatch: "way \"name\"=Main Fmrd";
 throwWarning: tr("Highway name contains postfix Fmrd, should likely be expanded to Farm to Market Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Farm to Market Road");
 }
 
-*[highway]["name"]["name"=~/ Fwy$/] {
+*["name"=~/ Fwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Freeway";
 assertMatch: "way \"name\"=Main Fwy";
 throwWarning: tr("Highway name contains postfix Fwy, should likely be expanded to Freeway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Freeway");
 }
 
-*[highway]["name"]["name"=~/ Gd$/] {
+*["name"=~/ Gd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Grade";
 assertMatch: "way \"name\"=Main Gd";
 throwWarning: tr("Highway name contains postfix Gd, should likely be expanded to Grade");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Grade");
 }
 
-*[highway]["name"]["name"=~/ Grv$/] {
+*["name"=~/ Grv$/].highway_name {
 assertNoMatch: "way \"name\"=Main Grove";
 assertMatch: "way \"name\"=Main Grv";
 throwWarning: tr("Highway name contains postfix Grv, should likely be expanded to Grove");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Grove");
 }
 
-*[highway]["name"]["name"=~/ Hbr$/] {
+*["name"=~/ Hbr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Harbor";
 assertMatch: "way \"name\"=Main Hbr";
 throwWarning: tr("Highway name contains postfix Hbr, should likely be expanded to Harbor");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Harbor");
 }
 
-*[highway]["name"]["name"=~/ Holw$/] {
+*["name"=~/ Holw$/].highway_name {
 assertNoMatch: "way \"name\"=Main Hollow";
 assertMatch: "way \"name\"=Main Holw";
 throwWarning: tr("Highway name contains postfix Holw, should likely be expanded to Hollow");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Hollow");
 }
 
-*[highway]["name"]["name"=~/ Hts$/] {
+*["name"=~/ Hts$/].highway_name {
 assertNoMatch: "way \"name\"=Main Heights";
 assertMatch: "way \"name\"=Main Hts";
 throwWarning: tr("Highway name contains postfix Hts, should likely be expanded to Heights");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Heights");
 }
 
-*[highway]["name"]["name"=~/ Hw$/] {
+*["name"=~/ Hw$/].highway_name {
 assertNoMatch: "way \"name\"=Main Highway";
 assertMatch: "way \"name\"=Main Hw";
 throwWarning: tr("Highway name contains postfix Hw, should likely be expanded to Highway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Highway");
 }
 
-*[highway]["name"]["name"=~/ Hwy$/] {
+*["name"=~/ Hwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Highway";
 assertMatch: "way \"name\"=Main Hwy";
 throwWarning: tr("Highway name contains postfix Hwy, should likely be expanded to Highway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Highway");
 }
 
-*[highway]["name"]["name"=~/ Ln$/] {
+*["name"=~/ Ln$/].highway_name {
 assertNoMatch: "way \"name\"=Main Lane";
 assertMatch: "way \"name\"=Main Ln";
 throwWarning: tr("Highway name contains postfix Ln, should likely be expanded to Lane");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Lane");
 }
 
-*[highway]["name"]["name"=~/ Lndg$/] {
+*["name"=~/ Lndg$/].highway_name {
 assertNoMatch: "way \"name\"=Main Landing";
 assertMatch: "way \"name\"=Main Lndg";
 throwWarning: tr("Highway name contains postfix Lndg, should likely be expanded to Landing");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Landing");
 }
 
-*[highway]["name"]["name"=~/ Lp$/] {
+*["name"=~/ Lp$/].highway_name {
 assertNoMatch: "way \"name\"=Main Loop";
 assertMatch: "way \"name\"=Main Lp";
 throwWarning: tr("Highway name contains postfix Lp, should likely be expanded to Loop");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Loop");
 }
 
-*[highway]["name"]["name"=~/ Mal$/] {
+*["name"=~/ Mal$/].highway_name {
 assertNoMatch: "way \"name\"=Main Mall";
 assertMatch: "way \"name\"=Main Mal";
 throwWarning: tr("Highway name contains postfix Mal, should likely be expanded to Mall");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Mall");
 }
 
-*[highway]["name"]["name"=~/ Mt$/] {
+*["name"=~/ Mt$/].highway_name {
 assertNoMatch: "way \"name\"=Main Mount";
 assertMatch: "way \"name\"=Main Mt";
 throwWarning: tr("Highway name contains postfix Mt, should likely be expanded to Mount");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Mount");
 }
 
-*[highway]["name"]["name"=~/ Mtwy$/] {
+*["name"=~/ Mtwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Motorway";
 assertMatch: "way \"name\"=Main Mtwy";
 throwWarning: tr("Highway name contains postfix Mtwy, should likely be expanded to Motorway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Motorway");
 }
 
-*[highway]["name"]["name"=~/ Ovps$/] {
+*["name"=~/ Ovps$/].highway_name {
 assertNoMatch: "way \"name\"=Main Overpass";
 assertMatch: "way \"name\"=Main Ovps";
 throwWarning: tr("Highway name contains postfix Ovps, should likely be expanded to Overpass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Overpass");
 }
 
-*[highway]["name"]["name"=~/ Pky$/] {
+*["name"=~/ Pky$/].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway";
 assertMatch: "way \"name\"=Main Pky";
 throwWarning: tr("Highway name contains postfix Pky, should likely be expanded to Parkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Parkway");
 }
 
-*[highway]["name"]["name"=~/ Pkwy$/] {
+*["name"=~/ Pkwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway";
 assertMatch: "way \"name\"=Main Pkwy";
 throwWarning: tr("Highway name contains postfix Pkwy, should likely be expanded to Parkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Parkway");
 }
 
-*[highway]["name"]["name"=~/ Pl$/] {
+*["name"=~/ Pl$/].highway_name {
 assertNoMatch: "way \"name\"=Main Place";
 assertMatch: "way \"name\"=Main Pl";
 throwWarning: tr("Highway name contains postfix Pl, should likely be expanded to Place");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Place");
 }
 
-*[highway]["name"]["name"=~/ Plz$/] {
+*["name"=~/ Plz$/].highway_name {
 assertNoMatch: "way \"name\"=Main Plaza";
 assertMatch: "way \"name\"=Main Plz";
 throwWarning: tr("Highway name contains postfix Plz, should likely be expanded to Plaza");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Plaza");
 }
 
-*[highway]["name"]["name"=~/ Pvt$/] {
+*["name"=~/ Pvt$/].highway_name {
 assertNoMatch: "way \"name\"=Main Private";
 assertMatch: "way \"name\"=Main Pvt";
 throwWarning: tr("Highway name contains postfix Pvt, should likely be expanded to Private");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Private");
 }
 
-*[highway]["name"]["name"=~/ Rd$/] {
+*["name"=~/ Rd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Road";
 assertMatch: "way \"name\"=Main Rd";
 throwWarning: tr("Highway name contains postfix Rd, should likely be expanded to Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Road");
 }
 
-*[highway]["name"]["name"=~/ Rdg$/] {
+*["name"=~/ Rdg$/].highway_name {
 assertNoMatch: "way \"name\"=Main Ridge";
 assertMatch: "way \"name\"=Main Rdg";
 throwWarning: tr("Highway name contains postfix Rdg, should likely be expanded to Ridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Ridge");
 }
 
-*[highway]["name"]["name"=~/ Rmrd$/] {
+*["name"=~/ Rmrd$/].highway_name {
 assertNoMatch: "way \"name\"=Main Ranch to Market Road";
 assertMatch: "way \"name\"=Main Rmrd";
 throwWarning: tr("Highway name contains postfix Rmrd, should likely be expanded to Ranch to Market Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Ranch to Market Road");
 }
 
-*[highway]["name"]["name"=~/ Rte$/] {
+*["name"=~/ Rte$/].highway_name {
 assertNoMatch: "way \"name\"=Main Route";
 assertMatch: "way \"name\"=Main Rte";
 throwWarning: tr("Highway name contains postfix Rte, should likely be expanded to Route");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Route");
 }
 
-*[highway]["name"]["name"=~/ Skwy$/] {
+*["name"=~/ Skwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Skyway";
 assertMatch: "way \"name\"=Main Skwy";
 throwWarning: tr("Highway name contains postfix Skwy, should likely be expanded to Skyway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Skyway");
 }
 
-*[highway]["name"]["name"=~/ Sq$/] {
+*["name"=~/ Sq$/].highway_name {
 assertNoMatch: "way \"name\"=Main Square";
 assertMatch: "way \"name\"=Main Sq";
 throwWarning: tr("Highway name contains postfix Sq, should likely be expanded to Square");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Square");
 }
 
-*[highway]["name"]["name"=~/ Srvc$/] {
+*["name"=~/ Srvc$/].highway_name {
 assertNoMatch: "way \"name\"=Main Service";
 assertMatch: "way \"name\"=Main Srvc";
 throwWarning: tr("Highway name contains postfix Srvc, should likely be expanded to Service");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Service");
 }
 
-*[highway]["name"]["name"=~/ St$/] {
+*["name"=~/ St$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street";
 assertMatch: "way \"name\"=Main St";
 throwWarning: tr("Highway name contains postfix St, should likely be expanded to Street");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Street");
 }
 
-*[highway]["name"]["name"=~/ Ter$/] {
+*["name"=~/ Ter$/].highway_name {
 assertNoMatch: "way \"name\"=Main Terrace";
 assertMatch: "way \"name\"=Main Ter";
 throwWarning: tr("Highway name contains postfix Ter, should likely be expanded to Terrace");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Terrace");
 }
 
-*[highway]["name"]["name"=~/ Tfwy$/] {
+*["name"=~/ Tfwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trafficway";
 assertMatch: "way \"name\"=Main Tfwy";
 throwWarning: tr("Highway name contains postfix Tfwy, should likely be expanded to Trafficway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Trafficway");
 }
 
-*[highway]["name"]["name"=~/ Thfr$/] {
+*["name"=~/ Thfr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Thoroughfare";
 assertMatch: "way \"name\"=Main Thfr";
 throwWarning: tr("Highway name contains postfix Thfr, should likely be expanded to Thoroughfare");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Thoroughfare");
 }
 
-*[highway]["name"]["name"=~/ Thwy$/] {
+*["name"=~/ Thwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Throughway";
 assertMatch: "way \"name\"=Main Thwy";
 throwWarning: tr("Highway name contains postfix Thwy, should likely be expanded to Throughway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Throughway");
 }
 
-*[highway]["name"]["name"=~/ Tl$/] {
+*["name"=~/ Tl$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Tl";
 throwWarning: tr("Highway name contains postfix Tl, should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Tpke$/] {
+*["name"=~/ Tpke$/].highway_name {
 assertNoMatch: "way \"name\"=Main Turnpike";
 assertMatch: "way \"name\"=Main Tpke";
 throwWarning: tr("Highway name contains postfix Tpke, should likely be expanded to Turnpike");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Turnpike");
 }
 
-*[highway]["name"]["name"=~/ Trce$/] {
+*["name"=~/ Trce$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trace";
 assertMatch: "way \"name\"=Main Trce";
 throwWarning: tr("Highway name contains postfix Trce, should likely be expanded to Trace");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Trace");
 }
 
-*[highway]["name"]["name"=~/ Tr$/] {
+*["name"=~/ Tr$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Tr";
 throwWarning: tr("Highway name contains postfix Tr, should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Trl$/] {
+*["name"=~/ Trl$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Trl";
 throwWarning: tr("Highway name contains postfix Trl, should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Tunl$/] {
+*["name"=~/ Tunl$/].highway_name {
 assertNoMatch: "way \"name\"=Main Tunnel";
 assertMatch: "way \"name\"=Main Tunl";
 throwWarning: tr("Highway name contains postfix Tunl, should likely be expanded to Tunnel");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Tunnel");
 }
 
-*[highway]["name"]["name"=~/ Unp$/] {
+*["name"=~/ Unp$/].highway_name {
 assertNoMatch: "way \"name\"=Main Underpass";
 assertMatch: "way \"name\"=Main Unp";
 throwWarning: tr("Highway name contains postfix Unp, should likely be expanded to Underpass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Underpass");
 }
 
-*[highway]["name"]["name"=~/ Vly$/] {
+*["name"=~/ Vly$/].highway_name {
 assertNoMatch: "way \"name\"=Main Valley";
 assertMatch: "way \"name\"=Main Vly";
 throwWarning: tr("Highway name contains postfix Vly, should likely be expanded to Valley");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Valley");
 }
 
-*[highway]["name"]["name"=~/ Vw$/] {
+*["name"=~/ Vw$/].highway_name {
 assertNoMatch: "way \"name\"=Main View";
 assertMatch: "way \"name\"=Main Vw";
 throwWarning: tr("Highway name contains postfix Vw, should likely be expanded to View");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "View");
 }
 
-*[highway]["name"]["name"=~/ Wkwy$/] {
+*["name"=~/ Wkwy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Walkway";
 assertMatch: "way \"name\"=Main Wkwy";
 throwWarning: tr("Highway name contains postfix Wkwy, should likely be expanded to Walkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Walkway");
 }
 
-*[highway]["name"]["name"=~/ Wy$/] {
+*["name"=~/ Wy$/].highway_name {
 assertNoMatch: "way \"name\"=Main Way";
 assertMatch: "way \"name\"=Main Wy";
 throwWarning: tr("Highway name contains postfix Wy, should likely be expanded to Way");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-2), "Way");
 }
 
-*[highway]["name"]["name"=~/ Xing$/] {
+*["name"=~/ Xing$/].highway_name {
 assertNoMatch: "way \"name\"=Main Crossing";
 assertMatch: "way \"name\"=Main Xing";
 throwWarning: tr("Highway name contains postfix Xing, should likely be expanded to Crossing");
@@ -1545,462 +1549,462 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0, length(tag("addr
 group: tr("addr:street contains postfix Xing, should likely be expanded to Crossing");
 }
 
-*[highway]["name"]["name"=~/ Acc\.$/] {
+*["name"=~/ Acc\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Access";
 assertMatch: "way \"name\"=Main Acc.";
 throwWarning: tr("Highway name contains postfix Acc., should likely be expanded to Access");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Access");
 }
 
-*[highway]["name"]["name"=~/ Arc\.$/] {
+*["name"=~/ Arc\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Arcade";
 assertMatch: "way \"name\"=Main Arc.";
 throwWarning: tr("Highway name contains postfix Arc., should likely be expanded to Arcade");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Arcade");
 }
 
-*[highway]["name"]["name"=~/ Av\.$/] {
+*["name"=~/ Av\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue";
 assertMatch: "way \"name\"=Main Av.";
 throwWarning: tr("Highway name contains postfix Av., should likely be expanded to Avenue");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Avenue");
 }
 
-*[highway]["name"]["name"=~/ Ave\.$/] {
+*["name"=~/ Ave\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue";
 assertMatch: "way \"name\"=Main Ave.";
 throwWarning: tr("Highway name contains postfix Ave., should likely be expanded to Avenue");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Avenue");
 }
 
-*[highway]["name"]["name"=~/ Blf\.$/] {
+*["name"=~/ Blf\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bluff";
 assertMatch: "way \"name\"=Main Blf.";
 throwWarning: tr("Highway name contains postfix Blf., should likely be expanded to Bluff");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Bluff");
 }
 
-*[highway]["name"]["name"=~/ Blvd\.$/] {
+*["name"=~/ Blvd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Boulevard";
 assertMatch: "way \"name\"=Main Blvd.";
 throwWarning: tr("Highway name contains postfix Blvd., should likely be expanded to Boulevard");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Boulevard");
 }
 
-*[highway]["name"]["name"=~/ Bnd\.$/] {
+*["name"=~/ Bnd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bend";
 assertMatch: "way \"name\"=Main Bnd.";
 throwWarning: tr("Highway name contains postfix Bnd., should likely be expanded to Bend");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Bend");
 }
 
-*[highway]["name"]["name"=~/ Br\.$/] {
+*["name"=~/ Br\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge";
 assertMatch: "way \"name\"=Main Br.";
 throwWarning: tr("Highway name contains postfix Br., should likely be expanded to Bridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Bridge");
 }
 
-*[highway]["name"]["name"=~/ Brg\.$/] {
+*["name"=~/ Brg\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge";
 assertMatch: "way \"name\"=Main Brg.";
 throwWarning: tr("Highway name contains postfix Brg., should likely be expanded to Bridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Bridge");
 }
 
-*[highway]["name"]["name"=~/ Byp\.$/] {
+*["name"=~/ Byp\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Bypass";
 assertMatch: "way \"name\"=Main Byp.";
 throwWarning: tr("Highway name contains postfix Byp., should likely be expanded to Bypass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Bypass");
 }
 
-*[highway]["name"]["name"=~/ Cir\.$/] {
+*["name"=~/ Cir\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Circle";
 assertMatch: "way \"name\"=Main Cir.";
 throwWarning: tr("Highway name contains postfix Cir., should likely be expanded to Circle");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Circle");
 }
 
-*[highway]["name"]["name"=~/ Cr\.$/] {
+*["name"=~/ Cr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Creek";
 assertMatch: "way \"name\"=Main Cr.";
 throwWarning: tr("Highway name contains postfix Cr., should likely be expanded to Creek");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Creek");
 }
 
-*[highway]["name"]["name"=~/ Cres\.$/] {
+*["name"=~/ Cres\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Crescent";
 assertMatch: "way \"name\"=Main Cres.";
 throwWarning: tr("Highway name contains postfix Cres., should likely be expanded to Crescent");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Crescent");
 }
 
-*[highway]["name"]["name"=~/ Cswy\.$/] {
+*["name"=~/ Cswy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Causeway";
 assertMatch: "way \"name\"=Main Cswy.";
 throwWarning: tr("Highway name contains postfix Cswy., should likely be expanded to Causeway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Causeway");
 }
 
-*[highway]["name"]["name"=~/ Ct\.$/] {
+*["name"=~/ Ct\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Court";
 assertMatch: "way \"name\"=Main Ct.";
 throwWarning: tr("Highway name contains postfix Ct., should likely be expanded to Court");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Court");
 }
 
-*[highway]["name"]["name"=~/ Ctr\.$/] {
+*["name"=~/ Ctr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Center";
 assertMatch: "way \"name\"=Main Ctr.";
 throwWarning: tr("Highway name contains postfix Ctr., should likely be expanded to Center");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Center");
 }
 
-*[highway]["name"]["name"=~/ Cv\.$/] {
+*["name"=~/ Cv\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Cove";
 assertMatch: "way \"name\"=Main Cv.";
 throwWarning: tr("Highway name contains postfix Cv., should likely be expanded to Cove");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Cove");
 }
 
-*[highway]["name"]["name"=~/ Dr\.$/] {
+*["name"=~/ Dr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Drive";
 assertMatch: "way \"name\"=Main Dr.";
 throwWarning: tr("Highway name contains postfix Dr., should likely be expanded to Drive");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Drive");
 }
 
-*[highway]["name"]["name"=~/ Expy\.$/] {
+*["name"=~/ Expy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway";
 assertMatch: "way \"name\"=Main Expy.";
 throwWarning: tr("Highway name contains postfix Expy., should likely be expanded to Expressway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Expressway");
 }
 
-*[highway]["name"]["name"=~/ Expwy\.$/] {
+*["name"=~/ Expwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway";
 assertMatch: "way \"name\"=Main Expwy.";
 throwWarning: tr("Highway name contains postfix Expwy., should likely be expanded to Expressway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-6), "Expressway");
 }
 
-*[highway]["name"]["name"=~/ Flds\.$/] {
+*["name"=~/ Flds\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Fields";
 assertMatch: "way \"name\"=Main Flds.";
 throwWarning: tr("Highway name contains postfix Flds., should likely be expanded to Fields");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Fields");
 }
 
-*[highway]["name"]["name"=~/ Fmrd\.$/] {
+*["name"=~/ Fmrd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Farm to Market Road";
 assertMatch: "way \"name\"=Main Fmrd.";
 throwWarning: tr("Highway name contains postfix Fmrd., should likely be expanded to Farm to Market Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Farm to Market Road");
 }
 
-*[highway]["name"]["name"=~/ Fwy\.$/] {
+*["name"=~/ Fwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Freeway";
 assertMatch: "way \"name\"=Main Fwy.";
 throwWarning: tr("Highway name contains postfix Fwy., should likely be expanded to Freeway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Freeway");
 }
 
-*[highway]["name"]["name"=~/ Gd\.$/] {
+*["name"=~/ Gd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Grade";
 assertMatch: "way \"name\"=Main Gd.";
 throwWarning: tr("Highway name contains postfix Gd., should likely be expanded to Grade");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Grade");
 }
 
-*[highway]["name"]["name"=~/ Grv\.$/] {
+*["name"=~/ Grv\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Grove";
 assertMatch: "way \"name\"=Main Grv.";
 throwWarning: tr("Highway name contains postfix Grv., should likely be expanded to Grove");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Grove");
 }
 
-*[highway]["name"]["name"=~/ Hbr\.$/] {
+*["name"=~/ Hbr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Harbor";
 assertMatch: "way \"name\"=Main Hbr.";
 throwWarning: tr("Highway name contains postfix Hbr., should likely be expanded to Harbor");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Harbor");
 }
 
-*[highway]["name"]["name"=~/ Holw\.$/] {
+*["name"=~/ Holw\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Hollow";
 assertMatch: "way \"name\"=Main Holw.";
 throwWarning: tr("Highway name contains postfix Holw., should likely be expanded to Hollow");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Hollow");
 }
 
-*[highway]["name"]["name"=~/ Hts\.$/] {
+*["name"=~/ Hts\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Heights";
 assertMatch: "way \"name\"=Main Hts.";
 throwWarning: tr("Highway name contains postfix Hts., should likely be expanded to Heights");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Heights");
 }
 
-*[highway]["name"]["name"=~/ Hw\.$/] {
+*["name"=~/ Hw\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Highway";
 assertMatch: "way \"name\"=Main Hw.";
 throwWarning: tr("Highway name contains postfix Hw., should likely be expanded to Highway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Highway");
 }
 
-*[highway]["name"]["name"=~/ Hwy\.$/] {
+*["name"=~/ Hwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Highway";
 assertMatch: "way \"name\"=Main Hwy.";
 throwWarning: tr("Highway name contains postfix Hwy., should likely be expanded to Highway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Highway");
 }
 
-*[highway]["name"]["name"=~/ Ln\.$/] {
+*["name"=~/ Ln\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Lane";
 assertMatch: "way \"name\"=Main Ln.";
 throwWarning: tr("Highway name contains postfix Ln., should likely be expanded to Lane");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Lane");
 }
 
-*[highway]["name"]["name"=~/ Lndg\.$/] {
+*["name"=~/ Lndg\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Landing";
 assertMatch: "way \"name\"=Main Lndg.";
 throwWarning: tr("Highway name contains postfix Lndg., should likely be expanded to Landing");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Landing");
 }
 
-*[highway]["name"]["name"=~/ Lp\.$/] {
+*["name"=~/ Lp\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Loop";
 assertMatch: "way \"name\"=Main Lp.";
 throwWarning: tr("Highway name contains postfix Lp., should likely be expanded to Loop");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Loop");
 }
 
-*[highway]["name"]["name"=~/ Mal\.$/] {
+*["name"=~/ Mal\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Mall";
 assertMatch: "way \"name\"=Main Mal.";
 throwWarning: tr("Highway name contains postfix Mal., should likely be expanded to Mall");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Mall");
 }
 
-*[highway]["name"]["name"=~/ Mt\.$/] {
+*["name"=~/ Mt\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Mount";
 assertMatch: "way \"name\"=Main Mt.";
 throwWarning: tr("Highway name contains postfix Mt., should likely be expanded to Mount");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Mount");
 }
 
-*[highway]["name"]["name"=~/ Mtwy\.$/] {
+*["name"=~/ Mtwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Motorway";
 assertMatch: "way \"name\"=Main Mtwy.";
 throwWarning: tr("Highway name contains postfix Mtwy., should likely be expanded to Motorway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Motorway");
 }
 
-*[highway]["name"]["name"=~/ Ovps\.$/] {
+*["name"=~/ Ovps\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Overpass";
 assertMatch: "way \"name\"=Main Ovps.";
 throwWarning: tr("Highway name contains postfix Ovps., should likely be expanded to Overpass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Overpass");
 }
 
-*[highway]["name"]["name"=~/ Pky\.$/] {
+*["name"=~/ Pky\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway";
 assertMatch: "way \"name\"=Main Pky.";
 throwWarning: tr("Highway name contains postfix Pky., should likely be expanded to Parkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Parkway");
 }
 
-*[highway]["name"]["name"=~/ Pkwy\.$/] {
+*["name"=~/ Pkwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway";
 assertMatch: "way \"name\"=Main Pkwy.";
 throwWarning: tr("Highway name contains postfix Pkwy., should likely be expanded to Parkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Parkway");
 }
 
-*[highway]["name"]["name"=~/ Pl\.$/] {
+*["name"=~/ Pl\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Place";
 assertMatch: "way \"name\"=Main Pl.";
 throwWarning: tr("Highway name contains postfix Pl., should likely be expanded to Place");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Place");
 }
 
-*[highway]["name"]["name"=~/ Plz\.$/] {
+*["name"=~/ Plz\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Plaza";
 assertMatch: "way \"name\"=Main Plz.";
 throwWarning: tr("Highway name contains postfix Plz., should likely be expanded to Plaza");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Plaza");
 }
 
-*[highway]["name"]["name"=~/ Pvt\.$/] {
+*["name"=~/ Pvt\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Private";
 assertMatch: "way \"name\"=Main Pvt.";
 throwWarning: tr("Highway name contains postfix Pvt., should likely be expanded to Private");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Private");
 }
 
-*[highway]["name"]["name"=~/ Rd\.$/] {
+*["name"=~/ Rd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Road";
 assertMatch: "way \"name\"=Main Rd.";
 throwWarning: tr("Highway name contains postfix Rd., should likely be expanded to Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Road");
 }
 
-*[highway]["name"]["name"=~/ Rdg\.$/] {
+*["name"=~/ Rdg\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Ridge";
 assertMatch: "way \"name\"=Main Rdg.";
 throwWarning: tr("Highway name contains postfix Rdg., should likely be expanded to Ridge");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Ridge");
 }
 
-*[highway]["name"]["name"=~/ Rmrd\.$/] {
+*["name"=~/ Rmrd\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Ranch to Market Road";
 assertMatch: "way \"name\"=Main Rmrd.";
 throwWarning: tr("Highway name contains postfix Rmrd., should likely be expanded to Ranch to Market Road");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Ranch to Market Road");
 }
 
-*[highway]["name"]["name"=~/ Rte\.$/] {
+*["name"=~/ Rte\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Route";
 assertMatch: "way \"name\"=Main Rte.";
 throwWarning: tr("Highway name contains postfix Rte., should likely be expanded to Route");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Route");
 }
 
-*[highway]["name"]["name"=~/ Skwy\.$/] {
+*["name"=~/ Skwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Skyway";
 assertMatch: "way \"name\"=Main Skwy.";
 throwWarning: tr("Highway name contains postfix Skwy., should likely be expanded to Skyway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Skyway");
 }
 
-*[highway]["name"]["name"=~/ Sq\.$/] {
+*["name"=~/ Sq\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Square";
 assertMatch: "way \"name\"=Main Sq.";
 throwWarning: tr("Highway name contains postfix Sq., should likely be expanded to Square");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Square");
 }
 
-*[highway]["name"]["name"=~/ Srvc\.$/] {
+*["name"=~/ Srvc\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Service";
 assertMatch: "way \"name\"=Main Srvc.";
 throwWarning: tr("Highway name contains postfix Srvc., should likely be expanded to Service");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Service");
 }
 
-*[highway]["name"]["name"=~/ St\.$/] {
+*["name"=~/ St\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Street";
 assertMatch: "way \"name\"=Main St.";
 throwWarning: tr("Highway name contains postfix St., should likely be expanded to Street");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Street");
 }
 
-*[highway]["name"]["name"=~/ Ter\.$/] {
+*["name"=~/ Ter\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Terrace";
 assertMatch: "way \"name\"=Main Ter.";
 throwWarning: tr("Highway name contains postfix Ter., should likely be expanded to Terrace");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Terrace");
 }
 
-*[highway]["name"]["name"=~/ Tfwy\.$/] {
+*["name"=~/ Tfwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trafficway";
 assertMatch: "way \"name\"=Main Tfwy.";
 throwWarning: tr("Highway name contains postfix Tfwy., should likely be expanded to Trafficway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Trafficway");
 }
 
-*[highway]["name"]["name"=~/ Thfr\.$/] {
+*["name"=~/ Thfr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Thoroughfare";
 assertMatch: "way \"name\"=Main Thfr.";
 throwWarning: tr("Highway name contains postfix Thfr., should likely be expanded to Thoroughfare");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Thoroughfare");
 }
 
-*[highway]["name"]["name"=~/ Thwy\.$/] {
+*["name"=~/ Thwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Throughway";
 assertMatch: "way \"name\"=Main Thwy.";
 throwWarning: tr("Highway name contains postfix Thwy., should likely be expanded to Throughway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Throughway");
 }
 
-*[highway]["name"]["name"=~/ Tl\.$/] {
+*["name"=~/ Tl\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Tl.";
 throwWarning: tr("Highway name contains postfix Tl., should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Tpke\.$/] {
+*["name"=~/ Tpke\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Turnpike";
 assertMatch: "way \"name\"=Main Tpke.";
 throwWarning: tr("Highway name contains postfix Tpke., should likely be expanded to Turnpike");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Turnpike");
 }
 
-*[highway]["name"]["name"=~/ Trce\.$/] {
+*["name"=~/ Trce\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trace";
 assertMatch: "way \"name\"=Main Trce.";
 throwWarning: tr("Highway name contains postfix Trce., should likely be expanded to Trace");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Trace");
 }
 
-*[highway]["name"]["name"=~/ Tr\.$/] {
+*["name"=~/ Tr\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Tr.";
 throwWarning: tr("Highway name contains postfix Tr., should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Trl\.$/] {
+*["name"=~/ Trl\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Trail";
 assertMatch: "way \"name\"=Main Trl.";
 throwWarning: tr("Highway name contains postfix Trl., should likely be expanded to Trail");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Trail");
 }
 
-*[highway]["name"]["name"=~/ Tunl\.$/] {
+*["name"=~/ Tunl\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Tunnel";
 assertMatch: "way \"name\"=Main Tunl.";
 throwWarning: tr("Highway name contains postfix Tunl., should likely be expanded to Tunnel");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Tunnel");
 }
 
-*[highway]["name"]["name"=~/ Unp\.$/] {
+*["name"=~/ Unp\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Underpass";
 assertMatch: "way \"name\"=Main Unp.";
 throwWarning: tr("Highway name contains postfix Unp., should likely be expanded to Underpass");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Underpass");
 }
 
-*[highway]["name"]["name"=~/ Vly\.$/] {
+*["name"=~/ Vly\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Valley";
 assertMatch: "way \"name\"=Main Vly.";
 throwWarning: tr("Highway name contains postfix Vly., should likely be expanded to Valley");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-4), "Valley");
 }
 
-*[highway]["name"]["name"=~/ Vw\.$/] {
+*["name"=~/ Vw\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main View";
 assertMatch: "way \"name\"=Main Vw.";
 throwWarning: tr("Highway name contains postfix Vw., should likely be expanded to View");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "View");
 }
 
-*[highway]["name"]["name"=~/ Wkwy\.$/] {
+*["name"=~/ Wkwy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Walkway";
 assertMatch: "way \"name\"=Main Wkwy.";
 throwWarning: tr("Highway name contains postfix Wkwy., should likely be expanded to Walkway");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-5), "Walkway");
 }
 
-*[highway]["name"]["name"=~/ Wy\.$/] {
+*["name"=~/ Wy\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Way";
 assertMatch: "way \"name\"=Main Wy.";
 throwWarning: tr("Highway name contains postfix Wy., should likely be expanded to Way");
 fixAdd: concat("name=", substring(tag("name"), 0, length(tag("name"))-3), "Way");
 }
 
-*[highway]["name"]["name"=~/ Xing\.$/] {
+*["name"=~/ Xing\.$/].highway_name {
 assertNoMatch: "way \"name\"=Main Crossing";
 assertMatch: "way \"name\"=Main Xing.";
 throwWarning: tr("Highway name contains postfix Xing., should likely be expanded to Crossing");
@@ -2535,462 +2539,462 @@ fixAdd: concat("addr:street=", replace(tag("addr:street")," Xing ", " Crossing "
 group: tr("addr:street contains Xing, should likely be expanded to Crossing");
 }
 
-*["highway"]["name"=~/ Acc /] {
+*["name"=~/ Acc /].highway_name {
 assertNoMatch: "way \"name\"=Main Access East";
 assertMatch: "way \"name\"=Main Acc East";
 throwWarning: tr("Highway name contains Acc, may need to be expanded to Access");
 fixAdd: concat("name=", replace(tag("name")," Acc ", " Access "));
 }
 
-*["highway"]["name"=~/ Arc /] {
+*["name"=~/ Arc /].highway_name {
 assertNoMatch: "way \"name\"=Main Arcade East";
 assertMatch: "way \"name\"=Main Arc East";
 throwWarning: tr("Highway name contains Arc, may need to be expanded to Arcade");
 fixAdd: concat("name=", replace(tag("name")," Arc ", " Arcade "));
 }
 
-*["highway"]["name"=~/ Av /] {
+*["name"=~/ Av /].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue East";
 assertMatch: "way \"name\"=Main Av East";
 throwWarning: tr("Highway name contains Av, may need to be expanded to Avenue");
 fixAdd: concat("name=", replace(tag("name")," Av ", " Avenue "));
 }
 
-*["highway"]["name"=~/ Ave /] {
+*["name"=~/ Ave /].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue East";
 assertMatch: "way \"name\"=Main Ave East";
 throwWarning: tr("Highway name contains Ave, may need to be expanded to Avenue");
 fixAdd: concat("name=", replace(tag("name")," Ave ", " Avenue "));
 }
 
-*["highway"]["name"=~/ Blf /] {
+*["name"=~/ Blf /].highway_name {
 assertNoMatch: "way \"name\"=Main Bluff East";
 assertMatch: "way \"name\"=Main Blf East";
 throwWarning: tr("Highway name contains Blf, may need to be expanded to Bluff");
 fixAdd: concat("name=", replace(tag("name")," Blf ", " Bluff "));
 }
 
-*["highway"]["name"=~/ Blvd /] {
+*["name"=~/ Blvd /].highway_name {
 assertNoMatch: "way \"name\"=Main Boulevard East";
 assertMatch: "way \"name\"=Main Blvd East";
 throwWarning: tr("Highway name contains Blvd, may need to be expanded to Boulevard");
 fixAdd: concat("name=", replace(tag("name")," Blvd ", " Boulevard "));
 }
 
-*["highway"]["name"=~/ Bnd /] {
+*["name"=~/ Bnd /].highway_name {
 assertNoMatch: "way \"name\"=Main Bend East";
 assertMatch: "way \"name\"=Main Bnd East";
 throwWarning: tr("Highway name contains Bnd, may need to be expanded to Bend");
 fixAdd: concat("name=", replace(tag("name")," Bnd ", " Bend "));
 }
 
-*["highway"]["name"=~/ Br /] {
+*["name"=~/ Br /].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge East";
 assertMatch: "way \"name\"=Main Br East";
 throwWarning: tr("Highway name contains Br, may need to be expanded to Bridge");
 fixAdd: concat("name=", replace(tag("name")," Br ", " Bridge "));
 }
 
-*["highway"]["name"=~/ Brg /] {
+*["name"=~/ Brg /].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge East";
 assertMatch: "way \"name\"=Main Brg East";
 throwWarning: tr("Highway name contains Brg, may need to be expanded to Bridge");
 fixAdd: concat("name=", replace(tag("name")," Brg ", " Bridge "));
 }
 
-*["highway"]["name"=~/ Byp /] {
+*["name"=~/ Byp /].highway_name {
 assertNoMatch: "way \"name\"=Main Bypass East";
 assertMatch: "way \"name\"=Main Byp East";
 throwWarning: tr("Highway name contains Byp, may need to be expanded to Bypass");
 fixAdd: concat("name=", replace(tag("name")," Byp ", " Bypass "));
 }
 
-*["highway"]["name"=~/ Cir /] {
+*["name"=~/ Cir /].highway_name {
 assertNoMatch: "way \"name\"=Main Circle East";
 assertMatch: "way \"name\"=Main Cir East";
 throwWarning: tr("Highway name contains Cir, may need to be expanded to Circle");
 fixAdd: concat("name=", replace(tag("name")," Cir ", " Circle "));
 }
 
-*["highway"]["name"=~/ Cr /] {
+*["name"=~/ Cr /].highway_name {
 assertNoMatch: "way \"name\"=Main Creek East";
 assertMatch: "way \"name\"=Main Cr East";
 throwWarning: tr("Highway name contains Cr, may need to be expanded to Creek");
 fixAdd: concat("name=", replace(tag("name")," Cr ", " Creek "));
 }
 
-*["highway"]["name"=~/ Cres /] {
+*["name"=~/ Cres /].highway_name {
 assertNoMatch: "way \"name\"=Main Crescent East";
 assertMatch: "way \"name\"=Main Cres East";
 throwWarning: tr("Highway name contains Cres, may need to be expanded to Crescent");
 fixAdd: concat("name=", replace(tag("name")," Cres ", " Crescent "));
 }
 
-*["highway"]["name"=~/ Cswy /] {
+*["name"=~/ Cswy /].highway_name {
 assertNoMatch: "way \"name\"=Main Causeway East";
 assertMatch: "way \"name\"=Main Cswy East";
 throwWarning: tr("Highway name contains Cswy, may need to be expanded to Causeway");
 fixAdd: concat("name=", replace(tag("name")," Cswy ", " Causeway "));
 }
 
-*["highway"]["name"=~/ Ct /] {
+*["name"=~/ Ct /].highway_name {
 assertNoMatch: "way \"name\"=Main Court East";
 assertMatch: "way \"name\"=Main Ct East";
 throwWarning: tr("Highway name contains Ct, may need to be expanded to Court");
 fixAdd: concat("name=", replace(tag("name")," Ct ", " Court "));
 }
 
-*["highway"]["name"=~/ Ctr /] {
+*["name"=~/ Ctr /].highway_name {
 assertNoMatch: "way \"name\"=Main Center East";
 assertMatch: "way \"name\"=Main Ctr East";
 throwWarning: tr("Highway name contains Ctr, may need to be expanded to Center");
 fixAdd: concat("name=", replace(tag("name")," Ctr ", " Center "));
 }
 
-*["highway"]["name"=~/ Cv /] {
+*["name"=~/ Cv /].highway_name {
 assertNoMatch: "way \"name\"=Main Cove East";
 assertMatch: "way \"name\"=Main Cv East";
 throwWarning: tr("Highway name contains Cv, may need to be expanded to Cove");
 fixAdd: concat("name=", replace(tag("name")," Cv ", " Cove "));
 }
 
-*["highway"]["name"=~/ Dr /] {
+*["name"=~/ Dr /].highway_name {
 assertNoMatch: "way \"name\"=Main Drive East";
 assertMatch: "way \"name\"=Main Dr East";
 throwWarning: tr("Highway name contains Dr, may need to be expanded to Drive");
 fixAdd: concat("name=", replace(tag("name")," Dr ", " Drive "));
 }
 
-*["highway"]["name"=~/ Expy /] {
+*["name"=~/ Expy /].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway East";
 assertMatch: "way \"name\"=Main Expy East";
 throwWarning: tr("Highway name contains Expy, may need to be expanded to Expressway");
 fixAdd: concat("name=", replace(tag("name")," Expy ", " Expressway "));
 }
 
-*["highway"]["name"=~/ Expwy /] {
+*["name"=~/ Expwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway East";
 assertMatch: "way \"name\"=Main Expwy East";
 throwWarning: tr("Highway name contains Expwy, may need to be expanded to Expressway");
 fixAdd: concat("name=", replace(tag("name")," Expwy ", " Expressway "));
 }
 
-*["highway"]["name"=~/ Flds /] {
+*["name"=~/ Flds /].highway_name {
 assertNoMatch: "way \"name\"=Main Fields East";
 assertMatch: "way \"name\"=Main Flds East";
 throwWarning: tr("Highway name contains Flds, may need to be expanded to Fields");
 fixAdd: concat("name=", replace(tag("name")," Flds ", " Fields "));
 }
 
-*["highway"]["name"=~/ Fmrd /] {
+*["name"=~/ Fmrd /].highway_name {
 assertNoMatch: "way \"name\"=Main Farm to Market Road East";
 assertMatch: "way \"name\"=Main Fmrd East";
 throwWarning: tr("Highway name contains Fmrd, may need to be expanded to Farm to Market Road");
 fixAdd: concat("name=", replace(tag("name")," Fmrd ", " Farm to Market Road "));
 }
 
-*["highway"]["name"=~/ Fwy /] {
+*["name"=~/ Fwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Freeway East";
 assertMatch: "way \"name\"=Main Fwy East";
 throwWarning: tr("Highway name contains Fwy, may need to be expanded to Freeway");
 fixAdd: concat("name=", replace(tag("name")," Fwy ", " Freeway "));
 }
 
-*["highway"]["name"=~/ Gd /] {
+*["name"=~/ Gd /].highway_name {
 assertNoMatch: "way \"name\"=Main Grade East";
 assertMatch: "way \"name\"=Main Gd East";
 throwWarning: tr("Highway name contains Gd, may need to be expanded to Grade");
 fixAdd: concat("name=", replace(tag("name")," Gd ", " Grade "));
 }
 
-*["highway"]["name"=~/ Grv /] {
+*["name"=~/ Grv /].highway_name {
 assertNoMatch: "way \"name\"=Main Grove East";
 assertMatch: "way \"name\"=Main Grv East";
 throwWarning: tr("Highway name contains Grv, may need to be expanded to Grove");
 fixAdd: concat("name=", replace(tag("name")," Grv ", " Grove "));
 }
 
-*["highway"]["name"=~/ Hbr /] {
+*["name"=~/ Hbr /].highway_name {
 assertNoMatch: "way \"name\"=Main Harbor East";
 assertMatch: "way \"name\"=Main Hbr East";
 throwWarning: tr("Highway name contains Hbr, may need to be expanded to Harbor");
 fixAdd: concat("name=", replace(tag("name")," Hbr ", " Harbor "));
 }
 
-*["highway"]["name"=~/ Holw /] {
+*["name"=~/ Holw /].highway_name {
 assertNoMatch: "way \"name\"=Main Hollow East";
 assertMatch: "way \"name\"=Main Holw East";
 throwWarning: tr("Highway name contains Holw, may need to be expanded to Hollow");
 fixAdd: concat("name=", replace(tag("name")," Holw ", " Hollow "));
 }
 
-*["highway"]["name"=~/ Hts /] {
+*["name"=~/ Hts /].highway_name {
 assertNoMatch: "way \"name\"=Main Heights East";
 assertMatch: "way \"name\"=Main Hts East";
 throwWarning: tr("Highway name contains Hts, may need to be expanded to Heights");
 fixAdd: concat("name=", replace(tag("name")," Hts ", " Heights "));
 }
 
-*["highway"]["name"=~/ Hw /] {
+*["name"=~/ Hw /].highway_name {
 assertNoMatch: "way \"name\"=Main Highway East";
 assertMatch: "way \"name\"=Main Hw East";
 throwWarning: tr("Highway name contains Hw, may need to be expanded to Highway");
 fixAdd: concat("name=", replace(tag("name")," Hw ", " Highway "));
 }
 
-*["highway"]["name"=~/ Hwy /] {
+*["name"=~/ Hwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Highway East";
 assertMatch: "way \"name\"=Main Hwy East";
 throwWarning: tr("Highway name contains Hwy, may need to be expanded to Highway");
 fixAdd: concat("name=", replace(tag("name")," Hwy ", " Highway "));
 }
 
-*["highway"]["name"=~/ Ln /] {
+*["name"=~/ Ln /].highway_name {
 assertNoMatch: "way \"name\"=Main Lane East";
 assertMatch: "way \"name\"=Main Ln East";
 throwWarning: tr("Highway name contains Ln, may need to be expanded to Lane");
 fixAdd: concat("name=", replace(tag("name")," Ln ", " Lane "));
 }
 
-*["highway"]["name"=~/ Lndg /] {
+*["name"=~/ Lndg /].highway_name {
 assertNoMatch: "way \"name\"=Main Landing East";
 assertMatch: "way \"name\"=Main Lndg East";
 throwWarning: tr("Highway name contains Lndg, may need to be expanded to Landing");
 fixAdd: concat("name=", replace(tag("name")," Lndg ", " Landing "));
 }
 
-*["highway"]["name"=~/ Lp /] {
+*["name"=~/ Lp /].highway_name {
 assertNoMatch: "way \"name\"=Main Loop East";
 assertMatch: "way \"name\"=Main Lp East";
 throwWarning: tr("Highway name contains Lp, may need to be expanded to Loop");
 fixAdd: concat("name=", replace(tag("name")," Lp ", " Loop "));
 }
 
-*["highway"]["name"=~/ Mal /] {
+*["name"=~/ Mal /].highway_name {
 assertNoMatch: "way \"name\"=Main Mall East";
 assertMatch: "way \"name\"=Main Mal East";
 throwWarning: tr("Highway name contains Mal, may need to be expanded to Mall");
 fixAdd: concat("name=", replace(tag("name")," Mal ", " Mall "));
 }
 
-*["highway"]["name"=~/ Mt /] {
+*["name"=~/ Mt /].highway_name {
 assertNoMatch: "way \"name\"=Main Mount East";
 assertMatch: "way \"name\"=Main Mt East";
 throwWarning: tr("Highway name contains Mt, may need to be expanded to Mount");
 fixAdd: concat("name=", replace(tag("name")," Mt ", " Mount "));
 }
 
-*["highway"]["name"=~/ Mtwy /] {
+*["name"=~/ Mtwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Motorway East";
 assertMatch: "way \"name\"=Main Mtwy East";
 throwWarning: tr("Highway name contains Mtwy, may need to be expanded to Motorway");
 fixAdd: concat("name=", replace(tag("name")," Mtwy ", " Motorway "));
 }
 
-*["highway"]["name"=~/ Ovps /] {
+*["name"=~/ Ovps /].highway_name {
 assertNoMatch: "way \"name\"=Main Overpass East";
 assertMatch: "way \"name\"=Main Ovps East";
 throwWarning: tr("Highway name contains Ovps, may need to be expanded to Overpass");
 fixAdd: concat("name=", replace(tag("name")," Ovps ", " Overpass "));
 }
 
-*["highway"]["name"=~/ Pky /] {
+*["name"=~/ Pky /].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway East";
 assertMatch: "way \"name\"=Main Pky East";
 throwWarning: tr("Highway name contains Pky, may need to be expanded to Parkway");
 fixAdd: concat("name=", replace(tag("name")," Pky ", " Parkway "));
 }
 
-*["highway"]["name"=~/ Pkwy /] {
+*["name"=~/ Pkwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway East";
 assertMatch: "way \"name\"=Main Pkwy East";
 throwWarning: tr("Highway name contains Pkwy, may need to be expanded to Parkway");
 fixAdd: concat("name=", replace(tag("name")," Pkwy ", " Parkway "));
 }
 
-*["highway"]["name"=~/ Pl /] {
+*["name"=~/ Pl /].highway_name {
 assertNoMatch: "way \"name\"=Main Place East";
 assertMatch: "way \"name\"=Main Pl East";
 throwWarning: tr("Highway name contains Pl, may need to be expanded to Place");
 fixAdd: concat("name=", replace(tag("name")," Pl ", " Place "));
 }
 
-*["highway"]["name"=~/ Plz /] {
+*["name"=~/ Plz /].highway_name {
 assertNoMatch: "way \"name\"=Main Plaza East";
 assertMatch: "way \"name\"=Main Plz East";
 throwWarning: tr("Highway name contains Plz, may need to be expanded to Plaza");
 fixAdd: concat("name=", replace(tag("name")," Plz ", " Plaza "));
 }
 
-*["highway"]["name"=~/ Pvt /] {
+*["name"=~/ Pvt /].highway_name {
 assertNoMatch: "way \"name\"=Main Private East";
 assertMatch: "way \"name\"=Main Pvt East";
 throwWarning: tr("Highway name contains Pvt, may need to be expanded to Private");
 fixAdd: concat("name=", replace(tag("name")," Pvt ", " Private "));
 }
 
-*["highway"]["name"=~/ Rd /] {
+*["name"=~/ Rd /].highway_name {
 assertNoMatch: "way \"name\"=Main Road East";
 assertMatch: "way \"name\"=Main Rd East";
 throwWarning: tr("Highway name contains Rd, may need to be expanded to Road");
 fixAdd: concat("name=", replace(tag("name")," Rd ", " Road "));
 }
 
-*["highway"]["name"=~/ Rdg /] {
+*["name"=~/ Rdg /].highway_name {
 assertNoMatch: "way \"name\"=Main Ridge East";
 assertMatch: "way \"name\"=Main Rdg East";
 throwWarning: tr("Highway name contains Rdg, may need to be expanded to Ridge");
 fixAdd: concat("name=", replace(tag("name")," Rdg ", " Ridge "));
 }
 
-*["highway"]["name"=~/ Rmrd /] {
+*["name"=~/ Rmrd /].highway_name {
 assertNoMatch: "way \"name\"=Main Ranch to Market Road East";
 assertMatch: "way \"name\"=Main Rmrd East";
 throwWarning: tr("Highway name contains Rmrd, may need to be expanded to Ranch to Market Road");
 fixAdd: concat("name=", replace(tag("name")," Rmrd ", " Ranch to Market Road "));
 }
 
-*["highway"]["name"=~/ Rte /] {
+*["name"=~/ Rte /].highway_name {
 assertNoMatch: "way \"name\"=Main Route East";
 assertMatch: "way \"name\"=Main Rte East";
 throwWarning: tr("Highway name contains Rte, may need to be expanded to Route");
 fixAdd: concat("name=", replace(tag("name")," Rte ", " Route "));
 }
 
-*["highway"]["name"=~/ Skwy /] {
+*["name"=~/ Skwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Skyway East";
 assertMatch: "way \"name\"=Main Skwy East";
 throwWarning: tr("Highway name contains Skwy, may need to be expanded to Skyway");
 fixAdd: concat("name=", replace(tag("name")," Skwy ", " Skyway "));
 }
 
-*["highway"]["name"=~/ Sq /] {
+*["name"=~/ Sq /].highway_name {
 assertNoMatch: "way \"name\"=Main Square East";
 assertMatch: "way \"name\"=Main Sq East";
 throwWarning: tr("Highway name contains Sq, may need to be expanded to Square");
 fixAdd: concat("name=", replace(tag("name")," Sq ", " Square "));
 }
 
-*["highway"]["name"=~/ Srvc /] {
+*["name"=~/ Srvc /].highway_name {
 assertNoMatch: "way \"name\"=Main Service East";
 assertMatch: "way \"name\"=Main Srvc East";
 throwWarning: tr("Highway name contains Srvc, may need to be expanded to Service");
 fixAdd: concat("name=", replace(tag("name")," Srvc ", " Service "));
 }
 
-*["highway"]["name"=~/ St /] {
+*["name"=~/ St /].highway_name {
 assertNoMatch: "way \"name\"=Main Street East";
 assertMatch: "way \"name\"=Main St East";
 throwWarning: tr("Highway name contains St, may need to be expanded to Street");
 fixAdd: concat("name=", replace(tag("name")," St ", " Street "));
 }
 
-*["highway"]["name"=~/ Ter /] {
+*["name"=~/ Ter /].highway_name {
 assertNoMatch: "way \"name\"=Main Terrace East";
 assertMatch: "way \"name\"=Main Ter East";
 throwWarning: tr("Highway name contains Ter, may need to be expanded to Terrace");
 fixAdd: concat("name=", replace(tag("name")," Ter ", " Terrace "));
 }
 
-*["highway"]["name"=~/ Tfwy /] {
+*["name"=~/ Tfwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Trafficway East";
 assertMatch: "way \"name\"=Main Tfwy East";
 throwWarning: tr("Highway name contains Tfwy, may need to be expanded to Trafficway");
 fixAdd: concat("name=", replace(tag("name")," Tfwy ", " Trafficway "));
 }
 
-*["highway"]["name"=~/ Thfr /] {
+*["name"=~/ Thfr /].highway_name {
 assertNoMatch: "way \"name\"=Main Thoroughfare East";
 assertMatch: "way \"name\"=Main Thfr East";
 throwWarning: tr("Highway name contains Thfr, may need to be expanded to Thoroughfare");
 fixAdd: concat("name=", replace(tag("name")," Thfr ", " Thoroughfare "));
 }
 
-*["highway"]["name"=~/ Thwy /] {
+*["name"=~/ Thwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Throughway East";
 assertMatch: "way \"name\"=Main Thwy East";
 throwWarning: tr("Highway name contains Thwy, may need to be expanded to Throughway");
 fixAdd: concat("name=", replace(tag("name")," Thwy ", " Throughway "));
 }
 
-*["highway"]["name"=~/ Tl /] {
+*["name"=~/ Tl /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Tl East";
 throwWarning: tr("Highway name contains Tl, may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Tl ", " Trail "));
 }
 
-*["highway"]["name"=~/ Tpke /] {
+*["name"=~/ Tpke /].highway_name {
 assertNoMatch: "way \"name\"=Main Turnpike East";
 assertMatch: "way \"name\"=Main Tpke East";
 throwWarning: tr("Highway name contains Tpke, may need to be expanded to Turnpike");
 fixAdd: concat("name=", replace(tag("name")," Tpke ", " Turnpike "));
 }
 
-*["highway"]["name"=~/ Trce /] {
+*["name"=~/ Trce /].highway_name {
 assertNoMatch: "way \"name\"=Main Trace East";
 assertMatch: "way \"name\"=Main Trce East";
 throwWarning: tr("Highway name contains Trce, may need to be expanded to Trace");
 fixAdd: concat("name=", replace(tag("name")," Trce ", " Trace "));
 }
 
-*["highway"]["name"=~/ Tr /] {
+*["name"=~/ Tr /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Tr East";
 throwWarning: tr("Highway name contains Tr, may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Tr ", " Trail "));
 }
 
-*["highway"]["name"=~/ Trl /] {
+*["name"=~/ Trl /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Trl East";
 throwWarning: tr("Highway name contains Trl, may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Trl ", " Trail "));
 }
 
-*["highway"]["name"=~/ Tunl /] {
+*["name"=~/ Tunl /].highway_name {
 assertNoMatch: "way \"name\"=Main Tunnel East";
 assertMatch: "way \"name\"=Main Tunl East";
 throwWarning: tr("Highway name contains Tunl, may need to be expanded to Tunnel");
 fixAdd: concat("name=", replace(tag("name")," Tunl ", " Tunnel "));
 }
 
-*["highway"]["name"=~/ Unp /] {
+*["name"=~/ Unp /].highway_name {
 assertNoMatch: "way \"name\"=Main Underpass East";
 assertMatch: "way \"name\"=Main Unp East";
 throwWarning: tr("Highway name contains Unp, may need to be expanded to Underpass");
 fixAdd: concat("name=", replace(tag("name")," Unp ", " Underpass "));
 }
 
-*["highway"]["name"=~/ Vly /] {
+*["name"=~/ Vly /].highway_name {
 assertNoMatch: "way \"name\"=Main Valley East";
 assertMatch: "way \"name\"=Main Vly East";
 throwWarning: tr("Highway name contains Vly, may need to be expanded to Valley");
 fixAdd: concat("name=", replace(tag("name")," Vly ", " Valley "));
 }
 
-*["highway"]["name"=~/ Vw /] {
+*["name"=~/ Vw /].highway_name {
 assertNoMatch: "way \"name\"=Main View East";
 assertMatch: "way \"name\"=Main Vw East";
 throwWarning: tr("Highway name contains Vw, may need to be expanded to View");
 fixAdd: concat("name=", replace(tag("name")," Vw ", " View "));
 }
 
-*["highway"]["name"=~/ Wkwy /] {
+*["name"=~/ Wkwy /].highway_name {
 assertNoMatch: "way \"name\"=Main Walkway East";
 assertMatch: "way \"name\"=Main Wkwy East";
 throwWarning: tr("Highway name contains Wkwy, may need to be expanded to Walkway");
 fixAdd: concat("name=", replace(tag("name")," Wkwy ", " Walkway "));
 }
 
-*["highway"]["name"=~/ Wy /] {
+*["name"=~/ Wy /].highway_name {
 assertNoMatch: "way \"name\"=Main Way East";
 assertMatch: "way \"name\"=Main Wy East";
 throwWarning: tr("Highway name contains Wy, may need to be expanded to Way");
 fixAdd: concat("name=", replace(tag("name")," Wy ", " Way "));
 }
 
-*["highway"]["name"=~/ Xing /] {
+*["name"=~/ Xing /].highway_name {
 assertNoMatch: "way \"name\"=Main Crossing East";
 assertMatch: "way \"name\"=Main Xing East";
 throwWarning: tr("Highway name contains Xing, may need to be expanded to Crossing");
@@ -3525,462 +3529,462 @@ fixAdd: concat("addr:street=", replace(tag("addr:street")," Xing. ", " Crossing 
 group: tr("addr:street contains Xing, should likely be expanded to Crossing");
 }
 
-*["highway"]["name"=~/ Acc\. /] {
+*["name"=~/ Acc\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Access East";
 assertMatch: "way \"name\"=Main Acc East";
 throwWarning: tr("Highway name contains Acc., may need to be expanded to Access");
 fixAdd: concat("name=", replace(tag("name")," Acc. ", " Access "));
 }
 
-*["highway"]["name"=~/ Arc\. /] {
+*["name"=~/ Arc\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Arcade East";
 assertMatch: "way \"name\"=Main Arc East";
 throwWarning: tr("Highway name contains Arc., may need to be expanded to Arcade");
 fixAdd: concat("name=", replace(tag("name")," Arc. ", " Arcade "));
 }
 
-*["highway"]["name"=~/ Av\. /] {
+*["name"=~/ Av\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue East";
 assertMatch: "way \"name\"=Main Av East";
 throwWarning: tr("Highway name contains Av., may need to be expanded to Avenue");
 fixAdd: concat("name=", replace(tag("name")," Av. ", " Avenue "));
 }
 
-*["highway"]["name"=~/ Ave\. /] {
+*["name"=~/ Ave\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Avenue East";
 assertMatch: "way \"name\"=Main Ave East";
 throwWarning: tr("Highway name contains Ave., may need to be expanded to Avenue");
 fixAdd: concat("name=", replace(tag("name")," Ave. ", " Avenue "));
 }
 
-*["highway"]["name"=~/ Blf\. /] {
+*["name"=~/ Blf\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Bluff East";
 assertMatch: "way \"name\"=Main Blf East";
 throwWarning: tr("Highway name contains Blf., may need to be expanded to Bluff");
 fixAdd: concat("name=", replace(tag("name")," Blf. ", " Bluff "));
 }
 
-*["highway"]["name"=~/ Blvd\. /] {
+*["name"=~/ Blvd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Boulevard East";
 assertMatch: "way \"name\"=Main Blvd East";
 throwWarning: tr("Highway name contains Blvd., may need to be expanded to Boulevard");
 fixAdd: concat("name=", replace(tag("name")," Blvd. ", " Boulevard "));
 }
 
-*["highway"]["name"=~/ Bnd\. /] {
+*["name"=~/ Bnd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Bend East";
 assertMatch: "way \"name\"=Main Bnd East";
 throwWarning: tr("Highway name contains Bnd., may need to be expanded to Bend");
 fixAdd: concat("name=", replace(tag("name")," Bnd. ", " Bend "));
 }
 
-*["highway"]["name"=~/ Br\. /] {
+*["name"=~/ Br\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge East";
 assertMatch: "way \"name\"=Main Br East";
 throwWarning: tr("Highway name contains Br., may need to be expanded to Bridge");
 fixAdd: concat("name=", replace(tag("name")," Br. ", " Bridge "));
 }
 
-*["highway"]["name"=~/ Brg\. /] {
+*["name"=~/ Brg\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Bridge East";
 assertMatch: "way \"name\"=Main Brg East";
 throwWarning: tr("Highway name contains Brg., may need to be expanded to Bridge");
 fixAdd: concat("name=", replace(tag("name")," Brg. ", " Bridge "));
 }
 
-*["highway"]["name"=~/ Byp\. /] {
+*["name"=~/ Byp\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Bypass East";
 assertMatch: "way \"name\"=Main Byp East";
 throwWarning: tr("Highway name contains Byp., may need to be expanded to Bypass");
 fixAdd: concat("name=", replace(tag("name")," Byp. ", " Bypass "));
 }
 
-*["highway"]["name"=~/ Cir\. /] {
+*["name"=~/ Cir\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Circle East";
 assertMatch: "way \"name\"=Main Cir East";
 throwWarning: tr("Highway name contains Cir., may need to be expanded to Circle");
 fixAdd: concat("name=", replace(tag("name")," Cir. ", " Circle "));
 }
 
-*["highway"]["name"=~/ Cr\. /] {
+*["name"=~/ Cr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Creek East";
 assertMatch: "way \"name\"=Main Cr East";
 throwWarning: tr("Highway name contains Cr., may need to be expanded to Creek");
 fixAdd: concat("name=", replace(tag("name")," Cr. ", " Creek "));
 }
 
-*["highway"]["name"=~/ Cres\. /] {
+*["name"=~/ Cres\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Crescent East";
 assertMatch: "way \"name\"=Main Cres East";
 throwWarning: tr("Highway name contains Cres., may need to be expanded to Crescent");
 fixAdd: concat("name=", replace(tag("name")," Cres. ", " Crescent "));
 }
 
-*["highway"]["name"=~/ Cswy\. /] {
+*["name"=~/ Cswy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Causeway East";
 assertMatch: "way \"name\"=Main Cswy East";
 throwWarning: tr("Highway name contains Cswy., may need to be expanded to Causeway");
 fixAdd: concat("name=", replace(tag("name")," Cswy. ", " Causeway "));
 }
 
-*["highway"]["name"=~/ Ct\. /] {
+*["name"=~/ Ct\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Court East";
 assertMatch: "way \"name\"=Main Ct East";
 throwWarning: tr("Highway name contains Ct., may need to be expanded to Court");
 fixAdd: concat("name=", replace(tag("name")," Ct. ", " Court "));
 }
 
-*["highway"]["name"=~/ Ctr\. /] {
+*["name"=~/ Ctr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Center East";
 assertMatch: "way \"name\"=Main Ctr East";
 throwWarning: tr("Highway name contains Ctr., may need to be expanded to Center");
 fixAdd: concat("name=", replace(tag("name")," Ctr. ", " Center "));
 }
 
-*["highway"]["name"=~/ Cv\. /] {
+*["name"=~/ Cv\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Cove East";
 assertMatch: "way \"name\"=Main Cv East";
 throwWarning: tr("Highway name contains Cv., may need to be expanded to Cove");
 fixAdd: concat("name=", replace(tag("name")," Cv. ", " Cove "));
 }
 
-*["highway"]["name"=~/ Dr\. /] {
+*["name"=~/ Dr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Drive East";
 assertMatch: "way \"name\"=Main Dr East";
 throwWarning: tr("Highway name contains Dr., may need to be expanded to Drive");
 fixAdd: concat("name=", replace(tag("name")," Dr. ", " Drive "));
 }
 
-*["highway"]["name"=~/ Expy\. /] {
+*["name"=~/ Expy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway East";
 assertMatch: "way \"name\"=Main Expy East";
 throwWarning: tr("Highway name contains Expy., may need to be expanded to Expressway");
 fixAdd: concat("name=", replace(tag("name")," Expy. ", " Expressway "));
 }
 
-*["highway"]["name"=~/ Expwy\. /] {
+*["name"=~/ Expwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Expressway East";
 assertMatch: "way \"name\"=Main Expwy East";
 throwWarning: tr("Highway name contains Expwy., may need to be expanded to Expressway");
 fixAdd: concat("name=", replace(tag("name")," Expwy. ", " Expressway "));
 }
 
-*["highway"]["name"=~/ Flds\. /] {
+*["name"=~/ Flds\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Fields East";
 assertMatch: "way \"name\"=Main Flds East";
 throwWarning: tr("Highway name contains Flds., may need to be expanded to Fields");
 fixAdd: concat("name=", replace(tag("name")," Flds. ", " Fields "));
 }
 
-*["highway"]["name"=~/ Fmrd\. /] {
+*["name"=~/ Fmrd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Farm to Market Road East";
 assertMatch: "way \"name\"=Main Fmrd East";
 throwWarning: tr("Highway name contains Fmrd., may need to be expanded to Farm to Market Road");
 fixAdd: concat("name=", replace(tag("name")," Fmrd. ", " Farm to Market Road "));
 }
 
-*["highway"]["name"=~/ Fwy\. /] {
+*["name"=~/ Fwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Freeway East";
 assertMatch: "way \"name\"=Main Fwy East";
 throwWarning: tr("Highway name contains Fwy., may need to be expanded to Freeway");
 fixAdd: concat("name=", replace(tag("name")," Fwy. ", " Freeway "));
 }
 
-*["highway"]["name"=~/ Gd\. /] {
+*["name"=~/ Gd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Grade East";
 assertMatch: "way \"name\"=Main Gd East";
 throwWarning: tr("Highway name contains Gd., may need to be expanded to Grade");
 fixAdd: concat("name=", replace(tag("name")," Gd. ", " Grade "));
 }
 
-*["highway"]["name"=~/ Grv\. /] {
+*["name"=~/ Grv\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Grove East";
 assertMatch: "way \"name\"=Main Grv East";
 throwWarning: tr("Highway name contains Grv., may need to be expanded to Grove");
 fixAdd: concat("name=", replace(tag("name")," Grv. ", " Grove "));
 }
 
-*["highway"]["name"=~/ Hbr\. /] {
+*["name"=~/ Hbr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Harbor East";
 assertMatch: "way \"name\"=Main Hbr East";
 throwWarning: tr("Highway name contains Hbr., may need to be expanded to Harbor");
 fixAdd: concat("name=", replace(tag("name")," Hbr. ", " Harbor "));
 }
 
-*["highway"]["name"=~/ Holw\. /] {
+*["name"=~/ Holw\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Hollow East";
 assertMatch: "way \"name\"=Main Holw East";
 throwWarning: tr("Highway name contains Holw., may need to be expanded to Hollow");
 fixAdd: concat("name=", replace(tag("name")," Holw. ", " Hollow "));
 }
 
-*["highway"]["name"=~/ Hts\. /] {
+*["name"=~/ Hts\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Heights East";
 assertMatch: "way \"name\"=Main Hts East";
 throwWarning: tr("Highway name contains Hts., may need to be expanded to Heights");
 fixAdd: concat("name=", replace(tag("name")," Hts. ", " Heights "));
 }
 
-*["highway"]["name"=~/ Hw\. /] {
+*["name"=~/ Hw\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Highway East";
 assertMatch: "way \"name\"=Main Hw East";
 throwWarning: tr("Highway name contains Hw., may need to be expanded to Highway");
 fixAdd: concat("name=", replace(tag("name")," Hw. ", " Highway "));
 }
 
-*["highway"]["name"=~/ Hwy\. /] {
+*["name"=~/ Hwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Highway East";
 assertMatch: "way \"name\"=Main Hwy East";
 throwWarning: tr("Highway name contains Hwy., may need to be expanded to Highway");
 fixAdd: concat("name=", replace(tag("name")," Hwy. ", " Highway "));
 }
 
-*["highway"]["name"=~/ Ln\. /] {
+*["name"=~/ Ln\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Lane East";
 assertMatch: "way \"name\"=Main Ln East";
 throwWarning: tr("Highway name contains Ln., may need to be expanded to Lane");
 fixAdd: concat("name=", replace(tag("name")," Ln. ", " Lane "));
 }
 
-*["highway"]["name"=~/ Lndg\. /] {
+*["name"=~/ Lndg\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Landing East";
 assertMatch: "way \"name\"=Main Lndg East";
 throwWarning: tr("Highway name contains Lndg., may need to be expanded to Landing");
 fixAdd: concat("name=", replace(tag("name")," Lndg. ", " Landing "));
 }
 
-*["highway"]["name"=~/ Lp\. /] {
+*["name"=~/ Lp\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Loop East";
 assertMatch: "way \"name\"=Main Lp East";
 throwWarning: tr("Highway name contains Lp., may need to be expanded to Loop");
 fixAdd: concat("name=", replace(tag("name")," Lp. ", " Loop "));
 }
 
-*["highway"]["name"=~/ Mal\. /] {
+*["name"=~/ Mal\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Mall East";
 assertMatch: "way \"name\"=Main Mal East";
 throwWarning: tr("Highway name contains Mal., may need to be expanded to Mall");
 fixAdd: concat("name=", replace(tag("name")," Mal. ", " Mall "));
 }
 
-*["highway"]["name"=~/ Mt\. /] {
+*["name"=~/ Mt\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Mount East";
 assertMatch: "way \"name\"=Main Mt East";
 throwWarning: tr("Highway name contains Mt., may need to be expanded to Mount");
 fixAdd: concat("name=", replace(tag("name")," Mt. ", " Mount "));
 }
 
-*["highway"]["name"=~/ Mtwy\. /] {
+*["name"=~/ Mtwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Motorway East";
 assertMatch: "way \"name\"=Main Mtwy East";
 throwWarning: tr("Highway name contains Mtwy., may need to be expanded to Motorway");
 fixAdd: concat("name=", replace(tag("name")," Mtwy. ", " Motorway "));
 }
 
-*["highway"]["name"=~/ Ovps\. /] {
+*["name"=~/ Ovps\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Overpass East";
 assertMatch: "way \"name\"=Main Ovps East";
 throwWarning: tr("Highway name contains Ovps., may need to be expanded to Overpass");
 fixAdd: concat("name=", replace(tag("name")," Ovps. ", " Overpass "));
 }
 
-*["highway"]["name"=~/ Pky\. /] {
+*["name"=~/ Pky\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway East";
 assertMatch: "way \"name\"=Main Pky East";
 throwWarning: tr("Highway name contains Pky., may need to be expanded to Parkway");
 fixAdd: concat("name=", replace(tag("name")," Pky. ", " Parkway "));
 }
 
-*["highway"]["name"=~/ Pkwy\. /] {
+*["name"=~/ Pkwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Parkway East";
 assertMatch: "way \"name\"=Main Pkwy East";
 throwWarning: tr("Highway name contains Pkwy., may need to be expanded to Parkway");
 fixAdd: concat("name=", replace(tag("name")," Pkwy. ", " Parkway "));
 }
 
-*["highway"]["name"=~/ Pl\. /] {
+*["name"=~/ Pl\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Place East";
 assertMatch: "way \"name\"=Main Pl East";
 throwWarning: tr("Highway name contains Pl., may need to be expanded to Place");
 fixAdd: concat("name=", replace(tag("name")," Pl. ", " Place "));
 }
 
-*["highway"]["name"=~/ Plz\. /] {
+*["name"=~/ Plz\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Plaza East";
 assertMatch: "way \"name\"=Main Plz East";
 throwWarning: tr("Highway name contains Plz., may need to be expanded to Plaza");
 fixAdd: concat("name=", replace(tag("name")," Plz. ", " Plaza "));
 }
 
-*["highway"]["name"=~/ Pvt\. /] {
+*["name"=~/ Pvt\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Private East";
 assertMatch: "way \"name\"=Main Pvt East";
 throwWarning: tr("Highway name contains Pvt., may need to be expanded to Private");
 fixAdd: concat("name=", replace(tag("name")," Pvt. ", " Private "));
 }
 
-*["highway"]["name"=~/ Rd\. /] {
+*["name"=~/ Rd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Road East";
 assertMatch: "way \"name\"=Main Rd East";
 throwWarning: tr("Highway name contains Rd., may need to be expanded to Road");
 fixAdd: concat("name=", replace(tag("name")," Rd. ", " Road "));
 }
 
-*["highway"]["name"=~/ Rdg\. /] {
+*["name"=~/ Rdg\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Ridge East";
 assertMatch: "way \"name\"=Main Rdg East";
 throwWarning: tr("Highway name contains Rdg., may need to be expanded to Ridge");
 fixAdd: concat("name=", replace(tag("name")," Rdg. ", " Ridge "));
 }
 
-*["highway"]["name"=~/ Rmrd\. /] {
+*["name"=~/ Rmrd\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Ranch to Market Road East";
 assertMatch: "way \"name\"=Main Rmrd East";
 throwWarning: tr("Highway name contains Rmrd., may need to be expanded to Ranch to Market Road");
 fixAdd: concat("name=", replace(tag("name")," Rmrd. ", " Ranch to Market Road "));
 }
 
-*["highway"]["name"=~/ Rte\. /] {
+*["name"=~/ Rte\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Route East";
 assertMatch: "way \"name\"=Main Rte East";
 throwWarning: tr("Highway name contains Rte., may need to be expanded to Route");
 fixAdd: concat("name=", replace(tag("name")," Rte. ", " Route "));
 }
 
-*["highway"]["name"=~/ Skwy\. /] {
+*["name"=~/ Skwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Skyway East";
 assertMatch: "way \"name\"=Main Skwy East";
 throwWarning: tr("Highway name contains Skwy., may need to be expanded to Skyway");
 fixAdd: concat("name=", replace(tag("name")," Skwy. ", " Skyway "));
 }
 
-*["highway"]["name"=~/ Sq\. /] {
+*["name"=~/ Sq\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Square East";
 assertMatch: "way \"name\"=Main Sq East";
 throwWarning: tr("Highway name contains Sq., may need to be expanded to Square");
 fixAdd: concat("name=", replace(tag("name")," Sq. ", " Square "));
 }
 
-*["highway"]["name"=~/ Srvc\. /] {
+*["name"=~/ Srvc\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Service East";
 assertMatch: "way \"name\"=Main Srvc East";
 throwWarning: tr("Highway name contains Srvc., may need to be expanded to Service");
 fixAdd: concat("name=", replace(tag("name")," Srvc. ", " Service "));
 }
 
-*["highway"]["name"=~/ St\. /] {
+*["name"=~/ St\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Street East";
 assertMatch: "way \"name\"=Main St East";
 throwWarning: tr("Highway name contains St., may need to be expanded to Street");
 fixAdd: concat("name=", replace(tag("name")," St. ", " Street "));
 }
 
-*["highway"]["name"=~/ Ter\. /] {
+*["name"=~/ Ter\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Terrace East";
 assertMatch: "way \"name\"=Main Ter East";
 throwWarning: tr("Highway name contains Ter., may need to be expanded to Terrace");
 fixAdd: concat("name=", replace(tag("name")," Ter. ", " Terrace "));
 }
 
-*["highway"]["name"=~/ Tfwy\. /] {
+*["name"=~/ Tfwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Trafficway East";
 assertMatch: "way \"name\"=Main Tfwy East";
 throwWarning: tr("Highway name contains Tfwy., may need to be expanded to Trafficway");
 fixAdd: concat("name=", replace(tag("name")," Tfwy. ", " Trafficway "));
 }
 
-*["highway"]["name"=~/ Thfr\. /] {
+*["name"=~/ Thfr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Thoroughfare East";
 assertMatch: "way \"name\"=Main Thfr East";
 throwWarning: tr("Highway name contains Thfr., may need to be expanded to Thoroughfare");
 fixAdd: concat("name=", replace(tag("name")," Thfr. ", " Thoroughfare "));
 }
 
-*["highway"]["name"=~/ Thwy\. /] {
+*["name"=~/ Thwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Throughway East";
 assertMatch: "way \"name\"=Main Thwy East";
 throwWarning: tr("Highway name contains Thwy., may need to be expanded to Throughway");
 fixAdd: concat("name=", replace(tag("name")," Thwy. ", " Throughway "));
 }
 
-*["highway"]["name"=~/ Tl\. /] {
+*["name"=~/ Tl\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Tl East";
 throwWarning: tr("Highway name contains Tl., may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Tl. ", " Trail "));
 }
 
-*["highway"]["name"=~/ Tpke\. /] {
+*["name"=~/ Tpke\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Turnpike East";
 assertMatch: "way \"name\"=Main Tpke East";
 throwWarning: tr("Highway name contains Tpke., may need to be expanded to Turnpike");
 fixAdd: concat("name=", replace(tag("name")," Tpke. ", " Turnpike "));
 }
 
-*["highway"]["name"=~/ Trce\. /] {
+*["name"=~/ Trce\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Trace East";
 assertMatch: "way \"name\"=Main Trce East";
 throwWarning: tr("Highway name contains Trce., may need to be expanded to Trace");
 fixAdd: concat("name=", replace(tag("name")," Trce. ", " Trace "));
 }
 
-*["highway"]["name"=~/ Tr\. /] {
+*["name"=~/ Tr\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Tr East";
 throwWarning: tr("Highway name contains Tr., may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Tr. ", " Trail "));
 }
 
-*["highway"]["name"=~/ Trl\. /] {
+*["name"=~/ Trl\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Trail East";
 assertMatch: "way \"name\"=Main Trl East";
 throwWarning: tr("Highway name contains Trl., may need to be expanded to Trail");
 fixAdd: concat("name=", replace(tag("name")," Trl. ", " Trail "));
 }
 
-*["highway"]["name"=~/ Tunl\. /] {
+*["name"=~/ Tunl\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Tunnel East";
 assertMatch: "way \"name\"=Main Tunl East";
 throwWarning: tr("Highway name contains Tunl., may need to be expanded to Tunnel");
 fixAdd: concat("name=", replace(tag("name")," Tunl. ", " Tunnel "));
 }
 
-*["highway"]["name"=~/ Unp\. /] {
+*["name"=~/ Unp\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Underpass East";
 assertMatch: "way \"name\"=Main Unp East";
 throwWarning: tr("Highway name contains Unp., may need to be expanded to Underpass");
 fixAdd: concat("name=", replace(tag("name")," Unp. ", " Underpass "));
 }
 
-*["highway"]["name"=~/ Vly\. /] {
+*["name"=~/ Vly\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Valley East";
 assertMatch: "way \"name\"=Main Vly East";
 throwWarning: tr("Highway name contains Vly., may need to be expanded to Valley");
 fixAdd: concat("name=", replace(tag("name")," Vly. ", " Valley "));
 }
 
-*["highway"]["name"=~/ Vw\. /] {
+*["name"=~/ Vw\. /].highway_name {
 assertNoMatch: "way \"name\"=Main View East";
 assertMatch: "way \"name\"=Main Vw East";
 throwWarning: tr("Highway name contains Vw., may need to be expanded to View");
 fixAdd: concat("name=", replace(tag("name")," Vw. ", " View "));
 }
 
-*["highway"]["name"=~/ Wkwy\. /] {
+*["name"=~/ Wkwy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Walkway East";
 assertMatch: "way \"name\"=Main Wkwy East";
 throwWarning: tr("Highway name contains Wkwy., may need to be expanded to Walkway");
 fixAdd: concat("name=", replace(tag("name")," Wkwy. ", " Walkway "));
 }
 
-*["highway"]["name"=~/ Wy\. /] {
+*["name"=~/ Wy\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Way East";
 assertMatch: "way \"name\"=Main Wy East";
 throwWarning: tr("Highway name contains Wy., may need to be expanded to Way");
 fixAdd: concat("name=", replace(tag("name")," Wy. ", " Way "));
 }
 
-*["highway"]["name"=~/ Xing\. /] {
+*["name"=~/ Xing\. /].highway_name {
 assertNoMatch: "way \"name\"=Main Crossing East";
 assertMatch: "way \"name\"=Main Xing East";
 throwWarning: tr("Highway name contains Xing., may need to be expanded to Crossing");
@@ -4515,462 +4519,462 @@ fixAdd: concat("addr:street=", "Crossing", substring(tag("addr:street"), 4));
 group: tr("addr:street begins with Xing, may need to be expanded to Crossing");
 }
 
-*["highway"]["name"=~/^Acc /] {
+*["name"=~/^Acc /].highway_name {
 assertNoMatch: "way \"name\"=Access Foo";
 assertMatch: "way \"name\"=Acc Foo";
 throwWarning: tr("Highway name begins with Acc, may need to be expanded to Access");
 fixAdd: concat("name=", "Access", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Arc /] {
+*["name"=~/^Arc /].highway_name {
 assertNoMatch: "way \"name\"=Arcade Foo";
 assertMatch: "way \"name\"=Arc Foo";
 throwWarning: tr("Highway name begins with Arc, may need to be expanded to Arcade");
 fixAdd: concat("name=", "Arcade", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Av /] {
+*["name"=~/^Av /].highway_name {
 assertNoMatch: "way \"name\"=Avenue Foo";
 assertMatch: "way \"name\"=Av Foo";
 throwWarning: tr("Highway name begins with Av, may need to be expanded to Avenue");
 fixAdd: concat("name=", "Avenue", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Ave /] {
+*["name"=~/^Ave /].highway_name {
 assertNoMatch: "way \"name\"=Avenue Foo";
 assertMatch: "way \"name\"=Ave Foo";
 throwWarning: tr("Highway name begins with Ave, may need to be expanded to Avenue");
 fixAdd: concat("name=", "Avenue", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Blf /] {
+*["name"=~/^Blf /].highway_name {
 assertNoMatch: "way \"name\"=Bluff Foo";
 assertMatch: "way \"name\"=Blf Foo";
 throwWarning: tr("Highway name begins with Blf, may need to be expanded to Bluff");
 fixAdd: concat("name=", "Bluff", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Blvd /] {
+*["name"=~/^Blvd /].highway_name {
 assertNoMatch: "way \"name\"=Boulevard Foo";
 assertMatch: "way \"name\"=Blvd Foo";
 throwWarning: tr("Highway name begins with Blvd, may need to be expanded to Boulevard");
 fixAdd: concat("name=", "Boulevard", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Bnd /] {
+*["name"=~/^Bnd /].highway_name {
 assertNoMatch: "way \"name\"=Bend Foo";
 assertMatch: "way \"name\"=Bnd Foo";
 throwWarning: tr("Highway name begins with Bnd, may need to be expanded to Bend");
 fixAdd: concat("name=", "Bend", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Br /] {
+*["name"=~/^Br /].highway_name {
 assertNoMatch: "way \"name\"=Bridge Foo";
 assertMatch: "way \"name\"=Br Foo";
 throwWarning: tr("Highway name begins with Br, may need to be expanded to Bridge");
 fixAdd: concat("name=", "Bridge", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Brg /] {
+*["name"=~/^Brg /].highway_name {
 assertNoMatch: "way \"name\"=Bridge Foo";
 assertMatch: "way \"name\"=Brg Foo";
 throwWarning: tr("Highway name begins with Brg, may need to be expanded to Bridge");
 fixAdd: concat("name=", "Bridge", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Byp /] {
+*["name"=~/^Byp /].highway_name {
 assertNoMatch: "way \"name\"=Bypass Foo";
 assertMatch: "way \"name\"=Byp Foo";
 throwWarning: tr("Highway name begins with Byp, may need to be expanded to Bypass");
 fixAdd: concat("name=", "Bypass", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Cir /] {
+*["name"=~/^Cir /].highway_name {
 assertNoMatch: "way \"name\"=Circle Foo";
 assertMatch: "way \"name\"=Cir Foo";
 throwWarning: tr("Highway name begins with Cir, may need to be expanded to Circle");
 fixAdd: concat("name=", "Circle", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Cr /] {
+*["name"=~/^Cr /].highway_name {
 assertNoMatch: "way \"name\"=Creek Foo";
 assertMatch: "way \"name\"=Cr Foo";
 throwWarning: tr("Highway name begins with Cr, may need to be expanded to Creek");
 fixAdd: concat("name=", "Creek", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Cres /] {
+*["name"=~/^Cres /].highway_name {
 assertNoMatch: "way \"name\"=Crescent Foo";
 assertMatch: "way \"name\"=Cres Foo";
 throwWarning: tr("Highway name begins with Cres, may need to be expanded to Crescent");
 fixAdd: concat("name=", "Crescent", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Cswy /] {
+*["name"=~/^Cswy /].highway_name {
 assertNoMatch: "way \"name\"=Causeway Foo";
 assertMatch: "way \"name\"=Cswy Foo";
 throwWarning: tr("Highway name begins with Cswy, may need to be expanded to Causeway");
 fixAdd: concat("name=", "Causeway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Ct /] {
+*["name"=~/^Ct /].highway_name {
 assertNoMatch: "way \"name\"=Court Foo";
 assertMatch: "way \"name\"=Ct Foo";
 throwWarning: tr("Highway name begins with Ct, may need to be expanded to Court");
 fixAdd: concat("name=", "Court", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Ctr /] {
+*["name"=~/^Ctr /].highway_name {
 assertNoMatch: "way \"name\"=Center Foo";
 assertMatch: "way \"name\"=Ctr Foo";
 throwWarning: tr("Highway name begins with Ctr, may need to be expanded to Center");
 fixAdd: concat("name=", "Center", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Cv /] {
+*["name"=~/^Cv /].highway_name {
 assertNoMatch: "way \"name\"=Cove Foo";
 assertMatch: "way \"name\"=Cv Foo";
 throwWarning: tr("Highway name begins with Cv, may need to be expanded to Cove");
 fixAdd: concat("name=", "Cove", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Dr /] {
+*["name"=~/^Dr /].highway_name {
 assertNoMatch: "way \"name\"=Drive Foo";
 assertMatch: "way \"name\"=Dr Foo";
 throwWarning: tr("Highway name begins with Dr, may need to be expanded to Drive");
 fixAdd: concat("name=", "Drive", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Expy /] {
+*["name"=~/^Expy /].highway_name {
 assertNoMatch: "way \"name\"=Expressway Foo";
 assertMatch: "way \"name\"=Expy Foo";
 throwWarning: tr("Highway name begins with Expy, may need to be expanded to Expressway");
 fixAdd: concat("name=", "Expressway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Expwy /] {
+*["name"=~/^Expwy /].highway_name {
 assertNoMatch: "way \"name\"=Expressway Foo";
 assertMatch: "way \"name\"=Expwy Foo";
 throwWarning: tr("Highway name begins with Expwy, may need to be expanded to Expressway");
 fixAdd: concat("name=", "Expressway", substring(tag("name"), 5));
 }
 
-*["highway"]["name"=~/^Flds /] {
+*["name"=~/^Flds /].highway_name {
 assertNoMatch: "way \"name\"=Fields Foo";
 assertMatch: "way \"name\"=Flds Foo";
 throwWarning: tr("Highway name begins with Flds, may need to be expanded to Fields");
 fixAdd: concat("name=", "Fields", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Fmrd /] {
+*["name"=~/^Fmrd /].highway_name {
 assertNoMatch: "way \"name\"=Farm to Market Road Foo";
 assertMatch: "way \"name\"=Fmrd Foo";
 throwWarning: tr("Highway name begins with Fmrd, may need to be expanded to Farm to Market Road");
 fixAdd: concat("name=", "Farm to Market Road", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Fwy /] {
+*["name"=~/^Fwy /].highway_name {
 assertNoMatch: "way \"name\"=Freeway Foo";
 assertMatch: "way \"name\"=Fwy Foo";
 throwWarning: tr("Highway name begins with Fwy, may need to be expanded to Freeway");
 fixAdd: concat("name=", "Freeway", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Gd /] {
+*["name"=~/^Gd /].highway_name {
 assertNoMatch: "way \"name\"=Grade Foo";
 assertMatch: "way \"name\"=Gd Foo";
 throwWarning: tr("Highway name begins with Gd, may need to be expanded to Grade");
 fixAdd: concat("name=", "Grade", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Grv /] {
+*["name"=~/^Grv /].highway_name {
 assertNoMatch: "way \"name\"=Grove Foo";
 assertMatch: "way \"name\"=Grv Foo";
 throwWarning: tr("Highway name begins with Grv, may need to be expanded to Grove");
 fixAdd: concat("name=", "Grove", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Hbr /] {
+*["name"=~/^Hbr /].highway_name {
 assertNoMatch: "way \"name\"=Harbor Foo";
 assertMatch: "way \"name\"=Hbr Foo";
 throwWarning: tr("Highway name begins with Hbr, may need to be expanded to Harbor");
 fixAdd: concat("name=", "Harbor", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Holw /] {
+*["name"=~/^Holw /].highway_name {
 assertNoMatch: "way \"name\"=Hollow Foo";
 assertMatch: "way \"name\"=Holw Foo";
 throwWarning: tr("Highway name begins with Holw, may need to be expanded to Hollow");
 fixAdd: concat("name=", "Hollow", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Hts /] {
+*["name"=~/^Hts /].highway_name {
 assertNoMatch: "way \"name\"=Heights Foo";
 assertMatch: "way \"name\"=Hts Foo";
 throwWarning: tr("Highway name begins with Hts, may need to be expanded to Heights");
 fixAdd: concat("name=", "Heights", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Hw /] {
+*["name"=~/^Hw /].highway_name {
 assertNoMatch: "way \"name\"=Highway Foo";
 assertMatch: "way \"name\"=Hw Foo";
 throwWarning: tr("Highway name begins with Hw, may need to be expanded to Highway");
 fixAdd: concat("name=", "Highway", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Hwy /] {
+*["name"=~/^Hwy /].highway_name {
 assertNoMatch: "way \"name\"=Highway Foo";
 assertMatch: "way \"name\"=Hwy Foo";
 throwWarning: tr("Highway name begins with Hwy, may need to be expanded to Highway");
 fixAdd: concat("name=", "Highway", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Ln /] {
+*["name"=~/^Ln /].highway_name {
 assertNoMatch: "way \"name\"=Lane Foo";
 assertMatch: "way \"name\"=Ln Foo";
 throwWarning: tr("Highway name begins with Ln, may need to be expanded to Lane");
 fixAdd: concat("name=", "Lane", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Lndg /] {
+*["name"=~/^Lndg /].highway_name {
 assertNoMatch: "way \"name\"=Landing Foo";
 assertMatch: "way \"name\"=Lndg Foo";
 throwWarning: tr("Highway name begins with Lndg, may need to be expanded to Landing");
 fixAdd: concat("name=", "Landing", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Lp /] {
+*["name"=~/^Lp /].highway_name {
 assertNoMatch: "way \"name\"=Loop Foo";
 assertMatch: "way \"name\"=Lp Foo";
 throwWarning: tr("Highway name begins with Lp, may need to be expanded to Loop");
 fixAdd: concat("name=", "Loop", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Mal /] {
+*["name"=~/^Mal /].highway_name {
 assertNoMatch: "way \"name\"=Mall Foo";
 assertMatch: "way \"name\"=Mal Foo";
 throwWarning: tr("Highway name begins with Mal, may need to be expanded to Mall");
 fixAdd: concat("name=", "Mall", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Mt /] {
+*["name"=~/^Mt /].highway_name {
 assertNoMatch: "way \"name\"=Mount Foo";
 assertMatch: "way \"name\"=Mt Foo";
 throwWarning: tr("Highway name begins with Mt, may need to be expanded to Mount");
 fixAdd: concat("name=", "Mount", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Mtwy /] {
+*["name"=~/^Mtwy /].highway_name {
 assertNoMatch: "way \"name\"=Motorway Foo";
 assertMatch: "way \"name\"=Mtwy Foo";
 throwWarning: tr("Highway name begins with Mtwy, may need to be expanded to Motorway");
 fixAdd: concat("name=", "Motorway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Ovps /] {
+*["name"=~/^Ovps /].highway_name {
 assertNoMatch: "way \"name\"=Overpass Foo";
 assertMatch: "way \"name\"=Ovps Foo";
 throwWarning: tr("Highway name begins with Ovps, may need to be expanded to Overpass");
 fixAdd: concat("name=", "Overpass", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Pky /] {
+*["name"=~/^Pky /].highway_name {
 assertNoMatch: "way \"name\"=Parkway Foo";
 assertMatch: "way \"name\"=Pky Foo";
 throwWarning: tr("Highway name begins with Pky, may need to be expanded to Parkway");
 fixAdd: concat("name=", "Parkway", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Pkwy /] {
+*["name"=~/^Pkwy /].highway_name {
 assertNoMatch: "way \"name\"=Parkway Foo";
 assertMatch: "way \"name\"=Pkwy Foo";
 throwWarning: tr("Highway name begins with Pkwy, may need to be expanded to Parkway");
 fixAdd: concat("name=", "Parkway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Pl /] {
+*["name"=~/^Pl /].highway_name {
 assertNoMatch: "way \"name\"=Place Foo";
 assertMatch: "way \"name\"=Pl Foo";
 throwWarning: tr("Highway name begins with Pl, may need to be expanded to Place");
 fixAdd: concat("name=", "Place", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Plz /] {
+*["name"=~/^Plz /].highway_name {
 assertNoMatch: "way \"name\"=Plaza Foo";
 assertMatch: "way \"name\"=Plz Foo";
 throwWarning: tr("Highway name begins with Plz, may need to be expanded to Plaza");
 fixAdd: concat("name=", "Plaza", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Pvt /] {
+*["name"=~/^Pvt /].highway_name {
 assertNoMatch: "way \"name\"=Private Foo";
 assertMatch: "way \"name\"=Pvt Foo";
 throwWarning: tr("Highway name begins with Pvt, may need to be expanded to Private");
 fixAdd: concat("name=", "Private", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Rd /] {
+*["name"=~/^Rd /].highway_name {
 assertNoMatch: "way \"name\"=Road Foo";
 assertMatch: "way \"name\"=Rd Foo";
 throwWarning: tr("Highway name begins with Rd, may need to be expanded to Road");
 fixAdd: concat("name=", "Road", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Rdg /] {
+*["name"=~/^Rdg /].highway_name {
 assertNoMatch: "way \"name\"=Ridge Foo";
 assertMatch: "way \"name\"=Rdg Foo";
 throwWarning: tr("Highway name begins with Rdg, may need to be expanded to Ridge");
 fixAdd: concat("name=", "Ridge", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Rmrd /] {
+*["name"=~/^Rmrd /].highway_name {
 assertNoMatch: "way \"name\"=Ranch to Market Road Foo";
 assertMatch: "way \"name\"=Rmrd Foo";
 throwWarning: tr("Highway name begins with Rmrd, may need to be expanded to Ranch to Market Road");
 fixAdd: concat("name=", "Ranch to Market Road", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Rte /] {
+*["name"=~/^Rte /].highway_name {
 assertNoMatch: "way \"name\"=Route Foo";
 assertMatch: "way \"name\"=Rte Foo";
 throwWarning: tr("Highway name begins with Rte, may need to be expanded to Route");
 fixAdd: concat("name=", "Route", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Skwy /] {
+*["name"=~/^Skwy /].highway_name {
 assertNoMatch: "way \"name\"=Skyway Foo";
 assertMatch: "way \"name\"=Skwy Foo";
 throwWarning: tr("Highway name begins with Skwy, may need to be expanded to Skyway");
 fixAdd: concat("name=", "Skyway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Sq /] {
+*["name"=~/^Sq /].highway_name {
 assertNoMatch: "way \"name\"=Square Foo";
 assertMatch: "way \"name\"=Sq Foo";
 throwWarning: tr("Highway name begins with Sq, may need to be expanded to Square");
 fixAdd: concat("name=", "Square", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Srvc /] {
+*["name"=~/^Srvc /].highway_name {
 assertNoMatch: "way \"name\"=Service Foo";
 assertMatch: "way \"name\"=Srvc Foo";
 throwWarning: tr("Highway name begins with Srvc, may need to be expanded to Service");
 fixAdd: concat("name=", "Service", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^St /] {
+*["name"=~/^St /].highway_name {
 assertNoMatch: "way \"name\"=Street Foo";
 assertMatch: "way \"name\"=St Foo";
 throwWarning: tr("Highway name begins with St, may need to be expanded to Street");
 fixAdd: concat("name=", "Street", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Ter /] {
+*["name"=~/^Ter /].highway_name {
 assertNoMatch: "way \"name\"=Terrace Foo";
 assertMatch: "way \"name\"=Ter Foo";
 throwWarning: tr("Highway name begins with Ter, may need to be expanded to Terrace");
 fixAdd: concat("name=", "Terrace", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Tfwy /] {
+*["name"=~/^Tfwy /].highway_name {
 assertNoMatch: "way \"name\"=Trafficway Foo";
 assertMatch: "way \"name\"=Tfwy Foo";
 throwWarning: tr("Highway name begins with Tfwy, may need to be expanded to Trafficway");
 fixAdd: concat("name=", "Trafficway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Thfr /] {
+*["name"=~/^Thfr /].highway_name {
 assertNoMatch: "way \"name\"=Thoroughfare Foo";
 assertMatch: "way \"name\"=Thfr Foo";
 throwWarning: tr("Highway name begins with Thfr, may need to be expanded to Thoroughfare");
 fixAdd: concat("name=", "Thoroughfare", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Thwy /] {
+*["name"=~/^Thwy /].highway_name {
 assertNoMatch: "way \"name\"=Throughway Foo";
 assertMatch: "way \"name\"=Thwy Foo";
 throwWarning: tr("Highway name begins with Thwy, may need to be expanded to Throughway");
 fixAdd: concat("name=", "Throughway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Tl /] {
+*["name"=~/^Tl /].highway_name {
 assertNoMatch: "way \"name\"=Trail Foo";
 assertMatch: "way \"name\"=Tl Foo";
 throwWarning: tr("Highway name begins with Tl, may need to be expanded to Trail");
 fixAdd: concat("name=", "Trail", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Tpke /] {
+*["name"=~/^Tpke /].highway_name {
 assertNoMatch: "way \"name\"=Turnpike Foo";
 assertMatch: "way \"name\"=Tpke Foo";
 throwWarning: tr("Highway name begins with Tpke, may need to be expanded to Turnpike");
 fixAdd: concat("name=", "Turnpike", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Trce /] {
+*["name"=~/^Trce /].highway_name {
 assertNoMatch: "way \"name\"=Trace Foo";
 assertMatch: "way \"name\"=Trce Foo";
 throwWarning: tr("Highway name begins with Trce, may need to be expanded to Trace");
 fixAdd: concat("name=", "Trace", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Tr /] {
+*["name"=~/^Tr /].highway_name {
 assertNoMatch: "way \"name\"=Trail Foo";
 assertMatch: "way \"name\"=Tr Foo";
 throwWarning: tr("Highway name begins with Tr, may need to be expanded to Trail");
 fixAdd: concat("name=", "Trail", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Trl /] {
+*["name"=~/^Trl /].highway_name {
 assertNoMatch: "way \"name\"=Trail Foo";
 assertMatch: "way \"name\"=Trl Foo";
 throwWarning: tr("Highway name begins with Trl, may need to be expanded to Trail");
 fixAdd: concat("name=", "Trail", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Tunl /] {
+*["name"=~/^Tunl /].highway_name {
 assertNoMatch: "way \"name\"=Tunnel Foo";
 assertMatch: "way \"name\"=Tunl Foo";
 throwWarning: tr("Highway name begins with Tunl, may need to be expanded to Tunnel");
 fixAdd: concat("name=", "Tunnel", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Unp /] {
+*["name"=~/^Unp /].highway_name {
 assertNoMatch: "way \"name\"=Underpass Foo";
 assertMatch: "way \"name\"=Unp Foo";
 throwWarning: tr("Highway name begins with Unp, may need to be expanded to Underpass");
 fixAdd: concat("name=", "Underpass", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Vly /] {
+*["name"=~/^Vly /].highway_name {
 assertNoMatch: "way \"name\"=Valley Foo";
 assertMatch: "way \"name\"=Vly Foo";
 throwWarning: tr("Highway name begins with Vly, may need to be expanded to Valley");
 fixAdd: concat("name=", "Valley", substring(tag("name"), 3));
 }
 
-*["highway"]["name"=~/^Vw /] {
+*["name"=~/^Vw /].highway_name {
 assertNoMatch: "way \"name\"=View Foo";
 assertMatch: "way \"name\"=Vw Foo";
 throwWarning: tr("Highway name begins with Vw, may need to be expanded to View");
 fixAdd: concat("name=", "View", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Wkwy /] {
+*["name"=~/^Wkwy /].highway_name {
 assertNoMatch: "way \"name\"=Walkway Foo";
 assertMatch: "way \"name\"=Wkwy Foo";
 throwWarning: tr("Highway name begins with Wkwy, may need to be expanded to Walkway");
 fixAdd: concat("name=", "Walkway", substring(tag("name"), 4));
 }
 
-*["highway"]["name"=~/^Wy /] {
+*["name"=~/^Wy /].highway_name {
 assertNoMatch: "way \"name\"=Way Foo";
 assertMatch: "way \"name\"=Wy Foo";
 throwWarning: tr("Highway name begins with Wy, may need to be expanded to Way");
 fixAdd: concat("name=", "Way", substring(tag("name"), 2));
 }
 
-*["highway"]["name"=~/^Xing /] {
+*["name"=~/^Xing /].highway_name {
 assertNoMatch: "way \"name\"=Crossing Foo";
 assertMatch: "way \"name\"=Xing Foo";
 throwWarning: tr("Highway name begins with Xing, may need to be expanded to Crossing");
