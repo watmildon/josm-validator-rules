@@ -1,7 +1,7 @@
 meta
 {
     title: "name= capitalization warnings";
-    version: "0,1_2023-09-14";
+    version: "0,1_2024-01-08";
     description: "Flags common capitalization issues";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/NameTagCapitalization.validator.mapcss";
