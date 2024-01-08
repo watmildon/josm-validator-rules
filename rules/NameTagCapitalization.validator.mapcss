@@ -21,18 +21,23 @@ out body;
 out skel qt;
 */
 
-*["name"=~/^Mc[a-z]/]{
+*["name"=~/\bMc[a-z]/]{
     assertNoMatch: "way \"name\"=McDonalds";
     assertMatch: "way \"name\"=Mcdonalds";
-    throwWarning: tr("name= begins with Mc. This commonly has a capital letter next.");
-    fixAdd: concat("name=", substring(tag("name"),0,2), upper(substring(tag("name"),2,3)),substring(tag("name"),3));
+    assertMatch: "way \"name\"=\"Old Mcdonald\"";
+    throwWarning: tr("A word in name= begins with Mc. This commonly has a capital letter next.");
+    fixAdd: concat("name=", get(regexp_match("(.*\\bMc)([a-z])(.*)", tag("name")), 1), upper(get(regexp_match("(.*\\bMc)([a-z])(.*)", tag("name")), 2)), get(regexp_match("(.*\\bMc)([a-z])(.*)", tag("name")), 3));
 }
 
-*["name"=~/^Mac[a-z]/]{
-    assertNoMatch: "way \"name\"=McDonalds";
-    assertMatch: "way \"name\"=Mcdonalds";
-    throwWarning: tr("name= begins with Mac. This commonly has a capital letter next.");
-    fixAdd: concat("name=", substring(tag("name"),0,3), upper(substring(tag("name"),3,4)),substring(tag("name"),4));
+*["name"=~/\bMac(?!y's|edonia|hine)[a-z]/]{
+    assertNoMatch: "way \"name\"=\"MacArthur Boulevard\"";
+    assertNoMatch: "way \"name\"=\"Macedonian Baptist Church of Baltimore\"";
+    assertNoMatch: "way \"name\"=\"Macy's\"";
+    assertNoMatch: "way \"name\"=\"Machine Records\"";
+    assertMatch: "way \"name\"=\"Macarthur Boulevard\"";
+    assertMatch: "way \"name\"=\"Boulevard Macarthur\"";
+    throwWarning: tr("A word in name= begins with Mac. This commonly has a capital letter next.");
+    fixAdd: concat("name=", get(regexp_match("(.*\\bMac)([a-z])(.*)", tag("name")), 1), upper(get(regexp_match("(.*\\bMac)([a-z])(.*)", tag("name")), 2)), get(regexp_match("(.*\\bMac)([a-z])(.*)", tag("name")), 3));
 }
 
 *["name"=~/ Del /]{
@@ -42,9 +47,53 @@ out skel qt;
     fixAdd: concat("name=", replace(tag("name"), " Del ", " del "));
 }
 
+*["name"=~/ De [Ll]a /]{
+    assertNoMatch: "way \"name\"=\"Casa de la Madre\"";
+    assertMatch: "way \"name\"=\"Casa De La Madre\"";
+    assertMatch: "way \"name\"=\"Casa De la Madre\"";
+    throwWarning: tr("name= contains the word De la which is commonly cased as de la");
+    fixAdd: concat("name=", replace(replace(tag("name"), " De La ", " de la "), "De la", "de la"));
+}
+
 *["name"=~/ Du /]{
     assertNoMatch: "way \"name\"=Cafe du Parc";
     assertMatch: "way \"name\"=Cafe Du Parc";
     throwWarning: tr("name= contains the word Du which is commonly cased as du");
     fixAdd: concat("name=", replace(tag("name"), " Du ", " du "));
+}
+
+*["name"=~/ De (?![Ll]a )/] {
+    assertNoMatch: "way \"name\"=\"Fogo de Chao\"";
+    assertNoMatch: "way \"name\"=\"Casa De La Madre\"";
+    assertMatch: "way \"name\"=\"Fogo De Chao\"";
+    throwWarning: tr("name= contains the word De which is commonly cased as de");
+    fixAdd: concat("name=", replace(tag("name"), " De ", " de "));
+}
+
+*["name"=~/ Di /] {
+    assertNoMatch: "way \"name\"=\"Buca di Beppo\"";
+    assertMatch: "way \"name\"=\"Buca Di Beppo\"";
+    throwWarning: tr("name= contains the word Di which is commonly cased as di");
+    fixAdd: concat("name=", replace(tag("name"), " Di ", " di "));
+}
+
+*["name"=~/ (?:Of|On|For|A|An|The|At|To|In|Via|By) /] {
+    assertNoMatch: "way \"name\"=\"House of Cards\"";
+    assertMatch: "way \"name\"=\"House Of Cards\"";
+    throwWarning: tr("name= contains a capitalized preposition that is usually lowercase");
+    fixAdd: concat("name=", get(regexp_match("(.*)( (?:Of|For|A|An|The|At|To|In|Via|By) )(.*)", tag("name")), 1), lower(get(regexp_match("(.*)( (?:Of|For|A|An|The|At|To|In|Via|By) )(.*)", tag("name")), 2)), get(regexp_match("(.*)( (?:Of|For|A|An|The|At|To|In|Via|By) )(.*)", tag("name")), 3));
+}
+
+*["name"=~/ (?:Or|And|But) /] {
+    assertNoMatch: "way \"name\"=\"Salt and Pepper\"";
+    assertMatch: "way \"name\"=\"Salt And Pepper\"";
+    throwWarning: tr("name= contains a capitalized conjunction that is usually lowercase");
+    fixAdd: concat("name=", get(regexp_match("(.*)( (?:Or|And|But) )(.*)", tag("name")), 1), lower(get(regexp_match("(.*)( (?:Or|And|But) )(.*)", tag("name")), 2)), get(regexp_match("(.*)( (?:Or|And|But) )(.*)", tag("name")), 3));
+}
+
+*["name"=~/\b[a-z]+$/][inside("US,AU,GB,IE,NZ,CA")] {
+    assertNoMatch: "way \"name\"=\"House of Cards\"";
+    assertMatch: "way \"name\"=\"House of cards\"";
+    throwWarning: tr("name= ends in a word that is lowercased");
+    fixAdd: concat("name=", get(regexp_match("(.*)\\b([a-z]+)$", tag("name")), 1), title(get(regexp_match("(.*)\\b([a-z]+)$", tag("name")), 2)));
 }
