@@ -1,0 +1,42 @@
+meta
+{
+    title: "Waterway tagging errors";
+    version: "0,1_2024-01-13";
+    description: "Suggest fixes for waterway tag errors";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/Waterways.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/* Catch common features that commonly have waterway tags misapplied */
+
+*["waterway"]["waterway"="lake"][!"water"]:closed {
+    throwWarning: tr("waterway=lake on area, should be natural=water + water=lake");
+    group: tr("Waterway tags on area features");
+    fixAdd: "water=lake";
+    fixAdd: "natural=water";
+    fixRemove: "waterway";
+    fixRemove: "area";
+}
+
+*["waterway"]["waterway"="pond"][!"water"]:closed {
+    throwWarning: tr("waterway=pond on area, should be natural=water + water=pond");
+    group: tr("Waterway tags on area features");
+    fixAdd: "water=pond";
+    fixAdd: "natural=water";
+    fixRemove: "waterway";
+    fixRemove: "area";
+}
+
+*["waterway"]["waterway"="lake"]["water"]:closed {
+    throwWarning: tr("waterway=lake on area that has a water= tag. Remove waterway tag.");
+    group: tr("Waterway tags on area features");
+    fixRemove: "waterway";
+}
+
+*["waterway"]["waterway"="pond"]["water"]:closed {
+    throwWarning: tr("waterway=pond on area that has a water= tag. Remove waterway tag.");
+    group: tr("Waterway tags on area features");
+    fixRemove: "waterway";
+}
