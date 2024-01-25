@@ -40,3 +40,47 @@ meta
     group: tr("Waterway tags on area features");
     fixRemove: "waterway";
 }
+
+*["waterway"]["waterway"="reservoir"][!"water"]:closed {
+    throwWarning: tr("waterway=reservoir on area, should be natural=water + water=reservoir");
+    group: tr("Waterway tags on area features");
+    fixAdd: "water=reservoir";
+    fixAdd: "natural=water";
+    fixRemove: "waterway";
+    fixRemove: "area";
+}
+
+*["waterway"]["waterway"="reservoir"]["water"]:closed {
+    throwWarning: tr("waterway=reservoir on area that has a water= tag. Remove waterway tag.");
+    group: tr("Waterway tags on area features");
+    fixRemove: "waterway";
+}
+
+*["waterway"]["waterway"="oxbow"][!"water"]:closed {
+    throwWarning: tr("waterway=oxbow on area, should be natural=water + water=oxbow.");
+    group: tr("Waterway tags on area features");
+    fixAdd: "water=oxbow";
+    fixAdd: "natural=water";
+    fixRemove: "waterway";
+    fixRemove: "area";
+}
+
+*["waterway"]["waterway"="oxbow"]["water"="lake"]:closed {
+    throwWarning: tr("waterway=oxbow on area that has a water=lake tag. Change to water=oxbow.");
+    group: tr("Waterway tags on area features");
+    fixRemove: "waterway";
+    fixAdd: "water=oxbow";
+}
+
+*["waterway"]["waterway"="oxbow"]["water"="pond"]:closed {
+    throwWarning: tr("waterway=oxbow on area that has a water=pond tag. Change to water=oxbow.");
+    group: tr("Waterway tags on area features");
+    fixRemove: "waterway";
+    fixAdd: "water=oxbow";
+}
+
+*["waterway"]["waterway"="waterfalls"] {
+    throwWarning: tr("tag type waterway=waterfalls should be waterfall");
+    group: tr("Waterway tag typo");
+    fixAdd: "waterway=waterfall";
+}
