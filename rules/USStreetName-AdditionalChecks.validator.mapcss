@@ -1,0 +1,33 @@
+meta
+{
+    title: "(US) Streetname Fixup, Data Quality";
+    version: "0,1_2023-10-07";
+    description: "Finds unusual conditions usually indicating data cleanup issues";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander-AdditionalChecks.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"Oregon,United States of America"}}->.a;
+(
+  way[highway][highway!=platform][amenity=shelter][!bus][name](area.a);
+  nwr[addr:street](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+/* Non-printable characters */
+*[highway]["name"]["name"=~/[^ -~]/] {
+    assertNoMatch: "way \"name\"=\"County Road 123\"";
+    throwWarning: tr("Highway name contains non-printable ASCII character. ex: carriage return or newline");
+}
+
+*["addr:street"]["addr:street"=~/[^ -~]/] {
+    assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
+    throwWarning: tr("addr:street contains non-printable ASCII character. ex: carriage return or newline");
+}
