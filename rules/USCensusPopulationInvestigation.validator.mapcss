@@ -1,0 +1,36 @@
+meta
+{
+    title: "Census:population fixups";
+    version: "0,1_2024-02-05";
+    description: "Rules used to investigate deprecation of the key census:population in the United States";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USCensusPopulationInvestigation.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  nwr["census:population"~".+;.+"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+
+*["census:population"]{
+    throwWarning: tr("Tag census:population should be split into date and population value");
+    fixAdd: concat("census:population_value=", get(split(";",tag("census:population")),0));
+    fixAdd: concat("census:population_year=", get(split(";",tag("census:population")),1));
+    fixRemove: "census:population";
+}
+
+*["census:population_value"]["population"][eval(tag("census:population_value")==tag("population"))]{
+    throwWarning: tr("Tag census:population_value matches population. Remove census:population_value and census:population_year");
+    fixRemove: "census:population_value";
+    fixRemove: "census:population_year";
+}
