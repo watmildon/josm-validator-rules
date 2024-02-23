@@ -1,0 +1,27 @@
+meta
+{
+    title: "tiger:reviewed removal reminder";
+    version: "0,1_2024-02-22";
+    description: "Warn editors for cases where they may wish to remove tiger: tagging";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/TigerRemovalNudge.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  way["tiger:reviewed"="no"](area.a);
+);
+out body;a
+>;
+out skel qt;
+*/
+
+*["tiger:reviewed"="no"]:modified{
+    throwWarning: tr("Remove tiger:* tagging from ways you have reviewed and edited");
+    fixRemove: "tiger:reviewed";
+}
