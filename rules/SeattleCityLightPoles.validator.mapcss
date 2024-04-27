@@ -1,0 +1,33 @@
+meta
+{
+    title: "Seattle City Light Poles";
+    version: "1.0_2024-04-27";
+    description: "Validator rules for Seattle City Light Poles data";
+    author: "Lumikeiju";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/SeattleCityLightPoles.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/* Replace "STREETLIGHT=YES" with "highway=street_lamp" */
+node["STREETLIGHT"="YES"] {
+    throwError: "Replace STREETLIGHT=YES with highway=street_lamp";
+    fixAdd: "highway=street_lamp";
+    fixRemove: "STREETLIGHT";
+    group: "Seattle City Light Poles";
+}
+
+/* Replace "ASSET_ID=*" with "ref=*" */
+node["ASSET_ID"] {
+    throwError: "Replace ASSET_ID with ref";
+    fixChangeKey: "ASSET_ID=>ref";
+    group: "Seattle City Light Poles";
+}
+
+/* Replace "HEIGHT=*" (in feet) with "height=*" (in meters) */
+node["HEIGHT"] {
+    throwError: "Replace HEIGHT (ft) with height (m)";
+    fixAdd: concat("height=", round(tag("HEIGHT") * 0.3048 * 10000) / 10000);
+    fixRemove: "HEIGHT";
+    group: "Seattle City Light Poles";
+}
