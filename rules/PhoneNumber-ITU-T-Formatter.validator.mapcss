@@ -1,7 +1,7 @@
 meta
 {
     title: "Phone number fixups";
-    version: "0,1_2023-12-30";
+    version: "1,1_2024-08-15";
     description: "Fixes very common formatting issues with phone= in the United States";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter.validator.mapcss";
@@ -698,7 +698,7 @@ out skel qt;
     assertMatch: "way \"contact:phone\"=+1 213-456 7890";
     assertMatch: "way \"contact:phone\"=+1 213 456 7890";
     throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
-    fixAdd: concat("contact:phone=", replace(tag(contact:phone), " ", "-"));
+    fixAdd: concat("contact:phone=", replace(tag("contact:phone"), " ", "-"));
     group: tr("Safe: contact:phone= formatting is missing dashes, should be corrected to +1-NNN-NNN-NNNN");
 }
 
@@ -710,7 +710,7 @@ out skel qt;
     assertMatch: "way \"contact:phone\"=+1 213 456-7890";
     assertMatch: "way \"contact:phone\"=+1 213-456-7890";
     throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
-    fixAdd: concat("contact:phone=", replace(tag(contact:phone), " ", "-"));
+    fixAdd: concat("contact:phone=", replace(tag("contact:phone"), " ", "-"));
     group: tr("Safe: contact:phone= formatting is missing dashes, should be corrected to +1-NNN-NNN-NNNN");
 }
 
@@ -765,7 +765,7 @@ out skel qt;
     assertNoMatch: "way \"contact:phone\"=456 7890";
     assertMatch: "way \"contact:phone\"=+1.213.456.7890";
     throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
-    fixAdd: concat("contact:phone=", replace(tag(contact:phone), ".", "-"));
+    fixAdd: concat("contact:phone=", replace(tag("contact:phone"), ".", "-"));
     group: tr("Safe: contact:phone= is in format +1.NNN.NNN.NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
 

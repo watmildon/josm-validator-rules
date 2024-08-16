@@ -1,7 +1,7 @@
 meta
 {
     title: "Phone number fixups - Agressive, iterative";
-    version: "0,1_2023-12-30";
+    version: "1,1_2024-08-15";
     description: "More agresssive phone fixups. Use with caution.";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter-Aggressive.validator.mapcss";
@@ -55,6 +55,6 @@ out skel qt;
     assertMatch: "way \"contact:phone\"=+1(213)456-7890";
     assertMatch: "way \contact:phone\"=213)-456--7890";
     throwWarning: tr("contact:phone={0} is not formatted correctly and contains characters +,(,),dash,space. Fix will remove them.","{0.value}");
-    fixAdd: concat("contact:phone=", replace(replace(replace(replace(replace(replace(replace(tag(contact:phone),"(",""),")","")," ",""),"-",""),"+",""),".",""),"–",""));
+    fixAdd: concat("contact:phone=", replace(replace(replace(replace(replace(replace(replace(tag("contact:phone"),"(",""),")","")," ",""),"-",""),"+",""),".",""),"–",""));
     group: "Dangerous: contact:phone number formatting";
 }
