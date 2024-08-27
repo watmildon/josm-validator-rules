@@ -1,0 +1,69 @@
+meta
+{
+    title: "(US) Streetname Fixup, Move County Road NNN To Refs";
+    version: "0,1_2024-08-28";
+    description: "Assist moving names to refs when sensible";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetName-CountyRoadsToRefs.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json];
+{{geocodeArea:West Virginia}} -> .sea;
+(
+  way[~"^name(_[1-5])?$"~"^County [(Road)(Rd)(Route)(Rte)(Highway)(Hwy)]"](area.sea);
+  way[ref~"^County [(Road)(Rd)(Route)(Rte)(Highway)(Hwy)]"](area.sea);
+);
+// print results
+out body;
+>;
+out skel qt;
+*/
+
+/* County Road in name no other names */
+*[highway]["name"][!"ref"][!"alt_name"][!"name_1"]["name"=~/^County Road /] {
+    assertMatch: "way \"name\"=\"County Road 123\"";
+    assertNoMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name"), "County Road", "CR"));
+    fixRemove: "name";
+}
+
+/* County Rd in name no other names */
+*[highway]["name"][!"ref"][!"alt_name"][!"name_1"]["name"=~/^County Rd /] {
+    assertMatch: "way \"name\"=\"County Rd 123\"";
+    assertNoMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name"), "County Rd", "CR"));
+    fixRemove: "name";
+}
+
+/* County Route in name no other names */
+*[highway]["name"][!"ref"][!"alt_name"][!"name_1"]["name"=~/^County Route /] {
+    assertMatch: "way \"name\"=\"County Route 123\"";
+    assertNoMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name"), "County Route", "CR"));
+    fixRemove: "name";
+}
+
+/* County Rte in name no other names */
+*[highway]["name"][!"ref"][!"alt_name"][!"name_1"]["name"=~/^County Rte /] {
+    assertMatch: "way \"name\"=\"County Rte 123\"";
+    assertNoMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name"), "County Rte", "CR"));
+    fixRemove: "name";
+}
+
+/* County Highway in name no other names */
+*[highway]["name"][!"ref"][!"alt_name"][!"name_1"]["name"=~/^County Highway /] {
+    assertMatch: "way \"name\"=\"County Highway 123\"";
+    assertNoMatch: "way \"name\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name"), "County Highway", "CR"));
+    fixRemove: "name";
+}
+
