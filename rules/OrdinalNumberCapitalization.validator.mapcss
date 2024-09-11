@@ -43,49 +43,49 @@ out skel qt;
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"3Rd","3rd"));
 }
 
-*["addr:street"=~/4th/]{
+*["addr:street"=~/4Th/]{
     assertNoMatch: "way \"addr:street\"=4th Street";
     assertMatch: "way \"addr:street\"=4Th Street";
     throwWarning: tr("Potential incorrect capitalization of 4th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"4Th","4th"));
 }
 
-*["addr:street"=~/5th/]{
+*["addr:street"=~/5Th/]{
     assertNoMatch: "way \"addr:street\"=5th Street";
     assertMatch: "way \"addr:street\"=5Th Street";
     throwWarning: tr("Potential incorrect capitalization of 5th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"5Th","5th"));
 }
 
-*["addr:street"=~/6th/]{
+*["addr:street"=~/6Th/]{
     assertNoMatch: "way \"addr:street\"=6th Street";
     assertMatch: "way \"addr:street\"=6Th Street";
     throwWarning: tr("Potential incorrect capitalization of 6th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"6Th","6th"));
 }
 
-*["addr:street"=~/7th/]{
+*["addr:street"=~/7Th/]{
     assertNoMatch: "way \"addr:street\"=7th Street";
     assertMatch: "way \"addr:street\"=7Th Street";
     throwWarning: tr("Potential incorrect capitalization of 7th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"7Th","7th"));
 }
 
-*["addr:street"=~/8th/]{
+*["addr:street"=~/8Th/]{
     assertNoMatch: "way \"addr:street\"=8th Street";
     assertMatch: "way \"addr:street\"=8Th Street";
     throwWarning: tr("Potential incorrect capitalization of 8th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"8Th","8th"));
 }
 
-*["addr:street"=~/9th/]{
+*["addr:street"=~/9Th/]{
     assertNoMatch: "way \"addr:street\"=9th Street";
     assertMatch: "way \"addr:street\"=9Th Street";
     throwWarning: tr("Potential incorrect capitalization of 9th");
     fixAdd: concat("addr:street=", replace(tag("addr:street"),"9Th","9th"));
 }
 
-*["addr:street"=~/0th/]{
+*["addr:street"=~/0Th/]{
     assertNoMatch: "way \"addr:street\"=10h Street";
     assertMatch: "way \"addr:street\"=10Th Street";
     throwWarning: tr("Potential incorrect capitalization of 0th");
@@ -113,49 +113,49 @@ out skel qt;
     fixAdd: concat("name=", replace(tag("name"),"3Rd","3rd"));
 }
 
-*["name"=~/4th/]{
+*["name"=~/4Th/]{
     assertNoMatch: "way \"name\"=4th Street";
     assertMatch: "way \"name\"=4Th Street";
     throwWarning: tr("Potential incorrect capitalization of 4th");
     fixAdd: concat("name=", replace(tag("name"),"4Th","4th"));
 }
 
-*["name"=~/5th/]{
+*["name"=~/5Th/]{
     assertNoMatch: "way \"name\"=5th Street";
     assertMatch: "way \"name\"=5Th Street";
     throwWarning: tr("Potential incorrect capitalization of 5th");
     fixAdd: concat("name=", replace(tag("name"),"5Th","5th"));
 }
 
-*["name"=~/6th/]{
+*["name"=~/6Th/]{
     assertNoMatch: "way \"name\"=6th Street";
     assertMatch: "way \"name\"=6Th Street";
     throwWarning: tr("Potential incorrect capitalization of 6th");
     fixAdd: concat("name=", replace(tag("name"),"6Th","6th"));
 }
 
-*["name"=~/7th/]{
+*["name"=~/7Th/]{
     assertNoMatch: "way \"name\"=7th Street";
     assertMatch: "way \"name\"=7Th Street";
     throwWarning: tr("Potential incorrect capitalization of 7th");
     fixAdd: concat("name=", replace(tag("name"),"7Th","7th"));
 }
 
-*["name"=~/8th/]{
+*["name"=~/8Th/]{
     assertNoMatch: "way \"name\"=8th Street";
     assertMatch: "way \"name\"=8Th Street";
     throwWarning: tr("Potential incorrect capitalization of 8th");
     fixAdd: concat("name=", replace(tag("name"),"8Th","8th"));
 }
 
-*["name"=~/9th/]{
+*["name"=~/9Th/]{
     assertNoMatch: "way \"name\"=9th Street";
     assertMatch: "way \"name\"=9Th Street";
     throwWarning: tr("Potential incorrect capitalization of 9th");
     fixAdd: concat("name=", replace(tag("name"),"9Th","9th"));
 }
 
-*["name"=~/0th/]{
+*["name"=~/0Th/]{
     assertNoMatch: "way \"name\"=10h Street";
     assertMatch: "way \"name\"=10Th Street";
     throwWarning: tr("Potential incorrect capitalization of 0th");
