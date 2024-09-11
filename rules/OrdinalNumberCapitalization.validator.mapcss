@@ -1,0 +1,163 @@
+meta
+{
+    title: "ordinal capitalization warnings";
+    version: "0,1_2024-09-10";
+    description: "Flags common capitalization issues";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/OrdinalNumberCapitalization.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  // 2134567890
+  nwr["addr:street"](area.a);
+  nwr["name"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
+*["addr:street"=~/1St/]{
+    assertNoMatch: "way \"addr:street\"=1st Street";
+    assertMatch: "way \"addr:street\"=1St Street";
+    throwWarning: tr("Potential incorrect capitalization of 1st");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"1St","1st"));
+}
+
+*["addr:street"=~/2Nd/]{
+    assertNoMatch: "way \"addr:street\"=2nd Street";
+    assertMatch: "way \"addr:street\"=2Nd Street";
+    throwWarning: tr("Potential incorrect capitalization of 2nd");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"2Nd","2nd"));
+}
+
+*["addr:street"=~/3Rd/]{
+    assertNoMatch: "way \"addr:street\"=3rd Street";
+    assertMatch: "way \"addr:street\"=3Rd Street";
+    throwWarning: tr("Potential incorrect capitalization of 3rd");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"3Rd","3rd"));
+}
+
+*["addr:street"=~/4th/]{
+    assertNoMatch: "way \"addr:street\"=4th Street";
+    assertMatch: "way \"addr:street\"=4Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 4th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"4Th","4th"));
+}
+
+*["addr:street"=~/5th/]{
+    assertNoMatch: "way \"addr:street\"=5th Street";
+    assertMatch: "way \"addr:street\"=5Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 5th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"5Th","5th"));
+}
+
+*["addr:street"=~/6th/]{
+    assertNoMatch: "way \"addr:street\"=6th Street";
+    assertMatch: "way \"addr:street\"=6Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 6th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"6Th","6th"));
+}
+
+*["addr:street"=~/7th/]{
+    assertNoMatch: "way \"addr:street\"=7th Street";
+    assertMatch: "way \"addr:street\"=7Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 7th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"7Th","7th"));
+}
+
+*["addr:street"=~/8th/]{
+    assertNoMatch: "way \"addr:street\"=8th Street";
+    assertMatch: "way \"addr:street\"=8Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 8th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"8Th","8th"));
+}
+
+*["addr:street"=~/9th/]{
+    assertNoMatch: "way \"addr:street\"=9th Street";
+    assertMatch: "way \"addr:street\"=9Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 9th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"9Th","9th"));
+}
+
+*["addr:street"=~/0th/]{
+    assertNoMatch: "way \"addr:street\"=10h Street";
+    assertMatch: "way \"addr:street\"=10Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 0th");
+    fixAdd: concat("addr:street=", replace(tag("addr:street"),"0Th","0th"));
+}
+
+*["name"=~/1St/]{
+    assertNoMatch: "way \"name\"=1st Street";
+    assertMatch: "way \"name\"=1St Street";
+    throwWarning: tr("Potential incorrect capitalization of 1st");
+    fixAdd: concat("name=", replace(tag("name"),"1St","1st"));
+}
+
+*["name"=~/2Nd/]{
+    assertNoMatch: "way \"name\"=2nd Street";
+    assertMatch: "way \"name\"=2Nd Street";
+    throwWarning: tr("Potential incorrect capitalization of 2nd");
+    fixAdd: concat("name=", replace(tag("name"),"2Nd","2nd"));
+}
+
+*["name"=~/3Rd/]{
+    assertNoMatch: "way \"name\"=3rd Street";
+    assertMatch: "way \"name\"=3Rd Street";
+    throwWarning: tr("Potential incorrect capitalization of 3rd");
+    fixAdd: concat("name=", replace(tag("name"),"3Rd","3rd"));
+}
+
+*["name"=~/4th/]{
+    assertNoMatch: "way \"name\"=4th Street";
+    assertMatch: "way \"name\"=4Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 4th");
+    fixAdd: concat("name=", replace(tag("name"),"4Th","4th"));
+}
+
+*["name"=~/5th/]{
+    assertNoMatch: "way \"name\"=5th Street";
+    assertMatch: "way \"name\"=5Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 5th");
+    fixAdd: concat("name=", replace(tag("name"),"5Th","5th"));
+}
+
+*["name"=~/6th/]{
+    assertNoMatch: "way \"name\"=6th Street";
+    assertMatch: "way \"name\"=6Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 6th");
+    fixAdd: concat("name=", replace(tag("name"),"6Th","6th"));
+}
+
+*["name"=~/7th/]{
+    assertNoMatch: "way \"name\"=7th Street";
+    assertMatch: "way \"name\"=7Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 7th");
+    fixAdd: concat("name=", replace(tag("name"),"7Th","7th"));
+}
+
+*["name"=~/8th/]{
+    assertNoMatch: "way \"name\"=8th Street";
+    assertMatch: "way \"name\"=8Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 8th");
+    fixAdd: concat("name=", replace(tag("name"),"8Th","8th"));
+}
+
+*["name"=~/9th/]{
+    assertNoMatch: "way \"name\"=9th Street";
+    assertMatch: "way \"name\"=9Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 9th");
+    fixAdd: concat("name=", replace(tag("name"),"9Th","9th"));
+}
+
+*["name"=~/0th/]{
+    assertNoMatch: "way \"name\"=10h Street";
+    assertMatch: "way \"name\"=10Th Street";
+    throwWarning: tr("Potential incorrect capitalization of 0th");
+    fixAdd: concat("name=", replace(tag("name"),"0Th","0th"));
+}
