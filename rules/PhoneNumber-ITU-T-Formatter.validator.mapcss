@@ -1,7 +1,7 @@
 meta
 {
     title: "Phone number fixups";
-    version: "1,1_2024-08-15";
+    version: "1,1_2024-10-21";
     description: "Fixes very common formatting issues with phone= in the United States";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter.validator.mapcss";
