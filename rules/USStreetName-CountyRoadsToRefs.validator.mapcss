@@ -67,3 +67,293 @@ out skel qt;
     fixRemove: "name";
 }
 
+/* County Road in ref should be shortened */
+*[highway]["ref"]["ref"=~/^County Road /] {
+    assertMatch: "way \"ref\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: ref should be shortened to CR");
+    fixAdd: concat("ref=",replace(tag("ref"), "County Road", "CR"));
+}
+
+/* County Rte in ref should be shortened */
+*[highway]["ref"]["ref"=~/^County Rte /] {
+    assertMatch: "way \"ref\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: ref should be shortened to CR");
+    fixAdd: concat("ref=",replace(tag("ref"), "County Rte", "CR"));
+}
+
+/* County Rd in ref should be shortened */
+*[highway]["ref"]["ref"=~/^County Rd /] {
+    assertMatch: "way \"ref\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: ref should be shortened to CR");
+    fixAdd: concat("ref=",replace(tag("ref"), "County Rd", "CR"));
+}
+
+/* County Route in ref should be shortened */
+*[highway]["ref"]["ref"=~/^County Route /] {
+    assertMatch: "way \"ref\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: ref should be shortened to CR");
+    fixAdd: concat("ref=",replace(tag("ref"), "County Route", "CR"));
+}
+
+/* County Highway in ref should be shortened */
+*[highway]["ref"]["ref"=~/^County Highway /] {
+    assertMatch: "way \"ref\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: ref should be shortened to CR");
+    fixAdd: concat("ref=",replace(tag("ref"), "County Highway", "CR"));
+}
+
+/* Has name= that isn't CR related and also a CR ref in name_1 */
+
+/* County Road in name_1 and should be moved */
+*[highway][name][!name_2][!ref]["name_1"=~/^County Road /]["name"=~/^(?!County Road).*/] {
+    assertMatch: "way \"ref\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name_1 should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_1"), "County Road", "CR"));
+    fixRemove: name_1;
+}
+
+/* County Rte in name_1 and should be moved */
+*[highway][name][!name_2][!ref]["name_1"=~/^County Rte /]["name"=~/^(?!County Rte).*/] {
+    assertMatch: "way \"ref\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name_1 should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_1"), "County Rte", "CR"));
+    fixRemove: name_1;
+}
+
+/* County Rd in name_1 and should be moved */
+*[highway][name][!name_2][!ref]["name_1"=~/^County Rd /]["name"=~/^(?!County Rd).*/] {
+    assertMatch: "way \"ref\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name_1 should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_1"), "County Rd", "CR"));
+    fixRemove: name_1;
+}
+
+/* County Route in name_1 and should be moved */
+*[highway][name][!name_2][!ref]["name_1"=~/^County Route /]["name"=~/^(?!County Route).*/] {
+    assertMatch: "way \"ref\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name_1 should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_1"), "County Route", "CR"));
+    fixRemove: name_1;
+}
+
+/* County Highway in name_1 and should be moved */
+*[highway][name][!name_2][!ref]["name_1"=~/^County Highway /]["name"=~/^(?!County Highway).*/] {
+    assertMatch: "way \"ref\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name_1 should be shortened and moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_1"), "County Highway", "CR"));
+    fixRemove: name_1;
+}
+
+/* Has name= that is CR related and a non CR name in name_1. Move name to ref and name_1 to name */
+
+/* County Road in name and another name in name_1 */
+*[highway][name][!name_2][!ref]["name"=~/^County Road /]["name_1"=~/^(?!County Road).*/] {
+    assertMatch: "way \"ref\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref, name_1 moved to name");
+    fixAdd: concat("ref=",replace(tag("name"), "County Road", "CR"));
+    fixChangeKey: "name_1=>name";
+}
+
+/* County Rte in name and another name in name_1 */
+*[highway][name][!name_2][!ref]["name"=~/^County Rte /]["name_1"=~/^(?!County Rte).*/] {
+    assertMatch: "way \"ref\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref, name_1 moved to name");
+    fixAdd: concat("ref=",replace(tag("name"), "County Rte", "CR"));
+    fixChangeKey: "name_1=>name";
+}
+
+/* County Rd in name and another name in name_1 */
+*[highway][name][!name_2][!ref]["name"=~/^County Rd /]["name_1"=~/^(?!County Rd).*/] {
+    assertMatch: "way \"ref\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref, name_1 moved to name");
+    fixAdd: concat("ref=",replace(tag("name"), "County Rd", "CR"));
+    fixChangeKey: "name_1=>name";
+}
+
+/* County Route in name and another name in name_1 */
+*[highway][name][!name_2][!ref]["name"=~/^County Route /]["name_1"=~/^(?!County Route).*/] {
+    assertMatch: "way \"ref\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref, name_1 moved to name");
+    fixAdd: concat("ref=",replace(tag("name"), "County Route", "CR"));
+    fixChangeKey: "name_1=>name";
+}
+
+/* County Highway in name and another name in name_1 */
+*[highway][name][!name_2][!ref]["name"=~/^County Highway /]["name_1"=~/^(?!County Highway).*/] {
+    assertMatch: "way \"ref\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Safe: name should be shortened and moved to ref, name_1 moved to name");
+    fixAdd: concat("ref=",replace(tag("name"), "County Highway", "CR"));
+    fixChangeKey: "name_1=>name";
+}
+
+/* Convert all name= and name=1 values to CR shortened syntax */
+
+/* Change long form to short for (CR) in name tag*/
+*[highway][name]["name"=~/^County Road /]{
+    assertMatch: "way \"ref\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: convert CR long name to short names");
+    fixAdd: concat("name=",replace(tag("name"), "County Road", "CR"));
+}
+
+/* Change long form to short for (CR) in name tag*/
+*[highway][name]["name"=~/^County Rte /] {
+    assertMatch: "way \"ref\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: convert CR long name to short names");
+    fixAdd: concat("name=",replace(tag("name"), "County Rte", "CR"));
+}
+
+/* Change long form to short for (CR) in name tag*/
+*[highway][name]["name"=~/^County Rd /] {
+    assertMatch: "way \"ref\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: convert CR long name to short names");
+    fixAdd: concat("name=",replace(tag("name"), "County Rd", "CR"));
+}
+
+/* Change long form to short for (CR) in name tag*/
+*[highway][name]["name"=~/^County Route /] {
+    assertMatch: "way \"ref\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: convert CR long name to short names");
+    fixAdd: concat("name=",replace(tag("name"), "County Route", "CR"));
+}
+
+/* Change long form to short for (CR) in name tag*/
+*[highway][name]["name"=~/^County Highway /] {
+    assertMatch: "way \"ref\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: convert CR long name to short names");
+    fixAdd: concat("name=",replace(tag("name"), "County Highway", "CR"));
+}
+
+/* Change long form to short for (CR) in name_1 tag*/
+*[highway][name_1]["name_1"=~/^County Road /]{
+    assertMatch: "way \"ref\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: shorten name_1 to CR");
+    fixAdd: concat("name_1=",replace(tag("name_1"), "County Road", "CR"));
+}
+
+/* Change long form to short for (CR) in name_1 tag*/
+*[highway][name_1]["name_1"=~/^County Rte /] {
+    assertMatch: "way \"ref\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: shorten name_1 to CR");
+    fixAdd: concat("name_1=",replace(tag("name_1"), "County Rte", "CR"));
+}
+
+/* Change long form to short for (CR) in name_1 tag*/
+*[highway][name_1]["name_1"=~/^County Rd /] {
+    assertMatch: "way \"ref\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: shorten name_1 to CR");
+    fixAdd: concat("name_1=",replace(tag("name_1"), "County Rd", "CR"));
+}
+
+/* Change long form to short for (CR) in name_1 tag*/
+*[highway][name_1]["name_1"=~/^County Route /] {
+    assertMatch: "way \"ref\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: shorten name_1 to CR");
+    fixAdd: concat("name_1=",replace(tag("name_1"), "County Route", "CR"));
+}
+
+/* Change long form to short for (CR) in name_1 tag*/
+*[highway][name_1]["name_1"=~/^County Highway /] {
+    assertMatch: "way \"ref\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("Phase 1 CR cleanup: shorten name_1 to CR");
+    fixAdd: concat("name_1=",replace(tag("name_1"), "County Highway", "CR"));
+}
+
+/* Check for name and name_1 matching ref. Delete name tag for matches */
+
+/* name and ref match */
+*[highway][ref][name][!alt_name][!name_1][name=*ref] {
+    throwWarning: tr("Phase 2 CR cleanup: name and ref match. Remove name.");
+    fixRemove: "name";
+}
+
+/* name_1 and ref match */
+*[highway][ref][name_1][name_1=*ref] {
+    throwWarning: tr("Phase 2 CR cleanup: name_1 and ref match. Remove name_1.");
+    fixRemove: "name_1";
+}
+
+/* name and ref match, has name_1 not alt_name */
+*[highway][ref][name][!alt_name][name_1][name=*ref] {
+    throwWarning: tr("Phase 2 CR cleanup: name and ref match. Move name_1 to name");
+    fixRemove: "name";
+    fixChangeKey: "name_1=>name";
+}
+
+/* name and ref match, has altname not name_1 */
+*[highway][ref][name][alt_name][!name_1][name=*ref] {
+    throwWarning: tr("Phase 2 CR cleanup: name and ref match. Move alt_name to name");
+    fixRemove: "name";
+    fixChangeKey: "alt_name=>name";
+}
+
+/* see if there is a CR like item in name_2 or name_3. move to ref if there is no ref tag */
+
+/* move CR ref from name_2 to ref */
+*[highway][name_2][!ref]["name_2"=~/^County Road /] {
+    assertMatch: "way \"name_2\"=\"County Road 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("CR ref found in name_2. Should be moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_2"), "County Road", "CR"));
+    fixRemove: "name_2";
+}
+
+/* move CR ref from name_2 to ref */
+*[highway][name_2][!ref]["name_2"=~/^County Rd /]  {
+    assertMatch: "way \"name_2\"=\"County Rd 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("CR ref found in name_2. Should be moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_2"), "County Rd", "CR"));
+    fixRemove: "name_2";
+}
+
+/* move CR ref from name_2 to ref */
+*[highway][name_2][!ref]["name_2"=~/^County Rte /]  {
+    assertMatch: "way \"name_2\"=\"County Rte 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("CR ref found in name_2. Should be moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_2"), "County Rte", "CR"));
+    fixRemove: "name_2";
+}
+
+/* move CR ref from name_2 to ref */
+*[highway][name_2][!ref]["name_2"=~/^County Route /]  {
+    assertMatch: "way \"name_2\"=\"County Route 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("CR ref found in name_2. Should be moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_2"), "County Route", "CR"));
+    fixRemove: "name_2";
+}
+
+/* move CR ref from name_2 to ref */
+*[highway][name_2][!ref]["name_2"=~/^County Highway /]  {
+    assertMatch: "way \"name_2\"=\"County Highway 123\"";
+    assertNoMatch: "way \"ref\"=\"CR 123\"";
+    throwWarning: tr("CR ref found in name_2. Should be moved to ref");
+    fixAdd: concat("ref=",replace(tag("name_2"), "County Highway", "CR"));
+    fixRemove: "name_2";
+}
