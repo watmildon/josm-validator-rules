@@ -322,6 +322,17 @@ out skel qt;
     group: tr("Safe: phone= is in format + 1-NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
 
+*["phone"][phone=~/^\+1 -[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"phone\"=+1 123-456-7890";
+    assertNoMatch: "way \"phone\"=+1123-456-7890";
+    assertNoMatch: "way \"phone\"=123 456 7890";
+    assertNoMatch: "way \"phone\"=4567890";
+    assertMatch: "way \"phone\"=+1 -213-456-7890";
+    throwWarning: tr("phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
+    fixAdd: concat("phone=+1", substring(tag("phone"),3));
+    group: tr("Safe: phone= is in format +1 -NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
 /* Fax fixups */
 *["fax"]["fax"!~/^\+1-[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
     assertMatch: "way \"fax\"=+1-123-456-7890";
@@ -576,6 +587,17 @@ out skel qt;
     throwWarning: tr("fax={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
     fixAdd: concat("fax=+", substring(tag("fax"),2));
     group: tr("Safe: fax= is in format + 1-NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
+*["fax"][fax=~/^\+1 -[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"fax\"=+1 123-456-7890";
+    assertNoMatch: "way \"fax\"=+1123-456-7890";
+    assertNoMatch: "way \"fax\"=123 456 7890";
+    assertNoMatch: "way \"fax\"=4567890";
+    assertMatch: "way \"fax\"=+1 -213-456-7890";
+    throwWarning: tr("fax={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
+    fixAdd: concat("fax=+1", substring(tag("fax"),3));
+    group: tr("Safe: fax= is in format +1 -NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
 
 /* contact:phone fixups */
@@ -833,4 +855,15 @@ out skel qt;
     throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
     fixAdd: concat("contact:phone=+", substring(tag("contact:phone"),2));
     group: tr("Safe: contact:phone= is in format + 1-NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
+*["contact:phone"][contact:phone=~/^\+1 -[2-9][0-9]{2}-[0-9]{3}-[0-9]{4}$/] {
+    assertNoMatch: "way \"contact:phone\"=+1 123-456-7890";
+    assertNoMatch: "way \"contact:phone\"=+1123-456-7890";
+    assertNoMatch: "way \"contact:phone\"=123 456 7890";
+    assertNoMatch: "way \"contact:phone\"=4567890";
+    assertMatch: "way \"contact:phone\"=+1 -213-456-7890";
+    throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
+    fixAdd: concat("contact:phone=+1", substring(tag("contact:phone"),2));
+    group: tr("Safe: contact:phone= is in format +1 -NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
 }
