@@ -54,3 +54,8 @@ way["boundary"="administrative"]{
 way["boundary"="census"]{
     throwWarning: tr("Boundary tagging should be moved to relation");
 }
+
+/* type:way boundary=administrative child type:relation boundary=administrative */
+relation["boundary"="administrative"] > way["boundary"="administrative"] {
+    throwWarning: tr("Duplicative boundary tagging on constituent ways. Should be removed.");
+}
