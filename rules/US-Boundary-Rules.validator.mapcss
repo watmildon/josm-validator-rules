@@ -1,0 +1,56 @@
+meta
+{
+    title: "US boundary rules";
+    version: "0,1_2024-12-25";
+    description: "Checks for various error conditions for boundary relations in the United States";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/US-Boundary-Rules.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:500];
+// gather results
+{{geocodeArea:"United States"}}->.searchArea;
+(
+  nwr["boundary"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;
+*/
+
+
+relation["boundary"="administrative"]["admin_level"="8"] >[role=admin_centre] node {
+    throwWarning: tr("Relation has an admin_centre member, which is incorrect for a municipality");
+}
+
+relation["boundary"="administrative"]["place"]{
+    throwWarning: tr("Unexpected place= tag on boundary");
+}
+
+relation["boundary"="census"]["place"]{
+    throwWarning: tr("Unexpected place= tag on boundary");
+}
+
+relation["boundary"="administrative"][!"wikidata"]{
+    throwWarning: tr("boundary=administrative missing expected tag: wikidata");
+}
+
+relation["boundary"="administrative"][!"name"]{
+    throwWarning: tr("boundary=administrative missing expected tag: name");
+}
+
+relation["boundary"="administrative"][!"border_type"]{
+    throwWarning: tr("boundary=administrative missing expected tag: border_type");
+}
+
+way["boundary"="administrative"]{
+    throwWarning: tr("Boundary tagging should be moved to relation");
+}
+
+way["boundary"="census"]{
+    throwWarning: tr("Boundary tagging should be moved to relation");
+}
