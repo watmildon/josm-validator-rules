@@ -28,7 +28,6 @@ out skel qt;
 
 /* ============================================================
    Uppercase I instead of lowercase L (FI -> Fl, LFI -> LFl)
-   Very common typo, especially from Finnish mappers.
    ============================================================ */
 
 *["seamark:light:character"="FI"] {
