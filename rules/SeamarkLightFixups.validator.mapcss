@@ -1,0 +1,1604 @@
+meta
+{
+    title: "Seamark light character fixups";
+    version: "0,1_2026-02-02";
+    description: "Corrects and warns about seamark:light:* values";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/SeamarkLightFixups.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+[out:json][timeout:120];
+(
+  nwr["seamark:light:character"];
+  nwr["seamark:light:1:character"];
+  nwr["seamark:light:2:character"];
+  nwr["seamark:light:3:character"];
+  nwr["seamark:light:4:character"];
+  nwr["seamark:light:5:character"];
+  nwr["seamark:light:6:character"];
+  nwr["seamark:light:7:character"];
+);
+out body;
+>;
+out skel qt;
+*/
+
+/* ============================================================
+   Uppercase I instead of lowercase L (FI -> Fl, LFI -> LFl)
+   Very common typo, especially from Finnish mappers.
+   ============================================================ */
+
+*["seamark:light:character"="FI"] {
+    throwWarning: tr("seamark:light:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=FI";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="FI"] {
+    throwWarning: tr("seamark:light:1:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:1:character=Fl";
+    assertMatch: "node \"seamark:light:1:character\"=FI";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="FI"] {
+    throwWarning: tr("seamark:light:2:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:2:character=Fl";
+    assertMatch: "node \"seamark:light:2:character\"=FI";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="FI"] {
+    throwWarning: tr("seamark:light:3:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:3:character=Fl";
+    assertMatch: "node \"seamark:light:3:character\"=FI";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="FI"] {
+    throwWarning: tr("seamark:light:4:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:4:character=Fl";
+    assertMatch: "node \"seamark:light:4:character\"=FI";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="FI"] {
+    throwWarning: tr("seamark:light:5:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:5:character=Fl";
+    assertMatch: "node \"seamark:light:5:character\"=FI";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="FI"] {
+    throwWarning: tr("seamark:light:6:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:6:character=Fl";
+    assertMatch: "node \"seamark:light:6:character\"=FI";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="FI"] {
+    throwWarning: tr("seamark:light:7:character=FI -- uppercase I instead of lowercase L, should be Fl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:7:character=Fl";
+    assertMatch: "node \"seamark:light:7:character\"=FI";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+*["seamark:light:character"="LFI"] {
+    throwWarning: tr("seamark:light:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:character=LFl";
+    assertMatch: "node \"seamark:light:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:character\"=LFl";
+}
+
+*["seamark:light:1:character"="LFI"] {
+    throwWarning: tr("seamark:light:1:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:1:character=LFl";
+    assertMatch: "node \"seamark:light:1:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:1:character\"=LFl";
+}
+
+*["seamark:light:2:character"="LFI"] {
+    throwWarning: tr("seamark:light:2:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:2:character=LFl";
+    assertMatch: "node \"seamark:light:2:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:2:character\"=LFl";
+}
+
+*["seamark:light:3:character"="LFI"] {
+    throwWarning: tr("seamark:light:3:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:3:character=LFl";
+    assertMatch: "node \"seamark:light:3:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:3:character\"=LFl";
+}
+
+*["seamark:light:4:character"="LFI"] {
+    throwWarning: tr("seamark:light:4:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:4:character=LFl";
+    assertMatch: "node \"seamark:light:4:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:4:character\"=LFl";
+}
+
+*["seamark:light:5:character"="LFI"] {
+    throwWarning: tr("seamark:light:5:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:5:character=LFl";
+    assertMatch: "node \"seamark:light:5:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:5:character\"=LFl";
+}
+
+*["seamark:light:6:character"="LFI"] {
+    throwWarning: tr("seamark:light:6:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:6:character=LFl";
+    assertMatch: "node \"seamark:light:6:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:6:character\"=LFl";
+}
+
+*["seamark:light:7:character"="LFI"] {
+    throwWarning: tr("seamark:light:7:character=LFI -- uppercase I instead of lowercase L, should be LFl");
+    group: tr("Seamark light character typo");
+    fixAdd: "seamark:light:7:character=LFl";
+    assertMatch: "node \"seamark:light:7:character\"=LFI";
+    assertNoMatch: "node \"seamark:light:7:character\"=LFl";
+}
+
+/* ============================================================
+   Lowercase variants (fl -> Fl, f -> F, oc -> Oc, Lfl -> LFl)
+   ============================================================ */
+
+*["seamark:light:character"="fl"] {
+    throwWarning: tr("seamark:light:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=fl";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="fl"] {
+    throwWarning: tr("seamark:light:1:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=Fl";
+    assertMatch: "node \"seamark:light:1:character\"=fl";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="fl"] {
+    throwWarning: tr("seamark:light:2:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=Fl";
+    assertMatch: "node \"seamark:light:2:character\"=fl";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="fl"] {
+    throwWarning: tr("seamark:light:3:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=Fl";
+    assertMatch: "node \"seamark:light:3:character\"=fl";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="fl"] {
+    throwWarning: tr("seamark:light:4:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=Fl";
+    assertMatch: "node \"seamark:light:4:character\"=fl";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="fl"] {
+    throwWarning: tr("seamark:light:5:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=Fl";
+    assertMatch: "node \"seamark:light:5:character\"=fl";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="fl"] {
+    throwWarning: tr("seamark:light:6:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=Fl";
+    assertMatch: "node \"seamark:light:6:character\"=fl";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="fl"] {
+    throwWarning: tr("seamark:light:7:character=fl -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=Fl";
+    assertMatch: "node \"seamark:light:7:character\"=fl";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+*["seamark:light:character"="f"] {
+    throwWarning: tr("seamark:light:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=F";
+    assertMatch: "node \"seamark:light:character\"=f";
+    assertNoMatch: "node \"seamark:light:character\"=F";
+}
+
+*["seamark:light:1:character"="f"] {
+    throwWarning: tr("seamark:light:1:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=F";
+    assertMatch: "node \"seamark:light:1:character\"=f";
+    assertNoMatch: "node \"seamark:light:1:character\"=F";
+}
+
+*["seamark:light:2:character"="f"] {
+    throwWarning: tr("seamark:light:2:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=F";
+    assertMatch: "node \"seamark:light:2:character\"=f";
+    assertNoMatch: "node \"seamark:light:2:character\"=F";
+}
+
+*["seamark:light:3:character"="f"] {
+    throwWarning: tr("seamark:light:3:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=F";
+    assertMatch: "node \"seamark:light:3:character\"=f";
+    assertNoMatch: "node \"seamark:light:3:character\"=F";
+}
+
+*["seamark:light:4:character"="f"] {
+    throwWarning: tr("seamark:light:4:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=F";
+    assertMatch: "node \"seamark:light:4:character\"=f";
+    assertNoMatch: "node \"seamark:light:4:character\"=F";
+}
+
+*["seamark:light:5:character"="f"] {
+    throwWarning: tr("seamark:light:5:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=F";
+    assertMatch: "node \"seamark:light:5:character\"=f";
+    assertNoMatch: "node \"seamark:light:5:character\"=F";
+}
+
+*["seamark:light:6:character"="f"] {
+    throwWarning: tr("seamark:light:6:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=F";
+    assertMatch: "node \"seamark:light:6:character\"=f";
+    assertNoMatch: "node \"seamark:light:6:character\"=F";
+}
+
+*["seamark:light:7:character"="f"] {
+    throwWarning: tr("seamark:light:7:character=f -- wrong case, should be F");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=F";
+    assertMatch: "node \"seamark:light:7:character\"=f";
+    assertNoMatch: "node \"seamark:light:7:character\"=F";
+}
+
+*["seamark:light:character"="oc"] {
+    throwWarning: tr("seamark:light:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=Oc";
+    assertMatch: "node \"seamark:light:character\"=oc";
+    assertNoMatch: "node \"seamark:light:character\"=Oc";
+}
+
+*["seamark:light:1:character"="oc"] {
+    throwWarning: tr("seamark:light:1:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=Oc";
+    assertMatch: "node \"seamark:light:1:character\"=oc";
+    assertNoMatch: "node \"seamark:light:1:character\"=Oc";
+}
+
+*["seamark:light:2:character"="oc"] {
+    throwWarning: tr("seamark:light:2:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=Oc";
+    assertMatch: "node \"seamark:light:2:character\"=oc";
+    assertNoMatch: "node \"seamark:light:2:character\"=Oc";
+}
+
+*["seamark:light:3:character"="oc"] {
+    throwWarning: tr("seamark:light:3:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=Oc";
+    assertMatch: "node \"seamark:light:3:character\"=oc";
+    assertNoMatch: "node \"seamark:light:3:character\"=Oc";
+}
+
+*["seamark:light:4:character"="oc"] {
+    throwWarning: tr("seamark:light:4:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=Oc";
+    assertMatch: "node \"seamark:light:4:character\"=oc";
+    assertNoMatch: "node \"seamark:light:4:character\"=Oc";
+}
+
+*["seamark:light:5:character"="oc"] {
+    throwWarning: tr("seamark:light:5:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=Oc";
+    assertMatch: "node \"seamark:light:5:character\"=oc";
+    assertNoMatch: "node \"seamark:light:5:character\"=Oc";
+}
+
+*["seamark:light:6:character"="oc"] {
+    throwWarning: tr("seamark:light:6:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=Oc";
+    assertMatch: "node \"seamark:light:6:character\"=oc";
+    assertNoMatch: "node \"seamark:light:6:character\"=Oc";
+}
+
+*["seamark:light:7:character"="oc"] {
+    throwWarning: tr("seamark:light:7:character=oc -- wrong case, should be Oc");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=Oc";
+    assertMatch: "node \"seamark:light:7:character\"=oc";
+    assertNoMatch: "node \"seamark:light:7:character\"=Oc";
+}
+
+*["seamark:light:character"="Lfl"] {
+    throwWarning: tr("seamark:light:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=LFl";
+    assertMatch: "node \"seamark:light:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:character\"=LFl";
+}
+
+*["seamark:light:1:character"="Lfl"] {
+    throwWarning: tr("seamark:light:1:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=LFl";
+    assertMatch: "node \"seamark:light:1:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:1:character\"=LFl";
+}
+
+*["seamark:light:2:character"="Lfl"] {
+    throwWarning: tr("seamark:light:2:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=LFl";
+    assertMatch: "node \"seamark:light:2:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:2:character\"=LFl";
+}
+
+*["seamark:light:3:character"="Lfl"] {
+    throwWarning: tr("seamark:light:3:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=LFl";
+    assertMatch: "node \"seamark:light:3:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:3:character\"=LFl";
+}
+
+*["seamark:light:4:character"="Lfl"] {
+    throwWarning: tr("seamark:light:4:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=LFl";
+    assertMatch: "node \"seamark:light:4:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:4:character\"=LFl";
+}
+
+*["seamark:light:5:character"="Lfl"] {
+    throwWarning: tr("seamark:light:5:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=LFl";
+    assertMatch: "node \"seamark:light:5:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:5:character\"=LFl";
+}
+
+*["seamark:light:6:character"="Lfl"] {
+    throwWarning: tr("seamark:light:6:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=LFl";
+    assertMatch: "node \"seamark:light:6:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:6:character\"=LFl";
+}
+
+*["seamark:light:7:character"="Lfl"] {
+    throwWarning: tr("seamark:light:7:character=Lfl -- wrong case, should be LFl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=LFl";
+    assertMatch: "node \"seamark:light:7:character\"=Lfl";
+    assertNoMatch: "node \"seamark:light:7:character\"=LFl";
+}
+
+/* ============================================================
+   Uppercase variants (ISO -> Iso, FL -> Fl)
+   ============================================================ */
+
+*["seamark:light:character"="ISO"] {
+    throwWarning: tr("seamark:light:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=Iso";
+    assertMatch: "node \"seamark:light:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:character\"=Iso";
+}
+
+*["seamark:light:1:character"="ISO"] {
+    throwWarning: tr("seamark:light:1:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=Iso";
+    assertMatch: "node \"seamark:light:1:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:1:character\"=Iso";
+}
+
+*["seamark:light:2:character"="ISO"] {
+    throwWarning: tr("seamark:light:2:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=Iso";
+    assertMatch: "node \"seamark:light:2:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:2:character\"=Iso";
+}
+
+*["seamark:light:3:character"="ISO"] {
+    throwWarning: tr("seamark:light:3:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=Iso";
+    assertMatch: "node \"seamark:light:3:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:3:character\"=Iso";
+}
+
+*["seamark:light:4:character"="ISO"] {
+    throwWarning: tr("seamark:light:4:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=Iso";
+    assertMatch: "node \"seamark:light:4:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:4:character\"=Iso";
+}
+
+*["seamark:light:5:character"="ISO"] {
+    throwWarning: tr("seamark:light:5:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=Iso";
+    assertMatch: "node \"seamark:light:5:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:5:character\"=Iso";
+}
+
+*["seamark:light:6:character"="ISO"] {
+    throwWarning: tr("seamark:light:6:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=Iso";
+    assertMatch: "node \"seamark:light:6:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:6:character\"=Iso";
+}
+
+*["seamark:light:7:character"="ISO"] {
+    throwWarning: tr("seamark:light:7:character=ISO -- wrong case, should be Iso");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=Iso";
+    assertMatch: "node \"seamark:light:7:character\"=ISO";
+    assertNoMatch: "node \"seamark:light:7:character\"=Iso";
+}
+
+*["seamark:light:character"="FL"] {
+    throwWarning: tr("seamark:light:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=FL";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="FL"] {
+    throwWarning: tr("seamark:light:1:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:1:character=Fl";
+    assertMatch: "node \"seamark:light:1:character\"=FL";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="FL"] {
+    throwWarning: tr("seamark:light:2:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:2:character=Fl";
+    assertMatch: "node \"seamark:light:2:character\"=FL";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="FL"] {
+    throwWarning: tr("seamark:light:3:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:3:character=Fl";
+    assertMatch: "node \"seamark:light:3:character\"=FL";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="FL"] {
+    throwWarning: tr("seamark:light:4:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:4:character=Fl";
+    assertMatch: "node \"seamark:light:4:character\"=FL";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="FL"] {
+    throwWarning: tr("seamark:light:5:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:5:character=Fl";
+    assertMatch: "node \"seamark:light:5:character\"=FL";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="FL"] {
+    throwWarning: tr("seamark:light:6:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:6:character=Fl";
+    assertMatch: "node \"seamark:light:6:character\"=FL";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="FL"] {
+    throwWarning: tr("seamark:light:7:character=FL -- wrong case, should be Fl");
+    group: tr("Seamark light character wrong case");
+    fixAdd: "seamark:light:7:character=Fl";
+    assertMatch: "node \"seamark:light:7:character\"=FL";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+/* ============================================================
+   English words instead of abbreviations (flashing -> Fl)
+   ============================================================ */
+
+*["seamark:light:character"="flashing"] {
+    throwWarning: tr("seamark:light:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="flashing"] {
+    throwWarning: tr("seamark:light:1:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:1:character=Fl";
+    assertMatch: "node \"seamark:light:1:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="flashing"] {
+    throwWarning: tr("seamark:light:2:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:2:character=Fl";
+    assertMatch: "node \"seamark:light:2:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="flashing"] {
+    throwWarning: tr("seamark:light:3:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:3:character=Fl";
+    assertMatch: "node \"seamark:light:3:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="flashing"] {
+    throwWarning: tr("seamark:light:4:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:4:character=Fl";
+    assertMatch: "node \"seamark:light:4:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="flashing"] {
+    throwWarning: tr("seamark:light:5:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:5:character=Fl";
+    assertMatch: "node \"seamark:light:5:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="flashing"] {
+    throwWarning: tr("seamark:light:6:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:6:character=Fl";
+    assertMatch: "node \"seamark:light:6:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="flashing"] {
+    throwWarning: tr("seamark:light:7:character=flashing -- should use abbreviation Fl");
+    group: tr("Seamark light character should use standard abbreviation");
+    fixAdd: "seamark:light:7:character=Fl";
+    assertMatch: "node \"seamark:light:7:character\"=flashing";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+/* ============================================================
+   Missing dot in alternating types (AlFl -> Al.Fl, AlQ -> Al.Q)
+   ============================================================ */
+
+*["seamark:light:character"="AlFl"] {
+    throwWarning: tr("seamark:light:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:character=Al.Fl";
+    assertMatch: "node \"seamark:light:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:character\"=Al.Fl";
+}
+
+*["seamark:light:1:character"="AlFl"] {
+    throwWarning: tr("seamark:light:1:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:1:character=Al.Fl";
+    assertMatch: "node \"seamark:light:1:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:1:character\"=Al.Fl";
+}
+
+*["seamark:light:2:character"="AlFl"] {
+    throwWarning: tr("seamark:light:2:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:2:character=Al.Fl";
+    assertMatch: "node \"seamark:light:2:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:2:character\"=Al.Fl";
+}
+
+*["seamark:light:3:character"="AlFl"] {
+    throwWarning: tr("seamark:light:3:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:3:character=Al.Fl";
+    assertMatch: "node \"seamark:light:3:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:3:character\"=Al.Fl";
+}
+
+*["seamark:light:4:character"="AlFl"] {
+    throwWarning: tr("seamark:light:4:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:4:character=Al.Fl";
+    assertMatch: "node \"seamark:light:4:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:4:character\"=Al.Fl";
+}
+
+*["seamark:light:5:character"="AlFl"] {
+    throwWarning: tr("seamark:light:5:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:5:character=Al.Fl";
+    assertMatch: "node \"seamark:light:5:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:5:character\"=Al.Fl";
+}
+
+*["seamark:light:6:character"="AlFl"] {
+    throwWarning: tr("seamark:light:6:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:6:character=Al.Fl";
+    assertMatch: "node \"seamark:light:6:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:6:character\"=Al.Fl";
+}
+
+*["seamark:light:7:character"="AlFl"] {
+    throwWarning: tr("seamark:light:7:character=AlFl -- missing dot, should be Al.Fl");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:7:character=Al.Fl";
+    assertMatch: "node \"seamark:light:7:character\"=AlFl";
+    assertNoMatch: "node \"seamark:light:7:character\"=Al.Fl";
+}
+
+*["seamark:light:character"="AlQ"] {
+    throwWarning: tr("seamark:light:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:character=Al.Q";
+    assertMatch: "node \"seamark:light:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:character\"=Al.Q";
+}
+
+*["seamark:light:1:character"="AlQ"] {
+    throwWarning: tr("seamark:light:1:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:1:character=Al.Q";
+    assertMatch: "node \"seamark:light:1:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:1:character\"=Al.Q";
+}
+
+*["seamark:light:2:character"="AlQ"] {
+    throwWarning: tr("seamark:light:2:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:2:character=Al.Q";
+    assertMatch: "node \"seamark:light:2:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:2:character\"=Al.Q";
+}
+
+*["seamark:light:3:character"="AlQ"] {
+    throwWarning: tr("seamark:light:3:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:3:character=Al.Q";
+    assertMatch: "node \"seamark:light:3:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:3:character\"=Al.Q";
+}
+
+*["seamark:light:4:character"="AlQ"] {
+    throwWarning: tr("seamark:light:4:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:4:character=Al.Q";
+    assertMatch: "node \"seamark:light:4:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:4:character\"=Al.Q";
+}
+
+*["seamark:light:5:character"="AlQ"] {
+    throwWarning: tr("seamark:light:5:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:5:character=Al.Q";
+    assertMatch: "node \"seamark:light:5:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:5:character\"=Al.Q";
+}
+
+*["seamark:light:6:character"="AlQ"] {
+    throwWarning: tr("seamark:light:6:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:6:character=Al.Q";
+    assertMatch: "node \"seamark:light:6:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:6:character\"=Al.Q";
+}
+
+*["seamark:light:7:character"="AlQ"] {
+    throwWarning: tr("seamark:light:7:character=AlQ -- missing dot, should be Al.Q");
+    group: tr("Seamark light character missing dot in alternating");
+    fixAdd: "seamark:light:7:character=Al.Q";
+    assertMatch: "node \"seamark:light:7:character\"=AlQ";
+    assertNoMatch: "node \"seamark:light:7:character\"=Al.Q";
+}
+
+/* ============================================================
+   Spaces around + in composite characters (Q + LFl -> Q+LFl)
+   ============================================================ */
+
+*["seamark:light:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:character=Q+LFl";
+    assertMatch: "node \"seamark:light:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:character\"=Q+LFl";
+}
+
+*["seamark:light:1:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:1:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:1:character=Q+LFl";
+    assertMatch: "node \"seamark:light:1:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:1:character\"=Q+LFl";
+}
+
+*["seamark:light:2:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:2:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:2:character=Q+LFl";
+    assertMatch: "node \"seamark:light:2:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:2:character\"=Q+LFl";
+}
+
+*["seamark:light:3:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:3:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:3:character=Q+LFl";
+    assertMatch: "node \"seamark:light:3:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:3:character\"=Q+LFl";
+}
+
+*["seamark:light:4:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:4:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:4:character=Q+LFl";
+    assertMatch: "node \"seamark:light:4:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:4:character\"=Q+LFl";
+}
+
+*["seamark:light:5:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:5:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:5:character=Q+LFl";
+    assertMatch: "node \"seamark:light:5:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:5:character\"=Q+LFl";
+}
+
+*["seamark:light:6:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:6:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:6:character=Q+LFl";
+    assertMatch: "node \"seamark:light:6:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:6:character\"=Q+LFl";
+}
+
+*["seamark:light:7:character"="Q + LFl"] {
+    throwWarning: tr("seamark:light:7:character=Q + LFl -- has spaces around +, should be Q+LFl");
+    group: tr("Seamark light character formatting");
+    fixAdd: "seamark:light:7:character=Q+LFl";
+    assertMatch: "node \"seamark:light:7:character\"=Q + LFl";
+    assertNoMatch: "node \"seamark:light:7:character\"=Q+LFl";
+}
+
+/* ============================================================
+   Morse with group in character (Mo(A) -> Mo with group=A)
+   ============================================================ */
+
+*["seamark:light:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:character=Mo";
+    fixAdd: "seamark:light:group=A";
+    assertMatch: "node \"seamark:light:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:character\"=Mo";
+}
+
+*["seamark:light:1:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:1:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:1:character=Mo";
+    fixAdd: "seamark:light:1:group=A";
+    assertMatch: "node \"seamark:light:1:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:1:character\"=Mo";
+}
+
+*["seamark:light:2:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:2:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:2:character=Mo";
+    fixAdd: "seamark:light:2:group=A";
+    assertMatch: "node \"seamark:light:2:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:2:character\"=Mo";
+}
+
+*["seamark:light:3:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:3:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:3:character=Mo";
+    fixAdd: "seamark:light:3:group=A";
+    assertMatch: "node \"seamark:light:3:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:3:character\"=Mo";
+}
+
+*["seamark:light:4:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:4:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:4:character=Mo";
+    fixAdd: "seamark:light:4:group=A";
+    assertMatch: "node \"seamark:light:4:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:4:character\"=Mo";
+}
+
+*["seamark:light:5:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:5:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:5:character=Mo";
+    fixAdd: "seamark:light:5:group=A";
+    assertMatch: "node \"seamark:light:5:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:5:character\"=Mo";
+}
+
+*["seamark:light:6:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:6:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:6:character=Mo";
+    fixAdd: "seamark:light:6:group=A";
+    assertMatch: "node \"seamark:light:6:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:6:character\"=Mo";
+}
+
+*["seamark:light:7:character"="Mo(A)"] {
+    throwWarning: tr("seamark:light:7:character=Mo(A) -- Morse group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:7:character=Mo";
+    fixAdd: "seamark:light:7:group=A";
+    assertMatch: "node \"seamark:light:7:character\"=Mo(A)";
+    assertNoMatch: "node \"seamark:light:7:character\"=Mo";
+}
+
+/* ============================================================
+   Group count embedded in character field
+   Fl(1) -> Fl (group=1 is implied)
+   Fl(2) -> Fl with group=2
+   Fl(2+1) -> Fl with group=2+1
+   ============================================================ */
+
+*["seamark:light:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:1:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:1:character=Fl";
+    assertMatch: "node \"seamark:light:1:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:2:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:2:character=Fl";
+    assertMatch: "node \"seamark:light:2:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:3:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:3:character=Fl";
+    assertMatch: "node \"seamark:light:3:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:4:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:4:character=Fl";
+    assertMatch: "node \"seamark:light:4:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:5:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:5:character=Fl";
+    assertMatch: "node \"seamark:light:5:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:6:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:6:character=Fl";
+    assertMatch: "node \"seamark:light:6:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="Fl(1)"] {
+    throwWarning: tr("seamark:light:7:character=Fl(1) -- group count is redundant for single flash, should be Fl");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:7:character=Fl";
+    assertMatch: "node \"seamark:light:7:character\"=Fl(1)";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+*["seamark:light:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:character=Fl";
+    fixAdd: "seamark:light:group=2";
+    assertMatch: "node \"seamark:light:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:1:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:1:character=Fl";
+    fixAdd: "seamark:light:1:group=2";
+    assertMatch: "node \"seamark:light:1:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:2:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:2:character=Fl";
+    fixAdd: "seamark:light:2:group=2";
+    assertMatch: "node \"seamark:light:2:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:3:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:3:character=Fl";
+    fixAdd: "seamark:light:3:group=2";
+    assertMatch: "node \"seamark:light:3:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:4:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:4:character=Fl";
+    fixAdd: "seamark:light:4:group=2";
+    assertMatch: "node \"seamark:light:4:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:5:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:5:character=Fl";
+    fixAdd: "seamark:light:5:group=2";
+    assertMatch: "node \"seamark:light:5:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:6:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:6:character=Fl";
+    fixAdd: "seamark:light:6:group=2";
+    assertMatch: "node \"seamark:light:6:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="Fl(2)"] {
+    throwWarning: tr("seamark:light:7:character=Fl(2) -- group count should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:7:character=Fl";
+    fixAdd: "seamark:light:7:group=2";
+    assertMatch: "node \"seamark:light:7:character\"=Fl(2)";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+*["seamark:light:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:character=Fl";
+    fixAdd: "seamark:light:group=2+1";
+    assertMatch: "node \"seamark:light:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:1:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:1:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:1:character=Fl";
+    fixAdd: "seamark:light:1:group=2+1";
+    assertMatch: "node \"seamark:light:1:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:1:character\"=Fl";
+}
+
+*["seamark:light:2:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:2:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:2:character=Fl";
+    fixAdd: "seamark:light:2:group=2+1";
+    assertMatch: "node \"seamark:light:2:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:2:character\"=Fl";
+}
+
+*["seamark:light:3:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:3:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:3:character=Fl";
+    fixAdd: "seamark:light:3:group=2+1";
+    assertMatch: "node \"seamark:light:3:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:3:character\"=Fl";
+}
+
+*["seamark:light:4:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:4:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:4:character=Fl";
+    fixAdd: "seamark:light:4:group=2+1";
+    assertMatch: "node \"seamark:light:4:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:4:character\"=Fl";
+}
+
+*["seamark:light:5:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:5:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:5:character=Fl";
+    fixAdd: "seamark:light:5:group=2+1";
+    assertMatch: "node \"seamark:light:5:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:5:character\"=Fl";
+}
+
+*["seamark:light:6:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:6:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:6:character=Fl";
+    fixAdd: "seamark:light:6:group=2+1";
+    assertMatch: "node \"seamark:light:6:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:6:character\"=Fl";
+}
+
+*["seamark:light:7:character"="Fl(2+1)"] {
+    throwWarning: tr("seamark:light:7:character=Fl(2+1) -- group should be in group tag, not character");
+    group: tr("Seamark light character has embedded group");
+    fixAdd: "seamark:light:7:character=Fl";
+    fixAdd: "seamark:light:7:group=2+1";
+    assertMatch: "node \"seamark:light:7:character\"=Fl(2+1)";
+    assertNoMatch: "node \"seamark:light:7:character\"=Fl";
+}
+
+/* ============================================================
+   Values that are not light characters -- warning only, no fixup
+   These need manual review to determine the correct tagging.
+   ============================================================ */
+
+*["seamark:light:character"="c"] {
+    throwWarning: tr("seamark:light:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=c";
+}
+
+*["seamark:light:1:character"="c"] {
+    throwWarning: tr("seamark:light:1:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=c";
+}
+
+*["seamark:light:2:character"="c"] {
+    throwWarning: tr("seamark:light:2:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=c";
+}
+
+*["seamark:light:3:character"="c"] {
+    throwWarning: tr("seamark:light:3:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=c";
+}
+
+*["seamark:light:4:character"="c"] {
+    throwWarning: tr("seamark:light:4:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=c";
+}
+
+*["seamark:light:5:character"="c"] {
+    throwWarning: tr("seamark:light:5:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=c";
+}
+
+*["seamark:light:6:character"="c"] {
+    throwWarning: tr("seamark:light:6:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=c";
+}
+
+*["seamark:light:7:character"="c"] {
+    throwWarning: tr("seamark:light:7:character=c -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=c";
+}
+
+*["seamark:light:character"="green"] {
+    throwWarning: tr("seamark:light:character=green -- this is a colour, not a character. Move to seamark:light:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=green";
+}
+
+*["seamark:light:1:character"="green"] {
+    throwWarning: tr("seamark:light:1:character=green -- this is a colour, not a character. Move to seamark:light:1:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=green";
+}
+
+*["seamark:light:2:character"="green"] {
+    throwWarning: tr("seamark:light:2:character=green -- this is a colour, not a character. Move to seamark:light:2:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=green";
+}
+
+*["seamark:light:3:character"="green"] {
+    throwWarning: tr("seamark:light:3:character=green -- this is a colour, not a character. Move to seamark:light:3:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=green";
+}
+
+*["seamark:light:4:character"="green"] {
+    throwWarning: tr("seamark:light:4:character=green -- this is a colour, not a character. Move to seamark:light:4:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=green";
+}
+
+*["seamark:light:5:character"="green"] {
+    throwWarning: tr("seamark:light:5:character=green -- this is a colour, not a character. Move to seamark:light:5:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=green";
+}
+
+*["seamark:light:6:character"="green"] {
+    throwWarning: tr("seamark:light:6:character=green -- this is a colour, not a character. Move to seamark:light:6:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=green";
+}
+
+*["seamark:light:7:character"="green"] {
+    throwWarning: tr("seamark:light:7:character=green -- this is a colour, not a character. Move to seamark:light:7:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=green";
+}
+
+*["seamark:light:character"="red"] {
+    throwWarning: tr("seamark:light:character=red -- this is a colour, not a character. Move to seamark:light:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=red";
+}
+
+*["seamark:light:1:character"="red"] {
+    throwWarning: tr("seamark:light:1:character=red -- this is a colour, not a character. Move to seamark:light:1:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=red";
+}
+
+*["seamark:light:2:character"="red"] {
+    throwWarning: tr("seamark:light:2:character=red -- this is a colour, not a character. Move to seamark:light:2:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=red";
+}
+
+*["seamark:light:3:character"="red"] {
+    throwWarning: tr("seamark:light:3:character=red -- this is a colour, not a character. Move to seamark:light:3:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=red";
+}
+
+*["seamark:light:4:character"="red"] {
+    throwWarning: tr("seamark:light:4:character=red -- this is a colour, not a character. Move to seamark:light:4:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=red";
+}
+
+*["seamark:light:5:character"="red"] {
+    throwWarning: tr("seamark:light:5:character=red -- this is a colour, not a character. Move to seamark:light:5:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=red";
+}
+
+*["seamark:light:6:character"="red"] {
+    throwWarning: tr("seamark:light:6:character=red -- this is a colour, not a character. Move to seamark:light:6:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=red";
+}
+
+*["seamark:light:7:character"="red"] {
+    throwWarning: tr("seamark:light:7:character=red -- this is a colour, not a character. Move to seamark:light:7:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=red";
+}
+
+*["seamark:light:character"="yellow"] {
+    throwWarning: tr("seamark:light:character=yellow -- this is a colour, not a character. Move to seamark:light:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=yellow";
+}
+
+*["seamark:light:1:character"="yellow"] {
+    throwWarning: tr("seamark:light:1:character=yellow -- this is a colour, not a character. Move to seamark:light:1:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=yellow";
+}
+
+*["seamark:light:2:character"="yellow"] {
+    throwWarning: tr("seamark:light:2:character=yellow -- this is a colour, not a character. Move to seamark:light:2:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=yellow";
+}
+
+*["seamark:light:3:character"="yellow"] {
+    throwWarning: tr("seamark:light:3:character=yellow -- this is a colour, not a character. Move to seamark:light:3:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=yellow";
+}
+
+*["seamark:light:4:character"="yellow"] {
+    throwWarning: tr("seamark:light:4:character=yellow -- this is a colour, not a character. Move to seamark:light:4:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=yellow";
+}
+
+*["seamark:light:5:character"="yellow"] {
+    throwWarning: tr("seamark:light:5:character=yellow -- this is a colour, not a character. Move to seamark:light:5:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=yellow";
+}
+
+*["seamark:light:6:character"="yellow"] {
+    throwWarning: tr("seamark:light:6:character=yellow -- this is a colour, not a character. Move to seamark:light:6:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=yellow";
+}
+
+*["seamark:light:7:character"="yellow"] {
+    throwWarning: tr("seamark:light:7:character=yellow -- this is a colour, not a character. Move to seamark:light:7:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=yellow";
+}
+
+*["seamark:light:character"="W"] {
+    throwWarning: tr("seamark:light:character=W -- this is a colour (white), not a character. Move to seamark:light:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=W";
+}
+
+*["seamark:light:1:character"="W"] {
+    throwWarning: tr("seamark:light:1:character=W -- this is a colour (white), not a character. Move to seamark:light:1:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=W";
+}
+
+*["seamark:light:2:character"="W"] {
+    throwWarning: tr("seamark:light:2:character=W -- this is a colour (white), not a character. Move to seamark:light:2:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=W";
+}
+
+*["seamark:light:3:character"="W"] {
+    throwWarning: tr("seamark:light:3:character=W -- this is a colour (white), not a character. Move to seamark:light:3:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=W";
+}
+
+*["seamark:light:4:character"="W"] {
+    throwWarning: tr("seamark:light:4:character=W -- this is a colour (white), not a character. Move to seamark:light:4:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=W";
+}
+
+*["seamark:light:5:character"="W"] {
+    throwWarning: tr("seamark:light:5:character=W -- this is a colour (white), not a character. Move to seamark:light:5:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=W";
+}
+
+*["seamark:light:6:character"="W"] {
+    throwWarning: tr("seamark:light:6:character=W -- this is a colour (white), not a character. Move to seamark:light:6:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=W";
+}
+
+*["seamark:light:7:character"="W"] {
+    throwWarning: tr("seamark:light:7:character=W -- this is a colour (white), not a character. Move to seamark:light:7:colour");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=W";
+}
+
+*["seamark:light:character"="Dir"] {
+    throwWarning: tr("seamark:light:character=Dir -- directional is not a character. Consider seamark:light:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=Dir";
+}
+
+*["seamark:light:1:character"="Dir"] {
+    throwWarning: tr("seamark:light:1:character=Dir -- directional is not a character. Consider seamark:light:1:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=Dir";
+}
+
+*["seamark:light:2:character"="Dir"] {
+    throwWarning: tr("seamark:light:2:character=Dir -- directional is not a character. Consider seamark:light:2:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=Dir";
+}
+
+*["seamark:light:3:character"="Dir"] {
+    throwWarning: tr("seamark:light:3:character=Dir -- directional is not a character. Consider seamark:light:3:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=Dir";
+}
+
+*["seamark:light:4:character"="Dir"] {
+    throwWarning: tr("seamark:light:4:character=Dir -- directional is not a character. Consider seamark:light:4:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=Dir";
+}
+
+*["seamark:light:5:character"="Dir"] {
+    throwWarning: tr("seamark:light:5:character=Dir -- directional is not a character. Consider seamark:light:5:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=Dir";
+}
+
+*["seamark:light:6:character"="Dir"] {
+    throwWarning: tr("seamark:light:6:character=Dir -- directional is not a character. Consider seamark:light:6:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=Dir";
+}
+
+*["seamark:light:7:character"="Dir"] {
+    throwWarning: tr("seamark:light:7:character=Dir -- directional is not a character. Consider seamark:light:7:category=directional");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=Dir";
+}
+
+*["seamark:light:character"="floodlight"] {
+    throwWarning: tr("seamark:light:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=floodlight";
+}
+
+*["seamark:light:1:character"="floodlight"] {
+    throwWarning: tr("seamark:light:1:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=floodlight";
+}
+
+*["seamark:light:2:character"="floodlight"] {
+    throwWarning: tr("seamark:light:2:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=floodlight";
+}
+
+*["seamark:light:3:character"="floodlight"] {
+    throwWarning: tr("seamark:light:3:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=floodlight";
+}
+
+*["seamark:light:4:character"="floodlight"] {
+    throwWarning: tr("seamark:light:4:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=floodlight";
+}
+
+*["seamark:light:5:character"="floodlight"] {
+    throwWarning: tr("seamark:light:5:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=floodlight";
+}
+
+*["seamark:light:6:character"="floodlight"] {
+    throwWarning: tr("seamark:light:6:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=floodlight";
+}
+
+*["seamark:light:7:character"="floodlight"] {
+    throwWarning: tr("seamark:light:7:character=floodlight -- not a navigational light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=floodlight";
+}
+
+*["seamark:light:character"="Ro"] {
+    throwWarning: tr("seamark:light:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=Ro";
+}
+
+*["seamark:light:1:character"="Ro"] {
+    throwWarning: tr("seamark:light:1:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=Ro";
+}
+
+*["seamark:light:2:character"="Ro"] {
+    throwWarning: tr("seamark:light:2:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=Ro";
+}
+
+*["seamark:light:3:character"="Ro"] {
+    throwWarning: tr("seamark:light:3:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=Ro";
+}
+
+*["seamark:light:4:character"="Ro"] {
+    throwWarning: tr("seamark:light:4:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=Ro";
+}
+
+*["seamark:light:5:character"="Ro"] {
+    throwWarning: tr("seamark:light:5:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=Ro";
+}
+
+*["seamark:light:6:character"="Ro"] {
+    throwWarning: tr("seamark:light:6:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=Ro";
+}
+
+*["seamark:light:7:character"="Ro"] {
+    throwWarning: tr("seamark:light:7:character=Ro -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=Ro";
+}
+
+*["seamark:light:character"="U"] {
+    throwWarning: tr("seamark:light:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:character\"=U";
+}
+
+*["seamark:light:1:character"="U"] {
+    throwWarning: tr("seamark:light:1:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:1:character\"=U";
+}
+
+*["seamark:light:2:character"="U"] {
+    throwWarning: tr("seamark:light:2:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:2:character\"=U";
+}
+
+*["seamark:light:3:character"="U"] {
+    throwWarning: tr("seamark:light:3:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:3:character\"=U";
+}
+
+*["seamark:light:4:character"="U"] {
+    throwWarning: tr("seamark:light:4:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:4:character\"=U";
+}
+
+*["seamark:light:5:character"="U"] {
+    throwWarning: tr("seamark:light:5:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:5:character\"=U";
+}
+
+*["seamark:light:6:character"="U"] {
+    throwWarning: tr("seamark:light:6:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:6:character\"=U";
+}
+
+*["seamark:light:7:character"="U"] {
+    throwWarning: tr("seamark:light:7:character=U -- not a valid light character, needs manual review");
+    group: tr("Seamark light character invalid value");
+    assertMatch: "node \"seamark:light:7:character\"=U";
+}
+
+/* ============================================================
+   Embedded descriptions -- warning only, needs manual cleanup
+   These have period, colour, or other info stuffed into character.
+   These are one-off values found only on the unnumbered key.
+   ============================================================ */
+
+*["seamark:light:character"="LFl W 10s"] {
+    throwWarning: tr("seamark:light:character=LFl W 10s -- has embedded description. Should be character=LFl with separate colour and period tags");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=LFl W 10s";
+}
+
+*["seamark:light:character"="Fl W ev 5 sec"] {
+    throwWarning: tr("seamark:light:character=Fl W ev 5 sec -- has embedded description. Should be character=Fl with separate colour and period tags");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=Fl W ev 5 sec";
+}
+
+*["seamark:light:character"="Fl(4) W 20s"] {
+    throwWarning: tr("seamark:light:character=Fl(4) W 20s -- has embedded description. Should be character=Fl with group=4 and separate colour/period tags");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=Fl(4) W 20s";
+}
+
+*["seamark:light:character"="FL(2) R 4S 3M"] {
+    throwWarning: tr("seamark:light:character=FL(2) R 4S 3M -- has embedded description. Should be character=Fl with group=2 and separate colour/period tags");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=FL(2) R 4S 3M";
+}
+
+*["seamark:light:character"="Fl IMH"] {
+    throwWarning: tr("seamark:light:character=Fl IMH -- unknown suffix, should likely be character=Fl. Needs manual review");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=Fl IMH";
+}
+
+*["seamark:light:character"="Fl.(3)W"] {
+    throwWarning: tr("seamark:light:character=Fl.(3)W -- should be character=Fl with group=3 and separate colour tag");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=Fl.(3)W";
+}
+
+*["seamark:light:character"="Fl_of1923"] {
+    throwWarning: tr("seamark:light:character=Fl_of1923 -- historical note in character field, should be character=Fl");
+    group: tr("Seamark light character has embedded description");
+    fixAdd: "seamark:light:character=Fl";
+    assertMatch: "node \"seamark:light:character\"=Fl_of1923";
+    assertNoMatch: "node \"seamark:light:character\"=Fl";
+}
+
+*["seamark:light:character"="FIso"] {
+    throwWarning: tr("seamark:light:character=FIso -- ambiguous, possibly F+Iso or typo. Needs manual review");
+    group: tr("Seamark light character has embedded description");
+    assertMatch: "node \"seamark:light:character\"=FIso";
+}
