@@ -1,0 +1,98 @@
+meta
+{
+    title: "NRHP Criteria Formatter";
+    version: "0.1_2026-08-19";
+    description: "Normalizes nrhp:criteria values to semicolon separated letters (A;C) per community consensus";
+    author: "watmildon";
+    link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/NRHPCriteriaFormatter.validator.mapcss";
+    baselanguage: "en";
+    min-josm-version: 14481;
+}
+
+/*
+Standardizes nrhp:criteria per:
+https://community.openstreetmap.org/t/proposal-to-standardize-nrhp-criteria-formatting-removing-parentheses-and-commas/145175
+
+Old wiki format: "(A), (C)" -> new format: "A;C"
+*/
+
+/*
+All nonstandard values, including ones with no autofix:
+
+[out:json][timeout:300];
+nwr["nrhp:criteria"]["nrhp:criteria"!~"^[A-G](;[A-G])*$"];
+out body;
+>;
+out skel qt;
+
+Autofixable values only:
+
+[out:json][timeout:300];
+(
+  // letters with parens/commas/spaces, incl. trailing comma, minus already-valid A;C format
+  nwr["nrhp:criteria"~"^\\(*[A-Ga-g]\\)*([,; ] *\\(*[A-Ga-g]\\)*)*,? *$"]["nrhp:criteria"!~"^[A-G](;[A-G])*$"];
+  // prose criterion names
+  nwr["nrhp:criteria"~"^(Event|Person|Architecture(/Engineering)?|Information Potential)(, ?(Event|Person|Architecture(/Engineering)?|Information Potential))*$"];
+);
+out body;
+>;
+out skel qt;
+*/
+
+
+/* Parenthesized and/or comma/space separated letters, e.g. (A), (C) or A,C or (a),(c) */
+*["nrhp:criteria"]["nrhp:criteria"=~/^\(*[A-Ga-g]\)*([,; ] *\(*[A-Ga-g]\)*)*$/]["nrhp:criteria"!~/^[A-G](;[A-G])*$/] {
+    assertMatch: "node \"nrhp:criteria\"=\"(A), (C)\"";
+    assertMatch: "node \"nrhp:criteria\"=(A),(C)";
+    assertMatch: "node \"nrhp:criteria\"=\"(A) (C)\"";
+    assertMatch: "node \"nrhp:criteria\"=\"A, C\"";
+    assertMatch: "node \"nrhp:criteria\"=(a),(c)";
+    assertMatch: "node \"nrhp:criteria\"=\"(A), (C))\"";
+    assertMatch: "node \"nrhp:criteria\"=b";
+    assertNoMatch: "node \"nrhp:criteria\"=A;C";
+    assertNoMatch: "node \"nrhp:criteria\"=C";
+    assertNoMatch: "node \"nrhp:criteria\"=(A),";
+    assertNoMatch: "node \"nrhp:criteria\"=Event";
+    throwWarning: tr("nrhp:criteria={0}, should be uppercase letters separated by semicolons", "{0.value}");
+    fixAdd: concat("nrhp:criteria=", replace(replace(replace(replace(replace(replace(upper(trim(tag("nrhp:criteria"))), ", ", ","), ") (", ";"), "),(", ";"), "(", ""), ")", ""), ",", ";"));
+}
+
+/* Same as above but with a dangling trailing comma, e.g. (A), or (A), (C), */
+*["nrhp:criteria"]["nrhp:criteria"=~/^\(*[A-Ga-g]\)*([,; ] *\(*[A-Ga-g]\)*)*, *$/] {
+    assertMatch: "node \"nrhp:criteria\"=(A),";
+    assertMatch: "node \"nrhp:criteria\"=\"(A), (C),\"";
+    assertNoMatch: "node \"nrhp:criteria\"=(A)";
+    assertNoMatch: "node \"nrhp:criteria\"=\"(A), (C)\"";
+    assertNoMatch: "node \"nrhp:criteria\"=A;C";
+    throwWarning: tr("nrhp:criteria={0}, should be uppercase letters separated by semicolons", "{0.value}");
+    fixAdd: concat("nrhp:criteria=", replace(replace(replace(replace(replace(replace(upper(trim(substring(trim(tag("nrhp:criteria")), 0, length(trim(tag("nrhp:criteria"))) - 1))), ", ", ","), ") (", ";"), "),(", ";"), "(", ""), ")", ""), ",", ";"));
+}
+
+/* Criterion names written out as prose, e.g. Event, Architecture/Engineering. Per 36 CFR 60.4: Event=A, Person=B, Architecture/Engineering=C, Information Potential=D */
+*["nrhp:criteria"]["nrhp:criteria"=~/^(Event|Person|Architecture(\/Engineering)?|Information Potential)(, ?(Event|Person|Architecture(\/Engineering)?|Information Potential))*$/] {
+    assertMatch: "node \"nrhp:criteria\"=Event";
+    assertMatch: "node \"nrhp:criteria\"=Person";
+    assertMatch: "node \"nrhp:criteria\"=Architecture/Engineering";
+    assertMatch: "node \"nrhp:criteria\"=\"Event, Architecture/Engineering\"";
+    assertMatch: "node \"nrhp:criteria\"=\"Architecture/Engineering, Person, Information Potential\"";
+    assertNoMatch: "node \"nrhp:criteria\"=Politics/Government";
+    assertNoMatch: "node \"nrhp:criteria\"=\"Transportation, Tourism, Commerce\"";
+    assertNoMatch: "node \"nrhp:criteria\"=A;C";
+    assertNoMatch: "node \"nrhp:criteria\"=\"(A), (C)\"";
+    throwWarning: tr("nrhp:criteria={0}, criterion names should be uppercase letters separated by semicolons", "{0.value}");
+    fixAdd: concat("nrhp:criteria=", replace(replace(replace(replace(replace(replace(replace(tag("nrhp:criteria"), "Architecture/Engineering", "C"), "Architecture", "C"), "Information Potential", "D"), "Event", "A"), "Person", "B"), ", ", ";"), ",", ";"));
+}
+
+/* Anything else that is not already valid, e.g. Politics/Government, (1),(3), *. Needs manual review, no autofix */
+*["nrhp:criteria"]["nrhp:criteria"!~/^\(*[A-Ga-g]\)*([,; ] *\(*[A-Ga-g]\)*)*,? *$/]["nrhp:criteria"!~/^(Event|Person|Architecture(\/Engineering)?|Information Potential)(, ?(Event|Person|Architecture(\/Engineering)?|Information Potential))*$/] {
+    assertMatch: "node \"nrhp:criteria\"=Politics/Government";
+    assertMatch: "node \"nrhp:criteria\"=\"Transportation, Tourism, Commerce\"";
+    assertMatch: "node \"nrhp:criteria\"=(1),(3)";
+    assertMatch: "node \"nrhp:criteria\"=*";
+    assertNoMatch: "node \"nrhp:criteria\"=Event";
+    assertNoMatch: "node \"nrhp:criteria\"=Architecture/Engineering";
+    assertNoMatch: "node \"nrhp:criteria\"=A;C";
+    assertNoMatch: "node \"nrhp:criteria\"=\"(A), (C)\"";
+    assertNoMatch: "node \"nrhp:criteria\"=(A),";
+    throwWarning: tr("nrhp:criteria={0} is unrecognized, review manually. Should be uppercase letters separated by semicolons", "{0.value}");
+}
