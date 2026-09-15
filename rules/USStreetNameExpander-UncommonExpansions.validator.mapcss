@@ -11,7 +11,7 @@ meta
 
 /*
 [out:json][timeout:300];
-{{geocodeArea:"Oregon,United States of America"}}->.a;
+{{geocodeArea:"Texas,United States of America"}}->.a;
 (
   way[highway][highway!=platform][amenity!=shelter][!bus][name~"^CR [0-9]{0,3}$"](area.a);
   nwr["addr:street"~"^CR [0-9]{0,3}$"](area.a);
