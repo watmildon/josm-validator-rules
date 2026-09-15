@@ -13,7 +13,7 @@ meta
 [out:json][timeout:300];
 {{geocodeArea:"Oregon,United States of America"}}->.a;
 (
-  wr[highway][highway!=platform][amenity=shelter][!bus][name~" N$| S$| E$| W$| NE$| SE$| NW$| SW$"](area.a);
+  wr[highway][highway!=platform][amenity!=shelter][!bus][name~" N$| S$| E$| W$| NE$| SE$| NW$| SW$"](area.a);
   nwr["addr:street"~" N$| S$| E$| W$| NE$| SE$| NW$| SW$"](area.a);
 );
 out body;

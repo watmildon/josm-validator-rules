@@ -13,8 +13,8 @@ meta
 [out:json];
 {{geocodeArea:West Virginia}} -> .sea;
 (
-  way[~"^name(_[1-5])?$"~"^County [(Road)(Rd)(Route)(Rte)(Highway)(Hwy)]"](area.sea);
-  way[ref~"^County [(Road)(Rd)(Route)(Rte)(Highway)(Hwy)]"](area.sea);
+  way[~"^name(_[1-5])?$"~"^County (Road|Rd|Route|Rte|Rt|Highway|Hwy)"](area.sea);
+  way[ref~"^County (Road|Rd|Route|Rte|Rt|Highway|Hwy)"](area.sea);
 );
 // print results
 out body;

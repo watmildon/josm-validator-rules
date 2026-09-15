@@ -16,7 +16,7 @@ meta
 (
   way["tiger:reviewed"="no"](area.a);
 );
-out body;a
+out body;
 >;
 out skel qt;
 */
