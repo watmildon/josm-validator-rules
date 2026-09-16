@@ -1,7 +1,7 @@
 meta
 {
     title: "Phone number fixups";
-    version: "1,1_2025-12-28";
+    version: "1,2_2026-09-15";
     description: "Fixes very common formatting issues with phone= in the United States";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter.validator.mapcss";
@@ -78,8 +78,19 @@ out skel qt;
     group: tr("Only use object-specific emergency numbers");
 }
 
-*["phone"]["phone"=~/[A-Za-z]/] {
+/* The alphabetic-characters check skips values whose only letters are a
+   telephone extension. "x123" and "ext. 123" are both documented on the wiki and
+   both accepted by phone-report, and without this guard they were flagged as
+   vanity numbers -- and the autofix rewrote the marker as a digit, turning
+   "+1-213-456-7890 x123" into "+1-213-456-7890 9123". Semicolon-separated lists
+   are covered too. Non-standard markers ("X123", "ext 123") are still flagged. */
+
+*["phone"]["phone"=~/[A-Za-z]/]["phone"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
     assertNoMatch: "way \"phone\"=+1-213-456-7890";
+    assertNoMatch: "way \"phone\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"phone\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"phone\"=\"+1-213-456-7890 ext. 123\"";
+    assertMatch: "way \"phone\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"phone\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("phone:mnemonic=", tag("phone"));
@@ -344,8 +355,12 @@ out skel qt;
 }
 
 
-*["fax"]["fax"=~/[A-Za-z]/] {
+*["fax"]["fax"=~/[A-Za-z]/]["fax"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
     assertNoMatch: "way \"fax\"=+1-213-456-7890";
+    assertNoMatch: "way \"fax\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"fax\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"fax\"=\"+1-213-456-7890 ext. 123\"";
+    assertMatch: "way \"fax\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"fax\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("fax:mnemonic=", tag("fax"));
@@ -611,8 +626,12 @@ out skel qt;
 }
 
 
-*["contact:phone"]["contact:phone"=~/[A-Za-z]/] {
+*["contact:phone"]["contact:phone"=~/[A-Za-z]/]["contact:phone"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
     assertNoMatch: "way \"contact:phone\"=+1-213-456-7890";
+    assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"contact:phone\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 ext. 123\"";
+    assertMatch: "way \"contact:phone\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"contact:phone\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("contact:phone:mnemonic=", tag("contact:phone"));
