@@ -1,0 +1,1265 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "n main st",
+    "note": "name | expect warn | lowercase n"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -129.0,
+      43.0
+     ],
+     [
+      -128.9985,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "s broad st",
+    "note": "name | expect warn | lowercase s"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9975,
+      43.0
+     ],
+     [
+      -128.996,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "e front st",
+    "note": "name | expect warn | lowercase e"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.995,
+      43.0
+     ],
+     [
+      -128.9935,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "w 12th Street",
+    "note": "name | expect warn | lowercase w"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9925,
+      43.0
+     ],
+     [
+      -128.991,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "ne glisan st",
+    "note": "name | expect warn | lowercase ne"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.99,
+      43.0
+     ],
+     [
+      -128.98850000000002,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "nw 84th terrace",
+    "note": "name | expect warn | lowercase nw"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9875,
+      43.0
+     ],
+     [
+      -128.98600000000002,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "se navigation ln",
+    "note": "name | expect warn | lowercase se"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.985,
+      43.0
+     ],
+     [
+      -128.98350000000002,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "sw main street",
+    "note": "name | expect warn | lowercase sw"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9825,
+      43.0
+     ],
+     [
+      -128.981,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "n. 3rd",
+    "note": "name | expect warn | lowercase n."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.98,
+      43.0
+     ],
+     [
+      -128.9785,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "s. 27th street",
+    "note": "name | expect warn | lowercase s."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9775,
+      43.0
+     ],
+     [
+      -128.976,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "e. 21st street",
+    "note": "name | expect warn | lowercase e."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.975,
+      43.0
+     ],
+     [
+      -128.9735,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "w. mile 3 rd",
+    "note": "name | expect warn | lowercase w."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9725,
+      43.0
+     ],
+     [
+      -128.971,
+      43.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "So. 6th Street",
+    "note": "name | expect warn | So. is reliably South"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -129.0,
+      43.0025
+     ],
+     [
+      -128.9985,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "So Long",
+    "note": "name | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9975,
+      43.0025
+     ],
+     [
+      -128.996,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "So Inclined",
+    "note": "name | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.995,
+      43.0025
+     ],
+     [
+      -128.9935,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "So Big Road",
+    "note": "name | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9925,
+      43.0025
+     ],
+     [
+      -128.991,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "No. 2 Side Road",
+    "note": "name | expect quiet | No. means number, never North"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.99,
+      43.0025
+     ],
+     [
+      -128.98850000000002,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "No 1 Road",
+    "note": "name | expect quiet | bare No means number"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9875,
+      43.0025
+     ],
+     [
+      -128.98600000000002,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main Street N.",
+    "note": "name | expect warn | postfix N."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.985,
+      43.0025
+     ],
+     [
+      -128.98350000000002,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "113th St. N.",
+    "note": "name | expect warn | postfix N., real value"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9825,
+      43.0025
+     ],
+     [
+      -128.981,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main Street NE.",
+    "note": "name | expect warn | postfix NE."
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.98,
+      43.0025
+     ],
+     [
+      -128.9785,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "112 Lincoln Highway W.",
+    "note": "name | expect warn | postfix W., real value"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9775,
+      43.0025
+     ],
+     [
+      -128.976,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N Street Northwest",
+    "note": "name | expect quiet | GUARD DC lettered street"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.975,
+      43.0025
+     ],
+     [
+      -128.9735,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "E Street Southeast",
+    "note": "name | expect quiet | GUARD DC lettered street"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9725,
+      43.0025
+     ],
+     [
+      -128.971,
+      43.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N St Northwest",
+    "note": "name | expect quiet | GUARD lettered street, abbreviated St"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -129.0,
+      43.005
+     ],
+     [
+      -128.9985,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Avenue N",
+    "note": "name | expect quiet | GUARD Brooklyn lettered avenue"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9975,
+      43.005
+     ],
+     [
+      -128.996,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Ave N",
+    "note": "name | expect quiet | GUARD lettered avenue abbreviated"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.995,
+      43.005
+     ],
+     [
+      -128.9935,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "W. T. Montgomery Road",
+    "note": "name | expect quiet | GUARD personal initials"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9925,
+      43.005
+     ],
+     [
+      -128.991,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N Main Street",
+    "note": "name | expect warn | regression, uppercase prefix"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.99,
+      43.005
+     ],
+     [
+      -128.98850000000002,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main Street N",
+    "note": "name | expect warn | regression, uppercase postfix"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9875,
+      43.005
+     ],
+     [
+      -128.98600000000002,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "NE Glisan Street",
+    "note": "name | expect warn | regression, two letter prefix"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.985,
+      43.005
+     ],
+     [
+      -128.98350000000002,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N. Main Street",
+    "note": "name | expect warn | regression, period prefix"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9825,
+      43.005
+     ],
+     [
+      -128.981,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N Stanford Avenue",
+    "note": "name | expect warn | guard must not block St-prefixed words"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.98,
+      43.005
+     ],
+     [
+      -128.9785,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "North Main Street",
+    "note": "name | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.9775,
+      43.005
+     ],
+     [
+      -128.976,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main Street North",
+    "note": "name | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.975,
+      43.005
+     ],
+     [
+      -128.9735,
+      43.005
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "n main st",
+    "note": "addr:street | expect warn | lowercase n"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -129.0,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "s broad st",
+    "note": "addr:street | expect warn | lowercase s"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9975,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "e front st",
+    "note": "addr:street | expect warn | lowercase e"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.995,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "w 12th Street",
+    "note": "addr:street | expect warn | lowercase w"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9925,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "ne glisan st",
+    "note": "addr:street | expect warn | lowercase ne"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.99,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "nw 84th terrace",
+    "note": "addr:street | expect warn | lowercase nw"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9875,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "se navigation ln",
+    "note": "addr:street | expect warn | lowercase se"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.985,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "sw main street",
+    "note": "addr:street | expect warn | lowercase sw"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9825,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "n. 3rd",
+    "note": "addr:street | expect warn | lowercase n."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.98,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "s. 27th street",
+    "note": "addr:street | expect warn | lowercase s."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9775,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "e. 21st street",
+    "note": "addr:street | expect warn | lowercase e."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.975,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "w. mile 3 rd",
+    "note": "addr:street | expect warn | lowercase w."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9725,
+     43.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "So. 6th Street",
+    "note": "addr:street | expect warn | So. is reliably South"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -129.0,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "So Long",
+    "note": "addr:street | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9975,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "So Inclined",
+    "note": "addr:street | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.995,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "So Big Road",
+    "note": "addr:street | expect quiet | bare So is a real word"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9925,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "No. 2 Side Road",
+    "note": "addr:street | expect quiet | No. means number, never North"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.99,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "No 1 Road",
+    "note": "addr:street | expect quiet | bare No means number"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9875,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main Street N.",
+    "note": "addr:street | expect warn | postfix N."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.985,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "113th St. N.",
+    "note": "addr:street | expect warn | postfix N., real value"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9825,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main Street NE.",
+    "note": "addr:street | expect warn | postfix NE."
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.98,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "112 Lincoln Highway W.",
+    "note": "addr:street | expect warn | postfix W., real value"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9775,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N Street Northwest",
+    "note": "addr:street | expect quiet | GUARD DC lettered street"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.975,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "E Street Southeast",
+    "note": "addr:street | expect quiet | GUARD DC lettered street"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9725,
+     43.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N St Northwest",
+    "note": "addr:street | expect quiet | GUARD lettered street, abbreviated St"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -129.0,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Avenue N",
+    "note": "addr:street | expect quiet | GUARD Brooklyn lettered avenue"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9975,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Ave N",
+    "note": "addr:street | expect quiet | GUARD lettered avenue abbreviated"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.995,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "W. T. Montgomery Road",
+    "note": "addr:street | expect quiet | GUARD personal initials"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9925,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N Main Street",
+    "note": "addr:street | expect warn | regression, uppercase prefix"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.99,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main Street N",
+    "note": "addr:street | expect warn | regression, uppercase postfix"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9875,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "NE Glisan Street",
+    "note": "addr:street | expect warn | regression, two letter prefix"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.985,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N. Main Street",
+    "note": "addr:street | expect warn | regression, period prefix"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9825,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N Stanford Avenue",
+    "note": "addr:street | expect warn | guard must not block St-prefixed words"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.98,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "North Main Street",
+    "note": "addr:street | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.9775,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main Street North",
+    "note": "addr:street | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.975,
+     43.055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N St NW",
+    "note": "name | expect warn | prefix guarded, postfix NW still expands correctly"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -129.02,
+      42.98
+     ],
+     [
+      -129.0185,
+      42.98
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N St NW",
+    "note": "addr:street | expect warn | prefix guarded, postfix NW still expands correctly"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -129.02,
+     42.96
+    ]
+   }
+  }
+ ]
+}

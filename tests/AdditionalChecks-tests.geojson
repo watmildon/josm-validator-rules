@@ -1,0 +1,826 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\nStreet",
+    "note": "name | expect CTRL | newline"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.5,
+      43.5
+     ],
+     [
+      -128.4985,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\rStreet",
+    "note": "name | expect CTRL | carriage return"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4975,
+      43.5
+     ],
+     [
+      -128.496,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\tStreet",
+    "note": "name | expect CTRL | tab"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.495,
+      43.5
+     ],
+     [
+      -128.4935,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u007fStreet",
+    "note": "name | expect CTRL | DEL"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4925,
+      43.5
+     ],
+     [
+      -128.491,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u0085Street",
+    "note": "name | expect CTRL | C1 next-line"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.49,
+      43.5
+     ],
+     [
+      -128.48850000000002,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Ann Arbor Hot Springs\u200b trail",
+    "note": "name | expect INVIS | zero width space, real OSM value"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4875,
+      43.5
+     ],
+     [
+      -128.48600000000002,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\ufeffStreet",
+    "note": "name | expect INVIS | byte order mark"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.485,
+      43.5
+     ],
+     [
+      -128.48350000000002,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u00adStreet",
+    "note": "name | expect INVIS | soft hyphen"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4825,
+      43.5
+     ],
+     [
+      -128.481,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u200eStreet",
+    "note": "name | expect INVIS | left-to-right mark"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.48,
+      43.5
+     ],
+     [
+      -128.4785,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u00a0Street",
+    "note": "name | expect SPACES | non-breaking space"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4775,
+      43.5
+     ],
+     [
+      -128.476,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u2009Street",
+    "note": "name | expect SPACES | thin space"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.475,
+      43.5
+     ],
+     [
+      -128.4735,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Main\u3000Street",
+    "note": "name | expect SPACES | ideographic space"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4725,
+      43.5
+     ],
+     [
+      -128.471,
+      43.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Hang\u0430r Road",
+    "note": "name | expect MIXEDSCRIPT | Cyrillic a homoglyph, real OSM value"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.5,
+      43.5025
+     ],
+     [
+      -128.4985,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "\u039fak Street",
+    "note": "name | expect MIXEDSCRIPT | Greek Omicron homoglyph"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4975,
+      43.5025
+     ],
+     [
+      -128.496,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "County Road 123",
+    "note": "name | expect - | plain ASCII"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.495,
+      43.5025
+     ],
+     [
+      -128.4935,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Mampa\u026c Trail",
+    "note": "name | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4925,
+      43.5025
+     ],
+     [
+      -128.491,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "C\u00fauy\u2019em Creek Trail",
+    "note": "name | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.49,
+      43.5025
+     ],
+     [
+      -128.48850000000002,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Ch\u2019ak Ch\u2019ak Trail",
+    "note": "name | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4875,
+      43.5025
+     ],
+     [
+      -128.48600000000002,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Denio\u2013Adel Road",
+    "note": "name | expect - | correct en dash"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.485,
+      43.5025
+     ],
+     [
+      -128.48350000000002,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Caf\u00e9 Street",
+    "note": "name | expect - | diacritic is correct"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4825,
+      43.5025
+     ],
+     [
+      -128.481,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "\u041c\u043e\u0441\u043a\u0432\u0430",
+    "note": "name | expect - | wholly Cyrillic, a legitimate name"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.48,
+      43.5025
+     ],
+     [
+      -128.4785,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Baker City Seventh-day Adventist\u00ae Church",
+    "note": "name | expect - | registered sign, not our concern"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.4775,
+      43.5025
+     ],
+     [
+      -128.476,
+      43.5025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\nStreet",
+    "note": "addr:street | expect CTRL | newline"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.5,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\rStreet",
+    "note": "addr:street | expect CTRL | carriage return"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4975,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\tStreet",
+    "note": "addr:street | expect CTRL | tab"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.495,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u007fStreet",
+    "note": "addr:street | expect CTRL | DEL"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4925,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u0085Street",
+    "note": "addr:street | expect CTRL | C1 next-line"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.49,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Ann Arbor Hot Springs\u200b trail",
+    "note": "addr:street | expect INVIS | zero width space, real OSM value"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4875,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\ufeffStreet",
+    "note": "addr:street | expect INVIS | byte order mark"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.485,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u00adStreet",
+    "note": "addr:street | expect INVIS | soft hyphen"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4825,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u200eStreet",
+    "note": "addr:street | expect INVIS | left-to-right mark"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.48,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u00a0Street",
+    "note": "addr:street | expect SPACES | non-breaking space"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4775,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u2009Street",
+    "note": "addr:street | expect SPACES | thin space"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.475,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Main\u3000Street",
+    "note": "addr:street | expect SPACES | ideographic space"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4725,
+     43.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Hang\u0430r Road",
+    "note": "addr:street | expect MIXEDSCRIPT | Cyrillic a homoglyph, real OSM value"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.5,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "\u039fak Street",
+    "note": "addr:street | expect MIXEDSCRIPT | Greek Omicron homoglyph"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4975,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "County Road 123",
+    "note": "addr:street | expect - | plain ASCII"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.495,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Mampa\u026c Trail",
+    "note": "addr:street | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4925,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "C\u00fauy\u2019em Creek Trail",
+    "note": "addr:street | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.49,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Ch\u2019ak Ch\u2019ak Trail",
+    "note": "addr:street | expect - | Indigenous name, MUST NOT be flagged"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4875,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Denio\u2013Adel Road",
+    "note": "addr:street | expect - | correct en dash"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.485,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Caf\u00e9 Street",
+    "note": "addr:street | expect - | diacritic is correct"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4825,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "\u041c\u043e\u0441\u043a\u0432\u0430",
+    "note": "addr:street | expect - | wholly Cyrillic, a legitimate name"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.48,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Baker City Seventh-day Adventist\u00ae Church",
+    "note": "addr:street | expect - | registered sign, not our concern"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.4775,
+     43.552499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "bus_stop",
+    "name": "Main\u00a0Street Stop",
+    "note": "name | expect SPACES | bus_stop is now covered by the rule and the query"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.51,
+     43.49
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "platform",
+    "name": "Platform\u200bA",
+    "note": "name | expect INVIS | highway=platform is no longer excluded"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.51,
+      43.48
+     ],
+     [
+      -128.5085,
+      43.48
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "amenity": "cafe",
+    "name": "Caf\u00e9\u00a0Corner",
+    "note": "name | expect - | not a highway, name rules do not apply"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.51,
+     43.47
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,875 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N. Main Street",
+    "note": "name | expect warn | N. -> North"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.0,
+      44.0
+     ],
+     [
+      -127.9985,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "S. Cedar Avenue",
+    "note": "name | expect warn | S. -> South"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9975,
+      44.0
+     ],
+     [
+      -127.99600000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "E. 3rd Avenue",
+    "note": "name | expect warn | E. -> East"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.995,
+      44.0
+     ],
+     [
+      -127.99350000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "W. Mile 3 Road",
+    "note": "name | expect warn | W. -> West"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9925,
+      44.0
+     ],
+     [
+      -127.99100000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "NE. Glisan Street",
+    "note": "name | expect warn | NE. -> Northeast"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.99,
+      44.0
+     ],
+     [
+      -127.9885,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "SE. Division Street",
+    "note": "name | expect warn | SE. -> Southeast"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9875,
+      44.0
+     ],
+     [
+      -127.986,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "SW. Barbur Boulevard",
+    "note": "name | expect warn | SW. -> Southwest"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.985,
+      44.0
+     ],
+     [
+      -127.9835,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "NW. Lovejoy Street",
+    "note": "name | expect warn | NW. -> Northwest"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9825,
+      44.0
+     ],
+     [
+      -127.98100000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Ne. Glisan Street",
+    "note": "name | expect warn | Ne. -> Northeast"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.98,
+      44.0
+     ],
+     [
+      -127.97850000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Se. Division Street",
+    "note": "name | expect warn | Se. -> Southeast"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9775,
+      44.0
+     ],
+     [
+      -127.97600000000001,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Sw. Barbur Boulevard",
+    "note": "name | expect warn | Sw. -> Southwest"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.975,
+      44.0
+     ],
+     [
+      -127.9735,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Nw. Lovejoy Street",
+    "note": "name | expect warn | Nw. -> Northwest"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9725,
+      44.0
+     ],
+     [
+      -127.971,
+      44.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "W. T. Montgomery Road",
+    "note": "name | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.0,
+      44.0025
+     ],
+     [
+      -127.9985,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "E. C. Reems Court",
+    "note": "name | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9975,
+      44.0025
+     ],
+     [
+      -127.99600000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N. K. Chase",
+    "note": "name | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.995,
+      44.0025
+     ],
+     [
+      -127.99350000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "S. L. Davis Avenue",
+    "note": "name | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9925,
+      44.0025
+     ],
+     [
+      -127.99100000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "E. S. 11th Street",
+    "note": "name | expect quiet | GUARD initials, ambiguous, must NOT expand"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.99,
+      44.0025
+     ],
+     [
+      -127.9885,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "North Main Street",
+    "note": "name | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9875,
+      44.0025
+     ],
+     [
+      -127.986,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Southeast Division Street",
+    "note": "name | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.985,
+      44.0025
+     ],
+     [
+      -127.9835,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "St. Marys Road",
+    "note": "name | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9825,
+      44.0025
+     ],
+     [
+      -127.98100000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Mt. Hood Highway",
+    "note": "name | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.98,
+      44.0025
+     ],
+     [
+      -127.97850000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "Dr. Martin Luther King Jr. Boulevard",
+    "note": "name | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9775,
+      44.0025
+     ],
+     [
+      -127.97600000000001,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "N Main Street",
+    "note": "name | expect legacy | pre-existing rule, N -> North"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.975,
+      44.0025
+     ],
+     [
+      -127.9735,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "residential",
+    "name": "SE Division Street",
+    "note": "name | expect legacy | pre-existing rule, SE -> Southeast"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -127.9725,
+      44.0025
+     ],
+     [
+      -127.971,
+      44.0025
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N. Main Street",
+    "note": "addr:street | expect warn | N. -> North"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.0,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "S. Cedar Avenue",
+    "note": "addr:street | expect warn | S. -> South"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9975,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "E. 3rd Avenue",
+    "note": "addr:street | expect warn | E. -> East"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.995,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "W. Mile 3 Road",
+    "note": "addr:street | expect warn | W. -> West"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9925,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "NE. Glisan Street",
+    "note": "addr:street | expect warn | NE. -> Northeast"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.99,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "SE. Division Street",
+    "note": "addr:street | expect warn | SE. -> Southeast"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9875,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "SW. Barbur Boulevard",
+    "note": "addr:street | expect warn | SW. -> Southwest"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.985,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "NW. Lovejoy Street",
+    "note": "addr:street | expect warn | NW. -> Northwest"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9825,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Ne. Glisan Street",
+    "note": "addr:street | expect warn | Ne. -> Northeast"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.98,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Se. Division Street",
+    "note": "addr:street | expect warn | Se. -> Southeast"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9775,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Sw. Barbur Boulevard",
+    "note": "addr:street | expect warn | Sw. -> Southwest"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.975,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Nw. Lovejoy Street",
+    "note": "addr:street | expect warn | Nw. -> Northwest"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9725,
+     44.05
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "W. T. Montgomery Road",
+    "note": "addr:street | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.0,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "E. C. Reems Court",
+    "note": "addr:street | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9975,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N. K. Chase",
+    "note": "addr:street | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.995,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "S. L. Davis Avenue",
+    "note": "addr:street | expect quiet | GUARD initials, must NOT expand"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9925,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "E. S. 11th Street",
+    "note": "addr:street | expect quiet | GUARD initials, ambiguous, must NOT expand"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.99,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "North Main Street",
+    "note": "addr:street | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9875,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Southeast Division Street",
+    "note": "addr:street | expect quiet | already expanded"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.985,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "St. Marys Road",
+    "note": "addr:street | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9825,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Mt. Hood Highway",
+    "note": "addr:street | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.98,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "Dr. Martin Luther King Jr. Boulevard",
+    "note": "addr:street | expect quiet | not a directional"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9775,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "N Main Street",
+    "note": "addr:street | expect legacy | pre-existing rule, N -> North"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.975,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "addr:street": "SE Division Street",
+    "note": "addr:street | expect legacy | pre-existing rule, SE -> Southeast"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -127.9725,
+     44.052499999999995
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "highway": "bus_stop",
+    "name": "N. Main Street",
+    "note": "name | expect quiet | highway=bus_stop is excluded by the highway_name class"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.01,
+     43.99
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "amenity": "cafe",
+    "name": "N. Main Cafe",
+    "note": "name | expect quiet | not a highway, name rules should not apply"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -128.01,
+     43.98
+    ]
+   }
+  }
+ ]
+}
