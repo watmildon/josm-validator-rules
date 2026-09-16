@@ -1,7 +1,7 @@
 meta
 {
     title: "Phone number fixups";
-    version: "1,2_2026-09-15";
+    version: "1,3_2026-09-15";
     description: "Fixes very common formatting issues with phone= in the United States";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/PhoneNumber-ITU-T-Formatter.validator.mapcss";
@@ -85,12 +85,12 @@ out skel qt;
    "+1-213-456-7890 x123" into "+1-213-456-7890 9123". Semicolon-separated lists
    are covered too. Non-standard markers ("X123", "ext 123") are still flagged. */
 
-*["phone"]["phone"=~/[A-Za-z]/]["phone"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
+*["phone"]["phone"=~/[A-Za-z]/]["phone"!~/^[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?)*$/] {
     assertNoMatch: "way \"phone\"=+1-213-456-7890";
     assertNoMatch: "way \"phone\"=\"+1-213-456-7890 x123\"";
     assertNoMatch: "way \"phone\"=+1-213-456-7890x123";
     assertNoMatch: "way \"phone\"=\"+1-213-456-7890 ext. 123\"";
-    assertMatch: "way \"phone\"=\"+1-213-456-7890 X123\"";
+    assertNoMatch: "way \"phone\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"phone\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("phone:mnemonic=", tag("phone"));
@@ -355,12 +355,12 @@ out skel qt;
 }
 
 
-*["fax"]["fax"=~/[A-Za-z]/]["fax"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
+*["fax"]["fax"=~/[A-Za-z]/]["fax"!~/^[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?)*$/] {
     assertNoMatch: "way \"fax\"=+1-213-456-7890";
     assertNoMatch: "way \"fax\"=\"+1-213-456-7890 x123\"";
     assertNoMatch: "way \"fax\"=+1-213-456-7890x123";
     assertNoMatch: "way \"fax\"=\"+1-213-456-7890 ext. 123\"";
-    assertMatch: "way \"fax\"=\"+1-213-456-7890 X123\"";
+    assertNoMatch: "way \"fax\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"fax\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("fax:mnemonic=", tag("fax"));
@@ -626,12 +626,12 @@ out skel qt;
 }
 
 
-*["contact:phone"]["contact:phone"=~/[A-Za-z]/]["contact:phone"!~/^[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|ext\. )[0-9]+)?)*$/] {
+*["contact:phone"]["contact:phone"=~/[A-Za-z]/]["contact:phone"!~/^[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?(;\s*[-+0-9(). ]+( ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]+)?)*$/] {
     assertNoMatch: "way \"contact:phone\"=+1-213-456-7890";
     assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 x123\"";
     assertNoMatch: "way \"contact:phone\"=+1-213-456-7890x123";
     assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 ext. 123\"";
-    assertMatch: "way \"contact:phone\"=\"+1-213-456-7890 X123\"";
+    assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 X123\"";
     assertMatch: "way \"contact:phone\"=+1-800-COLLECT";
     throwWarning: tr("{0}", "{0.value}");
     fixAdd: concat("contact:phone:mnemonic=", tag("contact:phone"));
@@ -882,4 +882,53 @@ out skel qt;
     throwWarning: tr("contact:phone={0}, should be corrected to +1-NNN-NNN-NNNN", "{0.value}");
     fixAdd: concat("contact:phone=+1", substring(tag("contact:phone"),2));
     group: tr("Safe: contact:phone= is in format +1 -NNN-NNN-NNNN, should be corrected to +1-NNN-NNN-NNNN");
+}
+
+/* Telephone extensions.
+
+   "x123" and "ext. 123" are both documented and both left alone; only the odd
+   spellings are rewritten, to " x123". As of this writing exactly one US value
+   needed it ("8158-4600 ext 4672"), so these rules mostly exist to keep new bad
+   input from settling in. The alphabetic-characters rules above exempt every
+   marker spelling, so a non-standard one is reported here -- with a fix that
+   preserves the digits -- rather than there, where the fix would rewrite the
+   marker as a keypad digit. */
+
+*["phone"]["phone"=~/[0-9] ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]/]["phone"!~/[0-9] ?x[0-9]/]["phone"!~/[0-9] ext\. [0-9]/] {
+    assertNoMatch: "way \"phone\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"phone\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"phone\"=\"+1-213-456-7890 ext. 123\"";
+    assertNoMatch: "way \"phone\"=+1-800-COLLECT";
+    assertMatch: "way \"phone\"=\"+1-213-456-7890 X123\"";
+    assertMatch: "way \"phone\"=\"+1-213-456-7890 Ext. 123\"";
+    assertMatch: "way \"phone\"=\"+1-213-456-7890 extension 123\"";
+    throwWarning: tr("phone={0} uses a non-standard telephone extension marker","{0.value}");
+    fixAdd: concat("phone=", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("phone")), 1), " x", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("phone")), 2));
+    group: tr("Telephone extension marker should be written as x123");
+}
+
+*["fax"]["fax"=~/[0-9] ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]/]["fax"!~/[0-9] ?x[0-9]/]["fax"!~/[0-9] ext\. [0-9]/] {
+    assertNoMatch: "way \"fax\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"fax\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"fax\"=\"+1-213-456-7890 ext. 123\"";
+    assertNoMatch: "way \"fax\"=+1-800-COLLECT";
+    assertMatch: "way \"fax\"=\"+1-213-456-7890 X123\"";
+    assertMatch: "way \"fax\"=\"+1-213-456-7890 Ext. 123\"";
+    assertMatch: "way \"fax\"=\"+1-213-456-7890 extension 123\"";
+    throwWarning: tr("fax={0} uses a non-standard telephone extension marker","{0.value}");
+    fixAdd: concat("fax=", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("fax")), 1), " x", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("fax")), 2));
+    group: tr("Telephone extension marker should be written as x123");
+}
+
+*["contact:phone"]["contact:phone"=~/[0-9] ?(x|X|ext\.?|Ext\.?|EXT\.?|extension|Extension) ?[0-9]/]["contact:phone"!~/[0-9] ?x[0-9]/]["contact:phone"!~/[0-9] ext\. [0-9]/] {
+    assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 x123\"";
+    assertNoMatch: "way \"contact:phone\"=+1-213-456-7890x123";
+    assertNoMatch: "way \"contact:phone\"=\"+1-213-456-7890 ext. 123\"";
+    assertNoMatch: "way \"contact:phone\"=+1-800-COLLECT";
+    assertMatch: "way \"contact:phone\"=\"+1-213-456-7890 X123\"";
+    assertMatch: "way \"contact:phone\"=\"+1-213-456-7890 Ext. 123\"";
+    assertMatch: "way \"contact:phone\"=\"+1-213-456-7890 extension 123\"";
+    throwWarning: tr("contact:phone={0} uses a non-standard telephone extension marker","{0.value}");
+    fixAdd: concat("contact:phone=", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("contact:phone")), 1), " x", get(regexp_match("^(.*[0-9]) ?(?:x|X|ext\\.?|Ext\\.?|EXT\\.?|extension|Extension) ?([0-9]+)$", tag("contact:phone")), 2));
+    group: tr("Telephone extension marker should be written as x123");
 }
