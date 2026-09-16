@@ -9,6 +9,19 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  way["waterway"~"^(lake|pond|reservoir|oxbow)$"](if:is_closed())(area.a);
+  relation["waterway"~"^(lake|pond|reservoir|oxbow)$"](area.a);
+  nwr["waterway"="waterfalls"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
 /* Catch common features that commonly have waterway tags misapplied */
 
 *["waterway"]["waterway"="lake"][!"water"]:closed {

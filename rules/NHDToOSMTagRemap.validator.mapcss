@@ -9,6 +9,20 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+[out:json][timeout:300];
+{{geocodeArea:"United States of America"}}->.a;
+(
+  nwr["fcode"~"^(46003|46007|55800)$"](area.a);
+  nwr["gnis_name"](area.a);
+  nwr["gnis_id"](area.a);
+  nwr["Enabled"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
 *["fcode"]["fcode"=~/^46003$|^46007$/] {
     throwWarning: tr("fcode indicates intermitent stream");
     fixAdd: "waterway=stream";

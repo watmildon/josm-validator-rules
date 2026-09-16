@@ -9,6 +9,18 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+[out:json][timeout:600];
+{{geocodeArea:"Canada"}}->.a;
+(
+  way["waterway"="rapids"](if:is_closed())(area.a);
+  relation["waterway"="rapids"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
 /* Modernize water rapids tagging */
 
 *["waterway"]["waterway"="rapids"]:closed {

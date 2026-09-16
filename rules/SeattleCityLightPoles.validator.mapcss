@@ -9,6 +9,22 @@ meta
     min-josm-version: 14481;
 }
 
+/*
+// These are staging tags carried by the Seattle City Light import file, not tags
+// that exist in OSM, so this query normally returns nothing. It is here to catch
+// any that were uploaded by mistake.
+[out:json][timeout:300];
+{{geocodeArea:"Seattle,Washington,United States"}}->.a;
+(
+  node["STREETLIGHT"="YES"](area.a);
+  node["ASSET_ID"](area.a);
+  node["HEIGHT"](area.a);
+);
+out body;
+>;
+out skel qt;
+*/
+
 /* Replace "STREETLIGHT=YES" with "highway=street_lamp" */
 node["STREETLIGHT"="YES"] {
     throwError: "Replace STREETLIGHT=YES with highway=street_lamp";
