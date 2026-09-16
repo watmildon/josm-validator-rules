@@ -1,7 +1,7 @@
 meta
 {
     title: "(US) Streetname Fixup, Data Quality";
-    version: "0,1_2023-10-07";
+    version: "0,2_2026-09-15";
     description: "Finds unusual conditions usually indicating data cleanup issues";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander-AdditionalChecks.validator.mapcss";
@@ -12,22 +12,88 @@ meta
 /*
 [out:json][timeout:300];
 {{geocodeArea:"Oregon,United States of America"}}->.a;
+// [^ -~] is deliberately broader than the rules below. Overpass cannot express
+// the narrow character classes they use (no \uXXXX or \xNN support), so this
+// gathers all non-ASCII and lets the validator pick out the real problems.
 (
-  way[highway][highway!=platform][amenity!=shelter][!bus][name](area.a);
-  nwr["addr:street"](area.a);
+  nwr[highway]["name"~"[^ -~]"](area.a);
+  nwr["addr:street"~"[^ -~]"](area.a);
 );
 out body;
 >;
 out skel qt;
 */
 
-/* Non-printable characters */
-*[highway]["name"]["name"=~/[^ -~]/] {
+/* Characters that are wrong regardless of what language a name is in.
+
+   These deliberately do NOT flag general non-ASCII. Diacritics and non-Latin
+   letters are correct in a great many names -- "Mampaɬ Trail",
+   "Cúuy’em Creek Trail" and "Denio–Adel Road" are all spelled properly.
+   An earlier version of these checks matched [^ -~] and so flagged every one of
+   them, which invites mappers to "correct" Indigenous and other non-English names
+   into mojibake. What is flagged below is limited to characters that are
+   invisible, unintended, or a homoglyph typo. */
+
+/* NOTE: JOSM's MapCSS parser rejects \x and \u escapes inside a /regex/ literal
+   ("Encountered ~ ... expecting set"), and skips the whole rule when it hits one.
+   Unicode property classes are the portable way to say this. */
+
+*[highway]["name"]["name"=~/\p{Cc}/] {
     assertNoMatch: "way \"name\"=\"County Road 123\"";
-    throwWarning: tr("Highway name contains non-printable ASCII character. ex: carriage return or newline");
+    assertNoMatch: "way \"name\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"name\"=\"Denio–Adel Road\"";
+    throwWarning: tr("Highway name contains a control character (newline, carriage return or tab)");
 }
 
-*["addr:street"]["addr:street"=~/[^ -~]/] {
+*["addr:street"]["addr:street"=~/\p{Cc}/] {
     assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
-    throwWarning: tr("addr:street contains non-printable ASCII character. ex: carriage return or newline");
+    assertNoMatch: "way \"addr:street\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"addr:street\"=\"Denio–Adel Road\"";
+    throwWarning: tr("addr:street={0} contains a control character (newline, carriage return or tab)","{0.value}");
+}
+
+*[highway]["name"]["name"=~/[\p{Cf}\p{Zl}\p{Zp}]/] {
+    assertNoMatch: "way \"name\"=\"County Road 123\"";
+    assertNoMatch: "way \"name\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"name\"=\"Denio–Adel Road\"";
+    throwWarning: tr("Highway name contains an invisible formatting character, ex: a zero width space");
+}
+
+*["addr:street"]["addr:street"=~/[\p{Cf}\p{Zl}\p{Zp}]/] {
+    assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
+    assertNoMatch: "way \"addr:street\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"addr:street\"=\"Denio–Adel Road\"";
+    throwWarning: tr("addr:street={0} contains an invisible formatting character, ex: a zero width space","{0.value}");
+}
+
+*[highway]["name"]["name"=~/[\p{Zs}&&[^ ]]/] {
+    assertNoMatch: "way \"name\"=\"County Road 123\"";
+    assertNoMatch: "way \"name\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"name\"=\"Denio–Adel Road\"";
+    throwWarning: tr("Highway name contains a non-standard space, ex: a non-breaking space");
+}
+
+*["addr:street"]["addr:street"=~/[\p{Zs}&&[^ ]]/] {
+    assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
+    assertNoMatch: "way \"addr:street\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"addr:street\"=\"Denio–Adel Road\"";
+    throwWarning: tr("addr:street={0} contains a non-standard space, ex: a non-breaking space","{0.value}");
+}
+
+/* A value holding both Latin and Cyrillic/Greek letters is almost always a
+   homoglyph typo, ex: "Hangar Road" written with a Cyrillic a. A name written
+   wholly in another script is left alone -- that is a legitimate name. */
+
+*[highway]["name"]["name"=~/\p{IsLatin}/]["name"=~/[\p{IsCyrillic}\p{IsGreek}]/] {
+    assertNoMatch: "way \"name\"=\"County Road 123\"";
+    assertNoMatch: "way \"name\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"name\"=\"Denio–Adel Road\"";
+    throwWarning: tr("Highway name mixes Latin with Cyrillic or Greek letters, likely a homoglyph typo");
+}
+
+*["addr:street"]["addr:street"=~/\p{IsLatin}/]["addr:street"=~/[\p{IsCyrillic}\p{IsGreek}]/] {
+    assertNoMatch: "way \"addr:street\"=\"County Road 123\"";
+    assertNoMatch: "way \"addr:street\"=\"Mampaɬ Trail\"";
+    assertNoMatch: "way \"addr:street\"=\"Denio–Adel Road\"";
+    throwWarning: tr("addr:street={0} mixes Latin with Cyrillic or Greek letters, likely a homoglyph typo","{0.value}");
 }
