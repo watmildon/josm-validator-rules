@@ -1,7 +1,7 @@
 meta
 {
     title: "(US) Abbreviated Streetname Fixup, Prefix Directionals";
-    version: "0,1_2026-09-15";
+    version: "0,3_2026-09-15";
     description: "Expands common street name directional prefixes in the US";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander-PrefixDirectional.validator.mapcss";
@@ -17,6 +17,8 @@ meta
   nwr["addr:street"~"^N |^S |^E |^W |^NE |^SE |^NW |^SW "](area.a);
   wr[highway][highway!=platform][highway!=bus_stop][amenity!=shelter][!bus][name~"^N\\. |^S\\. |^E\\. |^W\\. |^NE\\. |^SE\\. |^NW\\. |^SW\\. "](area.a);
   nwr["addr:street"~"^N\\. |^S\\. |^E\\. |^W\\. |^NE\\. |^SE\\. |^NW\\. |^SW\\. "](area.a);
+  wr[highway][highway!=platform][highway!=bus_stop][name~"^[nsew]\\.? |^(ne|nw|se|sw)\\.? |^So\\. "](area.a);
+  nwr["addr:street"~"^[nsew]\\.? |^(ne|nw|se|sw)\\.? |^So\\. "](area.a);
 );
 out body;
 >;
@@ -27,35 +29,35 @@ out skel qt;
   set highway_name;
 }
 
-*["name"=~/^N /].highway_name {
+*["name"=~/^N (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=North Main";
 assertMatch: "way \"name\"=N Main";
 throwWarning: tr("Highway name prefix N, may need to be expanded to North");
 fixAdd: concat("name=", "North", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*["name"=~/^S /].highway_name {
+*["name"=~/^S (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=South Main";
 assertMatch: "way \"name\"=S Main";
 throwWarning: tr("Highway name prefix S, may need to be expanded to South");
 fixAdd: concat("name=", "South", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*["name"=~/^E /].highway_name {
+*["name"=~/^E (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=East Main";
 assertMatch: "way \"name\"=E Main";
 throwWarning: tr("Highway name prefix E, may need to be expanded to East");
 fixAdd: concat("name=", "East", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*["name"=~/^W /].highway_name {
+*["name"=~/^W (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=West Main";
 assertMatch: "way \"name\"=W Main";
 throwWarning: tr("Highway name prefix W, may need to be expanded to West");
 fixAdd: concat("name=", "West", substring(tag("name"), 1,length(tag("name"))));
 }
 
-*["addr:street"]["addr:street"=~/^N /] {
+*["addr:street"]["addr:street"=~/^N (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=North Main";
 assertMatch: "way \"addr:street\"=N Main";
 throwWarning: tr("addr:street={0}, may need to be expanded to North","{0.value}");
@@ -63,7 +65,7 @@ fixAdd: concat("addr:street=", "North", substring(tag("addr:street"), 1,length(t
 group: tr("addr:street prefix N, may need to be expanded to North");
 }
 
-*["addr:street"]["addr:street"=~/^S /] {
+*["addr:street"]["addr:street"=~/^S (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=South Main";
 assertMatch: "way \"addr:street\"=S Main";
 throwWarning: tr("addr:street={0}, may need to be expanded to South","{0.value}");
@@ -71,7 +73,7 @@ fixAdd: concat("addr:street=", "South", substring(tag("addr:street"), 1,length(t
 group: tr("addr:street prefix S, may need to be expanded to South");
 }
 
-*["addr:street"]["addr:street"=~/^E /] {
+*["addr:street"]["addr:street"=~/^E (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=East Main";
 assertMatch: "way \"addr:street\"=E Main";
 throwWarning: tr("addr:street={0}, may need to be expanded to East","{0.value}");
@@ -79,7 +81,7 @@ fixAdd: concat("addr:street=", "East", substring(tag("addr:street"), 1,length(ta
 group: tr("addr:street prefix E, may need to be expanded to East");
 }
 
-*["addr:street"]["addr:street"=~/^W /] {
+*["addr:street"]["addr:street"=~/^W (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=West Main";
 assertMatch: "way \"addr:street\"=W Main";
 throwWarning: tr("addr:street={0}, may need to be expanded to West","{0.value}");
@@ -214,7 +216,7 @@ group: tr("addr:street prefix Nw, may need to be expanded to Northwest");
    "E. C. Reems Court" are personal initials, not directionals, and must not
    be expanded to "West T. Montgomery Road". */
 
-*["name"=~/^N\. (?![A-Za-z]\.)/].highway_name {
+*["name"=~/^N\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=North Main";
 assertNoMatch: "way \"name\"=N. K. Chase";
 assertMatch: "way \"name\"=N. Main";
@@ -222,7 +224,7 @@ throwWarning: tr("Highway name prefix N., may need to be expanded to North");
 fixAdd: concat("name=", "North", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*["name"=~/^S\. (?![A-Za-z]\.)/].highway_name {
+*["name"=~/^S\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=South Main";
 assertNoMatch: "way \"name\"=S. L. Davis Avenue";
 assertMatch: "way \"name\"=S. Main";
@@ -230,7 +232,7 @@ throwWarning: tr("Highway name prefix S., may need to be expanded to South");
 fixAdd: concat("name=", "South", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*["name"=~/^E\. (?![A-Za-z]\.)/].highway_name {
+*["name"=~/^E\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=East Main";
 assertNoMatch: "way \"name\"=E. C. Reems Court";
 assertMatch: "way \"name\"=E. Main";
@@ -238,7 +240,7 @@ throwWarning: tr("Highway name prefix E., may need to be expanded to East");
 fixAdd: concat("name=", "East", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*["name"=~/^W\. (?![A-Za-z]\.)/].highway_name {
+*["name"=~/^W\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
 assertNoMatch: "way \"name\"=West Main";
 assertNoMatch: "way \"name\"=W. T. Montgomery Road";
 assertMatch: "way \"name\"=W. Main";
@@ -246,7 +248,7 @@ throwWarning: tr("Highway name prefix W., may need to be expanded to West");
 fixAdd: concat("name=", "West", substring(tag("name"), 2,length(tag("name"))));
 }
 
-*["addr:street"]["addr:street"=~/^N\. (?![A-Za-z]\.)/] {
+*["addr:street"]["addr:street"=~/^N\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=North Main";
 assertNoMatch: "way \"addr:street\"=N. K. Chase";
 assertMatch: "way \"addr:street\"=N. Main";
@@ -255,7 +257,7 @@ fixAdd: concat("addr:street=", "North", substring(tag("addr:street"), 2,length(t
 group: tr("addr:street prefix N., may need to be expanded to North");
 }
 
-*["addr:street"]["addr:street"=~/^S\. (?![A-Za-z]\.)/] {
+*["addr:street"]["addr:street"=~/^S\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=South Main";
 assertNoMatch: "way \"addr:street\"=S. L. Davis Avenue";
 assertMatch: "way \"addr:street\"=S. Main";
@@ -264,7 +266,7 @@ fixAdd: concat("addr:street=", "South", substring(tag("addr:street"), 2,length(t
 group: tr("addr:street prefix S., may need to be expanded to South");
 }
 
-*["addr:street"]["addr:street"=~/^E\. (?![A-Za-z]\.)/] {
+*["addr:street"]["addr:street"=~/^E\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=East Main";
 assertNoMatch: "way \"addr:street\"=E. C. Reems Court";
 assertMatch: "way \"addr:street\"=E. Main";
@@ -273,7 +275,7 @@ fixAdd: concat("addr:street=", "East", substring(tag("addr:street"), 2,length(ta
 group: tr("addr:street prefix E., may need to be expanded to East");
 }
 
-*["addr:street"]["addr:street"=~/^W\. (?![A-Za-z]\.)/] {
+*["addr:street"]["addr:street"=~/^W\. (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
 assertNoMatch: "way \"addr:street\"=West Main";
 assertNoMatch: "way \"addr:street\"=W. T. Montgomery Road";
 assertMatch: "way \"addr:street\"=W. Main";
@@ -402,3 +404,148 @@ fixAdd: concat("addr:street=", "Northwest", substring(tag("addr:street"), 3,leng
 group: tr("addr:street prefix Nw., may need to be expanded to Northwest");
 }
 
+/* Lowercase directional prefixes, with or without a trailing period.
+
+   One rule per direction covers both "n main st" and "n. 3rd": the fix uses
+   regexp_match so it does not depend on whether the period is there. Expanding
+   the directional does not fix the rest of the casing -- "w george richey rd"
+   becomes "West george richey rd" -- but each rule fixes one thing. */
+*["name"=~/^n\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=North Main";
+assertMatch: "way \"name\"=n main st";
+assertMatch: "way \"name\"=n. 3rd";
+throwWarning: tr("Highway name prefix n, may need to be expanded to North");
+fixAdd: concat("name=", "North", get(regexp_match("^n\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^s\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=South Main";
+assertMatch: "way \"name\"=s broad st";
+assertMatch: "way \"name\"=s. 27th street";
+throwWarning: tr("Highway name prefix s, may need to be expanded to South");
+fixAdd: concat("name=", "South", get(regexp_match("^s\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^e\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=East Main";
+assertMatch: "way \"name\"=e front st";
+assertMatch: "way \"name\"=e. 21st street";
+throwWarning: tr("Highway name prefix e, may need to be expanded to East");
+fixAdd: concat("name=", "East", get(regexp_match("^e\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^w\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=West Main";
+assertMatch: "way \"name\"=w 12th Street";
+assertMatch: "way \"name\"=w. mile 3 rd";
+throwWarning: tr("Highway name prefix w, may need to be expanded to West");
+fixAdd: concat("name=", "West", get(regexp_match("^w\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^ne\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=Northeast Main";
+assertMatch: "way \"name\"=ne glisan st";
+assertMatch: "way \"name\"=ne. glisan st";
+throwWarning: tr("Highway name prefix ne, may need to be expanded to Northeast");
+fixAdd: concat("name=", "Northeast", get(regexp_match("^ne\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^nw\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=Northwest Main";
+assertMatch: "way \"name\"=nw 84th terrace";
+assertMatch: "way \"name\"=nw. 84th terrace";
+throwWarning: tr("Highway name prefix nw, may need to be expanded to Northwest");
+fixAdd: concat("name=", "Northwest", get(regexp_match("^nw\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^se\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=Southeast Main";
+assertMatch: "way \"name\"=se navigation ln";
+assertMatch: "way \"name\"=se. navigation ln";
+throwWarning: tr("Highway name prefix se, may need to be expanded to Southeast");
+fixAdd: concat("name=", "Southeast", get(regexp_match("^se\\.?(.*)", tag("name")), 1));
+}
+*["name"=~/^sw\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/].highway_name {
+assertNoMatch: "way \"name\"=Southwest Main";
+assertMatch: "way \"name\"=sw main street";
+assertMatch: "way \"name\"=sw. main street";
+throwWarning: tr("Highway name prefix sw, may need to be expanded to Southwest");
+fixAdd: concat("name=", "Southwest", get(regexp_match("^sw\\.?(.*)", tag("name")), 1));
+}
+*["addr:street"]["addr:street"=~/^n\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=North Main";
+assertMatch: "way \"addr:street\"=n main st";
+assertMatch: "way \"addr:street\"=n. 3rd";
+throwWarning: tr("addr:street={0}, may need to be expanded to North","{0.value}");
+fixAdd: concat("addr:street=", "North", get(regexp_match("^n\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix n, may need to be expanded to North");
+}
+*["addr:street"]["addr:street"=~/^s\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=South Main";
+assertMatch: "way \"addr:street\"=s broad st";
+assertMatch: "way \"addr:street\"=s. 27th street";
+throwWarning: tr("addr:street={0}, may need to be expanded to South","{0.value}");
+fixAdd: concat("addr:street=", "South", get(regexp_match("^s\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix s, may need to be expanded to South");
+}
+*["addr:street"]["addr:street"=~/^e\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=East Main";
+assertMatch: "way \"addr:street\"=e front st";
+assertMatch: "way \"addr:street\"=e. 21st street";
+throwWarning: tr("addr:street={0}, may need to be expanded to East","{0.value}");
+fixAdd: concat("addr:street=", "East", get(regexp_match("^e\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix e, may need to be expanded to East");
+}
+*["addr:street"]["addr:street"=~/^w\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=West Main";
+assertMatch: "way \"addr:street\"=w 12th Street";
+assertMatch: "way \"addr:street\"=w. mile 3 rd";
+throwWarning: tr("addr:street={0}, may need to be expanded to West","{0.value}");
+fixAdd: concat("addr:street=", "West", get(regexp_match("^w\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix w, may need to be expanded to West");
+}
+*["addr:street"]["addr:street"=~/^ne\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=Northeast Main";
+assertMatch: "way \"addr:street\"=ne glisan st";
+assertMatch: "way \"addr:street\"=ne. glisan st";
+throwWarning: tr("addr:street={0}, may need to be expanded to Northeast","{0.value}");
+fixAdd: concat("addr:street=", "Northeast", get(regexp_match("^ne\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix ne, may need to be expanded to Northeast");
+}
+*["addr:street"]["addr:street"=~/^nw\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=Northwest Main";
+assertMatch: "way \"addr:street\"=nw 84th terrace";
+assertMatch: "way \"addr:street\"=nw. 84th terrace";
+throwWarning: tr("addr:street={0}, may need to be expanded to Northwest","{0.value}");
+fixAdd: concat("addr:street=", "Northwest", get(regexp_match("^nw\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix nw, may need to be expanded to Northwest");
+}
+*["addr:street"]["addr:street"=~/^se\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=Southeast Main";
+assertMatch: "way \"addr:street\"=se navigation ln";
+assertMatch: "way \"addr:street\"=se. navigation ln";
+throwWarning: tr("addr:street={0}, may need to be expanded to Southeast","{0.value}");
+fixAdd: concat("addr:street=", "Southeast", get(regexp_match("^se\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix se, may need to be expanded to Southeast");
+}
+*["addr:street"]["addr:street"=~/^sw\.? (?![A-Za-z]\.)(?![Ss]t\.? )(?![Ss]treet\b)/] {
+assertNoMatch: "way \"addr:street\"=Southwest Main";
+assertMatch: "way \"addr:street\"=sw main street";
+assertMatch: "way \"addr:street\"=sw. main street";
+throwWarning: tr("addr:street={0}, may need to be expanded to Southwest","{0.value}");
+fixAdd: concat("addr:street=", "Southwest", get(regexp_match("^sw\\.?(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix sw, may need to be expanded to Southwest");
+}
+
+/* "So." spelled with a period is reliably South. Bare "So" is NOT: the data holds
+   "So Long", "So Inclined", "So Big Road" and "So Hi Drive", so it is left alone.
+   "No." is left alone too -- every US example is a number, ex: "No. 2 Side Road". */
+
+*["name"=~/^So\. /].highway_name {
+assertNoMatch: "way \"name\"=\"So Long\"";
+assertMatch: "way \"name\"=\"So. 6th Street\"";
+throwWarning: tr("Highway name prefix So., may need to be expanded to South");
+fixAdd: concat("name=", "South", get(regexp_match("^So\\.(.*)", tag("name")), 1));
+}
+
+*["addr:street"]["addr:street"=~/^So\. /] {
+assertNoMatch: "way \"addr:street\"=\"So Long\"";
+assertMatch: "way \"addr:street\"=\"So. 6th Street\"";
+throwWarning: tr("addr:street={0}, may need to be expanded to South","{0.value}");
+fixAdd: concat("addr:street=", "South", get(regexp_match("^So\\.(.*)", tag("addr:street")), 1));
+group: tr("addr:street prefix So., may need to be expanded to South");
+}

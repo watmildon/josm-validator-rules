@@ -1,7 +1,7 @@
 meta
 {
     title: "(US) Abbreviated Streetname Fixup, Postfix Directionals";
-    version: "0,1_2024-01-04";
+    version: "0,2_2026-09-15";
     description: "Expands common street name directional postfixes in the US";
     author: "watmildon";
     link: "https://github.com/watmildon/josm-validator-rules/blob/main/rules/USStreetNameExpander-PostfixDirectional.validator.mapcss";
@@ -15,6 +15,8 @@ meta
 (
   wr[highway][highway!=platform][highway!=bus_stop][amenity!=shelter][!bus][name~" N$| S$| E$| W$| NE$| SE$| NW$| SW$"](area.a);
   nwr["addr:street"~" N$| S$| E$| W$| NE$| SE$| NW$| SW$"](area.a);
+  wr[highway][highway!=platform][highway!=bus_stop][name~" (N|S|E|W|NE|SE|NW|SW)\\.$"](area.a);
+  nwr["addr:street"~" (N|S|E|W|NE|SE|NW|SW)\\.$"](area.a);
 );
 out body;
 >;
@@ -25,35 +27,35 @@ out skel qt;
   set highway_name;
 }
 
-*["name"=~/ N$/].highway_name {
+*["name"=~/ N$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
 assertNoMatch: "way \"name\"=Main North";
 assertMatch: "way \"name\"=Main N";
 throwWarning: tr("Highway name postfix N, may need to be expanded to North");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"North");
 }
 
-*["name"=~/ S$/].highway_name {
+*["name"=~/ S$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
 assertNoMatch: "way \"name\"=Main South";
 assertMatch: "way \"name\"=Main Street S";
 throwWarning: tr("Highway name postfix S, may need to be expanded to South");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"South");
 }
 
-*["name"=~/ E$/].highway_name {
+*["name"=~/ E$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
 assertNoMatch: "way \"name\"=Main East";
 assertMatch: "way \"name\"=Main Street E";
 throwWarning: tr("Highway name postfix E, may need to be expanded to East");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"East");
 }
 
-*["name"=~/ W$/].highway_name {
+*["name"=~/ W$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
 assertNoMatch: "way \"name\"=Main West";
 assertMatch: "way \"name\"=Main Street W";
 throwWarning: tr("Highway name postfix W, may need to be expanded to West");
 fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-1),"West");
 }
 
-*["addr:street"]["addr:street"=~/ N$/] {
+*["addr:street"]["addr:street"=~/ N$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
 assertNoMatch: "way \"addr:street\"=Main North";
 assertMatch: "way \"addr:street\"=Main Street N";
 throwWarning: tr("addr:street={0} contains postfix N, may need to be expanded to North","{0.value}");
@@ -61,7 +63,7 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:
 group: tr("addr:street postfix N, may need to be expanded to North");
 }
 
-*["addr:street"]["addr:street"=~/ S$/] {
+*["addr:street"]["addr:street"=~/ S$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
 assertNoMatch: "way \"addr:street\"=Main South";
 assertMatch: "way \"addr:street\"=Main Street S";
 throwWarning: tr("addr:street={0} contains postfix S, may need to be expanded to South","{0.value}");
@@ -69,7 +71,7 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:
 group: tr("addr:street postfix S, may need to be expanded to South");
 }
 
-*["addr:street"]["addr:street"=~/ E$/] {
+*["addr:street"]["addr:street"=~/ E$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
 assertNoMatch: "way \"addr:street\"=Main East";
 assertMatch: "way \"addr:street\"=Main Street E";
 throwWarning: tr("addr:street={0} contains postfix E, may need to be expanded to East","{0.value}");
@@ -77,7 +79,7 @@ fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:
 group: tr("addr:street postfix E, may need to be expanded to East");
 }
 
-*["addr:street"]["addr:street"=~/ W$/] {
+*["addr:street"]["addr:street"=~/ W$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
 assertNoMatch: "way \"addr:street\"=Main West";
 assertMatch: "way \"addr:street\"=Main Street W";
 throwWarning: tr("addr:street={0} contains postfix W, may need to be expanded to West","{0.value}");
@@ -205,4 +207,113 @@ assertMatch: "way \"addr:street\"=Main Street Nw";
 throwWarning: tr("addr:street={0} contains postfix Nw, may need to be expanded to Northwest","{0.value}");
 fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-2),"Northwest");
 group: tr("addr:street postfix NW, may need to be expanded to Northwest");
+}
+
+/* Directional postfixes written with a trailing period, ex: "Main Street N.".
+
+   The single letter rules also skip lettered avenues -- "Avenue N" is a real name
+   in Brooklyn and elsewhere, not an abbreviation of "Avenue North". */
+*["name"=~/ N\.$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street North";
+assertMatch: "way \"name\"=\"Main Street N.\"";
+throwWarning: tr("Highway name postfix N., may need to be expanded to North");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"North");
+}
+*["name"=~/ S\.$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street South";
+assertMatch: "way \"name\"=\"Main Street S.\"";
+throwWarning: tr("Highway name postfix S., may need to be expanded to South");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"South");
+}
+*["name"=~/ E\.$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street East";
+assertMatch: "way \"name\"=\"Main Street E.\"";
+throwWarning: tr("Highway name postfix E., may need to be expanded to East");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"East");
+}
+*["name"=~/ W\.$/]["name"!~/^(Avenue|Ave\.?) [NSEW]$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street West";
+assertMatch: "way \"name\"=\"Main Street W.\"";
+throwWarning: tr("Highway name postfix W., may need to be expanded to West");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-2),"West");
+}
+*["name"=~/ NE\.$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street Northeast";
+assertMatch: "way \"name\"=\"Main Street NE.\"";
+throwWarning: tr("Highway name postfix NE., may need to be expanded to Northeast");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-3),"Northeast");
+}
+*["name"=~/ SE\.$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street Southeast";
+assertMatch: "way \"name\"=\"Main Street SE.\"";
+throwWarning: tr("Highway name postfix SE., may need to be expanded to Southeast");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-3),"Southeast");
+}
+*["name"=~/ SW\.$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street Southwest";
+assertMatch: "way \"name\"=\"Main Street SW.\"";
+throwWarning: tr("Highway name postfix SW., may need to be expanded to Southwest");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-3),"Southwest");
+}
+*["name"=~/ NW\.$/].highway_name {
+assertNoMatch: "way \"name\"=Main Street Northwest";
+assertMatch: "way \"name\"=\"Main Street NW.\"";
+throwWarning: tr("Highway name postfix NW., may need to be expanded to Northwest");
+fixAdd: concat("name=", substring(tag("name"), 0,length(tag("name"))-3),"Northwest");
+}
+*["addr:street"]["addr:street"=~/ N\.$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
+assertNoMatch: "way \"addr:street\"=Main Street North";
+assertMatch: "way \"addr:street\"=\"Main Street N.\"";
+throwWarning: tr("addr:street={0} contains postfix N., may need to be expanded to North","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-2),"North");
+group: tr("addr:street postfix N., may need to be expanded to North");
+}
+*["addr:street"]["addr:street"=~/ S\.$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
+assertNoMatch: "way \"addr:street\"=Main Street South";
+assertMatch: "way \"addr:street\"=\"Main Street S.\"";
+throwWarning: tr("addr:street={0} contains postfix S., may need to be expanded to South","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-2),"South");
+group: tr("addr:street postfix S., may need to be expanded to South");
+}
+*["addr:street"]["addr:street"=~/ E\.$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
+assertNoMatch: "way \"addr:street\"=Main Street East";
+assertMatch: "way \"addr:street\"=\"Main Street E.\"";
+throwWarning: tr("addr:street={0} contains postfix E., may need to be expanded to East","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-2),"East");
+group: tr("addr:street postfix E., may need to be expanded to East");
+}
+*["addr:street"]["addr:street"=~/ W\.$/]["addr:street"!~/^(Avenue|Ave\.?) [NSEW]$/] {
+assertNoMatch: "way \"addr:street\"=Main Street West";
+assertMatch: "way \"addr:street\"=\"Main Street W.\"";
+throwWarning: tr("addr:street={0} contains postfix W., may need to be expanded to West","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-2),"West");
+group: tr("addr:street postfix W., may need to be expanded to West");
+}
+*["addr:street"]["addr:street"=~/ NE\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Street Northeast";
+assertMatch: "way \"addr:street\"=\"Main Street NE.\"";
+throwWarning: tr("addr:street={0} contains postfix NE., may need to be expanded to Northeast","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-3),"Northeast");
+group: tr("addr:street postfix NE., may need to be expanded to Northeast");
+}
+*["addr:street"]["addr:street"=~/ SE\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Street Southeast";
+assertMatch: "way \"addr:street\"=\"Main Street SE.\"";
+throwWarning: tr("addr:street={0} contains postfix SE., may need to be expanded to Southeast","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-3),"Southeast");
+group: tr("addr:street postfix SE., may need to be expanded to Southeast");
+}
+*["addr:street"]["addr:street"=~/ SW\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Street Southwest";
+assertMatch: "way \"addr:street\"=\"Main Street SW.\"";
+throwWarning: tr("addr:street={0} contains postfix SW., may need to be expanded to Southwest","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-3),"Southwest");
+group: tr("addr:street postfix SW., may need to be expanded to Southwest");
+}
+*["addr:street"]["addr:street"=~/ NW\.$/] {
+assertNoMatch: "way \"addr:street\"=Main Street Northwest";
+assertMatch: "way \"addr:street\"=\"Main Street NW.\"";
+throwWarning: tr("addr:street={0} contains postfix NW., may need to be expanded to Northwest","{0.value}");
+fixAdd: concat("addr:street=", substring(tag("addr:street"), 0,length(tag("addr:street"))-3),"Northwest");
+group: tr("addr:street postfix NW., may need to be expanded to Northwest");
 }
